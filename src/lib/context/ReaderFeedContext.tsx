@@ -75,9 +75,9 @@ export const ReaderFeedProvider = ({
   }, []);
 
   const getReaderByPin = (pin: number) => {
-    console.log("readers", readers);
     return readers.find((r) => r.id === pin);
   };
+
   const getOnlineReaders = () => readers.filter((r) => r.status === 1);
 
   return (

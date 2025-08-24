@@ -146,7 +146,6 @@ export const ReaderGrid: React.FC<ReaderGridProps> = ({
     readersWithStatus.filter((r) => r.status === status).length;
 
   const handleOnCallNow = (key: string) => {
-    console.log("key", key);
     const config = READER_CONFIG_MAP[key];
     if (!config) return; // todo
     setReaderConfig(config);

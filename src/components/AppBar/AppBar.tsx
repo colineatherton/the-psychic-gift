@@ -59,7 +59,7 @@ export function AppBar() {
               alignItems: "center",
             }}
           >
-            <Box sx={{ position: "relative", height: 80, width: 175, mr: 2 }}>
+            <Box sx={{ position: "relative", height: 100, width: 200, mr: 2 }}>
               <Image
                 src="/logo.png"
                 alt="The Psychic Gift Logo"
@@ -184,6 +184,19 @@ export function AppBar() {
                 </StyledNavButton>
               ))}
             </Box>
+            <Button
+              size="small"
+              variant="contained"
+              sx={{
+                backgroundColor: "#745ddd",
+                borderRadius: 8,
+                marginLeft: 2,
+                px: 2,
+                py: 1,
+              }}
+            >
+              Start Your Reading Now
+            </Button>
           </Toolbar>
         </Container>
       </StyledAppBar>

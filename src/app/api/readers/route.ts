@@ -14,7 +14,6 @@ export async function GET() {
     }
 
     const json: ReaderFeedResponse = await res.json();
-    console.log("json:", json);
     const readers = json?.content ?? [];
 
     return NextResponse.json(readers);
