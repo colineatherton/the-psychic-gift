@@ -33,10 +33,8 @@ export default function Home() {
     <>
       <Box
         sx={{
-          background:
-            "linear-gradient(180deg, #a99fd1 0%, #b7a7d8 25%, #dcd3f0 60%, #f8f7ff 100%)",
+          background: "linear-gradient(180deg, #8174bb 15%, #a99fd1 100%)",
           paddingTop: "calc(80px - 32px)", // make constants - nav bar minus sticky reserve space
-          border: "5px solid red",
           // minHeight: "calc(90vh - 32px)", // Subtract AppBar height
           display: "flex",
           flexDirection: "column",
@@ -54,7 +52,7 @@ export default function Home() {
           }}
         >
           <Grid container height="100%">
-            <Grid size={{ xs: 12, md: 6 }}>
+            <Grid size={{ xs: 12, md: 7 }} pt="52px" pr="15%">
               {/* todo, these typographies to be components */}
               <Typography
                 fontFamily="Montserrat Variable, sans-serif"
@@ -64,11 +62,36 @@ export default function Home() {
                 lineHeight="1.2"
                 variant="h1"
                 component="h1"
-                gutterBottom
+                marginBottom={2}
               >
                 Psychic Phone Readings
               </Typography>
               <Typography
+                fontFamily="Montserrat Variable, sans-serif"
+                fontWeight={500}
+                fontSize="2rem"
+                color="#f8f7ff"
+                lineHeight="1.6"
+                variant="h2"
+                component="h2"
+                marginBottom={4}
+              >
+                With Gifted Clairvoyants
+              </Typography>
+              <Typography
+                fontFamily="Montserrat Variable, sans-serif"
+                fontWeight={500}
+                fontSize="1.2rem"
+                color="#f8f7ff"
+                lineHeight="1.6"
+                variant="body2"
+                component="p"
+                marginBottom={6}
+              >
+                Speak to a caring psychic and find clarity in love, life, or
+                your next steps - trusted for over 25 years.
+              </Typography>
+              {/* <Typography
                 fontFamily="Montserrat Variable, sans-serif"
                 fontWeight={500}
                 fontSize="1.5rem"
@@ -80,17 +103,53 @@ export default function Home() {
               >
                 Find guidance and clarity with a gifted psychic, trusted by
                 thousands for over 25 years.
-              </Typography>
+              </Typography> */}
               {/* todo, cta component */}
               <Button
                 size="large"
                 variant="contained"
-                sx={{ backgroundColor: "#745ddd", borderRadius: 4 }}
+                sx={{
+                  backgroundColor: "#745ddd",
+                  borderRadius: 8,
+                  mb: 4,
+                  py: 2,
+                  px: 4,
+                }}
               >
                 Start Your Reading Now
               </Button>
+              <Typography
+                fontFamily="Montserrat Variable, sans-serif"
+                fontWeight={500}
+                fontSize="1rem"
+                color="#f8f7ff"
+                lineHeight="1.6"
+                variant="body2"
+                component="p"
+                marginBottom={4}
+              >
+                From £30 for 20 mins | Card & Phone Bill Options | All Calls
+                Recorded
+              </Typography>
+              {/* <Typography
+                fontFamily="Montserrat Variable, sans-serif"
+                fontWeight={400}
+                // fontSize="1.5rem"
+                color="#f8f7ff"
+                lineHeight="1.6"
+                variant="body1"
+                component="p"
+                marginBottom={4}
+              >
+                Calls from 45p/min – straightforward, secure, and private.
+              </Typography> */}
             </Grid>
-            <Grid size={{ xs: 12, md: 6 }}>
+            <Grid
+              size={{ xs: 12, md: 5 }}
+              height={"100%"}
+              display={"flex"}
+              alignSelf={"center"}
+            >
               {/* <Image
                 src={`/woman-dove.png`}
                 width={0}
@@ -121,13 +180,24 @@ export default function Home() {
                   style={{ objectFit: "cover" }}
                 />
               </Box> */}
+              <img
+                src="/illustrations/4-stars-2.png"
+                alt="Illustration"
+                style={{
+                  width: "80%",
+                  height: "auto",
+                  display: "flex",
+                  margin: "0 auto",
+                  alignSelf: "center",
+                }}
+              />
             </Grid>
           </Grid>
         </Container>
       </Box>
       <Box
         sx={{
-          background: "#f8f7ff",
+          background: "linear-gradient(180deg, #a99fd1 0%, #f8f7ff 40%)",
           padding: 2,
         }}
       >
@@ -141,6 +211,7 @@ export default function Home() {
               allTopics={ALL_TOPICS()}
               withFilters={false}
               onlineOnly={true}
+              sortBy="status"
             />
           </Grid>
         </Container>

@@ -3,6 +3,7 @@
 import "../globals.css";
 
 import { AppBar } from "@/components/AppBar/AppBar";
+import OfferBanner from "@/components/OfferBanner/OfferBanner";
 import { ReaderFeedProvider } from "@/lib/context/ReaderFeedContext";
 
 export default function MainLayout({
@@ -14,6 +15,7 @@ export default function MainLayout({
     <ReaderFeedProvider>
       <AppBar />
       {children}
+      <OfferBanner />
     </ReaderFeedProvider>
   );
 }

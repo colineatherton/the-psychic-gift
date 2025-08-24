@@ -28,9 +28,9 @@ type ReaderCardProps = {
 };
 
 const statusColors: Record<ReaderCardProps["status"], string> = {
-  online: "green",
-  busy: "orange",
-  offline: "gray",
+  online: "#00C853",
+  busy: "#FFA000",
+  offline: "#B0BEC5",
 };
 
 export const ReaderCard: React.FC<ReaderCardProps> = ({
@@ -48,23 +48,21 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
         height: "100%",
         display: "flex",
         flexDirection: "column",
+        borderRadius: 6,
       }}
     >
       <CardHeader
         avatar={
-          <Avatar alt={name} sizes={"80x80"} sx={{ width: 80, height: 80 }}>
-            <Image
-              src={`/readers/${pin}.png`}
-              alt="Amara"
-              width={80}
-              height={80}
-              placeholder="blur"
-              blurDataURL="/readers/blur.png"
-            />
-          </Avatar>
-        }
-        title={name}
-        subheader={
+          // <Avatar alt={name} sizes={"80x80"} sx={{ width: 80, height: 80 }}>
+          //   <Image
+          //     src={`/readers/${pin}.png`}
+          //     alt="Amara"
+          //     width={80}
+          //     height={80}
+          //     placeholder="blur"
+          //     blurDataURL="/readers/blur.png"
+          //   />
+          // </Avatar>
           <Stack direction="row" alignItems="center" spacing={1}>
             <CircleIcon fontSize="small" sx={{ color: statusColors[status] }} />
             <Typography variant="body2" color="textSecondary">
@@ -72,6 +70,15 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
             </Typography>
           </Stack>
         }
+        // title={name}
+        // subheader={
+        //   <Stack direction="row" alignItems="center" spacing={1}>
+        //     <CircleIcon fontSize="small" sx={{ color: statusColors[status] }} />
+        //     <Typography variant="body2" color="textSecondary">
+        //       {status.charAt(0).toUpperCase() + status.slice(1)}
+        //     </Typography>
+        //   </Stack>
+        // }
       />
       <CardContent sx={{ flexGrow: 1 }}>
         <Typography variant="body2" color="textSecondary" mb={1}>

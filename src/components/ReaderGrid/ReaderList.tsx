@@ -39,6 +39,7 @@ type ReaderGridProps = {
   allTopics: string[];
   withFilters?: boolean;
   onlineOnly?: boolean;
+  sortBy?: "alpha" | "status";
 };
 
 export const ReaderGrid: React.FC<ReaderGridProps> = ({
@@ -49,10 +50,11 @@ export const ReaderGrid: React.FC<ReaderGridProps> = ({
   allTopics,
   withFilters = true,
   onlineOnly = false,
+  sortBy: initialSortBy = "alpha",
 }) => {
   const [statusFilter, setStatusFilter] = useState<string | null>(null);
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
-  const [sortBy, setSortBy] = useState<string>("alpha");
+  const [sortBy, setSortBy] = useState<string>(initialSortBy);
   const [readerConfig, setReaderConfig] = useState<ReaderConfig | null>(null);
   const [readerModalOpen, setReaderModalOpen] = useState(false);
   const { getReaderByPin } = useReaderFeedContext();
@@ -129,10 +131,13 @@ export const ReaderGrid: React.FC<ReaderGridProps> = ({
     return statusMatch && skillMatch;
   });
 
+  const statusOrder = { online: 0, busy: 1, offline: 2 };
+
   // ↕️ Sort logic
   const sorted = [...filtered].sort((a, b) => {
     if (sortBy === "alpha") return a.name.localeCompare(b.name);
-    if (sortBy === "status") return a.status.localeCompare(b.status);
+    if (sortBy === "status")
+      return statusOrder[a.status] - statusOrder[b.status];
     return 0;
   });
 
