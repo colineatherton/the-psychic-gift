@@ -110,7 +110,7 @@ export const ReaderGrid: React.FC<ReaderGridProps> = ({
       const apiReader = getReaderByPin(Number(reader.pin));
       return {
         ...reader,
-        status: getStatus(apiReader?.status),
+        status: apiReader ? getStatus(apiReader.status) : "offline",
       };
     });
   }, [readers, getReaderByPin]);

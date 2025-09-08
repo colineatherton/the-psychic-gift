@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { ReaderFeedItem, ReaderFeedResponse } from "../types/readers";
+import { ReaderFeedItem } from "../types/readers";
 
 const READER_FEED_URL = "/api/readers"; // or wherever your route.ts endpoint is
 

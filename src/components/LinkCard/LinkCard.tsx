@@ -5,10 +5,12 @@ export default function LinkCard({
   iconPath,
   title,
   description,
+  href,
 }: {
   iconPath: string;
   title: string;
   description: string;
+  href: string;
 }) {
   return (
     <Card
@@ -73,7 +75,7 @@ export default function LinkCard({
         </Box>
       </CardContent>
       <Box sx={{ px: 4, pt: 0, pb: 6 }}>
-        <Link href={`/psychic-readers/${name.toLocaleLowerCase()}`} passHref>
+        <Link href={href} passHref>
           <Button
             variant="outlined"
             fullWidth
