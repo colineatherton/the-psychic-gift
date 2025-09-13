@@ -58,7 +58,7 @@ export default function HeroSection() {
               marginBottom={6}
             >
               Speak to a caring psychic and find clarity in love, life, or your
-              next steps - trusted for over 25 years.
+              next steps - trusted for over 23 years.
             </Typography>
             <Button
               size="large"

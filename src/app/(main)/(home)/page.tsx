@@ -1,5 +1,7 @@
 import FAQs from "@/components/FAQs/FAQs";
 import LinkCard from "@/components/LinkCard/LinkCard";
+import PageContainer from "@/components/PageContainer/PageContainer";
+import PageSection from "@/components/PageSection/PageSection";
 import { ReaderGrid } from "@/components/ReaderGrid/ReaderList";
 import {
   ALL_ABILITIES,
@@ -8,7 +10,7 @@ import {
   ALL_TOPICS,
   READER_CARDS,
 } from "@/lib/constants/readers";
-import { Box, Container, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import CTASection from "./components/CTASection";
 import FeaturedReaderSection from "./components/FeaturedReaderSection";
 import HeroSection from "./components/HeroSection";
@@ -17,8 +19,7 @@ import TestimonialsSection from "./components/TestimonialsSection";
 import TrustBadgeSection from "./components/TrustBadgeSection";
 import WhyPsychicGiftSection from "./components/WhyPsychicGiftSection";
 
-// deal with the containers
-
+// todo: make it better to build a page - make it better on the next pages then refactor this
 export const metadata = {
   title: "Phoenix Rising | Awaken Your Vision",
   description: "Track your creative ascent with clarity, focus, and fire.",
@@ -42,14 +43,9 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <Box
-        sx={{
-          background: "linear-gradient(180deg, #a99fd1 0%, #f8f7ff 40%)",
-          padding: 2,
-        }}
-      >
-        <Container maxWidth="lg">
-          <Grid container paddingBottom={8}>
+      <PageSection background="linear-gradient(180deg, #a99fd1 0%, #f8f7ff 40%)">
+        <PageContainer>
+          <Grid container height="100%" py={6} width={"100%"}>
             <ReaderGrid
               readers={READER_CARDS}
               allSkills={ALL_SKILLS()}
@@ -61,43 +57,20 @@ export default function Home() {
               sortBy="status"
             />
           </Grid>
-        </Container>
-        <Container
-          maxWidth="lg"
-          sx={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
+        </PageContainer>
+        <PageContainer centered>
           <Grid container height="100%" py={6} width={"100%"}>
             <TrustBadgeSection />
           </Grid>
-        </Container>
-        <Container
-          maxWidth="lg"
-          sx={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
+        </PageContainer>
+        <PageContainer centered>
           <Grid container height="100%" py={6} width={"100%"}>
             <WhyPsychicGiftSection />
           </Grid>
-        </Container>
-      </Box>
-      <Box
-        sx={{
-          background: "#8174bb",
-          padding: 2,
-        }}
-      >
-        <Container
-          maxWidth="lg"
-          sx={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
+        </PageContainer>
+      </PageSection>
+      <PageSection background="#8174bb">
+        <PageContainer centered>
           <Grid container height="100%" py={6} width={"100%"}>
             <CTASection
               heading="Ready to speak to someone who truly listens?"
@@ -105,76 +78,37 @@ export default function Home() {
               buttonText="Start Your Reading Now"
             />
           </Grid>
-        </Container>
-      </Box>
-      <Box
-        sx={{
-          background: "#f8f7ff",
-          padding: 2,
-        }}
-      >
-        <Container
-          maxWidth="lg"
-          sx={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
+        </PageContainer>
+      </PageSection>
+      <PageSection background="#f8f7ff">
+        <PageContainer centered>
           <Grid container height="100%" py={6} width={"100%"}>
             <HowItWorksSection />
           </Grid>
-        </Container>
-      </Box>
-      <Box
-        sx={{
-          background: "linear-gradient(180deg, #a99fd1 0%, #f8f7ff 40%)",
-          padding: 2,
-        }}
-      >
-        <Container maxWidth="lg">
-          <Grid container paddingTop={8} paddingBottom={12}>
+        </PageContainer>
+      </PageSection>
+      <PageSection background="linear-gradient(180deg, #a99fd1 0%, #f8f7ff 40%)">
+        <PageContainer>
+          <Grid container height="100%" py={6} width={"100%"}>
             <FeaturedReaderSection />
           </Grid>
-        </Container>
-      </Box>
-      <Box
-        sx={{
-          background: "#f8f7ff",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          alignSelf: "stretch",
-        }}
+        </PageContainer>
+      </PageSection>
+      <PageSection background="#f8f7ff" stretchItems>
+        <PageContainer centered>
+          <Grid container height="100%" py={6} width={"100%"}>
+            <TestimonialsSection />
+          </Grid>
+        </PageContainer>
+      </PageSection>
+      <PageSection
+        background="#8174bb"
+        stretchItems
+        paddingTop={8}
+        paddingBottom={12}
       >
-        <Container
-          maxWidth="lg"
-          sx={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <TestimonialsSection />
-        </Container>
-      </Box>
-      <Box
-        sx={{
-          background: "#8174bb",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          alignSelf: "stretch",
-          paddingTop: 8,
-          paddingBottom: 12,
-        }}
-      >
-        <Container
-          maxWidth="lg"
-          sx={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <Grid container direction={"row"} spacing={4} width={"100%"}>
+        <PageContainer centered>
+          <Grid container spacing={4} width={"100%"}>
             <Grid size={4}>
               <LinkCard
                 iconPath="readers"
@@ -224,21 +158,10 @@ export default function Home() {
               />
             </Grid>
           </Grid>
-        </Container>
-      </Box>
-      <Box
-        sx={{
-          background: "#8174bb",
-          padding: 2,
-        }}
-      >
-        <Container
-          maxWidth="lg"
-          sx={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
+        </PageContainer>
+      </PageSection>
+      <PageSection background="#8174bb">
+        <PageContainer centered>
           <Grid container height="100%" pt={6} pb={16} width={"100%"}>
             <CTASection
               heading="Ready when you are"
@@ -247,21 +170,10 @@ export default function Home() {
               showAvailableReadersCount={false}
             />
           </Grid>
-        </Container>
-      </Box>
-      <Box
-        sx={{
-          background: "#f8f7ff",
-          padding: 2,
-        }}
-      >
-        <Container
-          maxWidth="lg"
-          sx={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
+        </PageContainer>
+      </PageSection>
+      <PageSection background="#f8f7ff">
+        <PageContainer centered>
           <Grid container height="100%" pt={6} pb={16} width={"100%"}>
             <FAQs
               items={[
@@ -293,8 +205,8 @@ export default function Home() {
               ]}
             />
           </Grid>
-        </Container>
-      </Box>
+        </PageContainer>
+      </PageSection>
     </>
   );
 }
