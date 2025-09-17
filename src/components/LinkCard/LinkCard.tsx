@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { Box, Button, Card, CardContent, Typography } from "@mui/material";
+import { Box, Card, CardContent, Typography } from "@mui/material";
+import CTAButton from "../CTAButton/CTAButton";
 
 export default function LinkCard({
   iconPath,
@@ -49,7 +49,7 @@ export default function LinkCard({
             fontFamily="Montserrat Variable, sans-serif"
             fontWeight={600}
             fontSize="1.1rem"
-            color="#8174bb"
+            color="primary"
             lineHeight="1.6"
             variant="h3"
             component="h3"
@@ -75,24 +75,13 @@ export default function LinkCard({
         </Box>
       </CardContent>
       <Box sx={{ px: 4, pt: 0, pb: 6 }}>
-        <Link href={href} passHref>
-          <Button
-            variant="outlined"
-            fullWidth
-            sx={{
-              borderColor: "#745ddd",
-              borderRadius: 4,
-              color: "#745ddd",
-              "&:hover": {
-                borderColor: "#8174bb",
-                backgroundColor: "#8174bb",
-                color: "#f8f7ff",
-              },
-            }}
-          >
-            Learn more
-          </Button>
-        </Link>
+        <CTAButton
+          variant="secondary"
+          fullWidth
+          size="small"
+          label="Learn more"
+          href={href}
+        />
       </Box>
     </Card>
   );

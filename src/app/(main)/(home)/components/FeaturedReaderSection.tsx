@@ -1,4 +1,8 @@
-import { Grid, Typography, Stack, Button } from "@mui/material";
+"use client";
+
+import CTAButton from "@/components/CTAButton/CTAButton";
+import { CTA_PRIMARY_LABEL } from "@/lib/constants/Messages";
+import { Grid, Stack, Typography } from "@mui/material";
 
 export default function FeaturedReaderSection() {
   return (
@@ -26,7 +30,7 @@ export default function FeaturedReaderSection() {
           fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
-          color="#8174bb"
+          color="primary"
           lineHeight="1.6"
           variant="h2"
           component="h2"
@@ -39,7 +43,7 @@ export default function FeaturedReaderSection() {
           fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1rem"
-          color="#8174bb"
+          color="primary"
           lineHeight="1.6"
           variant="body2"
           component="p"
@@ -54,37 +58,18 @@ export default function FeaturedReaderSection() {
         </Typography>
         <Stack
           direction="column"
-          alignItems={"center"}
-          display={"flex"}
-          justifyContent={"center"}
+          alignItems="center"
+          display="flex"
+          justifyContent="center"
           marginTop={4}
         >
-          <Button
+          <CTAButton variant="primary" mb={4} label={CTA_PRIMARY_LABEL} />
+          <CTAButton
+            variant="secondary"
             size="medium"
-            variant="contained"
-            sx={{
-              backgroundColor: "#745ddd",
-              borderRadius: 8,
-              mb: 4,
-              py: 2,
-              px: 4,
-            }}
-          >
-            Start Your Reading Now
-          </Button>
-          <Button
-            size="medium"
-            variant="outlined"
-            sx={{
-              borderColor: "#745ddd",
-              borderRadius: 8,
-              mb: 4,
-              py: 2,
-              px: 4,
-            }}
-          >
-            Learn more about Robbie
-          </Button>
+            mb={4}
+            label="Learn more about Robbie"
+          />
         </Stack>
       </Grid>
     </>

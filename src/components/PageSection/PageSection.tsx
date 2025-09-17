@@ -1,8 +1,9 @@
+"use client";
 import { Box } from "@mui/material";
 import { ReactNode } from "react";
 
 interface PageSectionProps {
-  background: string;
+  background: "primary.main" | "secondary.light" | "primary.gradient";
   stretchItems?: boolean;
   paddingBottom?: number;
   paddingTop?: number;
@@ -19,7 +20,16 @@ export default function PageSection({
   return (
     <Box
       sx={{
-        background,
+        background: (theme) => {
+          if (background === "primary.gradient") {
+            return `linear-gradient(180deg, ${theme.palette.primary.light} 0%, #f8f7ff 40%)`;
+          }
+          if (background === "primary.main") {
+            return theme.palette.primary.main;
+          }
+
+          return theme.palette.secondary.light;
+        },
         padding: 2,
         ...(stretchItems
           ? {

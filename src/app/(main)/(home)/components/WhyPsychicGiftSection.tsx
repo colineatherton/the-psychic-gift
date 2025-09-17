@@ -15,7 +15,7 @@ export default function WhyPsychicGiftSection() {
         fontFamily="Montserrat Variable, sans-serif"
         fontWeight={500}
         fontSize="2rem"
-        color="#8174bb"
+        color="primary"
         lineHeight="1.6"
         variant="h2"
         component="h2"

@@ -1,3 +1,4 @@
+"use client";
 import { Avatar, Box, Typography } from "@mui/material";
 
 interface NumberWithTextProps {
@@ -24,7 +25,7 @@ export default function NumberWithText({
           sx={{
             width: 56,
             height: 56,
-            backgroundColor: "#745ddd",
+            backgroundColor: (theme) => theme.palette.primary.dark,
           }}
         >
           {number}
@@ -34,7 +35,7 @@ export default function NumberWithText({
         fontFamily="Montserrat Variable, sans-serif"
         fontWeight={600}
         fontSize="1.1rem"
-        color="#8174bb"
+        color="primary"
         lineHeight="1.6"
         variant="h3"
         component="h3"
@@ -47,7 +48,7 @@ export default function NumberWithText({
         fontFamily="Montserrat Variable, sans-serif"
         fontWeight={500}
         fontSize="1rem"
-        color="#8174bb"
+        color="primary"
         lineHeight="1.6"
         variant="body2"
         component="p"

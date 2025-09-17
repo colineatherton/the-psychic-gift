@@ -15,7 +15,10 @@ export default function MainLayout({
     <ReaderFeedProvider>
       <AppBar />
       {children}
-      <OfferBanner />
+      <OfferBanner
+        message={`☀️ Summer madness continues! £10 off every credit card reading! Call
+          0800 915 2347 & quote "summer madness 25"`}
+      />
     </ReaderFeedProvider>
   );
 }

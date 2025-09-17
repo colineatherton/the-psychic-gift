@@ -1,3 +1,5 @@
+"use client";
+
 import CircleIcon from "@mui/icons-material/Circle";
 import PhoneIcon from "@mui/icons-material/Phone";
 import {
@@ -8,12 +10,13 @@ import {
   CardContent,
   CardHeader,
   Chip,
-  Container,
   Stack,
   Typography,
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "@mui/material/styles";
+import CTAButton from "../CTAButton/CTAButton";
 
 type ReaderCardProps = {
   name: string;
@@ -28,12 +31,6 @@ type ReaderCardProps = {
   onCallNow: (key: string) => void;
 };
 
-const statusColors: Record<ReaderCardProps["status"], string> = {
-  online: "#00C853",
-  busy: "#FFA000",
-  offline: "#B0BEC5",
-};
-
 const statusLabels: Record<ReaderCardProps["status"], string> = {
   online: "Ready to talk",
   busy: "In a reading",
@@ -42,13 +39,13 @@ const statusLabels: Record<ReaderCardProps["status"], string> = {
 
 export const ReaderCard: React.FC<ReaderCardProps> = ({
   name,
-  image,
   pin,
   status,
   skills,
-  callOptions,
   onCallNow,
 }) => {
+  const theme = useTheme();
+
   return (
     <Card
       sx={{
@@ -66,7 +63,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
       <CardHeader
         avatar={
           <Stack direction="row" alignItems="center" spacing={0.5}>
-            <CircleIcon fontSize="small" sx={{ color: statusColors[status] }} />
+            <CircleIcon fontSize="small" sx={{ color: theme.status[status] }} />
             <Typography
               fontFamily="Montserrat Variable, sans-serif"
               fontWeight={500}
@@ -80,15 +77,6 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
             </Typography>
           </Stack>
         }
-        // title={name}
-        // subheader={
-        //   <Stack direction="row" alignItems="center" spacing={1}>
-        //     <CircleIcon fontSize="small" sx={{ color: statusColors[status] }} />
-        //     <Typography variant="body2" color="textSecondary">
-        //       {status.charAt(0).toUpperCase() + status.slice(1)}
-        //     </Typography>
-        //   </Stack>
-        // }
       />
       <CardContent sx={{ flexGrow: 1, pt: 0 }}>
         <Box
@@ -102,7 +90,12 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
           <Avatar
             alt={name}
             sizes={"80x80"}
-            sx={{ width: 80, height: 80, border: "solid 2px #745ddd", mb: 2 }}
+            sx={{
+              width: 80,
+              height: 80,
+              border: (theme) => `solid 2px ${theme.palette.primary.dark}`,
+              mb: 2,
+            }}
           >
             <Image
               src={`/readers/${pin}.png`}
@@ -127,8 +120,6 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
             {name}
           </Typography>
         </Box>
-        {/* image */}
-        {/* tags */}
         <Stack direction="row" flexWrap="wrap" gap={0.5}>
           {skills.map((skill) => (
             <Chip
@@ -136,7 +127,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
               label={skill}
               size="small"
               sx={{
-                backgroundColor: "#8174bb",
+                backgroundColor: (theme) => theme.palette.primary.main,
                 color: "#f8f7ff",
                 fontFamily: "Montserrat Variable, sans-serif",
                 fontWeight: 500,
@@ -159,25 +150,22 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
         >
           PIN: {pin}
         </Typography>
-        <Button
-          variant="contained"
+        <CTAButton
           fullWidth
+          variant="primary"
+          size="small"
+          mb={2}
+          label="Call Options"
           startIcon={<PhoneIcon />}
-          sx={{ marginBottom: 2, backgroundColor: "#745ddd", borderRadius: 4 }}
           onClick={() => onCallNow(name.toLocaleLowerCase())}
-        >
-          {/* Call now - to be used on call now page*/}
-          Call Options
-        </Button>
-        <Link href={`/psychic-readers/${name.toLocaleLowerCase()}`} passHref>
-          <Button
-            variant="outlined"
-            fullWidth
-            sx={{ borderColor: "#745ddd", borderRadius: 4, color: "#745ddd" }}
-          >
-            View profile
-          </Button>
-        </Link>
+        />
+        <CTAButton
+          fullWidth
+          variant="secondary"
+          size="small"
+          label="View profile"
+          href={`/psychic-readers/${name.toLocaleLowerCase()}`}
+        />
       </Box>
     </Card>
   );

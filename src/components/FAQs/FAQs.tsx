@@ -21,7 +21,7 @@ export default function FAQs({ items }: FAQProps) {
         fontFamily="Montserrat Variable, sans-serif"
         fontWeight={500}
         fontSize="2rem"
-        color="#8174bb"
+        color="primary"
         lineHeight="1.6"
         variant="h2"
         component="h2"
@@ -50,7 +50,7 @@ export default function FAQs({ items }: FAQProps) {
               fontFamily="Montserrat Variable, sans-serif"
               fontWeight={600}
               fontSize="1.1rem"
-              color="#8174bb"
+              color="primary"
               lineHeight="1.6"
               variant="h3"
               component="h3"

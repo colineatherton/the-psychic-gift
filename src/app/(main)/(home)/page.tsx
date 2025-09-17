@@ -43,7 +43,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <PageSection background="linear-gradient(180deg, #a99fd1 0%, #f8f7ff 40%)">
+      <PageSection background="primary.gradient">
         <PageContainer>
           <Grid container height="100%" py={6} width={"100%"}>
             <ReaderGrid
@@ -69,32 +69,31 @@ export default function Home() {
           </Grid>
         </PageContainer>
       </PageSection>
-      <PageSection background="#8174bb">
+      <PageSection background="primary.main">
         <PageContainer centered>
           <Grid container height="100%" py={6} width={"100%"}>
             <CTASection
               heading="Ready to speak to someone who truly listens?"
               subheading="Our gifted psychics are here when you’re ready."
-              buttonText="Start Your Reading Now"
             />
           </Grid>
         </PageContainer>
       </PageSection>
-      <PageSection background="#f8f7ff">
+      <PageSection background="secondary.light">
         <PageContainer centered>
           <Grid container height="100%" py={6} width={"100%"}>
             <HowItWorksSection />
           </Grid>
         </PageContainer>
       </PageSection>
-      <PageSection background="linear-gradient(180deg, #a99fd1 0%, #f8f7ff 40%)">
+      <PageSection background="primary.gradient">
         <PageContainer>
           <Grid container height="100%" py={6} width={"100%"}>
             <FeaturedReaderSection />
           </Grid>
         </PageContainer>
       </PageSection>
-      <PageSection background="#f8f7ff" stretchItems>
+      <PageSection background="secondary.light" stretchItems>
         <PageContainer centered>
           <Grid container height="100%" py={6} width={"100%"}>
             <TestimonialsSection />
@@ -102,7 +101,7 @@ export default function Home() {
         </PageContainer>
       </PageSection>
       <PageSection
-        background="#8174bb"
+        background="primary.main"
         stretchItems
         paddingTop={8}
         paddingBottom={12}
@@ -160,19 +159,18 @@ export default function Home() {
           </Grid>
         </PageContainer>
       </PageSection>
-      <PageSection background="#8174bb">
+      <PageSection background="primary.main">
         <PageContainer centered>
           <Grid container height="100%" pt={6} pb={16} width={"100%"}>
             <CTASection
               heading="Ready when you are"
               showAvailableReadersSubHeading
-              buttonText="Start Your Reading Now"
               showAvailableReadersCount={false}
             />
           </Grid>
         </PageContainer>
       </PageSection>
-      <PageSection background="#f8f7ff">
+      <PageSection background="secondary.light">
         <PageContainer centered>
           <Grid container height="100%" pt={6} pb={16} width={"100%"}>
             <FAQs

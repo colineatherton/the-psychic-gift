@@ -1,10 +1,14 @@
-import { Box, Container, Grid, Typography, Button } from "@mui/material";
+"use client";
+import CTAButton from "@/components/CTAButton/CTAButton";
+import { CTA_PRIMARY_LABEL } from "@/lib/constants/Messages";
+import { Box, Container, Grid, Typography } from "@mui/material";
 
 export default function HeroSection() {
   return (
     <Box
       sx={{
-        background: "linear-gradient(180deg, #8174bb 15%, #a99fd1 100%)",
+        background: (theme) =>
+          `linear-gradient(180deg, ${theme.palette.primary.main} 15%, #a99fd1 100%)`,
         paddingTop: "calc(80px - 32px)",
         display: "flex",
         flexDirection: "column",
@@ -60,19 +64,7 @@ export default function HeroSection() {
               Speak to a caring psychic and find clarity in love, life, or your
               next steps - trusted for over 23 years.
             </Typography>
-            <Button
-              size="large"
-              variant="contained"
-              sx={{
-                backgroundColor: "#745ddd",
-                borderRadius: 8,
-                mb: 4,
-                py: 2,
-                px: 4,
-              }}
-            >
-              Start Your Reading Now
-            </Button>
+            <CTAButton variant="primary" mb={4} label={CTA_PRIMARY_LABEL} />
             <Typography
               fontFamily="Montserrat Variable, sans-serif"
               fontWeight={500}

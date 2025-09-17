@@ -24,7 +24,7 @@ export default function IconWithText({ src, title, body }: IconWithTextProps) {
         fontFamily="Montserrat Variable, sans-serif"
         fontWeight={600}
         fontSize="1.1rem"
-        color="#8174bb"
+        color="primary"
         lineHeight="1.6"
         variant="h3"
         component="h3"

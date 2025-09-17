@@ -29,7 +29,7 @@ export default function Testimonial({
         fontFamily="Montserrat Variable, sans-serif"
         fontWeight={600}
         fontSize="1.1rem"
-        color="#8174bb"
+        color="primary"
         lineHeight="1.6"
         variant="h3"
         component="h3"
@@ -55,7 +55,7 @@ export default function Testimonial({
         fontFamily="Montserrat Variable, sans-serif"
         fontWeight={700}
         fontSize="1rem"
-        color="#8174bb"
+        color="primary"
         lineHeight="1.6"
         variant="body2"
         component="p"

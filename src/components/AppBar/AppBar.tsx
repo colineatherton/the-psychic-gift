@@ -17,19 +17,18 @@ import { HoverMenu } from "../HoverMenu/HoverMenu";
 import { useRouter } from "next/navigation";
 import { PAGES, READING_PAGES } from "@/lib/constants/urls";
 import Image from "next/image";
+import CTAButton from "../CTAButton/CTAButton";
+import { CTA_PRIMARY_LABEL } from "@/lib/constants/Messages";
 
-const StyledAppBar = styled(MUIAppBar)`
-  margin-top: 0px;
-  background: #8174bb;
-  color: #f8f7ff;
-  .MuiBox-root {
-    p,
-    button {
-      color: #f8f7ff;
-      font-size: 1rem;
-    }
-  }
-`;
+const StyledAppBar = styled(MUIAppBar)(({ theme }) => ({
+  marginTop: 0,
+  background: theme.palette.primary.main,
+  color: "#f8f7ff",
+  ".MuiBox-root p, .MuiBox-root button": {
+    color: "#f8f7ff",
+    fontSize: "1rem",
+  },
+}));
 
 const StyledNavButton = styled(Button)`
   text-transform: none;
@@ -184,19 +183,12 @@ export function AppBar() {
                 </StyledNavButton>
               ))}
             </Box>
-            <Button
+            <CTAButton
+              variant="primary"
               size="small"
-              variant="contained"
-              sx={{
-                backgroundColor: "#745ddd",
-                borderRadius: 8,
-                marginLeft: 2,
-                px: 2,
-                py: 1,
-              }}
-            >
-              Start Your Reading Now
-            </Button>
+              ml={2}
+              label={CTA_PRIMARY_LABEL}
+            />
           </Toolbar>
         </Container>
       </StyledAppBar>

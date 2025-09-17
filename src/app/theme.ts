@@ -1,6 +1,67 @@
 "use client";
+
 import { Roboto } from "next/font/google";
 import { createTheme } from "@mui/material/styles";
+
+declare module "@mui/material/styles" {
+  interface Theme {
+    status: {
+      online: string;
+      busy: string;
+      offline: string;
+    };
+  }
+  interface ThemeOptions {
+    status?: {
+      online?: string;
+      busy?: string;
+      offline?: string;
+    };
+  }
+}
+
+const darkPurple = "#745ddd";
+const midPurple = "#8174bb";
+const lightPurple = "#a99fd1"; // we are here, chasing this out
+const lightGrey = "#f8f7ff";
+const midGrey = "#7a8486";
+const darkGrey = "#274149";
+
+const lightPalette = {
+  mode: "light" as const,
+  primary: {
+    main: midPurple,
+    light: lightPurple,
+    dark: darkPurple,
+    contrastText: lightGrey,
+  },
+  secondary: {
+    main: midGrey,
+    light: lightGrey,
+    dark: darkGrey,
+    contrastText: darkPurple,
+  },
+  background: {
+    default: "#f8f7ff",
+    paper: "#fff",
+  },
+  text: { primary: "#f8f7ff" },
+};
+
+const darkPalette = {
+  mode: "light" as const,
+  primary: {
+    main: "#745ddd",
+    contrastText: "#fff",
+  },
+  secondary: {
+    main: "#a99fd1",
+  },
+  background: {
+    default: "#f8f7ff",
+    paper: "#fff",
+  },
+};
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -11,6 +72,12 @@ const roboto = Roboto({
 const theme = createTheme({
   typography: {
     fontFamily: roboto.style.fontFamily,
+  },
+  palette: lightPalette,
+  status: {
+    online: "#00c853",
+    busy: "#ffa000",
+    offline: "#b0bec5",
   },
 });
 

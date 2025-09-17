@@ -1,13 +1,14 @@
 "use client";
 
+import CTAButton from "@/components/CTAButton/CTAButton";
+import { CTA_PRIMARY_LABEL } from "@/lib/constants/Messages";
 import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
-import { Button, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 
 interface CTASectionProps {
   heading: string;
   subheading?: string;
   showAvailableReadersSubHeading?: boolean;
-  buttonText: string;
   showAvailableReadersCount?: boolean;
 }
 
@@ -16,7 +17,6 @@ export default function CTASection({
   heading,
   subheading,
   showAvailableReadersSubHeading,
-  buttonText,
   showAvailableReadersCount = true,
 }: CTASectionProps) {
   const { getOnlineReaders } = useReaderFeedContext();
@@ -73,20 +73,7 @@ export default function CTASection({
           call ✨
         </Typography>
       )}
-      <Button
-        size="large"
-        variant="contained"
-        sx={{
-          backgroundColor: "#745ddd",
-          border: "1px solid #f8f7ff",
-          borderRadius: 8,
-          mb: 4,
-          py: 2,
-          px: 4,
-        }}
-      >
-        {buttonText}
-      </Button>
+      <CTAButton variant="primary" mb={4} label={CTA_PRIMARY_LABEL} />
       {showAvailableReadersCount && (
         <Typography
           fontFamily="Montserrat Variable, sans-serif"
