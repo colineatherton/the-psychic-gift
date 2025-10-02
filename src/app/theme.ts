@@ -28,7 +28,7 @@ const lightGrey = "#f8f7ff";
 const midGrey = "#7a8486";
 const darkGrey = "#274149";
 
-const lightPalette = {
+export const lightPalette = {
   mode: "light" as const,
   primary: {
     main: midPurple,
@@ -49,18 +49,25 @@ const lightPalette = {
   // text: { primary: "#000" },
 };
 
-const darkPalette = {
-  mode: "light" as const,
+export const darkPalette = {
+  mode: "dark" as const,
   primary: {
-    main: "#745ddd",
-    contrastText: "#fff",
+    main: lightPurple, // #a99fd1, lighter purple for accents
+    light: "#d1c7ee", // even lighter for hover/active
+    dark: darkPurple, // #745ddd, for contrast
   },
   secondary: {
-    main: "#a99fd1",
+    main: "#b0bec5", // soft grey-blue for secondary accents
+    light: "#cfd8dc",
+    dark: "#78909c",
   },
   background: {
-    default: "#f8f7ff",
-    paper: "#fff",
+    default: "#18122B", // deep purple/black for main background
+    paper: "#232042", // slightly lighter for cards/panels
+  },
+  text: {
+    primary: "#f8f7ff", // very light for main text
+    secondary: "#a99fd1", // your light purple for secondary text
   },
 };
 
@@ -70,22 +77,26 @@ const roboto = Roboto({
   display: "swap",
 });
 
-const theme = createTheme({
-  typography: {
-    fontFamily: roboto.style.fontFamily,
-  },
-  palette: {
-    ...lightPalette,
-    common: {
-      white: common.white,
-      black: common.black,
+export function getTheme(mode: "light" | "dark" = "light") {
+  const palette = mode === "dark" ? darkPalette : lightPalette;
+  return createTheme({
+    typography: {
+      fontFamily: roboto.style.fontFamily,
     },
-  },
-  status: {
-    online: "#00c853",
-    busy: "#ffa000",
-    offline: "#b0bec5",
-  },
-});
+    palette: {
+      ...palette,
+      common: {
+        white: common.white,
+        black: common.black,
+      },
+    },
+    status: {
+      online: "#00c853",
+      busy: "#ffa000",
+      offline: "#b0bec5",
+    },
+  });
+}
 
+const theme = getTheme("light");
 export default theme;

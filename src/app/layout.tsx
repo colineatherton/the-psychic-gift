@@ -2,7 +2,6 @@ import "@fontsource-variable/montserrat";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
 import type { Metadata } from "next";
-import { StyledRoot } from "./StyledRoot";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,9 +19,7 @@ export default function RootLayout({
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </head>
       <body>
-        <AppRouterCacheProvider>
-          <StyledRoot>{children}</StyledRoot>
-        </AppRouterCacheProvider>
+        <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
       </body>
     </html>
   );

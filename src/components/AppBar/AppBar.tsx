@@ -1,5 +1,8 @@
 "use client";
 
+import theme from "@/app/theme";
+import { CTA_PRIMARY_LABEL } from "@/lib/constants/Messages";
+import { PAGES, READING_PAGES } from "@/lib/constants/urls";
 import AdbIcon from "@mui/icons-material/Adb";
 import MenuIcon from "@mui/icons-material/Menu";
 import MUIAppBar from "@mui/material/AppBar";
@@ -12,14 +15,11 @@ import MenuItem from "@mui/material/MenuItem";
 import { styled } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { useState } from "react";
-import { HoverMenu } from "../HoverMenu/HoverMenu";
-import { useRouter } from "next/navigation";
-import { PAGES, READING_PAGES } from "@/lib/constants/urls";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import CTAButton from "../CTAButton/CTAButton";
-import { CTA_PRIMARY_LABEL } from "@/lib/constants/Messages";
-import theme from "@/app/theme";
+import { HoverMenu } from "../HoverMenu/HoverMenu";
 
 const StyledAppBar = styled(MUIAppBar)(({ theme }) => ({
   marginTop: 0,
@@ -35,7 +35,12 @@ const StyledNavButton = styled(Button)`
   text-transform: none;
 `;
 
-export function AppBar() {
+interface AppBarProps {
+  themeMode: "light" | "dark";
+  onThemeToggle: () => void;
+}
+
+export function AppBar({ themeMode, onThemeToggle }: AppBarProps) {
   const router = useRouter();
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
@@ -190,6 +195,9 @@ export function AppBar() {
               ml={2}
               label={CTA_PRIMARY_LABEL}
             />
+            <button onClick={onThemeToggle}>
+              Toggle {themeMode === "light" ? "Dark" : "Light"} Mode
+            </button>
           </Toolbar>
         </Container>
       </StyledAppBar>
