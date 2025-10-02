@@ -2,6 +2,7 @@
 
 import { Roboto } from "next/font/google";
 import { createTheme } from "@mui/material/styles";
+import { common } from "@mui/material/colors";
 
 declare module "@mui/material/styles" {
   interface Theme {
@@ -22,7 +23,7 @@ declare module "@mui/material/styles" {
 
 const darkPurple = "#745ddd";
 const midPurple = "#8174bb";
-const lightPurple = "#a99fd1"; // we are here, chasing this out
+const lightPurple = "#a99fd1";
 const lightGrey = "#f8f7ff";
 const midGrey = "#7a8486";
 const darkGrey = "#274149";
@@ -33,19 +34,19 @@ const lightPalette = {
     main: midPurple,
     light: lightPurple,
     dark: darkPurple,
-    contrastText: lightGrey,
   },
   secondary: {
     main: midGrey,
     light: lightGrey,
     dark: darkGrey,
-    contrastText: darkPurple,
   },
   background: {
-    default: "#f8f7ff",
+    default: lightGrey,
     paper: "#fff",
   },
-  text: { primary: "#f8f7ff" },
+  text: { primary: lightGrey, secondary: darkGrey },
+
+  // text: { primary: "#000" },
 };
 
 const darkPalette = {
@@ -73,7 +74,13 @@ const theme = createTheme({
   typography: {
     fontFamily: roboto.style.fontFamily,
   },
-  palette: lightPalette,
+  palette: {
+    ...lightPalette,
+    common: {
+      white: common.white,
+      black: common.black,
+    },
+  },
   status: {
     online: "#00c853",
     busy: "#ffa000",

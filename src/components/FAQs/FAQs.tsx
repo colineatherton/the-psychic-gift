@@ -1,3 +1,6 @@
+"use client";
+
+import theme from "@/app/theme";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   Accordion,
@@ -36,9 +39,9 @@ export default function FAQs({ items }: FAQProps) {
           key={index}
           square
           sx={{
-            backgroundColor: "#f8f7ff",
+            backgroundColor: theme.palette.background.default,
             boxShadow: "none",
-            borderTop: "1px solid #7a8486",
+            borderTop: `1px solid ${theme.palette.secondary.main}`,
           }}
         >
           <AccordionSummary
@@ -58,7 +61,19 @@ export default function FAQs({ items }: FAQProps) {
               {question}
             </Typography>
           </AccordionSummary>
-          <AccordionDetails>{answer}</AccordionDetails>
+          <AccordionDetails>
+            <Typography
+              fontFamily="Montserrat Variable, sans-serif"
+              fontWeight={600}
+              fontSize="1.1rem"
+              color="primary"
+              lineHeight="1.6"
+              variant="h3"
+              component="h3"
+            >
+              {answer}
+            </Typography>
+          </AccordionDetails>
         </Accordion>
       ))}
     </Stack>

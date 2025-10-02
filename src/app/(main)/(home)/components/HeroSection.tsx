@@ -1,4 +1,6 @@
 "use client";
+
+import theme from "@/app/theme";
 import CTAButton from "@/components/CTAButton/CTAButton";
 import { CTA_PRIMARY_LABEL } from "@/lib/constants/Messages";
 import { Box, Container, Grid, Typography } from "@mui/material";
@@ -8,7 +10,7 @@ export default function HeroSection() {
     <Box
       sx={{
         background: (theme) =>
-          `linear-gradient(180deg, ${theme.palette.primary.main} 15%, #a99fd1 100%)`,
+          `linear-gradient(180deg, ${theme.palette.primary.main} 15%, ${theme.palette.primary.light} 100%)`,
         paddingTop: "calc(80px - 32px)",
         display: "flex",
         flexDirection: "column",
@@ -30,7 +32,7 @@ export default function HeroSection() {
               fontFamily="Montserrat Variable, sans-serif"
               fontWeight={700}
               fontSize="3rem"
-              color="#f8f7ff"
+              color={theme.palette.text.primary}
               lineHeight="1.2"
               variant="h1"
               component="h1"
@@ -43,7 +45,7 @@ export default function HeroSection() {
               fontFamily="Montserrat Variable, sans-serif"
               fontWeight={500}
               fontSize="2rem"
-              color="#f8f7ff"
+              color={theme.palette.text.primary}
               lineHeight="1.6"
               variant="h2"
               component="h2"
@@ -55,7 +57,7 @@ export default function HeroSection() {
               fontFamily="Montserrat Variable, sans-serif"
               fontWeight={500}
               fontSize="1.2rem"
-              color="#f8f7ff"
+              color={theme.palette.text.primary}
               lineHeight="1.6"
               variant="body2"
               component="p"
@@ -69,7 +71,7 @@ export default function HeroSection() {
               fontFamily="Montserrat Variable, sans-serif"
               fontWeight={500}
               fontSize="1rem"
-              color="#f8f7ff"
+              color={theme.palette.text.primary}
               lineHeight="1.6"
               variant="body2"
               component="p"

@@ -1,24 +1,28 @@
+"use client";
+
+import theme from "@/app/theme";
 import { READER_CONFIG_MAP } from "@/lib/constants/readers";
 import { notFound } from "next/navigation";
 
-export const metadata = {
-  title: "Phoenix Rising | Awaken Your Vision",
-  description: "Track your creative ascent with clarity, focus, and fire.",
-  openGraph: {
-    title: "Phoenix Rising",
-    description: "An app to help you rise from the ashes.",
-    url: "https://phoenixrising.app",
-    siteName: "Phoenix Rising",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-      },
-    ],
-    type: "website",
-  },
-};
+// todo: refactor page so it is not use client and restore metadata
+// export const metadata = {
+//   title: "Phoenix Rising | Awaken Your Vision",
+//   description: "Track your creative ascent with clarity, focus, and fire.",
+//   openGraph: {
+//     title: "Phoenix Rising",
+//     description: "An app to help you rise from the ashes.",
+//     url: "https://phoenixrising.app",
+//     siteName: "Phoenix Rising",
+//     images: [
+//       {
+//         url: "/og-image.png",
+//         width: 1200,
+//         height: 630,
+//       },
+//     ],
+//     type: "website",
+//   },
+// };
 
 // key is i.e amara and if the key is not found, it will return a 404
 // if overlap we will include -[specialty] and then -[pin]
@@ -81,8 +85,8 @@ export default async function PsychicReader({
           style={{
             marginTop: 24,
             padding: "12px 24px",
-            background: "#e57373",
-            color: "#fff",
+            background: theme.palette.primary.main,
+            color: theme.palette.common.white,
             border: "none",
             borderRadius: 8,
             fontWeight: 600,

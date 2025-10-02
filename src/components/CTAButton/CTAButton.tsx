@@ -42,16 +42,16 @@ export default function CTAButton({
         px: size === "small" ? 2 : 4,
         ...(variant === "primary"
           ? {
-              backgroundColor: (theme) => theme.palette.primary.dark,
-              border: "1px solid #f8f7ff",
+              backgroundColor: theme.palette.primary.dark,
+              border: `1px solid ${theme.palette.background.default}`,
             }
           : {
-              borderColor: (theme) => theme.palette.primary.dark,
-              color: (theme) => theme.palette.primary.dark,
+              borderColor: theme.palette.primary.dark,
+              color: theme.palette.primary.dark,
               "&:hover": {
-                borderColor: (theme) => theme.palette.primary.main,
-                backgroundColor: (theme) => theme.palette.primary.main,
-                color: "#f8f7ff",
+                borderColor: theme.palette.primary.main,
+                backgroundColor: theme.palette.primary.main,
+                color: theme.palette.text.primary,
               },
             }),
       }}

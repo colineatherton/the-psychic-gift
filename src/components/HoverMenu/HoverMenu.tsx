@@ -1,3 +1,6 @@
+"use client";
+
+import theme from "@/app/theme";
 import MenuItem from "@mui/material/MenuItem";
 import {
   bindHover,
@@ -63,6 +66,9 @@ export const HoverMenu = ({ TriggerEl, items, gap, delay }: Props) => {
             onClick={() => {
               item.onClick();
               popupState.close();
+            }}
+            sx={{
+              color: theme.palette.text.secondary,
             }}
           >
             {item.label}

@@ -1,5 +1,8 @@
+"use client";
+
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import CTAButton from "../CTAButton/CTAButton";
+import theme from "@/app/theme";
 
 export default function LinkCard({
   iconPath,
@@ -62,7 +65,7 @@ export default function LinkCard({
             fontFamily="Montserrat Variable, sans-serif"
             fontWeight={500}
             fontSize="1rem"
-            color="#274149"
+            color={theme.palette.secondary.dark}
             lineHeight="1.6"
             variant="body2"
             component="p"

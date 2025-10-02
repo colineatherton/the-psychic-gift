@@ -19,13 +19,14 @@ import { PAGES, READING_PAGES } from "@/lib/constants/urls";
 import Image from "next/image";
 import CTAButton from "../CTAButton/CTAButton";
 import { CTA_PRIMARY_LABEL } from "@/lib/constants/Messages";
+import theme from "@/app/theme";
 
 const StyledAppBar = styled(MUIAppBar)(({ theme }) => ({
   marginTop: 0,
   background: theme.palette.primary.main,
-  color: "#f8f7ff",
+  color: theme.palette.text.primary,
   ".MuiBox-root p, .MuiBox-root button": {
-    color: "#f8f7ff",
+    color: theme.palette.text.primary,
     fontSize: "1rem",
   },
 }));
@@ -47,7 +48,7 @@ export function AppBar() {
   };
 
   return (
-    <Box sx={{ backgroundColor: "#a99fd1" }}>
+    <Box sx={{ backgroundColor: theme.palette.primary.light }}>
       <StyledAppBar position="fixed" elevation={0}>
         <Container maxWidth="lg">
           <Toolbar
@@ -151,7 +152,7 @@ export function AppBar() {
                   <Typography
                     sx={{
                       my: 2,
-                      color: "white",
+                      color: theme.palette.common.white,
                       display: "block",
                       px: 2,
                       fontWeight: 500,

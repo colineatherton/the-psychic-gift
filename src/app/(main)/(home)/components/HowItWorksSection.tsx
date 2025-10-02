@@ -1,3 +1,6 @@
+"use client";
+
+import theme from "@/app/theme";
 import NumberWithText from "@/components/NumberWithText/NumberWithText";
 import { Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
@@ -56,7 +59,7 @@ export default function HowItWorksSection() {
             fontFamily="Montserrat Variable, sans-serif"
             fontWeight={500}
             fontSize="1rem"
-            color="#274149"
+            color={theme.palette.secondary.dark}
             lineHeight="1.6"
             variant="body2"
             component="p"

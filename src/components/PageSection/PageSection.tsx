@@ -22,7 +22,7 @@ export default function PageSection({
       sx={{
         background: (theme) => {
           if (background === "primary.gradient") {
-            return `linear-gradient(180deg, ${theme.palette.primary.light} 0%, #f8f7ff 40%)`;
+            return `linear-gradient(180deg, ${theme.palette.primary.light} 0%, ${theme.palette.background.default} 40%)`;
           }
           if (background === "primary.main") {
             return theme.palette.primary.main;

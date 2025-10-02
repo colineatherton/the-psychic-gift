@@ -1,3 +1,6 @@
+"use client";
+
+import theme from "@/app/theme";
 import { Typography } from "@mui/material";
 
 interface IconWithTextProps {
@@ -37,7 +40,7 @@ export default function IconWithText({ src, title, body }: IconWithTextProps) {
         fontFamily="Montserrat Variable, sans-serif"
         fontWeight={500}
         fontSize="1rem"
-        color="#274149"
+        color={theme.palette.secondary.dark}
         lineHeight="1.6"
         variant="body2"
         component="p"

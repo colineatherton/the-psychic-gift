@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { Grid, Stack, Typography } from "@mui/material";
 import IconWithText from "@/components/IconWithText/IconWithText";
+import theme from "@/app/theme";
 
 export default function WhyPsychicGiftSection() {
   return (
@@ -28,7 +31,7 @@ export default function WhyPsychicGiftSection() {
         fontFamily="Montserrat Variable, sans-serif"
         fontWeight={500}
         fontSize="1rem"
-        color="#274149"
+        color={theme.palette.secondary.dark}
         lineHeight="1.6"
         variant="body2"
         component="p"
@@ -72,7 +75,7 @@ export default function WhyPsychicGiftSection() {
             fontFamily="Montserrat Variable, sans-serif"
             fontWeight={500}
             fontSize="1rem"
-            color="#274149"
+            color={theme.palette.secondary.dark}
             lineHeight="1.6"
             variant="body2"
             component="p"

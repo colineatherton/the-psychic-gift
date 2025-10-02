@@ -53,7 +53,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
         display: "flex",
         flexDirection: "column",
         borderRadius: 6,
-        border: "solid 1px #a99fd1",
+        border: `solid 1px ${theme.palette.primary.light}`,
         boxShadow: 4, // default elevation
         "&:hover": {
           boxShadow: 10, // higher elevation on hover
@@ -68,7 +68,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
               fontFamily="Montserrat Variable, sans-serif"
               fontWeight={500}
               fontSize="0.85rem"
-              color="#7a8486"
+              color={theme.palette.secondary.main}
               lineHeight="1"
               variant="body2"
               component="p"
@@ -110,7 +110,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
             fontFamily="Montserrat Variable, sans-serif"
             fontWeight={500}
             fontSize="1.1rem"
-            color="#7a8486"
+            color={theme.palette.secondary.main}
             lineHeight="1"
             variant="body2"
             component="p"
@@ -127,8 +127,8 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
               label={skill}
               size="small"
               sx={{
-                backgroundColor: (theme) => theme.palette.primary.main,
-                color: "#f8f7ff",
+                backgroundColor: theme.palette.primary.main,
+                color: theme.palette.text.primary,
                 fontFamily: "Montserrat Variable, sans-serif",
                 fontWeight: 500,
               }}
@@ -141,7 +141,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
           fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1rem"
-          color="#7a8486"
+          color={theme.palette.secondary.main}
           lineHeight="1"
           variant="body2"
           component="p"

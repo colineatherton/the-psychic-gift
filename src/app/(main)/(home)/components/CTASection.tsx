@@ -1,5 +1,6 @@
 "use client";
 
+import theme from "@/app/theme";
 import CTAButton from "@/components/CTAButton/CTAButton";
 import { CTA_PRIMARY_LABEL } from "@/lib/constants/Messages";
 import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
@@ -33,7 +34,7 @@ export default function CTASection({
         fontFamily="Montserrat Variable, sans-serif"
         fontWeight={500}
         fontSize="2rem"
-        color="#f8f7ff"
+        color={theme.palette.text.primary}
         lineHeight="1.6"
         variant="h2"
         component="h2"
@@ -47,7 +48,7 @@ export default function CTASection({
           fontFamily="Montserrat Variable, sans-serif"
           fontWeight={600}
           fontSize="1.1rem"
-          color="#f8f7ff"
+          color={theme.palette.text.primary}
           lineHeight="1.6"
           variant="h3"
           component="h3"
@@ -62,7 +63,7 @@ export default function CTASection({
           fontFamily="Montserrat Variable, sans-serif"
           fontWeight={600}
           fontSize="1.1rem"
-          color="#f8f7ff"
+          color={theme.palette.text.primary}
           lineHeight="1.6"
           variant="h3"
           component="h3"
@@ -79,7 +80,7 @@ export default function CTASection({
           fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1rem"
-          color="#f8f7ff"
+          color={theme.palette.text.primary}
           lineHeight="1.6"
           variant="body2"
           component="p"
