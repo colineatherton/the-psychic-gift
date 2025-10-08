@@ -1,5 +1,3 @@
-"use client";
-
 import theme from "@/app/theme";
 import { CTA_PRIMARY_LABEL } from "@/lib/constants/Messages";
 import { PAGES, READING_PAGES } from "@/lib/constants/urls";
