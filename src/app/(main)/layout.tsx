@@ -9,6 +9,7 @@ import { ThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
 import { useState, useMemo } from "react";
 import { getTheme } from "../theme";
+import { useRouter } from "next/navigation";
 
 export default function MainLayout({
   children,
@@ -18,6 +19,13 @@ export default function MainLayout({
   const [mode, setMode] = useState<"light" | "dark">("light");
 
   const theme = useMemo(() => getTheme(mode), [mode]);
+
+  const router = useRouter();
+
+  const handleNavigate = (url: string) => {
+    router.push(url);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -25,6 +33,7 @@ export default function MainLayout({
         <AppBar
           onThemeToggle={() => setMode(mode === "light" ? "dark" : "light")}
           themeMode={mode}
+          onNavigate={handleNavigate}
         />
         {children}
         <OfferBanner

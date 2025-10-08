@@ -19,5 +19,9 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Foo: Story = {
-  args: { onThemeToggle: () => {}, themeMode: "light" },
+  args: {
+    onThemeToggle: () => {},
+    themeMode: "light",
+    onNavigate: (url: string) => {},
+  },
 };
