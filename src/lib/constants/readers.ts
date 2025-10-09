@@ -1,5 +1,5 @@
 import { ReaderConfig } from "@/lib/types/readers";
-import { Reader } from "@/components/ReaderGrid/ReaderList";
+import { Reader } from "@/components/ReaderGrid/ReaderGrid";
 
 export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
   ["adele"]: {

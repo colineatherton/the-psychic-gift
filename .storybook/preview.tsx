@@ -1,3 +1,4 @@
+import "../src/app/globals.css";
 import type { Preview } from "@storybook/nextjs-vite";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { getTheme } from "../src/app/theme"; // adjust path if needed

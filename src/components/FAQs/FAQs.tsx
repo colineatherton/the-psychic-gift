@@ -17,7 +17,7 @@ interface FAQProps {
   }[];
 }
 
-export default function FAQs({ items }: FAQProps) {
+export function FAQs({ items }: FAQProps) {
   return (
     <Stack direction="column" spacing={4} width="100%">
       <Typography

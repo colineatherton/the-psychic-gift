@@ -16,7 +16,7 @@ interface CTAButtonProps {
   ml?: number;
 }
 
-export default function CTAButton({
+export function CTAButton({
   variant,
   onClick,
   startIcon,

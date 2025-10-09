@@ -32,7 +32,7 @@ export const Default: Story = {
       <div
         style={{
           width: "100%",
-          height: "100vh",
+          height: "200vh",
           background: theme.palette.primary.main,
         }}
       >

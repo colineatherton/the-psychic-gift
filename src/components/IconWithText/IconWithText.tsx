@@ -9,7 +9,7 @@ interface IconWithTextProps {
   body: string;
 }
 
-export default function IconWithText({ src, title, body }: IconWithTextProps) {
+export function IconWithText({ src, title, body }: IconWithTextProps) {
   return (
     <>
       <img

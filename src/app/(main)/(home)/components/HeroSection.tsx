@@ -1,7 +1,7 @@
 "use client";
 
 import theme from "@/app/theme";
-import CTAButton from "@/components/CTAButton/CTAButton";
+import { CTAButton } from "@/components/CTAButton/CTAButton";
 import { CTA_PRIMARY_LABEL } from "@/lib/constants/Messages";
 import { Box, Container, Grid, Typography } from "@mui/material";
 

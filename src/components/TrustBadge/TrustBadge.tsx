@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-export default function TrustBadge({ src }: { src: string }) {
+export function TrustBadge({ src }: { src: string }) {
   return (
     <Box
       sx={{

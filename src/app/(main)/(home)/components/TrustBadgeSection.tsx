@@ -1,4 +1,4 @@
-import TrustBadge from "@/components/TrustBadge/TrustBadge";
+import { TrustBadge } from "@/components/TrustBadge/TrustBadge";
 import { Stack } from "@mui/material";
 
 export default function TrustBadgeSection() {

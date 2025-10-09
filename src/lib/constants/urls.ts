@@ -1,9 +1,7 @@
 export const PAGES = [
-  { label: "Offers", path: "/offers" },
   { label: "Our Psychics", path: "/psychic-readers" },
   { label: "About", path: "/about" },
   { label: "How It Works", path: "/how-psychic-readings-work" },
-  { label: "Testimonials", path: "/psychic-readings-testimonials" },
   { label: "Contact", path: "/contact" },
 ];
 

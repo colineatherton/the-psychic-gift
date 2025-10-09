@@ -1,6 +1,6 @@
 "use client";
 
-import CTAButton from "@/components/CTAButton/CTAButton";
+import { CTAButton } from "@/components/CTAButton/CTAButton";
 import { CTA_PRIMARY_LABEL } from "@/lib/constants/Messages";
 import { Grid, Stack, Typography } from "@mui/material";
 

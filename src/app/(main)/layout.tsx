@@ -3,7 +3,7 @@
 import "../globals.css";
 
 import { AppBar } from "@/components/AppBar/AppBar";
-import OfferBanner from "@/components/OfferBanner/OfferBanner";
+import { OfferBanner } from "@/components/OfferBanner/OfferBanner";
 import { ReaderFeedProvider } from "@/lib/context/ReaderFeedContext";
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";

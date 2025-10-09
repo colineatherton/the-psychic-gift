@@ -16,7 +16,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "@mui/material/styles";
-import CTAButton from "../CTAButton/CTAButton";
+import { CTAButton } from "../CTAButton/CTAButton";
 
 type ReaderCardProps = {
   name: string;

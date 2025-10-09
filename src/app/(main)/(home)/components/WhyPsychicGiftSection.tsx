@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Grid, Stack, Typography } from "@mui/material";
-import IconWithText from "@/components/IconWithText/IconWithText";
+import { IconWithText } from "@/components/IconWithText/IconWithText";
 import theme from "@/app/theme";
 
 export default function WhyPsychicGiftSection() {

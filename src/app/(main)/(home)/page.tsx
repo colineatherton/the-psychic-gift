@@ -1,8 +1,8 @@
-import FAQs from "@/components/FAQs/FAQs";
-import LinkCard from "@/components/LinkCard/LinkCard";
-import PageContainer from "@/components/PageContainer/PageContainer";
-import PageSection from "@/components/PageSection/PageSection";
-import { ReaderGrid } from "@/components/ReaderGrid/ReaderList";
+import { FAQs } from "@/components/FAQs/FAQs";
+import { LinkCard } from "@/components/LinkCard/LinkCard";
+import { PageContainer } from "@/components/PageContainer/PageContainer";
+import { PageSection } from "@/components/PageSection/PageSection";
+import { ReaderGrid } from "@/components/ReaderGrid/ReaderGrid";
 import {
   ALL_ABILITIES,
   ALL_SKILLS,

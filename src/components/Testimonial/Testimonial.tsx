@@ -10,7 +10,7 @@ interface TestimonialProps {
   pin: string;
 }
 
-export default function Testimonial({
+export function Testimonial({
   clientName,
   quote,
   reader,

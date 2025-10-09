@@ -1,7 +1,7 @@
 "use client";
 
 import theme from "@/app/theme";
-import NumberWithText from "@/components/NumberWithText/NumberWithText";
+import { NumberWithText } from "@/components/NumberWithText/NumberWithText";
 import { Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 

@@ -1,6 +1,6 @@
 import { Box, Button } from "@mui/material";
 
-export default function StickyCTA({
+export function StickyCTA({
   label,
   onClick,
 }: {
