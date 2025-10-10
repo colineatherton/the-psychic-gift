@@ -1,5 +1,6 @@
+import { HoverMenu } from "@/components";
 import { PAGES, READING_PAGES } from "@/lib/constants/urls";
-import { Grid } from "@mui/material";
+import { Badge, Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +10,6 @@ import {
   StyledNavCTAButton,
   StyledNavLink,
 } from "./DesktopAppBar.styles";
-import { HoverMenu } from "@/components";
 
 interface DesktopAppBarProps {
   themeMode: "light" | "dark";
@@ -17,6 +17,13 @@ interface DesktopAppBarProps {
   onNavigate: (url: string) => void;
 }
 
+// use regular image for logo
+// use proper toolbar?
+// align all nav content
+// shrink when needed
+// mobile view
+// solid on scroll
+// layout story to show scroll effect in action
 export function DesktopAppBar({
   themeMode,
   onThemeToggle,
@@ -66,9 +73,11 @@ export function DesktopAppBar({
             </Grid>
             <Grid marginLeft="auto">
               <ThemeToggle onClick={onThemeToggle} initial={themeMode} />
-              <StyledNavCTAButton variant="contained" size="small">
-                Find your psychic
-              </StyledNavCTAButton>
+              <Badge badgeContent={17} color="error">
+                <StyledNavCTAButton variant="contained" size="small">
+                  Find your psychic
+                </StyledNavCTAButton>
+              </Badge>
             </Grid>
           </Grid>
         </Grid>

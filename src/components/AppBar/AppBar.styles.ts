@@ -5,6 +5,7 @@ import { styled } from "@mui/material/styles";
 export const StyledAppBar = styled(MUIAppBar)(({ theme }) => ({
   marginTop: 0,
   borderBottom: `1px solid ${theme.palette.secondary.light}`,
+  background: "transparent",
   //   color: theme.palette.text.primary,
   //   ".MuiBox-root p, .MuiBox-root button": {
   //     color: theme.palette.text.primary,
