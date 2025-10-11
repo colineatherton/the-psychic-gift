@@ -24,6 +24,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 } */
 
+@keyframes gold-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 6px rgba(245, 199, 140, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(245, 199, 140, 0.8);
+    transform: scale(1.05);
+  }
+}
+
 html {
   background-color: #a99fd1; /* primary palette light */
 }

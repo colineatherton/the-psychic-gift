@@ -5,18 +5,24 @@ import { createTheme } from "@mui/material/styles";
 import { common } from "@mui/material/colors";
 
 declare module "@mui/material/styles" {
-  interface Theme {
+  interface Palette {
     status: {
       online: string;
       busy: string;
       offline: string;
     };
+    accent: {
+      primary: string;
+    };
   }
-  interface ThemeOptions {
+  interface PaletteOptions {
     status?: {
       online?: string;
       busy?: string;
       offline?: string;
+    };
+    accent?: {
+      primary?: string;
     };
   }
 }
@@ -89,11 +95,15 @@ export function getTheme(mode: "light" | "dark" = "light") {
         white: common.white,
         black: common.black,
       },
-    },
-    status: {
-      online: "#00c853",
-      busy: "#ffa000",
-      offline: "#b0bec5",
+      status: {
+        online: "#00c853",
+        busy: "#ffa000",
+        offline: "#b0bec5",
+      },
+      accent: {
+        // primary: "#ffaf01", // classic gold
+        primary: "#b29434", // classic gold
+      },
     },
   });
 }

@@ -63,7 +63,10 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
       <CardHeader
         avatar={
           <Stack direction="row" alignItems="center" spacing={0.5}>
-            <CircleIcon fontSize="small" sx={{ color: theme.status[status] }} />
+            <CircleIcon
+              fontSize="small"
+              sx={{ color: theme.palette.status[status] }}
+            />
             <Typography
               fontFamily="Montserrat Variable, sans-serif"
               fontWeight={500}

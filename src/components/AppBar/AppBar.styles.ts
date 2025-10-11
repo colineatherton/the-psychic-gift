@@ -1,14 +1,50 @@
+import MenuIcon from "@mui/icons-material/Menu";
+import { Badge } from "@mui/material";
 import MUIAppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
-import { styled } from "@mui/material/styles";
+import { alpha, styled } from "@mui/material/styles";
 
 export const StyledAppBar = styled(MUIAppBar)(({ theme }) => ({
   marginTop: 0,
-  borderBottom: `1px solid ${theme.palette.secondary.light}`,
-  background: "transparent",
-  //   color: theme.palette.text.primary,
-  //   ".MuiBox-root p, .MuiBox-root button": {
-  //     color: theme.palette.text.primary,
-  //     fontSize: "1rem",
-  //   },
+  borderBottom: `1px solid ${theme.palette.accent.primary}`,
+  backdropFilter: "blur(8px)",
+  background: alpha(theme.palette.primary.main, 0.8),
+}));
+
+export const StyledNavLink = styled(Button)`
+  text-transform: none;
+  margin-top: 2;
+  margin-bottom: 2;
+  color: white;
+  font-weight: 500;
+`;
+
+export const StyledNavCTAButton = styled(Button)(({ theme }) => ({
+  textTransform: "none",
+  borderRadius: theme.spacing(8),
+  backgroundColor: theme.palette.primary.dark,
+  paddingLeft: theme.spacing(3),
+  paddingRight: theme.spacing(3),
+  marginLeft: theme.spacing(2),
+}));
+
+export const StyledImg = styled("img")(() => ({
+  width: "100%",
+  maxHeight: "120px",
+  display: "block",
+  height: "auto",
+}));
+
+export const StyledBadge = styled(Badge)(({ theme }) => ({
+  "& .MuiBadge-badge": {
+    backgroundColor: theme.palette.accent.primary,
+    color: theme.palette.common.white,
+    animation: "gold-pulse 2.8s ease-in-out infinite",
+    top: "-10px",
+    right: "-10px",
+  },
+}));
+
+export const StyledMenuIcon = styled(MenuIcon)(({ theme }) => ({
+  color: theme.palette.common.white,
 }));
