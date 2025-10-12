@@ -1,23 +1,67 @@
 import MenuIcon from "@mui/icons-material/Menu";
-import { Badge } from "@mui/material";
+import { Badge, Container } from "@mui/material";
 import MUIAppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import { alpha, styled } from "@mui/material/styles";
 
 export const StyledAppBar = styled(MUIAppBar)(({ theme }) => ({
   marginTop: 0,
-  borderBottom: `1px solid ${theme.palette.accent.primary}`,
+  // borderBottom: `1px solid ${theme.palette.accent.primary}`,
   backdropFilter: "blur(8px)",
   background: alpha(theme.palette.primary.main, 0.8),
 }));
 
-export const StyledNavLink = styled(Button)`
-  text-transform: none;
-  margin-top: 2;
-  margin-bottom: 2;
-  color: white;
-  font-weight: 500;
-`;
+export const StyledContainer = styled(Container)(({ theme }) => ({
+  // marginTop: 0,
+  // borderBottom: `1px solid ${theme.palette.primary.light}`,
+  // borderBottom: `1px solid ${theme.palette.accent.primary}`,
+  backdropFilter: "blur(8px)",
+  background: alpha(theme.palette.primary.main, 0.8),
+}));
+
+export const StyledLinksContainer = styled(Container)(({ theme }) => ({
+  // marginTop: 0,
+  // borderBottom: `1px solid ${theme.palette.accent.primary}`,
+  borderTop: `1px solid ${theme.palette.primary.light}`,
+  borderBottom: `1px solid ${theme.palette.primary.light}`,
+  backdropFilter: "blur(8px)",
+  background: alpha(theme.palette.primary.dark, 0.8),
+}));
+
+export const StyledNavLink = styled(Button)(({ theme }) => ({
+  textTransform: "none",
+  // marginTop: theme.spacing(2),
+  // marginBottom: theme.spacing(2),
+  color: "white",
+  fontWeight: 500,
+  position: "relative",
+  paddingLeft: theme.spacing(2),
+  paddingRight: theme.spacing(2),
+  "&:hover": {
+    // color: "#fff",
+    color: "#fff",
+  },
+  "&::after": {
+    content: '""',
+    position: "absolute",
+    left: "50%",
+    bottom: -1,
+    transform: "translateX(-50%)",
+    width: 0,
+    height: 2,
+    background: "gold",
+    boxShadow: `0 0 8px ${theme.palette.accent.primary}`,
+    transition: "width 220ms ease",
+    borderRadius: 2,
+  },
+  "&:hover::after, &.Mui-selected::after, &:focus-visible::after": {
+    width: "80%",
+  },
+  "@media (prefers-reduced-motion: reduce)": {
+    transition: "none",
+    "&::after": { transition: "none" },
+  },
+}));
 
 export const StyledNavCTAButton = styled(Button)(({ theme }) => ({
   textTransform: "none",

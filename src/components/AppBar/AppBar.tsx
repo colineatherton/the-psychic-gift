@@ -10,7 +10,9 @@ import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
 import {
   StyledAppBar,
   StyledBadge,
+  StyledContainer,
   StyledImg,
+  StyledLinksContainer,
   StyledMenuIcon,
   StyledNavCTAButton,
   StyledNavLink,
@@ -35,20 +37,23 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
   // the thing container the image and the hambuger need to shrink properly
   // add the mobile menu
   return (
-    <StyledAppBar position="fixed" elevation={0}>
-      <Container maxWidth="lg">
-        <Box sx={{ width: "100%", px: 0, py: 0 }}>
-          <Grid container alignItems="center">
-            <Box sx={{ width: "100%", maxWidth: { xs: 150, sm: 265 } }}>
-              <StyledImg
-                src="/logo-gold-star.png"
-                alt="The Psychic Gift Logo"
-              />
-            </Box>
-            {/* use gold for dark mode */}
-            {mounted && (
-              <>
-                <Grid
+    <>
+      <StyledAppBar position="fixed" elevation={0}>
+        <StyledContainer maxWidth="lg">
+          <Box sx={{ width: "100%", px: 0, py: 0 }}>
+            <Grid container alignItems="center">
+              <Box
+                sx={{ width: "100%", maxWidth: { xs: 150, sm: 265 }, my: 2 }}
+              >
+                <StyledImg
+                  src="/logo-gold-star.png"
+                  alt="The Psychic Gift Logo"
+                />
+              </Box>
+              {/* use gold for dark mode */}
+              {mounted && (
+                <>
+                  {/* <Grid
                   flexGrow={1}
                   textAlign="center"
                   justifyContent="center"
@@ -83,36 +88,75 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                       ))}
                     </>
                   )}
-                </Grid>
-                <Grid marginLeft="auto">
-                  {!showMenuIconOnly && (
-                    <>
-                      <ThemeToggle
-                        onClick={onThemeToggle}
-                        initial={themeMode}
-                      />
-                      <StyledBadge badgeContent={17}>
-                        <StyledNavCTAButton variant="contained" size="small">
-                          Find your psychic
-                        </StyledNavCTAButton>
-                      </StyledBadge>
-                    </>
-                  )}
-                  {!showFullMenu && (
-                    <Box marginLeft={2} display="inline">
-                      <Tooltip title="Open menu">
-                        <IconButton aria-label="toggle theme" size="large">
-                          <StyledMenuIcon fontSize="large" />
-                        </IconButton>
-                      </Tooltip>
-                    </Box>
-                  )}
-                </Grid>
+                </Grid> */}
+                  <Grid marginLeft="auto">
+                    {!showMenuIconOnly && (
+                      <>
+                        <ThemeToggle
+                          onClick={onThemeToggle}
+                          initial={themeMode}
+                        />
+                        <StyledBadge badgeContent={17}>
+                          <StyledNavCTAButton variant="contained" size="small">
+                            Find your psychic
+                          </StyledNavCTAButton>
+                        </StyledBadge>
+                      </>
+                    )}
+                    {!showFullMenu && (
+                      <Box marginLeft={2} display="inline">
+                        <Tooltip title="Open menu">
+                          <IconButton aria-label="toggle theme" size="large">
+                            <StyledMenuIcon fontSize="large" />
+                          </IconButton>
+                        </Tooltip>
+                      </Box>
+                    )}
+                  </Grid>
+                </>
+              )}
+            </Grid>
+          </Box>
+        </StyledContainer>
+        <StyledLinksContainer maxWidth={false}>
+          <Grid
+            flexGrow={1}
+            textAlign="center"
+            justifyContent="center"
+            gap={2}
+            display="flex"
+          >
+            {showFullMenu && (
+              <>
+                <HoverMenu
+                  TriggerEl={
+                    <StyledNavLink variant="text" size="large">
+                      Phone readings
+                    </StyledNavLink>
+                  }
+                  items={READING_PAGES.map((page) => ({
+                    label: page.label,
+                    onClick: () => onNavigate(page.path),
+                  }))}
+                  gap={3}
+                  delay={600}
+                />
+                {PAGES.map((page) => (
+                  <Link key={page.label} href={page.path}>
+                    <StyledNavLink
+                      variant="text"
+                      onClick={() => onNavigate(page.path)}
+                      size="large"
+                    >
+                      {page.label}
+                    </StyledNavLink>
+                  </Link>
+                ))}
               </>
             )}
           </Grid>
-        </Box>
-      </Container>
-    </StyledAppBar>
+        </StyledLinksContainer>
+      </StyledAppBar>
+    </>
   );
 }
