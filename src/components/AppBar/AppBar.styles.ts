@@ -7,8 +7,8 @@ import { alpha, styled } from "@mui/material/styles";
 export const StyledAppBar = styled(MUIAppBar)(({ theme }) => ({
   zIndex: theme.zIndex.drawer + 1, // Ensure AppBar is above the Drawer backdrop
   marginTop: 0,
-  backdropFilter: "blur(8px)", // Optional: Add a blur effect
-  background: alpha(theme.palette.primary.main, 0.8),
+  // backdropFilter: "blur(8px)", // Optional: Add a blur effect
+  // background: alpha(theme.palette.primary.main, 0.8),
   // boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
 }));
 
@@ -16,8 +16,8 @@ export const StyledContainer = styled(Container)(({ theme }) => ({
   // marginTop: 0,
   // borderBottom: `1px solid ${theme.palette.primary.light}`,
   // borderBottom: `1px solid ${theme.palette.accent.primary}`,
-  backdropFilter: "blur(8px)",
-  background: alpha(theme.palette.primary.main, 0.8),
+  // backdropFilter: "blur(8px)",
+  // background: alpha(theme.palette.primary.main, 0.8),
 }));
 
 export const StyledLinksContainer = styled(Container)(({ theme }) => ({
@@ -25,8 +25,8 @@ export const StyledLinksContainer = styled(Container)(({ theme }) => ({
   // borderBottom: `1px solid ${theme.palette.accent.primary}`,
   borderTop: `1px solid ${theme.palette.primary.light}`,
   borderBottom: `1px solid ${theme.palette.primary.light}`,
-  backdropFilter: "blur(8px)",
-  background: alpha(theme.palette.primary.dark, 0.8),
+  // backdropFilter: "blur(8px)",
+  // background: alpha(theme.palette.primary.dark, 0.8),
 }));
 
 export const StyledNavLink = styled(Button)(({ theme }) => ({
