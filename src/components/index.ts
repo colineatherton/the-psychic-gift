@@ -1,7 +1,7 @@
 export { AppBar } from "./AppBar/AppBar";
 export { HoverMenu } from "./HoverMenu/HoverMenu";
 export { ReaderCard } from "./ReaderCard/ReaderCard";
-export { ThemeToggle } from "./ThemeToggle/ThemeToggle";
+export { IconToggle } from "./IconToggle/IconToggle";
 export { CTAButton } from "./CTAButton/CTAButton";
 export { FAQs } from "./FAQs/FAQs";
 export { IconWithText } from "./IconWithText/IconWithText";

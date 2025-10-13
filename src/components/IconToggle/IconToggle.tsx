@@ -1,54 +1,39 @@
-import { DarkModeRounded, WbSunnyRounded } from "@mui/icons-material";
 import { Box, IconButton, Tooltip } from "@mui/material";
 import { ReactNode, useState } from "react";
 
-type ThemeId = "light" | "dark" | "halloween" | "winter" | "spring";
-
-const themeList: {
-  id: ThemeId;
-  label: string;
-  color: string;
-  icon: ReactNode;
-}[] = [
-  {
-    id: "light",
-    label: "Light mode",
-    color: "#F5C78C", // should prob be the light palette main
-    icon: <WbSunnyRounded fontSize="small" />,
-  },
-  {
-    id: "dark",
-    label: "Dark mode",
-    color: "#745ddd", // should prob be the dark palette main
-    icon: <DarkModeRounded fontSize="small" />,
-  },
-];
-
-export const ThemeToggle = ({
+export const IconToggle = <T,>({
   onClick,
-  initial = "dark",
+  initial,
+  iconList,
 }: {
-  onClick?: (id: ThemeId) => void;
-  initial?: ThemeId;
+  onClick?: (id: T) => void;
+  initial: T;
+  iconList: {
+    id: T;
+    label: string;
+    color: string;
+    icon: ReactNode;
+    glow?: boolean;
+  }[];
 }) => {
   const initialIndex = Math.max(
     0,
-    themeList.findIndex((t) => t.id === initial)
+    iconList.findIndex((t) => t.id === initial),
   );
   const [index, setIndex] = useState(initialIndex >= 0 ? initialIndex : 0);
   const [angle, setAngle] = useState(0); // accumulative rotation angle
 
-  const theme = themeList[index];
+  const icon = iconList[index];
 
   const cycleTheme = () => {
-    const next = (index + 1) % themeList.length;
+    const next = (index + 1) % iconList.length;
     setIndex(next);
     setAngle((a) => (a ? 0 : 360));
-    onClick?.(themeList[next].id);
+    onClick?.(iconList[next].id);
   };
 
   return (
-    <Tooltip title={theme.label}>
+    <Tooltip title={icon.label}>
       <IconButton
         aria-label="toggle theme"
         onClick={cycleTheme}
@@ -58,16 +43,16 @@ export const ThemeToggle = ({
           borderRadius: "50%",
           border: "1px solid rgba(255,255,255,0.15)",
           background: "rgba(255,255,255,0.05)",
-          color: theme.color,
+          color: icon.color,
           transition:
             "box-shadow 0.4s ease, background 0.3s ease, transform 0.2s ease",
           "&:hover": {
             background: "rgba(255,255,255,0.10)",
-            boxShadow: `0 0 12px ${theme.color}60`,
+            boxShadow: icon.glow ? `0 0 12px ${icon.color}60` : "none",
           },
           "&:active": {
             transform: "scale(0.95)",
-            boxShadow: `0 0 18px ${theme.color}90`,
+            boxShadow: `0 0 18px ${icon.color}90`,
           },
           // soft radial flash on click
           "&::after": {
@@ -75,7 +60,7 @@ export const ThemeToggle = ({
             position: "absolute",
             inset: -4,
             borderRadius: "inherit",
-            background: `radial-gradient(circle, ${theme.color}30 0%, transparent 60%)`,
+            background: `radial-gradient(circle, ${icon.color}30 0%, transparent 60%)`,
             opacity: 0,
             transition: "opacity 0.4s ease",
           },
@@ -97,7 +82,7 @@ export const ThemeToggle = ({
             transform: `rotate(${angle}deg)`,
           }}
         >
-          {theme.icon}
+          {icon.icon}
         </Box>
       </IconButton>
     </Tooltip>

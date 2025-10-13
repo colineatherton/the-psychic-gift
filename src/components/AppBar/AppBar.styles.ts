@@ -5,10 +5,11 @@ import Button from "@mui/material/Button";
 import { alpha, styled } from "@mui/material/styles";
 
 export const StyledAppBar = styled(MUIAppBar)(({ theme }) => ({
+  zIndex: theme.zIndex.drawer + 1, // Ensure AppBar is above the Drawer backdrop
   marginTop: 0,
-  // borderBottom: `1px solid ${theme.palette.accent.primary}`,
-  backdropFilter: "blur(8px)",
+  backdropFilter: "blur(8px)", // Optional: Add a blur effect
   background: alpha(theme.palette.primary.main, 0.8),
+  // boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
 }));
 
 export const StyledContainer = styled(Container)(({ theme }) => ({
@@ -87,8 +88,4 @@ export const StyledBadge = styled(Badge)(({ theme }) => ({
     top: "-10px",
     right: "-10px",
   },
-}));
-
-export const StyledMenuIcon = styled(MenuIcon)(({ theme }) => ({
-  color: theme.palette.common.white,
 }));

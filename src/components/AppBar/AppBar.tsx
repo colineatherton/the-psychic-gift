@@ -1,23 +1,58 @@
 "use client";
-import MenuIcon from "@mui/icons-material/Menu";
-import { HoverMenu } from "@/components";
+
+import { HoverMenu, IconToggle } from "@/components";
 import { PAGES, READING_PAGES } from "@/lib/constants/urls";
-import { Grid, IconButton, Tooltip, useMediaQuery } from "@mui/material";
+import { DarkModeRounded, WbSunnyRounded } from "@mui/icons-material";
+import CloseIcon from "@mui/icons-material/Close";
+import { Grid, useMediaQuery } from "@mui/material";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import Link from "next/link";
-import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
+import { useEffect, useRef, useState } from "react";
 import {
   StyledAppBar,
   StyledBadge,
   StyledContainer,
   StyledImg,
   StyledLinksContainer,
-  StyledMenuIcon,
   StyledNavCTAButton,
   StyledNavLink,
 } from "./AppBar.styles";
-import { useEffect, useState } from "react";
+import { MobileDrawer } from "./MobileMenu/MobileMenu";
+import MenuIcon from "@mui/icons-material/Menu";
+
+import theme from "@/app/theme";
+
+const menuIcons = [
+  {
+    id: "open",
+    label: "Open menu",
+    color: theme.palette.common.white,
+    icon: <MenuIcon fontSize="large" />,
+  },
+  {
+    id: "close",
+    label: "Close menu",
+    color: theme.palette.common.white,
+    icon: <CloseIcon fontSize="large" />,
+  },
+];
+
+const themeIcons = [
+  {
+    id: "light",
+    label: "Light mode",
+    color: "#F5C78C", // should prob be the light palette main
+    icon: <WbSunnyRounded fontSize="small" />,
+    glow: true,
+  },
+  {
+    id: "dark",
+    label: "Dark mode",
+    color: "#745ddd", // should prob be the dark palette main
+    icon: <DarkModeRounded fontSize="small" />,
+    glow: true,
+  },
+];
 
 interface AppBarProps {
   themeMode: "light" | "dark";
@@ -27,18 +62,46 @@ interface AppBarProps {
 
 export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
   const [mounted, setMounted] = useState(false);
-  const showFullMenu = useMediaQuery("(min-width:1062px)");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [drawerTopOffset, setDrawerTopOffset] = useState(0);
+  const appBarRef = useRef<HTMLDivElement>(null);
+  const drawerAnchorRef = useRef<HTMLDivElement>(null);
+
+  const showFullMenu = useMediaQuery("(min-width:650px)");
   const showMenuIconOnly = useMediaQuery("(max-width:475px)");
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // the thing container the image and the hambuger need to shrink properly
-  // add the mobile menu
+  useEffect(() => {
+    if (showFullMenu) {
+      setMobileMenuOpen(false);
+    }
+  }, [showFullMenu]);
+
+  useEffect(() => {
+    const updateOffset = () => {
+      const top = drawerAnchorRef.current?.getBoundingClientRect().top ?? 0;
+      setDrawerTopOffset(Math.floor(top));
+    };
+    updateOffset();
+
+    const ro = new ResizeObserver(updateOffset);
+    if (appBarRef.current) ro.observe(appBarRef.current);
+
+    window.addEventListener("resize", updateOffset);
+    window.addEventListener("orientationchange", updateOffset);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", updateOffset);
+      window.removeEventListener("orientationchange", updateOffset);
+    };
+  }, []);
+
   return (
     <>
-      <StyledAppBar position="fixed" elevation={0}>
+      <StyledAppBar position="fixed" elevation={0} ref={appBarRef}>
         <StyledContainer maxWidth="lg">
           <Box sx={{ width: "100%", px: 0, py: 0 }}>
             <Grid container alignItems="center">
@@ -53,48 +116,13 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
               {/* use gold for dark mode */}
               {mounted && (
                 <>
-                  {/* <Grid
-                  flexGrow={1}
-                  textAlign="center"
-                  justifyContent="center"
-                  gap={2}
-                  display="flex"
-                >
-                  {showFullMenu && (
-                    <>
-                      <HoverMenu
-                        TriggerEl={
-                          <StyledNavLink variant="text" size="large">
-                            Phone readings
-                          </StyledNavLink>
-                        }
-                        items={READING_PAGES.map((page) => ({
-                          label: page.label,
-                          onClick: () => onNavigate(page.path),
-                        }))}
-                        gap={3}
-                        delay={600}
-                      />
-                      {PAGES.map((page) => (
-                        <Link key={page.label} href={page.path}>
-                          <StyledNavLink
-                            variant="text"
-                            onClick={() => onNavigate(page.path)}
-                            size="large"
-                          >
-                            {page.label}
-                          </StyledNavLink>
-                        </Link>
-                      ))}
-                    </>
-                  )}
-                </Grid> */}
                   <Grid marginLeft="auto">
                     {!showMenuIconOnly && (
                       <>
-                        <ThemeToggle
+                        <IconToggle
                           onClick={onThemeToggle}
                           initial={themeMode}
+                          iconList={themeIcons}
                         />
                         <StyledBadge badgeContent={17}>
                           <StyledNavCTAButton variant="contained" size="small">
@@ -104,12 +132,12 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                       </>
                     )}
                     {!showFullMenu && (
-                      <Box marginLeft={2} display="inline">
-                        <Tooltip title="Open menu">
-                          <IconButton aria-label="toggle theme" size="large">
-                            <StyledMenuIcon fontSize="large" />
-                          </IconButton>
-                        </Tooltip>
+                      <Box marginLeft={4} display="inline">
+                        <IconToggle
+                          onClick={() => setMobileMenuOpen((v) => !v)}
+                          initial="open"
+                          iconList={menuIcons}
+                        />
                       </Box>
                     )}
                   </Grid>
@@ -156,7 +184,14 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
             )}
           </Grid>
         </StyledLinksContainer>
+        {/* Sentinel element at the very bottom of the AppBar */}
+        <Box ref={drawerAnchorRef} sx={{ height: 0 }} />
       </StyledAppBar>
+      <MobileDrawer
+        open={mobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
+        topOffset={drawerTopOffset}
+      />
     </>
   );
 }
