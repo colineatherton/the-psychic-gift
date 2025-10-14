@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
   StyledAppBar,
+  StyledAppBarContainer,
   StyledBadge,
   StyledContainer,
   StyledImg,
@@ -102,50 +103,55 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
   return (
     <>
       <StyledAppBar position="fixed" elevation={0} ref={appBarRef}>
-        <StyledContainer maxWidth="lg">
-          <Box sx={{ width: "100%", px: 0, py: 0 }}>
-            <Grid container alignItems="center">
-              <Box
-                sx={{ width: "100%", maxWidth: { xs: 150, sm: 265 }, my: 2 }}
-              >
-                <StyledImg
-                  src="/logo-gold-star.png"
-                  alt="The Psychic Gift Logo"
-                />
-              </Box>
-              {/* use gold for dark mode */}
-              {mounted && (
-                <>
-                  <Grid marginLeft="auto">
-                    {!showMenuIconOnly && (
-                      <>
-                        <IconToggle
-                          onClick={onThemeToggle}
-                          initial={themeMode}
-                          iconList={themeIcons}
-                        />
-                        <StyledBadge badgeContent={17}>
-                          <StyledNavCTAButton variant="contained" size="small">
-                            Find your psychic
-                          </StyledNavCTAButton>
-                        </StyledBadge>
-                      </>
-                    )}
-                    {!showFullMenu && (
-                      <Box marginLeft={4} display="inline">
-                        <IconToggle
-                          onClick={() => setMobileMenuOpen((v) => !v)}
-                          initial="open"
-                          iconList={menuIcons}
-                        />
-                      </Box>
-                    )}
-                  </Grid>
-                </>
-              )}
-            </Grid>
-          </Box>
-        </StyledContainer>
+        <StyledAppBarContainer maxWidth={false}>
+          <StyledContainer maxWidth="lg">
+            <Box sx={{ width: "100%", px: 0, py: 0 }}>
+              <Grid container alignItems="center">
+                <Box
+                  sx={{ width: "100%", maxWidth: { xs: 150, sm: 265 }, my: 2 }}
+                >
+                  <StyledImg
+                    src="/logo-gold-star.png"
+                    alt="The Psychic Gift Logo"
+                  />
+                </Box>
+                {/* use gold for dark mode */}
+                {mounted && (
+                  <>
+                    <Grid marginLeft="auto">
+                      {!showMenuIconOnly && (
+                        <>
+                          <IconToggle
+                            onClick={onThemeToggle}
+                            initial={themeMode}
+                            iconList={themeIcons}
+                          />
+                          <StyledBadge badgeContent={17}>
+                            <StyledNavCTAButton
+                              variant="contained"
+                              size="small"
+                            >
+                              Find your psychic
+                            </StyledNavCTAButton>
+                          </StyledBadge>
+                        </>
+                      )}
+                      {!showFullMenu && (
+                        <Box marginLeft={4} display="inline">
+                          <IconToggle
+                            onClick={() => setMobileMenuOpen((v) => !v)}
+                            initial="open"
+                            iconList={menuIcons}
+                          />
+                        </Box>
+                      )}
+                    </Grid>
+                  </>
+                )}
+              </Grid>
+            </Box>
+          </StyledContainer>
+        </StyledAppBarContainer>
         <StyledLinksContainer maxWidth={false}>
           <Grid
             flexGrow={1}

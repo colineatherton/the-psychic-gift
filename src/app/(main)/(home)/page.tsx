@@ -18,6 +18,8 @@ import HowItWorksSection from "./components/HowItWorksSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import TrustBadgeSection from "./components/TrustBadgeSection";
 import WhyPsychicGiftSection from "./components/WhyPsychicGiftSection";
+import Hero from "@/components/HeroSection/HeroSection";
+import HeroGradient from "@/components/HeroSectionGradient/HeroSectionGradient";
 
 // todo: make it better to build a page - make it better on the next pages then refactor this
 export const metadata = {
@@ -42,7 +44,9 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <HeroSection />
+      <HeroGradient />
+      {/* <Hero /> */}
+      {/* <HeroSection /> */}
       <PageSection background="primary.gradient">
         <PageContainer>
           <Grid container height="100%" py={6} width={"100%"}>

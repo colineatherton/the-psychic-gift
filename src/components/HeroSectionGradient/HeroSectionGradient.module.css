@@ -1,0 +1,5 @@
+.particles {
+  position: absolute;
+  inset: 0; /* fills the hero area exactly */
+  pointer-events: none; /* clicks go through to buttons/links */
+}
