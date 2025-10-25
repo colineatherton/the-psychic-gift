@@ -38,7 +38,7 @@ const menuIcons = [
   },
 ];
 
-const themeIcons = [
+export const themeIcons = [
   {
     id: "light",
     label: "Light mode",

@@ -40,7 +40,6 @@ export const lightPalette = {
   primary: {
     main: lightPurple,
     light: lightGrey,
-    // dark: midPurple,
     dark: darkPurple,
   },
   secondary: {
@@ -53,16 +52,14 @@ export const lightPalette = {
     paper: "#fff",
   },
   text: { primary: darkGrey, secondary: lightGrey },
-
-  // text: { primary: "#000" },
 };
 
 export const darkPalette = {
   mode: "dark" as const,
   primary: {
-    main: darkPurple, // #a99fd1, lighter purple for accents
-    light: "#d1c7ee", // even lighter for hover/active
-    dark: darkPurple, // #745ddd, for contrast
+    main: darkPurple,
+    light: "#d1c7ee",
+    dark: darkGrey,
   },
   secondary: {
     main: "#b0bec5", // soft grey-blue for secondary accents
