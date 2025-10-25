@@ -40,6 +40,7 @@ type ReaderGridProps = {
   withFilters?: boolean;
   onlineOnly?: boolean;
   sortBy?: "alpha" | "status";
+  mode?: "default" | "compact";
 };
 
 export const ReaderGrid: React.FC<ReaderGridProps> = ({
@@ -51,6 +52,7 @@ export const ReaderGrid: React.FC<ReaderGridProps> = ({
   withFilters = true,
   onlineOnly = false,
   sortBy: initialSortBy = "alpha",
+  mode = "default",
 }) => {
   const [statusFilter, setStatusFilter] = useState<string | null>(null);
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
@@ -65,21 +67,21 @@ export const ReaderGrid: React.FC<ReaderGridProps> = ({
 
   const handleStatusChange = (
     event: React.MouseEvent<HTMLElement>,
-    newFilter: string | null
+    newFilter: string | null,
   ) => {
     setStatusFilter(newFilter);
   };
 
   const handleSkillToggle = (skill: string) => {
     setSelectedSkills((prev) =>
-      prev.includes(skill) ? prev.filter((s) => s !== skill) : [...prev, skill]
+      prev.includes(skill) ? prev.filter((s) => s !== skill) : [...prev, skill],
     );
   };
 
   const handleSortChange = (
     event:
       | ChangeEvent<Omit<HTMLInputElement, "value"> & { value: string }>
-      | (Event & { target: { value: string; name: string } })
+      | (Event & { target: { value: string; name: string } }),
   ) => {
     // MUI Select passes event as SyntheticEvent with target.value
     const value =
@@ -91,7 +93,7 @@ export const ReaderGrid: React.FC<ReaderGridProps> = ({
   };
 
   const getStatus = (
-    status: number | undefined
+    status: number | undefined,
   ): "offline" | "online" | "busy" => {
     switch (status) {
       case 0:
@@ -271,8 +273,13 @@ export const ReaderGrid: React.FC<ReaderGridProps> = ({
         <Box>
           <Grid container spacing={4}>
             {sorted.map((reader) => (
-              <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={reader.pin}>
-                <ReaderCard {...reader} onCallNow={handleOnCallNow} />
+              <Grid size={{ xs: 12, sm: 6, md: 4, lg: 4 }} key={reader.pin}>
+                {/* <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={reader.pin}> */}
+                <ReaderCard
+                  {...reader}
+                  onCallNow={handleOnCallNow}
+                  mode={mode}
+                />
               </Grid>
             ))}
           </Grid>

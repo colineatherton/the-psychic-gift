@@ -1,12 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { AppBar } from "./AppBar";
+import { ReaderGrid } from "./ReaderGrid";
 import { useTheme } from "@mui/material";
+import {
+  READER_CARDS,
+  ALL_SKILLS,
+  ALL_ABILITIES,
+  ALL_TOOLS,
+  ALL_TOPICS,
+} from "@/lib/constants/readers";
+import { ReaderFeedProvider } from "@/lib/context/ReaderFeedContext";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Navigation/AppBar",
-  component: AppBar,
+  title: "Example/ReaderGrid",
+  component: ReaderGrid,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "fullscreen",
@@ -15,32 +23,25 @@ const meta = {
   tags: ["autodocs"],
   args: {},
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
-} satisfies Meta<typeof AppBar>;
+} satisfies Meta<typeof ReaderGrid>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    onThemeToggle: () => {},
-    themeMode: "light",
-    onNavigate: (url: string) => {},
+    readers: READER_CARDS,
+    allSkills: ALL_SKILLS(),
+    allAbilities: ALL_ABILITIES(),
+    allTools: ALL_TOOLS(),
+    allTopics: ALL_TOPICS(),
   },
   render: (args) => {
     const theme = useTheme();
     return (
-      <div
-        style={{
-          width: "100%",
-          height: "200vh",
-          background: theme.palette.primary.main,
-        }}
-      >
-        <AppBar {...args} />
-      </div>
+      <ReaderFeedProvider>
+        <ReaderGrid {...args} />;
+      </ReaderFeedProvider>
     );
   },
 };
-
-// light mode / dark mode
-// scrolling example

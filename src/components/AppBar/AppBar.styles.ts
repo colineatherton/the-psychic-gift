@@ -90,7 +90,8 @@ export const StyledImg = styled("img")(() => ({
 
 export const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
-    backgroundColor: theme.palette.accent.primary,
+    // backgroundColor: theme.palette.accent.primary,
+    backgroundColor: theme.palette.status.online,
     color: theme.palette.common.white,
     animation: "gold-pulse 2.8s ease-in-out infinite",
     top: "-10px",

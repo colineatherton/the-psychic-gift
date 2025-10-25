@@ -28,6 +28,7 @@ declare module "@mui/material/styles" {
 }
 
 const darkPurple = "#745ddd";
+// const darkPurple = "#483c7b";
 const midPurple = "#8174bb";
 const lightPurple = "#a99fd1";
 const lightGrey = "#f8f7ff";
@@ -37,8 +38,9 @@ const darkGrey = "#274149";
 export const lightPalette = {
   mode: "light" as const,
   primary: {
-    main: midPurple,
-    light: lightPurple,
+    main: lightPurple,
+    light: lightGrey,
+    // dark: midPurple,
     dark: darkPurple,
   },
   secondary: {
@@ -50,7 +52,7 @@ export const lightPalette = {
     default: lightGrey,
     paper: "#fff",
   },
-  text: { primary: lightGrey, secondary: darkGrey },
+  text: { primary: darkGrey, secondary: lightGrey },
 
   // text: { primary: "#000" },
 };
@@ -58,7 +60,7 @@ export const lightPalette = {
 export const darkPalette = {
   mode: "dark" as const,
   primary: {
-    main: lightPurple, // #a99fd1, lighter purple for accents
+    main: darkPurple, // #a99fd1, lighter purple for accents
     light: "#d1c7ee", // even lighter for hover/active
     dark: darkPurple, // #745ddd, for contrast
   },

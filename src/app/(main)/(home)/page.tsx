@@ -59,6 +59,7 @@ export default function Home() {
               withFilters={false}
               onlineOnly={true}
               sortBy="status"
+              mode="compact"
             />
           </Grid>
         </PageContainer>

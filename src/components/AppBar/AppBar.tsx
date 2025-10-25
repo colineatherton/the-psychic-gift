@@ -62,6 +62,7 @@ interface AppBarProps {
 }
 
 export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
+  // available psychics badge count
   const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [drawerTopOffset, setDrawerTopOffset] = useState(0);
