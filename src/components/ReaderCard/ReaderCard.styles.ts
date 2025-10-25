@@ -1,4 +1,5 @@
-import { alpha, Card, styled } from "@mui/material";
+import { Status } from "@/lib/types/readers";
+import { alpha, Card, Chip, styled } from "@mui/material";
 
 export const StyledCard = styled(Card)(({ theme }) => ({
   backdropFilter: "blur(8px)", // Optional: Add a blur effect
@@ -9,11 +10,15 @@ export const StyledCard = styled(Card)(({ theme }) => ({
   flexDirection: "column",
   borderRadius: 18,
   border: `solid 2px ${theme.palette.primary.main}`,
-  // padding: theme.spacing(2),
-  // boxShadow: 4, // default elevation
   "&:hover": {
-    // boxShadow: 10, // higher elevation on hover
-    // boxShadow: "0px 8px 12px rgba(0, 0, 0, 0.4)", // Enhanced shadow on hover for depth
     boxShadow: `0px 8px 12px ${theme.palette.primary.main}`, // Enhanced shadow on hover for depth
   },
+}));
+
+export const StyledChip = styled(Chip)<{
+  $status: Status;
+}>(({ theme, $status }) => ({
+  animation: $status === Status.online ? "pulse-subtle 2s infinite" : "none",
+  "--pulse-color": theme.palette.status[$status],
+  backgroundColor: theme.palette.status[$status],
 }));

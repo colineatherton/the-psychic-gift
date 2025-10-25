@@ -1,32 +1,26 @@
 "use client";
 
-import CircleIcon from "@mui/icons-material/Circle";
 import PhoneIcon from "@mui/icons-material/Phone";
 import {
   Avatar,
-  Badge,
   Box,
   Button,
-  Card,
   CardContent,
   CardHeader,
   Chip,
   Stack,
   Typography,
 } from "@mui/material";
-import Image from "next/image";
-import Link from "next/link";
 import { useTheme } from "@mui/material/styles";
-import { CTAButton } from "../CTAButton/CTAButton";
-import { StyledCard } from "./ReaderCard.styles";
-import FaceIcon from "@mui/icons-material/Face";
-import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
+import Image from "next/image";
+import { StyledCard, StyledChip } from "./ReaderCard.styles";
+import { Status } from "@/lib/types/readers";
 
 type ReaderCardProps = {
   name: string;
   image: string;
   pin: string;
-  status: "online" | "busy" | "offline";
+  status: Status;
   skills: string[];
   callOptions: {
     label: string;
@@ -75,34 +69,10 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
             spacing={0.5}
             width="100%"
           >
-            {/* <Stack
-              direction="row"
-              alignItems="center"
-              spacing={0.5}
-              width={"100%"}
-            >
-              <CircleIcon
-                fontSize="small"
-                sx={{ color: theme.palette.status[status] }}
-              />
-              <Typography
-                width={"100%"}
-                fontFamily="Montserrat Variable, sans-serif"
-                fontWeight={500}
-                fontSize="1rem"
-                // color={theme.palette.secondary.light}
-                // color={theme.palette.status[status]}
-                lineHeight="1"
-                variant="body2"
-                component="p"
-              >
-                {statusLabels[status]}
-              </Typography>
-            </Stack> */}
-            <Chip
+            <StyledChip
               label={statusLabels[status]}
               variant="filled"
-              sx={{ backgroundColor: theme.palette.status[status] }}
+              $status={status}
             />
           </Stack>
         }
@@ -111,14 +81,11 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
         <Box
           display={"flex"}
           justifyContent={"center"}
-          // mt={2}
           mb={2}
           flexDirection={"column"}
           alignItems={"center"}
           sx={{
             background: `linear-gradient(180deg, ${theme.palette.primary.main} 50%, ${theme.palette.primary.light} 50%)`,
-            // display: "relative",
-            // top: -theme.spacing(6),
           }}
         >
           <Avatar
@@ -128,7 +95,6 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
               width: effectiveImgSize,
               height: effectiveImgSize,
               border: (theme) => `solid 2px ${theme.palette.primary.main}`,
-              // mb: 2,
             }}
           >
             <Image
@@ -144,8 +110,6 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
         <Box
           display={"flex"}
           justifyContent={"center"}
-          // mt={2}
-          // mb={2}
           py={mode === "compact" ? 1 : 4}
           px={4}
           flexDirection={"column"}
@@ -192,13 +156,6 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
                 label={skill}
                 size="small"
                 sx={{
-                  // backgroundColor: theme.palette.primary.main,
-                  // backgroundColor: theme.palette.primary.dark,
-                  // color: theme.palette.secondary.dark,
-                  // color: theme.palette.secondary.light,
-                  // fontFamily: "Montserrat Variable, sans-serif",
-                  // fontWeight: 500,
-                  // fontWeight: 600,
                   fontSize: mode === "compact" ? "0.8rem" : "1rem",
                   padding: theme.spacing(2, 1),
                   textTransform: "capitalize",
@@ -210,13 +167,6 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
                 label={`+${skills.length - effectiveSkills.length} more`}
                 size="small"
                 sx={{
-                  // backgroundColor: theme.palette.primary.main,
-                  // backgroundColor: theme.palette.primary.dark,
-                  // color: theme.palette.secondary.dark,
-                  // color: theme.palette.secondary.light,
-                  // fontFamily: "Montserrat Variable, sans-serif",
-                  // fontWeight: 500,
-                  // fontWeight: 600,
                   fontSize: mode === "compact" ? "0.8rem" : "1rem",
                   padding: theme.spacing(2, 1),
                   textTransform: "capitalize",
@@ -249,9 +199,6 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
               fontSize: mode === "compact" ? "0.8rem" : "1rem",
             }}
           >
-            {/* Call Options */}
-            {/* View Call Options */}
-            {/* Call {name} */}
             Choose Call Options
           </Button>
 

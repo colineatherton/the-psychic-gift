@@ -17,13 +17,13 @@ import {
 } from "@mui/material";
 import React, { ChangeEvent, useMemo, useState } from "react";
 import { ReaderModal } from "../ReaderModal/ReaderModal";
-import { ReaderConfig } from "@/lib/types/readers";
+import { ReaderConfig, Status } from "@/lib/types/readers";
 
 export type Reader = {
   name: string;
   image: string;
   pin: string;
-  status: "online" | "busy" | "offline";
+  status: Status;
   skills: string[];
   callOptions: {
     label: string;
@@ -92,18 +92,16 @@ export const ReaderGrid: React.FC<ReaderGridProps> = ({
     setSortBy(value);
   };
 
-  const getStatus = (
-    status: number | undefined,
-  ): "offline" | "online" | "busy" => {
+  const getStatus = (status: number | undefined): Status => {
     switch (status) {
       case 0:
-        return "offline";
+        return Status.offline;
       case 1:
-        return "online";
+        return Status.online;
       case 2:
-        return "busy";
+        return Status.busy;
       default:
-        return "online";
+        return Status.online;
     }
   };
 
@@ -112,7 +110,7 @@ export const ReaderGrid: React.FC<ReaderGridProps> = ({
       const apiReader = getReaderByPin(Number(reader.pin));
       return {
         ...reader,
-        status: apiReader ? getStatus(apiReader.status) : "offline",
+        status: apiReader ? getStatus(apiReader.status) : Status.offline,
       };
     });
   }, [readers, getReaderByPin]);
@@ -133,9 +131,12 @@ export const ReaderGrid: React.FC<ReaderGridProps> = ({
     return statusMatch && skillMatch;
   });
 
-  const statusOrder = { online: 0, busy: 1, offline: 2 };
+  const statusOrder: Record<Status, number> = {
+    [Status.online]: 0,
+    [Status.busy]: 1,
+    [Status.offline]: 2,
+  };
 
-  // ↕️ Sort logic
   const sorted = [...filtered].sort((a, b) => {
     if (sortBy === "alpha") return a.name.localeCompare(b.name);
     if (sortBy === "status")

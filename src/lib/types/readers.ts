@@ -23,3 +23,9 @@ export type ReaderFeedItem = {
 export type ReaderFeedResponse = {
   content: ReaderFeedItem[];
 };
+
+export enum Status {
+  online = "online",
+  busy = "busy",
+  offline = "offline",
+}

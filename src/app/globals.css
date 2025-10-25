@@ -36,6 +36,30 @@ body {
   }
 }
 
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 6px var(--pulse-color, rgba(245, 199, 140, 0.5)); /* Default to gold if not set */
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 12px var(--pulse-color, rgba(245, 199, 140, 0.8)); /* Default to gold if not set */
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%,
+  100% {
+    box-shadow: 0 0 6px var(--pulse-color, rgba(245, 199, 140, 0.5)); /* Default to gold if not set */
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 12px var(--pulse-color, rgba(245, 199, 140, 0.8)); /* Default to gold if not set */
+    transform: scale(1.025);
+  }
+}
+
 html {
   background-color: #a99fd1; /* primary palette light */
 }
