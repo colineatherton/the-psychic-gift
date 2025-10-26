@@ -1,5 +1,5 @@
 import { Status } from "@/lib/types/readers";
-import { alpha, Card, Chip, styled } from "@mui/material";
+import { alpha, Card, CardHeader, Chip, styled } from "@mui/material";
 
 export const StyledCard = styled(Card)(({ theme }) => ({
   backdropFilter: "blur(8px)", // Optional: Add a blur effect
@@ -13,6 +13,14 @@ export const StyledCard = styled(Card)(({ theme }) => ({
   "&:hover": {
     boxShadow: `0px 8px 12px ${theme.palette.primary.main}`, // Enhanced shadow on hover for depth
   },
+}));
+
+export const StyledCardHeader = styled(CardHeader)<{
+  mode: "default" | "compact";
+}>(({ theme, mode }) => ({
+  backgroundColor: theme.palette.primary.main,
+  width: "100%",
+  paddingBottom: theme.spacing(mode === "compact" ? 1 : 4),
 }));
 
 export const StyledChip = styled(Chip)<{

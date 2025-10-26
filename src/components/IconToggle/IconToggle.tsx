@@ -1,4 +1,5 @@
-import { Box, IconButton, Tooltip } from "@mui/material";
+"use client";
+import { Box, IconButton, Tooltip, useTheme } from "@mui/material";
 import { ReactNode, useState } from "react";
 
 export const IconToggle = <T,>({
@@ -16,6 +17,8 @@ export const IconToggle = <T,>({
     glow?: boolean;
   }[];
 }) => {
+  const theme = useTheme();
+
   const initialIndex = Math.max(
     0,
     iconList.findIndex((t) => t.id === initial),
@@ -41,8 +44,8 @@ export const IconToggle = <T,>({
         sx={{
           position: "relative",
           borderRadius: "50%",
-          border: "1px solid rgba(255,255,255,0.15)",
-          background: "rgba(255,255,255,0.05)",
+          border: `1px solid ${theme.palette.primary.light}`,
+          background: theme.palette.primary.dark,
           color: icon.color,
           transition:
             "box-shadow 0.4s ease, background 0.3s ease, transform 0.2s ease",

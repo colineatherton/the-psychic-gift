@@ -13,6 +13,8 @@ declare module "@mui/material/styles" {
     };
     accent: {
       primary: string;
+      primaryText: string;
+      primaryHighlight: string;
     };
   }
   interface PaletteOptions {
@@ -23,10 +25,14 @@ declare module "@mui/material/styles" {
     };
     accent?: {
       primary?: string;
+      primaryText?: string;
+      primaryHighlight?: string;
     };
   }
 }
 
+const darkPlum = "#18122B";
+const ctaColor = "#745ddd";
 const darkPurple = "#745ddd";
 // const darkPurple = "#483c7b";
 const midPurple = "#8174bb";
@@ -58,16 +64,16 @@ export const darkPalette = {
   mode: "dark" as const,
   primary: {
     main: darkPurple,
-    light: "#d1c7ee",
-    dark: darkGrey,
+    light: darkPlum,
+    dark: midPurple,
   },
   secondary: {
     main: "#b0bec5", // soft grey-blue for secondary accents
     light: "#cfd8dc",
-    dark: "#78909c",
+    dark: lightGrey,
   },
   background: {
-    default: "#18122B", // deep purple/black for main background
+    default: darkPlum, // deep purple/black for main background
     paper: "#232042", // slightly lighter for cards/panels
   },
   text: {
@@ -100,8 +106,9 @@ export function getTheme(mode: "light" | "dark" = "light") {
         offline: "#b0bec5",
       },
       accent: {
-        // primary: "#ffaf01", // classic gold
-        primary: "#b29434", // classic gold
+        primary: ctaColor,
+        primaryText: lightGrey,
+        primaryHighlight: lightGrey,
       },
     },
   });

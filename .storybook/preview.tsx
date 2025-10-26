@@ -27,7 +27,7 @@ const preview: Preview = {
       return (
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Box sx={{ position: "fixed", top: 16, right: 16, zIndex: 1 }}>
+          <Box sx={{ position: "fixed", bottom: 16, right: 16, zIndex: 1000 }}>
             <IconToggle
               onClick={() => setMode(mode === "light" ? "dark" : "light")}
               initial={mode}

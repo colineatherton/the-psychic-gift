@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 import { IconToggle } from "./IconToggle";
+import { themeIcons } from "../AppBar/AppBar";
 
 const meta = {
   title: "Example/IconToggle",
@@ -18,19 +19,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     initial: "light",
-    iconList: [
-      {
-        id: "light",
-        label: "Light mode",
-        color: "#F5C78C", // should prob be the light palette main
-        icon: "☀️",
-      },
-      {
-        id: "dark",
-        label: "Dark mode",
-        color: "#745ddd", // should prob be the dark palette main
-        icon: "🌙",
-      },
-    ],
+    iconList: themeIcons,
   },
 };

@@ -1,9 +1,10 @@
 "use client";
 
-import { HoverMenu, IconToggle } from "@/components";
+import { HoverMenu, IconToggle, PrimaryCTAButton } from "@/components";
 import { PAGES, READING_PAGES } from "@/lib/constants/urls";
 import { DarkModeRounded, WbSunnyRounded } from "@mui/icons-material";
 import CloseIcon from "@mui/icons-material/Close";
+import MenuIcon from "@mui/icons-material/Menu";
 import { Grid, useMediaQuery } from "@mui/material";
 import Box from "@mui/material/Box";
 import Link from "next/link";
@@ -15,11 +16,9 @@ import {
   StyledContainer,
   StyledImg,
   StyledLinksContainer,
-  StyledNavCTAButton,
   StyledNavLink,
 } from "./AppBar.styles";
 import { MobileDrawer } from "./MobileMenu/MobileMenu";
-import MenuIcon from "@mui/icons-material/Menu";
 
 import theme from "@/app/theme";
 
@@ -109,36 +108,48 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
             <Box sx={{ width: "100%", px: 0, py: 0 }}>
               <Grid container alignItems="center">
                 <Box
-                  sx={{ width: "100%", maxWidth: { xs: 150, sm: 265 }, my: 2 }}
+                  sx={{
+                    width: "100%",
+                    maxWidth: { xs: 150, sm: 240, md: 265 },
+                    my: 2,
+                  }}
                 >
                   <StyledImg
                     src="/logo-gold-star.png"
                     alt="The Psychic Gift Logo"
                   />
                 </Box>
-                {/* use gold for dark mode */}
                 {mounted && (
                   <>
-                    <Grid marginLeft="auto">
+                    <Grid
+                      marginLeft="auto"
+                      container
+                      spacing={1}
+                      alignItems="center"
+                    >
                       {!showMenuIconOnly && (
                         <>
-                          <IconToggle
-                            onClick={onThemeToggle}
-                            initial={themeMode}
-                            iconList={themeIcons}
-                          />
-                          <StyledBadge badgeContent={17}>
-                            <StyledNavCTAButton
-                              variant="contained"
-                              size="small"
-                            >
-                              Find your psychic
-                            </StyledNavCTAButton>
-                          </StyledBadge>
+                          <Grid>
+                            <IconToggle
+                              onClick={onThemeToggle}
+                              initial={themeMode}
+                              iconList={themeIcons}
+                            />
+                          </Grid>
+                          <Grid>
+                            <StyledBadge badgeContent={17}>
+                              <PrimaryCTAButton
+                                size="small"
+                                onClick={() => undefined}
+                                mode="compact"
+                                label="Find Your Psychic"
+                              />
+                            </StyledBadge>
+                          </Grid>
                         </>
                       )}
                       {!showFullMenu && (
-                        <Box marginLeft={4} display="inline">
+                        <Box marginLeft={2} display="inline">
                           <IconToggle
                             onClick={() => setMobileMenuOpen((v) => !v)}
                             initial="open"
@@ -153,7 +164,7 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
             </Box>
           </StyledContainer>
         </StyledAppBarContainer>
-        <StyledLinksContainer maxWidth={false}>
+        <StyledLinksContainer maxWidth={false} $showFullMenu={showFullMenu}>
           <Grid
             flexGrow={1}
             textAlign="center"
@@ -173,7 +184,7 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                     label: page.label,
                     onClick: () => onNavigate(page.path),
                   }))}
-                  gap={3}
+                  gap={1}
                   delay={600}
                 />
                 {PAGES.map((page) => (
@@ -198,6 +209,9 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
         open={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
         topOffset={drawerTopOffset}
+        showMenuIconOnly={showMenuIconOnly}
+        onThemeToggle={onThemeToggle}
+        themeMode={themeMode}
       />
     </>
   );

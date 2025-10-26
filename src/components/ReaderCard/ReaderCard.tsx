@@ -1,20 +1,20 @@
 "use client";
 
+import { Status } from "@/lib/types/readers";
 import PhoneIcon from "@mui/icons-material/Phone";
 import {
   Avatar,
   Box,
   Button,
   CardContent,
-  CardHeader,
   Chip,
   Stack,
   Typography,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Image from "next/image";
-import { StyledCard, StyledChip } from "./ReaderCard.styles";
-import { Status } from "@/lib/types/readers";
+import { StyledCard, StyledCardHeader, StyledChip } from "./ReaderCard.styles";
+import { PrimaryCTAButton } from "..";
 
 type ReaderCardProps = {
   name: string;
@@ -55,12 +55,8 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
 
   return (
     <StyledCard>
-      <CardHeader
-        sx={{
-          backgroundColor: theme.palette.primary.main,
-          width: "100%",
-          paddingBottom: theme.spacing(mode === "compact" ? 1 : 4),
-        }}
+      <StyledCardHeader
+        mode={mode}
         avatar={
           <Stack
             direction="column"
@@ -178,29 +174,14 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
       </CardContent>
       <Box sx={{ p: 2, pt: 0 }}>
         <Stack gap={2}>
-          <Button
+          <PrimaryCTAButton
             size="large"
-            startIcon={<PhoneIcon fontSize="large" />}
-            variant="contained"
             fullWidth={true}
             onClick={() => onCallNow(name.toLocaleLowerCase())}
-            sx={{
-              borderRadius: 8,
-              ...(mode === "compact"
-                ? {}
-                : {
-                    pt: 2,
-                    pb: 2,
-                    px: 2,
-                  }),
-              backgroundColor: theme.palette.primary.dark,
-              border: `1px solid ${theme.palette.background.default}`,
-              color: theme.palette.primary.light,
-              fontSize: mode === "compact" ? "0.8rem" : "1rem",
-            }}
-          >
-            Choose Call Options
-          </Button>
+            mode={mode}
+            icon={<PhoneIcon fontSize="large" />}
+            label="Choose Call Options"
+          />
 
           <Button
             size="large"

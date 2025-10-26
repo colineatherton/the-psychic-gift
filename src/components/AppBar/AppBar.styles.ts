@@ -3,13 +3,11 @@ import { Badge, Container } from "@mui/material";
 import MUIAppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import { alpha, styled } from "@mui/material/styles";
+import { PrimaryCTAButton } from "../PrimaryCTAButton/PrimaryCTAButton";
 
 export const StyledAppBar = styled(MUIAppBar)(({ theme }) => ({
   zIndex: theme.zIndex.drawer + 1, // Ensure AppBar is above the Drawer backdrop
   marginTop: 0,
-  // backdropFilter: "blur(8px)", // Optional: Add a blur effect
-  // background: alpha(theme.palette.primary.main, 0.8),
-  // boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
   background: "transparent",
 }));
 
@@ -20,18 +18,15 @@ export const StyledAppBarContainer = styled(Container)(({ theme }) => ({
 }));
 
 export const StyledContainer = styled(Container)(({ theme }) => ({
-  // marginTop: 0,
-  // borderBottom: `1px solid ${theme.palette.primary.light}`,
-  // borderBottom: `1px solid ${theme.palette.accent.primary}`,
-  // backdropFilter: "blur(8px)",
-  // background: alpha(theme.palette.primary.main, 0.8),
   background: "transparent",
 }));
 
-export const StyledLinksContainer = styled(Container)(({ theme }) => ({
-  // marginTop: 0,
-  // borderBottom: `1px solid ${theme.palette.accent.primary}`,
-  borderTop: `1px solid ${theme.palette.primary.light}`,
+export const StyledLinksContainer = styled(Container)<{
+  $showFullMenu: boolean;
+}>(({ theme, $showFullMenu }) => ({
+  borderTop: $showFullMenu
+    ? `1px solid ${theme.palette.primary.light}`
+    : "none",
   borderBottom: `1px solid ${theme.palette.primary.light}`,
   backdropFilter: "blur(8px)",
   background: alpha(theme.palette.primary.dark, 0.8),
@@ -39,15 +34,12 @@ export const StyledLinksContainer = styled(Container)(({ theme }) => ({
 
 export const StyledNavLink = styled(Button)(({ theme }) => ({
   textTransform: "none",
-  // marginTop: theme.spacing(2),
-  // marginBottom: theme.spacing(2),
   color: "white",
   fontWeight: 500,
   position: "relative",
   paddingLeft: theme.spacing(2),
   paddingRight: theme.spacing(2),
   "&:hover": {
-    // color: "#fff",
     color: "#fff",
   },
   "&::after": {
@@ -90,9 +82,10 @@ export const StyledImg = styled("img")(() => ({
 
 export const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
-    backgroundColor: theme.palette.status.online,
     color: theme.palette.common.white,
-    animation: "gold-pulse 2.8s ease-in-out infinite",
+    animation: "pulse-subtle 2s infinite",
+    "--pulse-color": theme.palette.status.online,
+    backgroundColor: theme.palette.status.online,
     top: "-10px",
     right: "-10px",
   },
