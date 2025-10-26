@@ -9,6 +9,7 @@ import {
   CardContent,
   Chip,
   Stack,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
@@ -50,6 +51,8 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
     0,
     mode === "compact" ? 2 : skills.length,
   );
+
+  const remainingSkills = skills.slice(2, skills.length).join(", ");
 
   const effectiveImgSize = mode === "compact" ? 85 : 100;
 
@@ -159,15 +162,17 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
               />
             ))}
             {mode === "compact" && skills.length > effectiveSkills.length && (
-              <Chip
-                label={`+${skills.length - effectiveSkills.length} more`}
-                size="small"
-                sx={{
-                  fontSize: mode === "compact" ? "0.8rem" : "1rem",
-                  padding: theme.spacing(2, 1),
-                  textTransform: "capitalize",
-                }}
-              />
+              <Tooltip title={remainingSkills}>
+                <Chip
+                  label={`+${skills.length - effectiveSkills.length} more`}
+                  size="small"
+                  sx={{
+                    fontSize: mode === "compact" ? "0.8rem" : "1rem",
+                    padding: theme.spacing(2, 1),
+                    textTransform: "capitalize",
+                  }}
+                />
+              </Tooltip>
             )}
           </Stack>
         </Box>

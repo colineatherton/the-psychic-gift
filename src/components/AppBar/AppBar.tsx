@@ -21,6 +21,7 @@ import {
 import { MobileDrawer } from "./MobileMenu/MobileMenu";
 
 import theme, { darkPlum, lightGrey } from "@/app/theme";
+import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
 
 const menuIcons = [
   {
@@ -61,7 +62,7 @@ interface AppBarProps {
 }
 
 export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
-  // available psychics badge count
+  const { getOnlineReaders } = useReaderFeedContext();
   const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [drawerTopOffset, setDrawerTopOffset] = useState(0);
@@ -137,7 +138,9 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                             />
                           </Grid>
                           <Grid>
-                            <StyledBadge badgeContent={17}>
+                            <StyledBadge
+                              badgeContent={getOnlineReaders().length}
+                            >
                               <PrimaryCTAButton
                                 size="small"
                                 onClick={() => undefined}

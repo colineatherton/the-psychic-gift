@@ -9,6 +9,7 @@ interface PrimaryCTAButtonProps {
   onClick: () => void;
   mode?: "default" | "compact";
   label: string;
+  mb?: number;
 }
 
 export const PrimaryCTAButton = ({
@@ -18,6 +19,7 @@ export const PrimaryCTAButton = ({
   onClick,
   mode,
   label,
+  mb,
 }: PrimaryCTAButtonProps) => {
   const theme = useTheme();
 
@@ -30,12 +32,13 @@ export const PrimaryCTAButton = ({
       onClick={onClick}
       sx={{
         borderRadius: 8,
+        mb: mb,
         ...(mode === "compact"
           ? {}
           : {
               pt: 2,
               pb: 2,
-              px: 2,
+              px: 4,
             }),
         backgroundColor: theme.palette.accent.primary,
         border: `1px solid ${theme.palette.accent.primaryText}`,

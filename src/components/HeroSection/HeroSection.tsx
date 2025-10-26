@@ -1,7 +1,14 @@
 "use client";
 
 import { CTA_PRIMARY_LABEL } from "@/lib/constants/Messages";
-import { Container, Grid, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Stack,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import type { Container as ParticaleContainer } from "@tsparticles/engine";
 import styles from "./HeroSection.module.css";
 
@@ -20,6 +27,7 @@ import {
   StyledHeroSection,
   StyledParticles,
 } from "./HeroSection.styles";
+import { PrimaryCTAButton } from "../PrimaryCTAButton/PrimaryCTAButton";
 
 export function HeroSection() {
   const [init, setInit] = useState(false);
@@ -115,10 +123,33 @@ export function HeroSection() {
             minHeight: "calc(80vh - 32px)",
             display: "flex",
             alignItems: "center",
-            paddingTop: "8rem",
+            paddingTop: { xs: 0, sm: "4rem", md: "8rem" },
           }}
         >
           <Grid container height="100%" width={"100%"}>
+            <Grid
+              size={{ xs: 12 }}
+              display={{ xs: "flex", md: "none" }}
+              sx={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Box
+                sx={{
+                  width: { xs: "75%", sm: "50%" }, // Responsive width on the Box
+                }}
+              >
+                <img
+                  src="/illustrations/person-on-phone.png"
+                  alt="Illustration"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                  }}
+                />
+              </Box>
+            </Grid>
             <Grid
               size={{ xs: 12, md: 7 }}
               sx={{ paddingRight: theme.spacing(6) }}
@@ -127,7 +158,6 @@ export function HeroSection() {
                 fontFamily="Montserrat Variable, sans-serif"
                 fontWeight={700}
                 fontSize="3rem"
-                color={theme.palette.text.primary}
                 variant="h1"
                 component="h1"
                 marginBottom={2}
@@ -139,7 +169,6 @@ export function HeroSection() {
                 fontFamily="Montserrat Variable, sans-serif"
                 fontWeight={500}
                 fontSize="2rem"
-                color={theme.palette.text.primary}
                 variant="h2"
                 component="h2"
                 marginBottom={8}
@@ -150,7 +179,6 @@ export function HeroSection() {
                 fontFamily="Montserrat Variable, sans-serif"
                 fontWeight={500}
                 fontSize="1rem"
-                color={theme.palette.text.primary}
                 lineHeight="1.6"
                 variant="body2"
                 component="p"
@@ -159,7 +187,12 @@ export function HeroSection() {
                 Speak to a caring psychic and find clarity in love, life, or
                 your next steps - trusted for over 23 years.
               </Typography>
-              <CTAButton variant="primary" mb={4} label={CTA_PRIMARY_LABEL} />
+              <PrimaryCTAButton
+                size="large"
+                onClick={() => undefined}
+                label="Find Your Psychic"
+                mb={4}
+              />
               {/* <Typography
                 fontFamily="Montserrat Variable, sans-serif"
                 fontWeight={500}
@@ -173,12 +206,14 @@ export function HeroSection() {
                 From £30 for 20 mins | Card & Phone Bill Options | All Calls
                 Recorded
               </Typography> */}
+              {/* <Box visibility={{ xs: "hidden", md: "visible" }}> */}
               <OfferCallout />
+              {/* </Box> */}
             </Grid>
             <Grid
               size={{ xs: 12, md: 5 }}
+              display={{ xs: "none", md: "flex" }}
               height={"100%"}
-              display={"flex"}
               alignSelf={"center"}
               justifySelf={"flex-end"}
             >
