@@ -1,9 +1,7 @@
-import MenuIcon from "@mui/icons-material/Menu";
 import { Badge, Container } from "@mui/material";
 import MUIAppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import { alpha, styled } from "@mui/material/styles";
-import { PrimaryCTAButton } from "../PrimaryCTAButton/PrimaryCTAButton";
 
 export const StyledAppBar = styled(MUIAppBar)(({ theme }) => ({
   zIndex: theme.zIndex.drawer + 1, // Ensure AppBar is above the Drawer backdrop
@@ -12,7 +10,7 @@ export const StyledAppBar = styled(MUIAppBar)(({ theme }) => ({
 }));
 
 export const StyledAppBarContainer = styled(Container)(({ theme }) => ({
-  backdropFilter: "blur(8px)", // Optional: Add a blur effect
+  backdropFilter: "blur(8px)",
   background: alpha(theme.palette.primary.main, 0.8),
   boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
 }));
@@ -21,7 +19,9 @@ export const StyledContainer = styled(Container)(({ theme }) => ({
   background: "transparent",
 }));
 
-export const StyledLinksContainer = styled(Container)<{
+export const StyledLinksContainer = styled(Container, {
+  shouldForwardProp: (prop) => prop !== "$showFullMenu", // Explicitly exclude $showFullMenu from being forwarded
+})<{
   $showFullMenu: boolean;
 }>(({ theme, $showFullMenu }) => ({
   borderTop: $showFullMenu

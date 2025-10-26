@@ -1,4 +1,3 @@
-// OfferBanner.tsx
 import { AppBar, Container, Toolbar } from "@mui/material";
 
 export function OfferBanner({ message }: { message: string }) {

@@ -1,4 +1,5 @@
 import { FAQs } from "@/components/FAQs/FAQs";
+import { HeroSection } from "@/components/HeroSection/HeroSection";
 import { LinkCard } from "@/components/LinkCard/LinkCard";
 import { PageContainer } from "@/components/PageContainer/PageContainer";
 import { PageSection } from "@/components/PageSection/PageSection";
@@ -13,15 +14,11 @@ import {
 import { Grid } from "@mui/material";
 import CTASection from "./components/CTASection";
 import FeaturedReaderSection from "./components/FeaturedReaderSection";
-import HeroSection from "./components/HeroSection";
 import HowItWorksSection from "./components/HowItWorksSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import TrustBadgeSection from "./components/TrustBadgeSection";
 import WhyPsychicGiftSection from "./components/WhyPsychicGiftSection";
-import Hero from "@/components/HeroSection/HeroSection";
-import HeroGradient from "@/components/HeroSectionGradient/HeroSectionGradient";
 
-// todo: make it better to build a page - make it better on the next pages then refactor this
 export const metadata = {
   title: "Phoenix Rising | Awaken Your Vision",
   description: "Track your creative ascent with clarity, focus, and fire.",
@@ -44,7 +41,10 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <HeroGradient />
+      <HeroSection />
+      {/* <Container maxWidth="lg">
+        <OfferCallout />
+      </Container> */}
       <PageSection background="primary.gradient">
         <PageContainer>
           <Grid container height="100%" py={6} width={"100%"}>

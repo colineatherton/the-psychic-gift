@@ -1,15 +1,10 @@
 "use client";
 
-import theme from "@/app/theme";
 import { CTA_PRIMARY_LABEL } from "@/lib/constants/Messages";
-import { Container, Grid, Typography } from "@mui/material";
+import { Container, Grid, Typography, useTheme } from "@mui/material";
 import type { Container as ParticaleContainer } from "@tsparticles/engine";
 import styles from "./HeroSection.module.css";
 
-import { loadFull } from "tsparticles";
-import { CTAButton } from "../CTAButton/CTAButton";
-// import Particles from "react-tsparticles";
-// import { loadFull } from "tsparticles";
 import {
   type ISourceOptions,
   MoveDirection,
@@ -17,25 +12,22 @@ import {
 } from "@tsparticles/engine";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useMemo, useState } from "react";
+import { loadFull } from "tsparticles";
+import { CTAButton } from "../CTAButton/CTAButton";
+import { OfferCallout } from "../OfferCallout/OfferCallout";
 import {
   StyledContent,
   StyledHeroSection,
   StyledParticles,
 } from "./HeroSection.styles";
 
-export default function Hero() {
+export function HeroSection() {
   const [init, setInit] = useState(false);
+  const theme = useTheme();
 
-  // this should be run only once per application lifetime
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
-      // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-      // starting from v2 you can add only the features you need reducing the bundle size
-      //   await loadAll(engine);
       await loadFull(engine);
-      //   await loadSlim(engine);
-      //await loadBasic(engine);
     }).then(() => {
       setInit(true);
     });
@@ -49,7 +41,7 @@ export default function Hero() {
 
   const options: ISourceOptions = useMemo(
     () => ({
-      fullScreen: { enable: false }, // stays inside the hero
+      fullScreen: { enable: false },
       background: { color: { value: "transparent" } },
       fpsLimit: 120,
       interactivity: {
@@ -64,22 +56,15 @@ export default function Hero() {
             quantity: 4,
           },
           repulse: {
-            distance: 200,
-            duration: 0.4,
+            distance: 40,
+            duration: 1,
           },
         },
       },
       particles: {
         color: {
-          value: "#ffffff",
+          value: theme.palette.primary.light,
         },
-        // links: {
-        //   color: "#ffffff",
-        //   distance: 150,
-        //   enable: true,
-        //   opacity: 0.5,
-        //   width: 1,
-        // },
         move: {
           direction: MoveDirection.none,
           enable: true,
@@ -94,16 +79,16 @@ export default function Hero() {
           density: {
             enable: true,
           },
-          value: 20,
+          value: 40,
         },
         opacity: {
-          value: 0.5,
+          value: 0.7,
         },
         shape: {
           type: "circle",
         },
         size: {
-          value: { min: 2, max: 3 },
+          value: { min: 2, max: 6 },
         },
       },
       detectRetina: true,
@@ -112,17 +97,7 @@ export default function Hero() {
   );
 
   return (
-    <StyledHeroSection
-      //   style={{ backgroundImage: `url(/heros/stars2.png)` }}
-      //   style={{ backgroundImage: `url(/heros/person1.png)` }}
-      //   style={{ backgroundImage: `url(/heros/ripple1.png)` }}
-      //   style={{ backgroundImage: `url(/heros/ripple2.png)` }}
-      //   style={{ backgroundImage: `url(/heros/ripple3.png)` }}
-      //   style={{ backgroundImage: `url(/heros/ripple4.png)` }}
-      //   style={{ backgroundImage: `url(/heros/bg1.png)` }}
-      style={{ backgroundImage: `url(/heros/bg2.png)` }}
-      aria-label="Hero"
-    >
+    <StyledHeroSection theme={theme}>
       {init && (
         <StyledParticles>
           <Particles
@@ -133,7 +108,6 @@ export default function Hero() {
           />
         </StyledParticles>
       )}
-      {/* Content */}
       <StyledContent>
         <Container
           maxWidth="lg"
@@ -141,7 +115,7 @@ export default function Hero() {
             minHeight: "calc(80vh - 32px)",
             display: "flex",
             alignItems: "center",
-            paddingTop: "8rem", // new
+            paddingTop: "8rem",
           }}
         >
           <Grid container height="100%" width={"100%"}>
@@ -154,11 +128,10 @@ export default function Hero() {
                 fontWeight={700}
                 fontSize="3rem"
                 color={theme.palette.text.primary}
-                // lineHeight="1.2"
                 variant="h1"
                 component="h1"
                 marginBottom={2}
-                marginTop={8}
+                marginTop={2}
               >
                 Psychic Phone Readings
               </Typography>
@@ -167,7 +140,6 @@ export default function Hero() {
                 fontWeight={500}
                 fontSize="2rem"
                 color={theme.palette.text.primary}
-                // lineHeight="1.6"
                 variant="h2"
                 component="h2"
                 marginBottom={8}
@@ -188,19 +160,20 @@ export default function Hero() {
                 your next steps - trusted for over 23 years.
               </Typography>
               <CTAButton variant="primary" mb={4} label={CTA_PRIMARY_LABEL} />
-              <Typography
+              {/* <Typography
                 fontFamily="Montserrat Variable, sans-serif"
                 fontWeight={500}
-                fontSize="1rem"
+                fontSize="0.9rem"
                 color={theme.palette.text.primary}
                 lineHeight="1.6"
                 variant="body2"
                 component="p"
-                marginBottom={4}
+                marginTop={2}
               >
                 From £30 for 20 mins | Card & Phone Bill Options | All Calls
                 Recorded
-              </Typography>
+              </Typography> */}
+              <OfferCallout />
             </Grid>
             <Grid
               size={{ xs: 12, md: 5 }}
@@ -210,14 +183,11 @@ export default function Hero() {
               justifySelf={"flex-end"}
             >
               <img
-                src="/illustrations/4-stars-3.png"
+                src="/illustrations/person-on-phone.png"
                 alt="Illustration"
                 style={{
                   width: "100%",
                   height: "auto",
-                  //   display: "flex",
-                  //   margin: "0 auto",
-                  //   alignSelf: "center",
                 }}
               />
             </Grid>
