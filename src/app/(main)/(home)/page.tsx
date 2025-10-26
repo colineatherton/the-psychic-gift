@@ -45,8 +45,6 @@ export default function Home() {
   return (
     <>
       <HeroGradient />
-      {/* <Hero /> */}
-      {/* <HeroSection /> */}
       <PageSection background="primary.gradient">
         <PageContainer>
           <Grid container height="100%" py={6} width={"100%"}>

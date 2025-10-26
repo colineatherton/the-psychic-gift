@@ -20,7 +20,7 @@ import {
 } from "./AppBar.styles";
 import { MobileDrawer } from "./MobileMenu/MobileMenu";
 
-import theme from "@/app/theme";
+import theme, { darkPlum, lightGrey } from "@/app/theme";
 
 const menuIcons = [
   {
@@ -41,14 +41,14 @@ export const themeIcons = [
   {
     id: "light",
     label: "Light mode",
-    color: "#F5C78C", // should prob be the light palette main
+    color: lightGrey,
     icon: <WbSunnyRounded fontSize="small" />,
     glow: true,
   },
   {
     id: "dark",
     label: "Dark mode",
-    color: "#745ddd", // should prob be the dark palette main
+    color: darkPlum,
     icon: <DarkModeRounded fontSize="small" />,
     glow: true,
   },

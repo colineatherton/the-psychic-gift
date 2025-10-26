@@ -31,13 +31,13 @@ declare module "@mui/material/styles" {
   }
 }
 
-const darkPlum = "#18122B";
+export const darkPlum = "#18122B";
 const ctaColor = "#745ddd";
 const darkPurple = "#745ddd";
 // const darkPurple = "#483c7b";
 const midPurple = "#8174bb";
 const lightPurple = "#a99fd1";
-const lightGrey = "#f8f7ff";
+export const lightGrey = "#f8f7ff";
 const midGrey = "#7a8486";
 const darkGrey = "#274149";
 

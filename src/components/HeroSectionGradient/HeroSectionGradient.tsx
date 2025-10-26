@@ -26,16 +26,9 @@ export default function Hero() {
   const [init, setInit] = useState(false);
   const theme = useTheme();
 
-  // this should be run only once per application lifetime
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
-      // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-      // starting from v2 you can add only the features you need reducing the bundle size
-      //   await loadAll(engine);
       await loadFull(engine);
-      //   await loadSlim(engine);
-      //await loadBasic(engine);
     }).then(() => {
       setInit(true);
     });
@@ -49,7 +42,7 @@ export default function Hero() {
 
   const options: ISourceOptions = useMemo(
     () => ({
-      fullScreen: { enable: false }, // stays inside the hero
+      fullScreen: { enable: false },
       background: { color: { value: "transparent" } },
       fpsLimit: 120,
       interactivity: {
@@ -71,16 +64,8 @@ export default function Hero() {
       },
       particles: {
         color: {
-          // value: "#ffffff",
           value: theme.palette.primary.light,
         },
-        // links: {
-        //   color: "#ffffff",
-        //   distance: 150,
-        //   enable: true,
-        //   opacity: 0.5,
-        //   width: 1,
-        // },
         move: {
           direction: MoveDirection.none,
           enable: true,
@@ -124,7 +109,6 @@ export default function Hero() {
           />
         </StyledParticles>
       )}
-      {/* Content */}
       <StyledContent>
         <Container
           maxWidth="lg"
@@ -132,7 +116,7 @@ export default function Hero() {
             minHeight: "calc(80vh - 32px)",
             display: "flex",
             alignItems: "center",
-            paddingTop: "8rem", // new
+            paddingTop: "8rem",
           }}
         >
           <Grid container height="100%" width={"100%"}>
@@ -145,7 +129,6 @@ export default function Hero() {
                 fontWeight={700}
                 fontSize="3rem"
                 color={theme.palette.text.primary}
-                // lineHeight="1.2"
                 variant="h1"
                 component="h1"
                 marginBottom={2}
@@ -158,7 +141,6 @@ export default function Hero() {
                 fontWeight={500}
                 fontSize="2rem"
                 color={theme.palette.text.primary}
-                // lineHeight="1.6"
                 variant="h2"
                 component="h2"
                 marginBottom={8}
@@ -201,7 +183,7 @@ export default function Hero() {
               justifySelf={"flex-end"}
             >
               <img
-                src="/illustrations/4-stars-3.png"
+                src="/illustrations/person-on-phone.png"
                 alt="Illustration"
                 style={{
                   width: "100%",
