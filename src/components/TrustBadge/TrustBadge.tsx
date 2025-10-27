@@ -1,6 +1,10 @@
-import { Box } from "@mui/material";
+"use client";
+
+import { Box, useTheme } from "@mui/material";
 
 export function TrustBadge({ src }: { src: string }) {
+  const theme = useTheme(); // Access the current theme
+
   return (
     <Box
       sx={{
@@ -14,8 +18,8 @@ export function TrustBadge({ src }: { src: string }) {
       }}
     >
       <img
-        src={src}
         alt="Illustration"
+        src={`badges/${theme.palette.mode}/${src}`}
         style={{
           width: "100%",
           height: "auto",

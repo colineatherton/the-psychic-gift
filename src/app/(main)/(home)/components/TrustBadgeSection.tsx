@@ -9,9 +9,9 @@ export default function TrustBadgeSection() {
       width="100%"
       justifyContent="space-between"
     >
-      <TrustBadge src="/badges/readings-given.png" />
-      <TrustBadge src="/badges/est-2002.png" />
-      <TrustBadge src="/badges/satisfaction-guarantee-2.png" />
+      <TrustBadge src="readings-given.png" />
+      <TrustBadge src="est-2002.png" />
+      <TrustBadge src="satisfaction-guarantee-2.png" />
     </Stack>
   );
 }

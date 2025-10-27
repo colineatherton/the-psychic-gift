@@ -42,9 +42,6 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      {/* <Container maxWidth="lg">
-        <OfferCallout />
-      </Container> */}
       <PageSection background="primary.gradient">
         <PageContainer>
           <Grid container height="100%" py={6} width={"100%"}>
@@ -62,12 +59,12 @@ export default function Home() {
           </Grid>
         </PageContainer>
         <PageContainer centered>
-          <Grid container height="100%" py={6} width={"100%"}>
+          <Grid container height="100%" py={10} width={"100%"}>
             <TrustBadgeSection />
           </Grid>
         </PageContainer>
         <PageContainer centered>
-          <Grid container height="100%" py={6} width={"100%"}>
+          <Grid container height="100%" py={10} width={"100%"}>
             <WhyPsychicGiftSection />
           </Grid>
         </PageContainer>

@@ -23,7 +23,9 @@ export const StyledCardHeader = styled(CardHeader)<{
   paddingBottom: theme.spacing(mode === "compact" ? 1 : 4),
 }));
 
-export const StyledChip = styled(Chip)<{
+export const StyledChip = styled(Chip, {
+  shouldForwardProp: (prop) => prop !== "$status", // Explicitly exclude $status from being forwarded
+})<{
   $status: Status;
 }>(({ theme, $status }) => ({
   animation: $status === Status.online ? "pulse-subtle 2s infinite" : "none",

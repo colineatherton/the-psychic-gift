@@ -137,7 +137,7 @@ export function HeroSection() {
             >
               <Box
                 sx={{
-                  width: { xs: "75%", sm: "50%" }, // Responsive width on the Box
+                  width: { xs: "75%", sm: "50%" },
                 }}
               >
                 <img
@@ -193,22 +193,7 @@ export function HeroSection() {
                 label="Find Your Psychic"
                 mb={4}
               />
-              {/* <Typography
-                fontFamily="Montserrat Variable, sans-serif"
-                fontWeight={500}
-                fontSize="0.9rem"
-                color={theme.palette.text.primary}
-                lineHeight="1.6"
-                variant="body2"
-                component="p"
-                marginTop={2}
-              >
-                From £30 for 20 mins | Card & Phone Bill Options | All Calls
-                Recorded
-              </Typography> */}
-              {/* <Box visibility={{ xs: "hidden", md: "visible" }}> */}
               <OfferCallout />
-              {/* </Box> */}
             </Grid>
             <Grid
               size={{ xs: 12, md: 5 }}
@@ -225,6 +210,21 @@ export function HeroSection() {
                   height: "auto",
                 }}
               />
+            </Grid>
+            <Grid size={{ xs: 12 }}>
+              <Typography
+                fontFamily="Montserrat Variable, sans-serif"
+                fontWeight={500}
+                fontSize="0.9rem"
+                color={theme.palette.text.primary}
+                lineHeight="1.6"
+                variant="body2"
+                component="p"
+                marginTop={6}
+              >
+                £10 for 10 mins, £1.50 / min thereafter | Card & Phone Bill
+                Options | All Calls Recorded
+              </Typography>
             </Grid>
           </Grid>
         </Container>

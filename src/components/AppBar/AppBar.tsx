@@ -118,6 +118,7 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                   <StyledImg
                     src="/logo-gold-star.png"
                     alt="The Psychic Gift Logo"
+                    onClick={() => onNavigate("/")}
                   />
                 </Box>
                 {mounted && (

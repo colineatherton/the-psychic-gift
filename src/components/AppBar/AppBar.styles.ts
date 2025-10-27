@@ -78,12 +78,13 @@ export const StyledImg = styled("img")(() => ({
   maxHeight: "120px",
   display: "block",
   height: "auto",
+  cursor: "pointer",
 }));
 
 export const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
     color: theme.palette.common.white,
-    animation: "pulse-subtle 2s infinite",
+    animation: "pulse 2s infinite",
     "--pulse-color": theme.palette.status.online,
     backgroundColor: theme.palette.status.online,
     top: "-10px",
