@@ -11,13 +11,14 @@ import {
   ALL_TOPICS,
   READER_CARDS,
 } from "@/lib/constants/readers";
-import { Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import CTASection from "./components/CTASection";
 import FeaturedReaderSection from "./components/FeaturedReaderSection";
 import HowItWorksSection from "./components/HowItWorksSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import TrustBadgeSection from "./components/TrustBadgeSection";
 import WhyPsychicGiftSection from "./components/WhyPsychicGiftSection";
+import ReadersSection from "./components/ReadersSection";
 
 export const metadata = {
   title: "Phoenix Rising | Awaken Your Vision",
@@ -42,33 +43,10 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <PageSection background="primary.gradient">
-        <PageContainer>
-          <Grid container height="100%" py={6} width={"100%"}>
-            <ReaderGrid
-              readers={READER_CARDS}
-              allSkills={ALL_SKILLS()}
-              allAbilities={ALL_ABILITIES()}
-              allTools={ALL_TOOLS()}
-              allTopics={ALL_TOPICS()}
-              withFilters={false}
-              onlineOnly={true}
-              sortBy="status"
-              mode="compact"
-            />
-          </Grid>
-        </PageContainer>
-        <PageContainer centered>
-          <Grid container height="100%" py={10} width={"100%"}>
-            <TrustBadgeSection />
-          </Grid>
-        </PageContainer>
-        <PageContainer centered>
-          <Grid container height="100%" py={10} width={"100%"}>
-            <WhyPsychicGiftSection />
-          </Grid>
-        </PageContainer>
-      </PageSection>
+      <ReadersSection />
+      <TrustBadgeSection />
+      <WhyPsychicGiftSection />
+
       <PageSection background="primary.main">
         <PageContainer centered>
           <Grid container height="100%" py={6} width={"100%"}>
@@ -79,6 +57,7 @@ export default function Home() {
           </Grid>
         </PageContainer>
       </PageSection>
+
       <PageSection background="secondary.light">
         <PageContainer centered>
           <Grid container height="100%" py={6} width={"100%"}>
@@ -86,6 +65,7 @@ export default function Home() {
           </Grid>
         </PageContainer>
       </PageSection>
+
       <PageSection background="primary.gradient">
         <PageContainer>
           <Grid container height="100%" py={6} width={"100%"}>
@@ -93,6 +73,7 @@ export default function Home() {
           </Grid>
         </PageContainer>
       </PageSection>
+
       <PageSection background="secondary.light" stretchItems>
         <PageContainer centered>
           <Grid container height="100%" py={6} width={"100%"}>
@@ -100,6 +81,7 @@ export default function Home() {
           </Grid>
         </PageContainer>
       </PageSection>
+
       <PageSection
         background="primary.main"
         stretchItems
@@ -159,6 +141,7 @@ export default function Home() {
           </Grid>
         </PageContainer>
       </PageSection>
+
       <PageSection background="primary.main">
         <PageContainer centered>
           <Grid container height="100%" pt={6} pb={16} width={"100%"}>
