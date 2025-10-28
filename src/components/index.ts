@@ -1,9 +1,9 @@
 export { AppBar } from "./AppBar/AppBar";
 export { CTAButton } from "./CTAButton/CTAButton";
 export { FAQs } from "./FAQs/FAQs";
+export { FeatureCard } from "./FeatureCard/FeatureCard";
 export { HoverMenu } from "./HoverMenu/HoverMenu";
 export { IconToggle } from "./IconToggle/IconToggle";
-export { IconWithText } from "./IconWithText/IconWithText";
 export { LinkCard } from "./LinkCard/LinkCard";
 export { NumberWithText } from "./NumberWithText/NumberWithText";
 export { OfferBanner } from "./OfferBanner/OfferBanner";

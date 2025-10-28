@@ -8,7 +8,7 @@ export default function TrustBadgeSection() {
   return (
     <Box
       sx={{
-        background: (theme) => theme.palette.secondary.light,
+        // background: (theme) => theme.palette.secondary.light,
         padding: 2,
       }}
     >

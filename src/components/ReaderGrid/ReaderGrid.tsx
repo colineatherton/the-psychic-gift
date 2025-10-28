@@ -157,7 +157,7 @@ export const ReaderGrid: React.FC<ReaderGridProps> = ({
 
   return (
     <>
-      <Box>
+      <Box flexGrow={1}>
         {/* 🔘 Status Filter */}
         {withFilters && (
           <>
@@ -275,7 +275,6 @@ export const ReaderGrid: React.FC<ReaderGridProps> = ({
           <Grid container spacing={4}>
             {sorted.map((reader) => (
               <Grid size={{ xs: 12, sm: 6, md: 4, lg: 4 }} key={reader.pin}>
-                {/* <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={reader.pin}> */}
                 <ReaderCard
                   {...reader}
                   onCallNow={handleOnCallNow}

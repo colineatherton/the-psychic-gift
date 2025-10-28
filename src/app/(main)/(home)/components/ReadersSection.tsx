@@ -15,8 +15,9 @@ export default function ReadersSection() {
   return (
     <Box
       sx={{
-        background: (theme) =>
-          `linear-gradient(180deg, ${theme.palette.primary.light} 0%, ${theme.palette.background.default} 40%)`,
+        // gradient makes no sense since both colors are the same
+        // background: (theme) =>
+        //   `linear-gradient(180deg, ${theme.palette.primary.light} 0%, ${theme.palette.background.default} 40%)`,
         padding: 2,
       }}
     >

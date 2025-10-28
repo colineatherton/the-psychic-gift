@@ -3,22 +3,14 @@ import { HeroSection } from "@/components/HeroSection/HeroSection";
 import { LinkCard } from "@/components/LinkCard/LinkCard";
 import { PageContainer } from "@/components/PageContainer/PageContainer";
 import { PageSection } from "@/components/PageSection/PageSection";
-import { ReaderGrid } from "@/components/ReaderGrid/ReaderGrid";
-import {
-  ALL_ABILITIES,
-  ALL_SKILLS,
-  ALL_TOOLS,
-  ALL_TOPICS,
-  READER_CARDS,
-} from "@/lib/constants/readers";
-import { Container, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import CTASection from "./components/CTASection";
 import FeaturedReaderSection from "./components/FeaturedReaderSection";
 import HowItWorksSection from "./components/HowItWorksSection";
+import ReadersSection from "./components/ReadersSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import TrustBadgeSection from "./components/TrustBadgeSection";
-import WhyPsychicGiftSection from "./components/WhyPsychicGiftSection";
-import ReadersSection from "./components/ReadersSection";
+import { WhyPsychicGift } from "@/components/Sections";
 
 export const metadata = {
   title: "Phoenix Rising | Awaken Your Vision",
@@ -45,7 +37,7 @@ export default function Home() {
       <HeroSection />
       <ReadersSection />
       <TrustBadgeSection />
-      <WhyPsychicGiftSection />
+      <WhyPsychicGift />
 
       <PageSection background="primary.main">
         <PageContainer centered>
