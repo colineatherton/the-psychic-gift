@@ -3,14 +3,13 @@ import { HeroSection } from "@/components/HeroSection/HeroSection";
 import { LinkCard } from "@/components/LinkCard/LinkCard";
 import { PageContainer } from "@/components/PageContainer/PageContainer";
 import { PageSection } from "@/components/PageSection/PageSection";
+import { CTA, WhyPsychicGift } from "@/components/Sections";
 import { Grid } from "@mui/material";
-import CTASection from "./components/CTASection";
 import FeaturedReaderSection from "./components/FeaturedReaderSection";
 import HowItWorksSection from "./components/HowItWorksSection";
 import ReadersSection from "./components/ReadersSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import TrustBadgeSection from "./components/TrustBadgeSection";
-import { WhyPsychicGift } from "@/components/Sections";
 
 export const metadata = {
   title: "Phoenix Rising | Awaken Your Vision",
@@ -38,17 +37,7 @@ export default function Home() {
       <ReadersSection />
       <TrustBadgeSection />
       <WhyPsychicGift />
-
-      <PageSection background="primary.main">
-        <PageContainer centered>
-          <Grid container height="100%" py={6} width={"100%"}>
-            <CTASection
-              heading="Ready to speak to someone who truly listens?"
-              subheading="Our gifted psychics are here when you’re ready."
-            />
-          </Grid>
-        </PageContainer>
-      </PageSection>
+      <CTA heading="Ready to speak to someone who truly listens?" />
 
       <PageSection background="secondary.light">
         <PageContainer centered>
@@ -134,17 +123,8 @@ export default function Home() {
         </PageContainer>
       </PageSection>
 
-      <PageSection background="primary.main">
-        <PageContainer centered>
-          <Grid container height="100%" pt={6} pb={16} width={"100%"}>
-            <CTASection
-              heading="Ready when you are"
-              showAvailableReadersSubHeading
-              showAvailableReadersCount={false}
-            />
-          </Grid>
-        </PageContainer>
-      </PageSection>
+      <CTA heading="Ready when you are" />
+
       <PageSection background="secondary.light">
         <PageContainer centered>
           <Grid container height="100%" pt={6} pb={16} width={"100%"}>
