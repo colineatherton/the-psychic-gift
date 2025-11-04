@@ -31,7 +31,7 @@ export default function HowItWorksSection() {
         <Grid size={4}>
           <NumberWithText
             number="1"
-            title="Choose a psychic"
+            title="Find your psychic"
             body="View our gifted psychics, see who's available now and learn
             more about them, their techniques, and specialties on their
             profiles."
@@ -40,7 +40,7 @@ export default function HowItWorksSection() {
         <Grid size={4}>
           <NumberWithText
             number="2"
-            title="Call using your preferred method"
+            title="Choose call options"
             body="When you select a reader, you'll see our call options. Choose
             to pay on your phone bill, debit or credit card or receive bonus
             minutes with our pre-pay options."

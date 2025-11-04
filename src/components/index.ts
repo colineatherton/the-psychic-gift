@@ -14,6 +14,7 @@ export { ReaderAvailableAlert } from "./ReaderAvailableAlert/ReaderAvailableAler
 export { ReaderCard } from "./ReaderCard/ReaderCard";
 export { ReaderGrid } from "./ReaderGrid/ReaderGrid";
 export { ReaderModal } from "./ReaderModal/ReaderModal";
+export { StepCard } from "./StepCards/StepCard";
 export { StickyCTA } from "./StickyCTA/StickyCTA";
 export { Testimonial } from "./Testimonial/Testimonial";
 export { TrustBadge } from "./TrustBadge/TrustBadge";
