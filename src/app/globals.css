@@ -24,6 +24,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 } */
 
+@keyframes hueRotate {
+  0% {
+    filter: hue-rotate(0deg) blur(24px);
+  }
+  100% {
+    filter: hue-rotate(360deg) blur(24px);
+  }
+}
+
 @keyframes gold-pulse {
   0%,
   100% {

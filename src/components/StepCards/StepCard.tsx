@@ -33,9 +33,9 @@ export function StepCard({
     >
       <CardContent
         sx={{
-          p: 2,
-          pb: 2,
-          "&:last-child": { paddingBottom: 2 },
+          p: 4,
+          pb: 4,
+          "&:last-child": { paddingBottom: 4 },
           height: "100%",
         }}
       >

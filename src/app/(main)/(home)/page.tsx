@@ -3,7 +3,12 @@ import { HeroSection } from "@/components/HeroSection/HeroSection";
 import { LinkCard } from "@/components/LinkCard/LinkCard";
 import { PageContainer } from "@/components/PageContainer/PageContainer";
 import { PageSection } from "@/components/PageSection/PageSection";
-import { CTA, WhyPsychicGift, HowItWorks } from "@/components/Sections";
+import {
+  CTA,
+  WhyPsychicGift,
+  HowItWorks,
+  FeaturedReader,
+} from "@/components/Sections";
 import { Grid } from "@mui/material";
 import FeaturedReaderSection from "./components/FeaturedReaderSection";
 import ReadersSection from "./components/ReadersSection";
@@ -38,14 +43,7 @@ export default function Home() {
       <WhyPsychicGift />
       <CTA heading="Ready to speak to someone who truly listens?" />
       <HowItWorks />
-
-      <PageSection background="primary.gradient">
-        <PageContainer>
-          <Grid container height="100%" py={6} width={"100%"}>
-            <FeaturedReaderSection />
-          </Grid>
-        </PageContainer>
-      </PageSection>
+      <FeaturedReader />
 
       <PageSection background="secondary.light" stretchItems>
         <PageContainer centered>

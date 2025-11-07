@@ -16,7 +16,7 @@ export const StyledCard = styled(Card)(({ theme }) => ({
 }));
 
 export const StyledCardHeader = styled(CardHeader)<{
-  mode: "default" | "compact";
+  mode: "default" | "compact" | "featured";
 }>(({ theme, mode }) => ({
   backgroundColor: theme.palette.primary.main,
   width: "100%",

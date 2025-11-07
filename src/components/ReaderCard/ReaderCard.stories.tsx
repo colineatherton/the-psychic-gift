@@ -51,7 +51,19 @@ export const Compact: Story = {
   },
 };
 
-// each status
-// light mode / dark mode
-// compact mode (less info and less badges)
-// some other mode with more presentation?
+export const Featured: Story = {
+  args: {
+    ...READER_CARDS[0],
+    onCallNow: () => undefined,
+  },
+  render: (args) => {
+    const theme = useTheme();
+    return (
+      <Grid container width="100%">
+        <Grid size={{ xs: 6 }} sx={{ width: "100%" }}>
+          <ReaderCard {...args} mode="featured" />
+        </Grid>
+      </Grid>
+    );
+  },
+};

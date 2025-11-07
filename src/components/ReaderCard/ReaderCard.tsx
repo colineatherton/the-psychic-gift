@@ -16,6 +16,10 @@ import { useTheme } from "@mui/material/styles";
 import Image from "next/image";
 import { StyledCard, StyledCardHeader, StyledChip } from "./ReaderCard.styles";
 import { PrimaryCTAButton } from "..";
+import {
+  StyledReaderContainer,
+  StyledReaderImg,
+} from "../Sections/FeaturedReader/FeaturedReader.styles";
 
 type ReaderCardProps = {
   name: string;
@@ -28,7 +32,8 @@ type ReaderCardProps = {
     number: string;
   }[];
   onCallNow: (key: string) => void;
-  mode?: "default" | "compact";
+  mode?: "default" | "compact" | "featured";
+  description?: string;
 };
 
 const statusLabels: Record<ReaderCardProps["status"], string> = {
@@ -44,6 +49,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
   skills,
   onCallNow,
   mode = "default",
+  description,
 }) => {
   const theme = useTheme();
 
@@ -87,24 +93,33 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
             background: `linear-gradient(180deg, ${theme.palette.primary.main} 50%, ${theme.palette.primary.light} 50%)`,
           }}
         >
-          <Avatar
-            alt={name}
-            sizes={`<${effectiveImgSize}x${effectiveImgSize}>`}
-            sx={{
-              width: effectiveImgSize,
-              height: effectiveImgSize,
-              border: (theme) => `solid 2px ${theme.palette.primary.main}`,
-            }}
-          >
-            <Image
-              src={`/readers/original/${pin}.png`}
-              alt="Amara"
-              width={effectiveImgSize}
-              height={effectiveImgSize}
-              placeholder="blur"
-              blurDataURL="/readers/blur.png"
-            />
-          </Avatar>
+          {mode === "featured" ? (
+            <StyledReaderContainer>
+              <StyledReaderImg
+                src={`/readers/original/${pin}.png`}
+                alt={name}
+              />
+            </StyledReaderContainer>
+          ) : (
+            <Avatar
+              alt={name}
+              sizes={`<${effectiveImgSize}x${effectiveImgSize}>`}
+              sx={{
+                width: effectiveImgSize,
+                height: effectiveImgSize,
+                border: (theme) => `solid 2px ${theme.palette.primary.main}`,
+              }}
+            >
+              <Image
+                src={`/readers/original/${pin}.png`}
+                alt="Amara"
+                width={effectiveImgSize}
+                height={effectiveImgSize}
+                placeholder="blur"
+                blurDataURL="/readers/blur.png"
+              />
+            </Avatar>
+          )}
         </Box>
         <Box
           display={"flex"}
@@ -175,6 +190,22 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
               </Tooltip>
             )}
           </Stack>
+          <Typography
+            fontFamily="Montserrat Variable, sans-serif"
+            fontWeight={500}
+            fontSize="1rem"
+            lineHeight="1.6"
+            variant="body2"
+            component="p"
+            textAlign="center"
+            margin={6}
+          >
+            Robbie is a very warm and eloquent medium and psychic; he believes
+            in spiritual transformation and positive thinking. If your life is
+            off balance then he is the right reader to make you feel healed and
+            back on your correct pathway. Robbie believes in harnessing the law
+            of attraction - everything is possible when you believe.
+          </Typography>
         </Box>
       </CardContent>
       <Box sx={{ p: 2, pt: 0 }}>
@@ -183,7 +214,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
             size="large"
             fullWidth={true}
             onClick={() => onCallNow(name.toLocaleLowerCase())}
-            mode={mode}
+            mode={mode === "compact" ? "compact" : "default"}
             icon={<PhoneIcon fontSize="large" />}
             label="Choose Call Options"
           />

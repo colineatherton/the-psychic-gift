@@ -1,21 +1,11 @@
-import { Box, Button, Typography, useTheme } from "@mui/material";
-// import { StyledBox } from "./OfferCallout.styles";
-import { alpha, styled } from "@mui/material/styles";
+import { Button, Typography, useTheme } from "@mui/material";
+import { OfferCalloutCard } from "../OfferCalloutCard/OfferCalloutCard";
 
 export const OfferCallout = () => {
   const theme = useTheme(); // Access theme dynamically
 
   return (
-    <Box
-      sx={{
-        backdropFilter: "blur(4px)", // Apply blur to the backdrop
-        background: alpha(theme.palette.primary.dark, 0.2), // Remove background to allow particles to show through
-        border: `2px solid ${theme.palette.primary.main}`, // Add a subtle border for visual effect
-        borderRadius: theme.spacing(1), // Apply border radius
-        padding: theme.spacing(2), // Add padding for spacing
-        // Add any other styles as needed
-      }}
-    >
+    <OfferCalloutCard>
       <Typography
         fontFamily="Montserrat Variable, sans-serif"
         fontSize="1.2rem"
@@ -41,6 +31,6 @@ export const OfferCallout = () => {
         &amp; Quote <strong>"DISCOVER".</strong>
       </Typography>
       <Button sx={{ mt: 2 }}>Learn more</Button>
-    </Box>
+    </OfferCalloutCard>
   );
 };

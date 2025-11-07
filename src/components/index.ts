@@ -18,3 +18,4 @@ export { StepCard } from "./StepCards/StepCard";
 export { StickyCTA } from "./StickyCTA/StickyCTA";
 export { Testimonial } from "./Testimonial/Testimonial";
 export { TrustBadge } from "./TrustBadge/TrustBadge";
+export { Chips } from "./Chips/Chips";

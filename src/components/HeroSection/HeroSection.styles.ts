@@ -15,7 +15,7 @@ export const StyledHeroSection = styled("section")<{
     inset: 0,
     background: `
       radial-gradient(80rem 40rem at 75% 25%, rgba(0, 0, 0, 0.15), transparent 60%),
-      linear-gradient(180deg, rgba(10, 6, 30, 0.45), rgba(10, 6, 30, 0.25) 40%, transparent 65%)
+      linear-gradient(180deg, rgba(10, 6, 30, 0.05), rgba(10, 6, 30, 0.10) 40%, transparent 65%)
     `,
     pointerEvents: "none",
     zIndex: 1,
@@ -35,3 +35,8 @@ export const StyledContent = styled("div")({
   // color: "#fff",
   paddingTop: "6rem",
 });
+
+// radial-gradient(80rem 40rem at 75% 25%, rgba(0, 0, 0, 0.05), transparent 90%),
+// linear-gradient(180deg, rgba(10, 6, 30, 0.05), rgba(10, 6, 30, 0.10) 40%, transparent 65%)
+
+// linear-gradient(180deg, rgba(10, 6, 30, 0.45), rgba(10, 6, 30, 0.25) 40%, transparent 65%)
