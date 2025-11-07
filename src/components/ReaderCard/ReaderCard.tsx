@@ -63,7 +63,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
   const effectiveImgSize = mode === "compact" ? 85 : 100;
 
   return (
-    <StyledCard>
+    <StyledCard mode={mode}>
       <StyledCardHeader
         mode={mode}
         avatar={
@@ -190,26 +190,23 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
               </Tooltip>
             )}
           </Stack>
-          <Typography
-            fontFamily="Montserrat Variable, sans-serif"
-            fontWeight={500}
-            fontSize="1rem"
-            lineHeight="1.6"
-            variant="body2"
-            component="p"
-            textAlign="center"
-            margin={6}
-          >
-            Robbie is a very warm and eloquent medium and psychic; he believes
-            in spiritual transformation and positive thinking. If your life is
-            off balance then he is the right reader to make you feel healed and
-            back on your correct pathway. Robbie believes in harnessing the law
-            of attraction - everything is possible when you believe.
-          </Typography>
+          {description && mode === "featured" && (
+            <Typography
+              fontFamily="Montserrat Variable, sans-serif"
+              fontWeight={500}
+              fontSize="1rem"
+              lineHeight="1.6"
+              variant="body2"
+              component="p"
+              textAlign="center"
+            >
+              {description}
+            </Typography>
+          )}
         </Box>
       </CardContent>
       <Box sx={{ p: 2, pt: 0 }}>
-        <Stack gap={2}>
+        <Stack gap={2} direction={mode === "featured" ? "row" : "column"}>
           <PrimaryCTAButton
             size="large"
             fullWidth={true}
@@ -223,7 +220,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
             size="large"
             variant="outlined"
             fullWidth={true}
-            href={`/psychic-readers/${name.toLocaleLowerCase()}`}
+            href={`/psychic-readers/${name.toLocaleLowerCase()}-${pin}`}
             sx={{
               borderRadius: 8,
               ...(mode === "compact"

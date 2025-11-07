@@ -21,7 +21,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Adele",
     imageUrl: "img/readers/original/by_pin/3622.png",
   },
-  ["aelissa"]: {
+  ["aelissa-4444"]: {
     name: "Aelissa",
     pin: 4444,
     description:
@@ -35,7 +35,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Aelissa",
     imageUrl: "img/readers/original/by_pin/4444.png",
   },
-  ["alice"]: {
+  ["alice-6543"]: {
     name: "Alice",
     pin: 6543,
     description:
@@ -49,7 +49,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Alice",
     imageUrl: "img/readers/original/by_pin/6543.png",
   },
-  ["andy"]: {
+  ["andy-3399"]: {
     name: "Andy",
     pin: 3399,
     description:
@@ -63,7 +63,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Andy",
     imageUrl: "img/readers/original/by_pin/3399.png",
   },
-  ["angel"]: {
+  ["angel-1441"]: {
     name: "Angel",
     pin: 1441,
     description:
@@ -77,7 +77,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Angel",
     imageUrl: "img/readers/original/by_pin/1441.png",
   },
-  ["bryony"]: {
+  ["bryony-2727"]: {
     name: "Bryony",
     pin: 2727,
     description:
@@ -91,7 +91,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Bryony",
     imageUrl: "img/readers/original/by_pin/2727.png",
   },
-  ["ellie"]: {
+  ["ellie-1180"]: {
     name: "Ellie",
     pin: 1180,
     description:
@@ -105,7 +105,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Ellie",
     imageUrl: "img/readers/original/by_pin/1180.png",
   },
-  ["fran"]: {
+  ["fran-1133"]: {
     name: "Fran",
     pin: 1133,
     description:
@@ -119,7 +119,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Fran",
     imageUrl: "img/readers/original/by_pin/1133.png",
   },
-  ["hope"]: {
+  ["hope-3203"]: {
     name: "Hope",
     pin: 3203,
     description:
@@ -133,7 +133,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Hope",
     imageUrl: "img/readers/original/by_pin/3203.png",
   },
-  ["jasmine"]: {
+  ["jasmine-5115"]: {
     name: "Jasmine",
     pin: 5115,
     description:
@@ -147,7 +147,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Jasmine",
     imageUrl: "img/readers/original/by_pin/5115.png",
   },
-  ["joanna"]: {
+  ["joanna-4567"]: {
     name: "Joanna",
     pin: 4567,
     description:
@@ -161,7 +161,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Joanna",
     imageUrl: "img/readers/original/by_pin/4567.png",
   },
-  ["john"]: {
+  ["john-5152"]: {
     name: "John",
     pin: 5152,
     description:
@@ -175,7 +175,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with John",
     imageUrl: "img/readers/original/by_pin/5152.png",
   },
-  ["josephine"]: {
+  ["josephine-4499"]: {
     name: "Josephine",
     pin: 4499,
     description:
@@ -189,7 +189,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Josephine",
     imageUrl: "img/readers/original/by_pin/4499.png",
   },
-  ["karen"]: {
+  ["karen-5791"]: {
     name: "Karen",
     pin: 5791,
     description:
@@ -203,7 +203,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Karen",
     imageUrl: "img/readers/original/by_pin/5791.png",
   },
-  ["maggie"]: {
+  ["maggie-9801"]: {
     name: "Maggie",
     pin: 9801,
     description:
@@ -217,7 +217,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Maggie",
     imageUrl: "img/readers/original/by_pin/9801.png",
   },
-  ["mariah"]: {
+  ["mariah-1881"]: {
     name: "Mariah",
     pin: 1881,
     description:
@@ -231,7 +231,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Mariah",
     imageUrl: "img/readers/original/by_pin/1881.png",
   },
-  ["mary"]: {
+  ["mary-5055"]: {
     name: "Mary",
     pin: 5055,
     description:
@@ -245,7 +245,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Mary",
     imageUrl: "img/readers/original/by_pin/5055.png",
   },
-  ["mavis"]: {
+  ["mavis-1010"]: {
     name: "Mavis",
     pin: 1010,
     description:
@@ -259,7 +259,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Mavis",
     imageUrl: "img/readers/original/by_pin/1010.png",
   },
-  ["michaela"]: {
+  ["michaela-3232"]: {
     name: "Michaela",
     pin: 3232,
     description:
@@ -273,7 +273,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Michaela",
     imageUrl: "img/readers/original/by_pin/3232.png",
   },
-  ["pauline"]: {
+  ["pauline-3798"]: {
     name: "Pauline",
     pin: 3798,
     description:
@@ -287,7 +287,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Pauline",
     imageUrl: "img/readers/original/by_pin/3798.png",
   },
-  ["robbie"]: {
+  ["robbie-3443"]: {
     name: "Robbie",
     pin: 3443,
     description:
@@ -301,7 +301,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Robbie",
     imageUrl: "img/readers/original/by_pin/3443.png",
   },
-  ["ruth"]: {
+  ["ruth-2022"]: {
     name: "Ruth",
     pin: 2022,
     description:
@@ -315,7 +315,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Ruth",
     imageUrl: "img/readers/original/by_pin/2022.png",
   },
-  ["sandra"]: {
+  ["sandra-2662"]: {
     name: "Sandra",
     pin: 2662,
     description:
@@ -329,7 +329,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Sandra",
     imageUrl: "img/readers/original/by_pin/2662.png",
   },
-  ["sarah"]: {
+  ["sarah-9888"]: {
     name: "Sarah",
     pin: 9888,
     description:
@@ -343,7 +343,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Sarah",
     imageUrl: "img/readers/original/by_pin/9888.png",
   },
-  ["toby"]: {
+  ["toby-2333"]: {
     name: "Toby",
     pin: 2333,
     description:
@@ -357,7 +357,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Toby",
     imageUrl: "img/readers/original/by_pin/2333.png",
   },
-  ["vanessa"]: {
+  ["vanessa-3900"]: {
     name: "Vanessa",
     pin: 3900,
     description:
