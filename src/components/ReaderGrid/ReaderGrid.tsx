@@ -19,6 +19,19 @@ import React, { ChangeEvent, useMemo, useState } from "react";
 import { ReaderModal } from "../ReaderModal/ReaderModal";
 import { ReaderConfig, Status } from "@/lib/types/readers";
 
+export const getStatus = (status: number | undefined): Status => {
+  switch (status) {
+    case 0:
+      return Status.offline;
+    case 1:
+      return Status.online;
+    case 2:
+      return Status.busy;
+    default:
+      return Status.online;
+  }
+};
+
 export type Reader = {
   name: string;
   image: string;
@@ -90,19 +103,6 @@ export const ReaderGrid: React.FC<ReaderGridProps> = ({
         ? (event.target as HTMLInputElement).value
         : sortBy;
     setSortBy(value);
-  };
-
-  const getStatus = (status: number | undefined): Status => {
-    switch (status) {
-      case 0:
-        return Status.offline;
-      case 1:
-        return Status.online;
-      case 2:
-        return Status.busy;
-      default:
-        return Status.online;
-    }
   };
 
   const readersWithStatus = useMemo(() => {

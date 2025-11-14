@@ -36,7 +36,7 @@ type ReaderCardProps = {
   description?: string;
 };
 
-const statusLabels: Record<ReaderCardProps["status"], string> = {
+export const statusLabels: Record<ReaderCardProps["status"], string> = {
   online: "Ready to talk",
   busy: "In a reading",
   offline: "Away right now",

@@ -1,8 +1,9 @@
 "use client";
 
 import { HoverMenu, IconToggle, PrimaryCTAButton } from "@/components";
-import { PAGES, READING_PAGES } from "@/lib/constants/urls";
+import { NavIcons, PAGES, READING_PAGES } from "@/lib/constants/urls";
 import { DarkModeRounded, WbSunnyRounded } from "@mui/icons-material";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Grid, useMediaQuery } from "@mui/material";
@@ -22,6 +23,10 @@ import { MobileDrawer } from "./MobileMenu/MobileMenu";
 
 import theme, { darkPlum, lightGrey } from "@/app/theme";
 import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
+
+const navIcons: Record<NavIcons, React.ReactNode> = {
+  [NavIcons.Offer]: <AutoAwesomeIcon />,
+};
 
 const menuIcons = [
   {
@@ -197,6 +202,7 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                       variant="text"
                       onClick={() => onNavigate(page.path)}
                       size="large"
+                      startIcon={page.icon ? navIcons[page.icon] : undefined}
                     >
                       {page.label}
                     </StyledNavLink>

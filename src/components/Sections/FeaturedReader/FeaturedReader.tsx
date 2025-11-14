@@ -1,78 +1,205 @@
 "use client";
 
-import { PrimaryCTAButton } from "@/components/PrimaryCTAButton/PrimaryCTAButton";
-import {
-  Box,
-  Container,
-  Grid,
-  Stack,
-  Typography,
-  useTheme,
-} from "@mui/material";
-import {
-  StyledReaderContainer,
-  StyledReaderImg,
-} from "./FeaturedReader.styles";
-import { OfferCalloutCard } from "@/components/OfferCalloutCard/OfferCalloutCard";
-import { Chips } from "@/components/Chips/Chips";
 import { ReaderCard } from "@/components";
-import { READER_CARDS, READER_CONFIG_MAP } from "@/lib/constants/readers";
+import {
+  StyledHeroSection,
+  StyledParticles,
+} from "@/components/HeroSection/HeroSection.styles";
+import {
+  GET_READER_CARD,
+  READER_CARDS,
+  READER_CONFIG_MAP,
+} from "@/lib/constants/readers";
+import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
+import {
+  ISourceOptions,
+  MoveDirection,
+  OutMode,
+  type Container as ParticaleContainer,
+} from "@tsparticles/engine";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { useEffect, useMemo, useState } from "react";
+import { loadFull } from "tsparticles";
+import styles from "../../HeroSection/HeroSection.module.css";
+import { StyledFeaturedReaderSection } from "./FeaturedReader.styles";
+import {
+  ReaderFeedContext,
+  useReaderFeedContext,
+} from "@/lib/context/ReaderFeedContext";
+import { get } from "http";
+import { statusLabels } from "@/components/ReaderCard/ReaderCard";
+import { getStatus } from "@/components/ReaderGrid/ReaderGrid";
+// import { loadImageShape } from "tsparticles-shape-image";
+// import { ImageEngine } from "tsparticles-shape-image/types/types";
 
 const getFeaturedReaderKey = (): string => {
-  // For now, return a static key. This can be enhanced to return a dynamic featured reader.
-  return "robbie-3443";
+  // Get all reader keys from READER_CONFIG_MAP
+  const readerKeys = Object.keys(READER_CONFIG_MAP);
+  const readerCount = readerKeys.length;
+
+  // Calculate the day of the year (1-365 or 366 for leap years)
+  const now = new Date();
+  const startOfYear = new Date(now.getFullYear(), 0, 0);
+  const dayOfYear = Math.floor(
+    (now.getTime() - startOfYear.getTime()) / (1000 * 60 * 60 * 24),
+  );
+
+  // Cycle through readers based on day of year
+  const index = dayOfYear % readerCount;
+  return readerKeys[index];
 };
 
 export const FeaturedReader = () => {
   const theme = useTheme();
   const key = getFeaturedReaderKey();
   const { description } = READER_CONFIG_MAP[key];
+  const { getReaderByPin } = useReaderFeedContext();
+
+  const [init, setInit] = useState(false);
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      // await loadImageShape(engine as unknown as ImageEngine);
+      await loadFull(engine);
+    }).then(() => {
+      setInit(true);
+    });
+  }, []);
+
+  const particlesLoaded = async (
+    container?: ParticaleContainer,
+  ): Promise<void> => {
+    console.log(container);
+  };
+
+  const options: ISourceOptions = useMemo(
+    () => ({
+      fullScreen: { enable: false },
+      background: { color: { value: "transparent" } },
+      fpsLimit: 120,
+      interactivity: {
+        events: {
+          onHover: {
+            enable: true,
+            mode: "repulse",
+          },
+        },
+        modes: {
+          push: {
+            quantity: 4,
+          },
+          repulse: {
+            distance: 40,
+            duration: 1,
+          },
+        },
+      },
+      particles: {
+        color: {
+          value: theme.palette.primary.main,
+        },
+        move: {
+          direction: MoveDirection.none,
+          enable: true,
+          outModes: {
+            default: OutMode.out,
+          },
+          random: false,
+          speed: 2,
+          straight: true,
+        },
+        number: {
+          density: {
+            enable: true,
+          },
+          value: 40,
+        },
+        opacity: {
+          value: 0.7,
+        },
+        shape: {
+          type: "star",
+        },
+        // shape: {
+        //   type: "image",
+        //   image: {
+        //     src: "/particles/tarot-purple.png",
+        //     // src: "/readers/original/3623.png",
+        //     // width: 100, // Optional: Set image dimensions for better scaling
+        //     // height: 100,
+        //   },
+        // },
+        size: {
+          value: { min: 2, max: 6 },
+          // value: { min: 10, max: 20 }, // Increased size for better visibility of images
+        },
+      },
+      detectRetina: true,
+    }),
+    [],
+  );
 
   return (
-    <Box
-      sx={{
-        // background: (theme) => theme.palette.primary.main,
-        padding: 2,
-      }}
-    >
-      <Container
-        maxWidth="lg"
+    <StyledFeaturedReaderSection>
+      <Box
         sx={{
-          display: "flex",
-          alignItems: "center",
+          // background: (theme) => theme.palette.primary.main,
+          padding: 2,
         }}
       >
-        <Grid
-          container
-          height="100%"
-          py={6}
-          width="100%"
-          alignContent="center"
-          justifyContent="center"
-          spacing={6}
-        >
-          <Grid size={{ xs: 12 }} p={4}>
-            <Typography
-              fontFamily="Montserrat Variable, sans-serif"
-              fontWeight={500}
-              fontSize="2rem"
-              variant="h2"
-              component="h2"
-              textAlign="center"
-            >
-              Today&apos;s Featured Reader
-            </Typography>
-          </Grid>
-          <Grid size={{ xs: 12, md: 8 }} sx={{ width: "100%" }}>
-            <ReaderCard
-              {...READER_CARDS[0]}
-              onCallNow={() => undefined}
-              mode="featured"
-              description={description}
+        {init && (
+          <StyledParticles>
+            <Particles
+              id="tsparticles2"
+              particlesLoaded={particlesLoaded}
+              className={styles.particles}
+              options={options}
             />
+          </StyledParticles>
+        )}
+        <Container
+          maxWidth="lg"
+          sx={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <Grid
+            container
+            height="100%"
+            py={6}
+            width="100%"
+            alignContent="center"
+            justifyContent="center"
+            spacing={6}
+          >
+            <Grid size={{ xs: 12 }} p={4}>
+              <Typography
+                fontFamily="Montserrat Variable, sans-serif"
+                fontWeight={500}
+                fontSize="2rem"
+                variant="h2"
+                component="h2"
+                textAlign="center"
+              >
+                Today&apos;s Featured Reader
+              </Typography>
+            </Grid>
+            <Grid size={{ xs: 12, md: 8 }} sx={{ width: "100%", zIndex: 999 }}>
+              {/* avoid the "online" status while loading */}
+              <ReaderCard
+                // {...READER_CARDS[0]}
+                {...GET_READER_CARD(key)}
+                status={getStatus(
+                  getReaderByPin(Number(GET_READER_CARD(key).pin))?.status,
+                )}
+                onCallNow={() => undefined}
+                mode="featured"
+                description={description}
+              />
+            </Grid>
           </Grid>
-        </Grid>
-      </Container>
-    </Box>
+        </Container>
+      </Box>
+    </StyledFeaturedReaderSection>
   );
 };

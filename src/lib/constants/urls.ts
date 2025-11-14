@@ -1,7 +1,12 @@
+export enum NavIcons {
+  Offer = "offer",
+}
+
 export const PAGES = [
   { label: "Our Psychics", path: "/psychic-readers" },
   { label: "About", path: "/about" },
   { label: "How It Works", path: "/how-psychic-readings-work" },
+  { label: "Offers", path: "/offers", icon: NavIcons.Offer },
   { label: "Contact", path: "/contact" },
 ];
 

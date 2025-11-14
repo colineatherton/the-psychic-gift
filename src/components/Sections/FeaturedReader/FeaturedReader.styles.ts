@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { styled, Theme } from "@mui/material/styles";
 
 export const StyledReaderImg = styled("img")(({ theme }) => ({
   borderRadius: "30px",
@@ -29,5 +29,24 @@ export const StyledReaderContainer = styled(Box)(({ theme }) => ({
     animation: "hueRotate 12s linear infinite",
     zIndex: -1,
     filter: "blur(12px)",
+  },
+}));
+
+export const StyledFeaturedReaderSection = styled("section")(({ theme }) => ({
+  position: "relative",
+  minHeight: "90vh",
+  backgroundSize: "cover",
+  // background: `linear-gradient(180deg, ${theme.palette.primary.dark} 15%, ${theme.palette.primary.light} 100%)`,
+  overflow: "hidden",
+  "::before": {
+    content: '""',
+    position: "absolute",
+    inset: 0,
+    // background: `
+    //   radial-gradient(80rem 40rem at 75% 25%, rgba(0, 0, 0, 0.15), transparent 60%),
+    //   linear-gradient(180deg, rgba(10, 6, 30, 0.05), rgba(10, 6, 30, 0.10) 40%, transparent 65%)
+    // `,
+    pointerEvents: "none",
+    zIndex: 1,
   },
 }));

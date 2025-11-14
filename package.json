@@ -25,7 +25,8 @@
     "next": "15.4.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "tsparticles": "^3.9.1"
+    "tsparticles": "^3.9.1",
+    "tsparticles-shape-image": "^2.12.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.1",

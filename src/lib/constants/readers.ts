@@ -2,7 +2,7 @@ import { ReaderConfig, Status } from "@/lib/types/readers";
 import { Reader } from "@/components/ReaderGrid/ReaderGrid";
 
 export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
-  ["adele"]: {
+  ["adele-3622"]: {
     name: "Adele",
     pin: 3622,
     description:
@@ -393,6 +393,29 @@ export const READER_CARDS: Reader[] = READER_LIST.map((reader) => ({
     },
   ],
 }));
+
+export const GET_READER_CARD = (key: string): Reader => {
+  const reader = READER_CONFIG_MAP[key];
+
+  return {
+    name: reader.name,
+    image: reader.imageUrl,
+    pin: reader.pin.toString(),
+    status: Status.online, // Default status, can be updated dynamically
+    skills: [
+      ...reader.specialties.abilities,
+      ...reader.specialties.tools,
+      ...reader.specialties.topics,
+      ...reader.specialties.themes,
+    ],
+    callOptions: [
+      {
+        label: "Call Now",
+        number: `+1234567890`, // Placeholder number, should be replaced with actual logic
+      },
+    ],
+  };
+};
 
 export const READER_STATUS_OPTIONS = [
   { value: "online", label: "Online" },

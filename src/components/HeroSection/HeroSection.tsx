@@ -1,14 +1,6 @@
 "use client";
 
-import { CTA_PRIMARY_LABEL } from "@/lib/constants/Messages";
-import {
-  Box,
-  Container,
-  Grid,
-  Stack,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
 import type { Container as ParticaleContainer } from "@tsparticles/engine";
 import styles from "./HeroSection.module.css";
 
@@ -20,14 +12,13 @@ import {
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useMemo, useState } from "react";
 import { loadFull } from "tsparticles";
-import { CTAButton } from "../CTAButton/CTAButton";
 import { OfferCallout } from "../OfferCallout/OfferCallout";
+import { PrimaryCTAButton } from "../PrimaryCTAButton/PrimaryCTAButton";
 import {
   StyledContent,
   StyledHeroSection,
   StyledParticles,
 } from "./HeroSection.styles";
-import { PrimaryCTAButton } from "../PrimaryCTAButton/PrimaryCTAButton";
 
 export function HeroSection() {
   const [init, setInit] = useState(false);
