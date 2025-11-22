@@ -1,8 +1,4 @@
-import { FAQs } from "@/components/FAQs/FAQs";
 import { HeroSection } from "@/components/HeroSection/HeroSection";
-import { LinkCard } from "@/components/LinkCard/LinkCard";
-import { PageContainer } from "@/components/PageContainer/PageContainer";
-import { PageSection } from "@/components/PageSection/PageSection";
 import {
   CTA,
   FeaturedReader,
@@ -11,11 +7,11 @@ import {
   Testimonials,
   WhyPsychicGift,
 } from "@/components/Sections";
-import { Grid } from "@mui/material";
+import { FAQsSection } from "@/components/Sections/FAQsSection/FAQsSection";
+import { homePageFAQs } from "@/lib/constants/faqs/homePage";
+import { homePageInternalLinks } from "@/lib/constants/internalLinks";
 import ReadersSection from "./components/ReadersSection";
 import TrustBadgeSection from "./components/TrustBadgeSection";
-import { Inter } from "next/font/google";
-import { homePageInternalLinks } from "@/lib/constants/internalLinks";
 
 export const metadata = {
   title: "Phoenix Rising | Awaken Your Vision",
@@ -49,42 +45,7 @@ export default function Home() {
       <Testimonials />
       <InternalLinks links={homePageInternalLinks} />
       <CTA heading="Ready when you are" />
-
-      <PageSection background="secondary.light">
-        <PageContainer centered>
-          <Grid container height="100%" pt={6} pb={16} width={"100%"}>
-            <FAQs
-              items={[
-                {
-                  question: "What is a psychic phone reading?",
-                  answer:
-                    "A psychic phone reading is a live call with a gifted clairvoyant who offers insights into your love life, career, future, and more.",
-                },
-                {
-                  question: "How do I speak to a psychic?",
-                  answer:
-                    "Simply call one of our Freephone or Premium Rate numbers to be connected directly to an available psychic.",
-                },
-                {
-                  question: "How much does a psychic reading cost?",
-                  answer:
-                    "Our readings start at £1.50 per minute. You can also purchase Pre-Pay minutes for discounts and bonuses.",
-                },
-                {
-                  question: "How do I choose the right psychic for me?",
-                  answer:
-                    "You can browse each psychic's profile to see their specialties and background. Some focus on love and relationships, others on life path or spiritual guidance. All our readers are hand-picked for their warmth, intuitive insight, and experience — choose the one who resonates with your needs.",
-                },
-                {
-                  question: "Are psychic readings confidential?",
-                  answer:
-                    "Yes. All readings are private and confidential. We also do not store call recordings beyond what's required for customer service and compliance.",
-                },
-              ]}
-            />
-          </Grid>
-        </PageContainer>
-      </PageSection>
+      <FAQsSection items={homePageFAQs} />
     </>
   );
 }

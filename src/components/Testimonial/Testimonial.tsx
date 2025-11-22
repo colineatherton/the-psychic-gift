@@ -1,6 +1,5 @@
 "use client";
 
-import theme from "@/app/theme";
 import { Typography } from "@mui/material";
 import Link from "next/link";
 

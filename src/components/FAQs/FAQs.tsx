@@ -19,29 +19,15 @@ interface FAQProps {
 
 export function FAQs({ items }: FAQProps) {
   return (
-    <Stack direction="column" spacing={4} width="100%">
-      <Typography
-        fontFamily="Montserrat Variable, sans-serif"
-        fontWeight={500}
-        fontSize="2rem"
-        color="primary"
-        lineHeight="1.6"
-        variant="h2"
-        component="h2"
-        marginBottom={12}
-        paddingBottom={6}
-        textAlign="center"
-      >
-        Frequently asked questions
-      </Typography>
+    <>
       {items.map(({ question, answer }, index) => (
         <Accordion
           key={index}
           square
           sx={{
-            backgroundColor: theme.palette.background.default,
+            // backgroundColor: theme.palette.background.default,
             boxShadow: "none",
-            borderTop: `1px solid ${theme.palette.secondary.main}`,
+            // borderTop: `1px solid ${theme.palette.secondary.main}`,
           }}
         >
           <AccordionSummary
@@ -53,7 +39,7 @@ export function FAQs({ items }: FAQProps) {
               fontFamily="Montserrat Variable, sans-serif"
               fontWeight={600}
               fontSize="1.1rem"
-              color="primary"
+              // color="primary"
               lineHeight="1.6"
               variant="h3"
               component="h3"
@@ -66,7 +52,7 @@ export function FAQs({ items }: FAQProps) {
               fontFamily="Montserrat Variable, sans-serif"
               fontWeight={600}
               fontSize="1.1rem"
-              color="primary"
+              // color="primary"
               lineHeight="1.6"
               variant="h3"
               component="h3"
@@ -76,6 +62,6 @@ export function FAQs({ items }: FAQProps) {
           </AccordionDetails>
         </Accordion>
       ))}
-    </Stack>
+    </>
   );
 }
