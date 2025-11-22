@@ -41,11 +41,10 @@ export const ReaderFeedProvider = ({
     prev: ReaderFeedItem[],
     next: ReaderFeedItem[],
   ) => {
-    // Map previous statuses by id for quick lookup
     const prevStatus = new Map<number, ReaderFeedItem["status"]>();
     prev.forEach((r) => prevStatus.set(r.id, r.status));
 
-    // Find first reader whose status changed TO online (1) from NOT online
+    // Find first transition TO online
     const transitioned = next.find((n) => {
       const before = prevStatus.get(n.id);
       return before !== undefined && before !== 1 && n.status === 1;
@@ -53,7 +52,22 @@ export const ReaderFeedProvider = ({
 
     if (transitioned) {
       setRecentlyAvailable(transitioned);
+      return;
     }
+
+    // No new transition: maintain or clear/replace
+    setRecentlyAvailable((current) => {
+      if (!current) return current;
+      const updatedCurrent = next.find((r) => r.id === current.id);
+      // If current left online, replace with another online or clear
+      if (!updatedCurrent || updatedCurrent.status !== 1) {
+        const replacement = next.find(
+          (r) => r.status === 1 && r.id !== current.id,
+        );
+        return replacement || undefined;
+      }
+      return updatedCurrent; // keep same reader (fresh object)
+    });
   };
 
   const fetchReaders = async () => {

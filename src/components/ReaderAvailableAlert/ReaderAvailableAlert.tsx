@@ -33,6 +33,7 @@ export const ReaderAvailableAlert = (
 
   return (
     <Snackbar
+      key={recentlyAvailable?.id || "none"}
       open={open}
       onClose={() => setOpen(false)}
       anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
