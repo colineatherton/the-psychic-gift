@@ -1,8 +1,9 @@
 "use client";
 
 import { ReaderCard } from "@/components/ReaderCard/ReaderCard";
-import { READER_CONFIG_MAP } from "@/lib/constants/readers";
 import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
+import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
+import { Status } from "@/lib/types/readers";
 import {
   Box,
   Checkbox,
@@ -16,8 +17,6 @@ import {
   Typography,
 } from "@mui/material";
 import React, { ChangeEvent, useMemo, useState } from "react";
-import { ReaderModal } from "../ReaderModal/ReaderModal";
-import { ReaderConfig, Status } from "@/lib/types/readers";
 
 export const getStatus = (status: number | undefined): Status => {
   switch (status) {
@@ -67,16 +66,11 @@ export const ReaderGrid: React.FC<ReaderGridProps> = ({
   sortBy: initialSortBy = "alpha",
   mode = "default",
 }) => {
+  const { getReaderByPin } = useReaderFeedContext();
+  const { handleChooseCallOptions } = useReaderSelectContext();
   const [statusFilter, setStatusFilter] = useState<string | null>(null);
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState<string>(initialSortBy);
-  const [readerConfig, setReaderConfig] = useState<ReaderConfig | null>(null);
-  const [readerModalOpen, setReaderModalOpen] = useState(false);
-  const { getReaderByPin } = useReaderFeedContext();
-
-  const handleCloseReaderModal = () => {
-    setReaderModalOpen(false);
-  };
 
   const handleStatusChange = (
     event: React.MouseEvent<HTMLElement>,
@@ -148,148 +142,132 @@ export const ReaderGrid: React.FC<ReaderGridProps> = ({
   const getCount = (status: string) =>
     readersWithStatus.filter((r) => r.status === status).length;
 
-  const handleOnCallNow = (key: string) => {
-    const config = READER_CONFIG_MAP[key];
-    if (!config) return; // todo
-    setReaderConfig(config);
-    setReaderModalOpen(true);
-  };
-
   return (
-    <>
-      <Box flexGrow={1}>
-        {/* 🔘 Status Filter */}
-        {withFilters && (
-          <>
-            <Typography variant="h6" sx={{ mt: 2 }}>
-              Status
-            </Typography>
-            <ToggleButtonGroup
-              value={statusFilter}
-              exclusive
-              onChange={handleStatusChange}
-              aria-label="status filter"
-              sx={{ mb: 2 }}
-            >
-              <ToggleButton value="">All ({readers.length})</ToggleButton>
-              <ToggleButton value="online">
-                Online ({getCount("online")})
-              </ToggleButton>
-              <ToggleButton value="busy">
-                Busy ({getCount("busy")})
-              </ToggleButton>
-              <ToggleButton value="offline">
-                Offline ({getCount("offline")})
-              </ToggleButton>
-            </ToggleButtonGroup>
+    <Box flexGrow={1}>
+      {/* 🔘 Status Filter */}
+      {withFilters && (
+        <>
+          <Typography variant="h6" sx={{ mt: 2 }}>
+            Status
+          </Typography>
+          <ToggleButtonGroup
+            value={statusFilter}
+            exclusive
+            onChange={handleStatusChange}
+            aria-label="status filter"
+            sx={{ mb: 2 }}
+          >
+            <ToggleButton value="">All ({readers.length})</ToggleButton>
+            <ToggleButton value="online">
+              Online ({getCount("online")})
+            </ToggleButton>
+            <ToggleButton value="busy">Busy ({getCount("busy")})</ToggleButton>
+            <ToggleButton value="offline">
+              Offline ({getCount("offline")})
+            </ToggleButton>
+          </ToggleButtonGroup>
 
-            {/* 🧠 Skill Filter */}
-            <Typography variant="h6" sx={{ mt: 2 }}>
-              Skills
-            </Typography>
-            <FormGroup row sx={{ flexWrap: "wrap", gap: 1 }}>
-              {allSkills.map((skill) => (
-                <FormControlLabel
-                  key={skill}
-                  control={
-                    <Checkbox
-                      checked={selectedSkills.includes(skill)}
-                      onChange={() => handleSkillToggle(skill)}
-                    />
-                  }
-                  label={skill}
-                />
-              ))}
-            </FormGroup>
-
-            {/* 🧠 Tool Filter */}
-            <Typography variant="h6" sx={{ mt: 2 }}>
-              Tools
-            </Typography>
-            <FormGroup row sx={{ flexWrap: "wrap", gap: 1 }}>
-              {allTools.map((skill) => (
-                <FormControlLabel
-                  key={skill}
-                  control={
-                    <Checkbox
-                      checked={selectedSkills.includes(skill)}
-                      onChange={() => handleSkillToggle(skill)}
-                    />
-                  }
-                  label={skill}
-                />
-              ))}
-            </FormGroup>
-
-            {/* 🧠 Skill Filter */}
-            <Typography variant="h6" sx={{ mt: 2 }}>
-              Abilities
-            </Typography>
-            <FormGroup row sx={{ flexWrap: "wrap", gap: 1 }}>
-              {allAbilities.map((skill) => (
-                <FormControlLabel
-                  key={skill}
-                  control={
-                    <Checkbox
-                      checked={selectedSkills.includes(skill)}
-                      onChange={() => handleSkillToggle(skill)}
-                    />
-                  }
-                  label={skill}
-                />
-              ))}
-            </FormGroup>
-
-            {/* 🧠 Skill Filter */}
-            <Typography variant="h6" sx={{ mt: 2 }}>
-              Topics
-            </Typography>
-            <FormGroup row sx={{ flexWrap: "wrap", gap: 1 }}>
-              {allTopics.map((skill) => (
-                <FormControlLabel
-                  key={skill}
-                  control={
-                    <Checkbox
-                      checked={selectedSkills.includes(skill)}
-                      onChange={() => handleSkillToggle(skill)}
-                    />
-                  }
-                  label={skill}
-                />
-              ))}
-            </FormGroup>
-
-            {/* 🔄 Sort */}
-            <Typography variant="h6" sx={{ mt: 3 }}>
-              Sort by
-            </Typography>
-            <Select value={sortBy} onChange={handleSortChange} size="small">
-              <MenuItem value="alpha">Alphabetical</MenuItem>
-              <MenuItem value="status">Status</MenuItem>
-            </Select>
-          </>
-        )}
-
-        {/* 🧱 Reader Cards */}
-        <Box>
-          <Grid container spacing={4}>
-            {sorted.map((reader) => (
-              <Grid size={{ xs: 12, sm: 6, md: 4, lg: 4 }} key={reader.pin}>
-                <ReaderCard
-                  {...reader}
-                  onCallNow={handleOnCallNow}
-                  mode={mode}
-                />
-              </Grid>
+          {/* 🧠 Skill Filter */}
+          <Typography variant="h6" sx={{ mt: 2 }}>
+            Skills
+          </Typography>
+          <FormGroup row sx={{ flexWrap: "wrap", gap: 1 }}>
+            {allSkills.map((skill) => (
+              <FormControlLabel
+                key={skill}
+                control={
+                  <Checkbox
+                    checked={selectedSkills.includes(skill)}
+                    onChange={() => handleSkillToggle(skill)}
+                  />
+                }
+                label={skill}
+              />
             ))}
-          </Grid>
-        </Box>
+          </FormGroup>
+
+          {/* 🧠 Tool Filter */}
+          <Typography variant="h6" sx={{ mt: 2 }}>
+            Tools
+          </Typography>
+          <FormGroup row sx={{ flexWrap: "wrap", gap: 1 }}>
+            {allTools.map((skill) => (
+              <FormControlLabel
+                key={skill}
+                control={
+                  <Checkbox
+                    checked={selectedSkills.includes(skill)}
+                    onChange={() => handleSkillToggle(skill)}
+                  />
+                }
+                label={skill}
+              />
+            ))}
+          </FormGroup>
+
+          {/* 🧠 Skill Filter */}
+          <Typography variant="h6" sx={{ mt: 2 }}>
+            Abilities
+          </Typography>
+          <FormGroup row sx={{ flexWrap: "wrap", gap: 1 }}>
+            {allAbilities.map((skill) => (
+              <FormControlLabel
+                key={skill}
+                control={
+                  <Checkbox
+                    checked={selectedSkills.includes(skill)}
+                    onChange={() => handleSkillToggle(skill)}
+                  />
+                }
+                label={skill}
+              />
+            ))}
+          </FormGroup>
+
+          {/* 🧠 Skill Filter */}
+          <Typography variant="h6" sx={{ mt: 2 }}>
+            Topics
+          </Typography>
+          <FormGroup row sx={{ flexWrap: "wrap", gap: 1 }}>
+            {allTopics.map((skill) => (
+              <FormControlLabel
+                key={skill}
+                control={
+                  <Checkbox
+                    checked={selectedSkills.includes(skill)}
+                    onChange={() => handleSkillToggle(skill)}
+                  />
+                }
+                label={skill}
+              />
+            ))}
+          </FormGroup>
+
+          {/* 🔄 Sort */}
+          <Typography variant="h6" sx={{ mt: 3 }}>
+            Sort by
+          </Typography>
+          <Select value={sortBy} onChange={handleSortChange} size="small">
+            <MenuItem value="alpha">Alphabetical</MenuItem>
+            <MenuItem value="status">Status</MenuItem>
+          </Select>
+        </>
+      )}
+
+      {/* 🧱 Reader Cards */}
+      <Box>
+        <Grid container spacing={4}>
+          {sorted.map((reader) => (
+            <Grid size={{ xs: 12, sm: 6, md: 4, lg: 4 }} key={reader.pin}>
+              <ReaderCard
+                {...reader}
+                onChooseCallOptions={handleChooseCallOptions}
+                mode={mode}
+              />
+            </Grid>
+          ))}
+        </Grid>
       </Box>
-      <ReaderModal
-        open={readerModalOpen}
-        onClose={handleCloseReaderModal}
-        reader={readerConfig}
-      />
-    </>
+    </Box>
   );
 };

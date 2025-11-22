@@ -1,4 +1,5 @@
-import { ReaderConfig } from "@/lib/types/readers";
+import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   Accordion,
   AccordionActions,
@@ -14,40 +15,30 @@ import {
   Slide,
   Typography,
 } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { TransitionProps } from "@mui/material/transitions";
 import { forwardRef } from "react";
 
-interface ReaderModalProps {
-  open: boolean;
-  reader: ReaderConfig | null;
-  onClose: () => void;
-}
+interface ReaderModalProps {}
 
 const Transition = forwardRef(function Transition(
   props: TransitionProps & {
     children: React.ReactElement<any, any>;
   },
-  ref: React.Ref<unknown>
+  ref: React.Ref<unknown>,
 ) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export const ReaderModal: React.FC<ReaderModalProps> = ({
-  open,
-  reader,
-  onClose,
-}) => {
-  if (!reader) {
-    return null; // Don't render modal if no reader is provided
-  }
+export const ReaderModal: React.FC<ReaderModalProps> = ({}) => {
+  const { readerModalOpen, readerConfig, handleCloseReaderModal } =
+    useReaderSelectContext();
 
   return (
     <Dialog
       fullWidth={true}
       maxWidth={"md"}
-      open={open}
-      onClose={onClose}
+      open={readerModalOpen}
+      onClose={handleCloseReaderModal}
       scroll="paper"
       sx={{
         "& .MuiDialog-paper": {
@@ -72,12 +63,17 @@ export const ReaderModal: React.FC<ReaderModalProps> = ({
         >
           <Grid size={{ xs: 12, sm: 6 }}>
             <DialogContentText>
-              <h1>{reader.name}</h1>
-              <strong>PIN:</strong> {reader.pin}
-              <strong>Specialties:</strong>{" "}
-              {reader.specialties.abilities.join(", ")}
-              <strong>Topics:</strong> {reader.specialties.topics.join(", ")}
-              <p style={{ marginTop: 16 }}>{reader.description}</p>
+              {readerConfig && (
+                <>
+                  <h1>{readerConfig.name}</h1>
+                  <strong>PIN:</strong> {readerConfig.pin}
+                  <strong>Specialties:</strong>{" "}
+                  {readerConfig.specialties.abilities.join(", ")}
+                  <strong>Topics:</strong>{" "}
+                  {readerConfig.specialties.topics.join(", ")}
+                  <p style={{ marginTop: 16 }}>{readerConfig.description}</p>
+                </>
+              )}
             </DialogContentText>
           </Grid>
           <Grid size={{ xs: 12, sm: 6 }}>
@@ -141,7 +137,7 @@ export const ReaderModal: React.FC<ReaderModalProps> = ({
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Close</Button>
+        <Button onClick={handleCloseReaderModal}>Close</Button>
       </DialogActions>
     </Dialog>
   );

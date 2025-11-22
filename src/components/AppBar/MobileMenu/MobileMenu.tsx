@@ -1,3 +1,5 @@
+"use client";
+
 import { IconToggle } from "@/components";
 import { PrimaryCTAButton } from "@/components/PrimaryCTAButton/PrimaryCTAButton";
 import { PAGES, READING_PAGES } from "@/lib/constants/urls";
@@ -9,6 +11,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import { themeIcons } from "../AppBar";
 import { StyledBadge } from "../AppBar.styles";
 import { StyledDrawer, StyledListItemText } from "./MobileMenu.styles";
+import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 
 interface MobileDrawerProps {
   open: boolean;
@@ -27,6 +30,8 @@ export const MobileDrawer = ({
   onThemeToggle,
   themeMode,
 }: MobileDrawerProps) => {
+  const { handleFindYourPsychic } = useReaderSelectContext();
+
   return (
     <StyledDrawer
       anchor={"top"}
@@ -44,7 +49,7 @@ export const MobileDrawer = ({
           <Grid mt={2}>
             <PrimaryCTAButton
               size="medium"
-              onClick={() => undefined}
+              onClick={handleFindYourPsychic}
               label="Find Your Psychic"
               fullWidth
             />

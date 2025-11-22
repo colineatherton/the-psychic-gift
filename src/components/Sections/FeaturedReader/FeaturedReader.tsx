@@ -17,6 +17,7 @@ import { useEffect, useMemo, useState } from "react";
 import { loadFull } from "tsparticles";
 import styles from "../Hero/Hero.module.css";
 import { StyledFeaturedReaderSection } from "./FeaturedReader.styles";
+import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 
 const getFeaturedReaderKey = (): string => {
   // Get all reader keys from READER_CONFIG_MAP
@@ -40,6 +41,7 @@ export const FeaturedReader = () => {
   const key = getFeaturedReaderKey();
   const { description } = READER_CONFIG_MAP[key];
   const { getReaderByPin } = useReaderFeedContext();
+  const { handleChooseCallOptions } = useReaderSelectContext();
 
   const [init, setInit] = useState(false);
   useEffect(() => {
@@ -171,7 +173,7 @@ export const FeaturedReader = () => {
                 status={getStatus(
                   getReaderByPin(Number(GET_READER_CARD(key).pin))?.status,
                 )}
-                onChooseCallOptions={() => undefined}
+                onChooseCallOptions={handleChooseCallOptions}
                 mode="featured"
                 description={description}
               />

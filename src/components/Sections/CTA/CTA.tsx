@@ -3,6 +3,7 @@
 import theme from "@/app/theme";
 import { PrimaryCTAButton } from "@/components/PrimaryCTAButton/PrimaryCTAButton";
 import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
+import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import pluralize from "@theothergothamdev/pluralize-ts";
 
@@ -12,6 +13,7 @@ interface CTASectionProps {
 
 export function CTA({ heading }: CTASectionProps) {
   const { getOnlineReaders } = useReaderFeedContext();
+  const { handleFindYourPsychic } = useReaderSelectContext();
   const onlineReadersCount = getOnlineReaders().length;
 
   return (
@@ -51,7 +53,7 @@ export function CTA({ heading }: CTASectionProps) {
             </Typography>
             <PrimaryCTAButton
               size="large"
-              onClick={() => undefined}
+              onClick={handleFindYourPsychic}
               label="Find Your Psychic"
               mb={4}
             />

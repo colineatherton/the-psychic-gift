@@ -23,6 +23,7 @@ import { MobileDrawer } from "./MobileMenu/MobileMenu";
 
 import theme, { darkPlum, lightGrey } from "@/app/theme";
 import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
+import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 
 const navIcons: Record<NavIcons, React.ReactNode> = {
   [NavIcons.Offer]: <AutoAwesomeIcon />,
@@ -68,6 +69,7 @@ interface AppBarProps {
 
 export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
   const { getOnlineReaders } = useReaderFeedContext();
+  const { handleFindYourPsychic } = useReaderSelectContext();
   const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [drawerTopOffset, setDrawerTopOffset] = useState(0);
@@ -149,7 +151,7 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                             >
                               <PrimaryCTAButton
                                 size="small"
-                                onClick={() => undefined}
+                                onClick={handleFindYourPsychic}
                                 mode="compact"
                                 label="Find Your Psychic"
                               />

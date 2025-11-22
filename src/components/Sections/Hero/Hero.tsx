@@ -19,8 +19,10 @@ import {
   StyledHeroSection,
   StyledParticles,
 } from "./Hero.styles";
+import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 
 export const Hero = () => {
+  const { handleFindYourPsychic } = useReaderSelectContext();
   const [init, setInit] = useState(false);
   const theme = useTheme();
 
@@ -180,7 +182,7 @@ export const Hero = () => {
               </Typography>
               <PrimaryCTAButton
                 size="large"
-                onClick={() => undefined}
+                onClick={handleFindYourPsychic}
                 label="Find Your Psychic"
                 mb={4}
               />

@@ -210,7 +210,9 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
           <PrimaryCTAButton
             size="large"
             fullWidth={true}
-            onClick={() => onChooseCallOptions(name.toLocaleLowerCase())}
+            onClick={() =>
+              onChooseCallOptions(`${name.toLocaleLowerCase()}-${pin}`)
+            }
             mode={mode === "compact" ? "compact" : "default"}
             icon={<PhoneIcon fontSize="large" />}
             label="Choose Call Options"

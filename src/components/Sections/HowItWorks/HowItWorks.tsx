@@ -2,6 +2,7 @@
 
 import { PrimaryCTAButton } from "@/components/PrimaryCTAButton/PrimaryCTAButton";
 import { StepCard } from "@/components/StepCards/StepCard";
+import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 import SouthOutlinedIcon from "@mui/icons-material/SouthOutlined";
 import {
   Box,
@@ -14,6 +15,7 @@ import {
 
 export const HowItWorks = () => {
   const theme = useTheme();
+  const { handleFindYourPsychic } = useReaderSelectContext();
 
   const logoSrc =
     theme.palette.mode === "light"
@@ -85,9 +87,8 @@ export const HowItWorks = () => {
                   backgroundColor={theme.palette.primary.light}
                   footer={
                     <PrimaryCTAButton
-                      // mode="compact"
                       size="large"
-                      onClick={() => undefined}
+                      onClick={handleFindYourPsychic}
                       label="Find Your Psychic"
                     />
                   }
