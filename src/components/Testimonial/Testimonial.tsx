@@ -1,7 +1,7 @@
 "use client";
 
-import theme from "@/app/theme";
 import { Typography } from "@mui/material";
+import Link from "next/link";
 
 interface TestimonialProps {
   clientName: string;
@@ -10,7 +10,7 @@ interface TestimonialProps {
   pin: string;
 }
 
-export default function Testimonial({
+export function Testimonial({
   clientName,
   quote,
   reader,
@@ -32,7 +32,7 @@ export default function Testimonial({
         fontFamily="Montserrat Variable, sans-serif"
         fontWeight={600}
         fontSize="1.1rem"
-        color="primary"
+        // color="primary"
         lineHeight="1.6"
         variant="h3"
         component="h3"
@@ -45,7 +45,7 @@ export default function Testimonial({
         fontFamily="Montserrat Variable, sans-serif"
         fontWeight={500}
         fontSize="1rem"
-        color={theme.palette.secondary.dark}
+        // color={theme.palette.secondary.dark}
         lineHeight="1.6"
         variant="body2"
         component="p"
@@ -58,14 +58,21 @@ export default function Testimonial({
         fontFamily="Montserrat Variable, sans-serif"
         fontWeight={700}
         fontSize="1rem"
-        color="primary"
+        // color="primary"
         lineHeight="1.6"
         variant="body2"
         component="p"
         textAlign="left"
         marginTop={2}
       >
-        Reading by {reader} - PIN: {pin}
+        Reading by{" "}
+        <Link
+          style={{ textDecoration: "underline" }}
+          href={`/psychic-readers/${reader.toLocaleLowerCase()}-${pin}`}
+        >
+          {reader}
+        </Link>{" "}
+        - PIN: {pin}
       </Typography>
     </>
   );

@@ -8,7 +8,7 @@ interface Props {
   onClose: () => void;
 }
 
-export default function ReaderAvailableAlert({
+export function ReaderAvailableAlert({
   readerName,
   specialism,
   open,

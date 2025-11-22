@@ -1,4 +1,4 @@
-import Testimonial from "@/components/Testimonial/Testimonial";
+import { Testimonial } from "@/components/Testimonial/Testimonial";
 import { Grid, Stack, Typography } from "@mui/material";
 
 export default function TestimonialsSection() {

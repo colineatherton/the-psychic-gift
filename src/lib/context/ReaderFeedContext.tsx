@@ -13,9 +13,9 @@ type ReaderFeedContextType = {
   getOnlineReaders: () => ReaderFeedItem[];
 };
 
-const ReaderFeedContext = createContext<ReaderFeedContextType | undefined>(
-  undefined
-);
+export const ReaderFeedContext = createContext<
+  ReaderFeedContextType | undefined
+>(undefined);
 
 // --- Provider Component ---
 export const ReaderFeedProvider = ({
@@ -100,7 +100,7 @@ export const useReaderFeedContext = () => {
   const ctx = useContext(ReaderFeedContext);
   if (!ctx)
     throw new Error(
-      "useReaderFeedContext must be used within a ReaderFeedProvider"
+      "useReaderFeedContext must be used within a ReaderFeedProvider",
     );
   return ctx;
 };

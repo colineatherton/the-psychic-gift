@@ -5,34 +5,50 @@ import { createTheme } from "@mui/material/styles";
 import { common } from "@mui/material/colors";
 
 declare module "@mui/material/styles" {
-  interface Theme {
+  interface Palette {
     status: {
       online: string;
       busy: string;
       offline: string;
     };
+    accent: {
+      primary: string;
+      primaryText: string;
+      primaryHighlight: string;
+    };
   }
-  interface ThemeOptions {
+  interface PaletteOptions {
     status?: {
       online?: string;
       busy?: string;
       offline?: string;
     };
+    accent?: {
+      primary?: string;
+      primaryText?: string;
+      primaryHighlight?: string;
+    };
   }
 }
 
+export const darkPlum = "#18122B";
+const ctaColor = "#745ddd";
 const darkPurple = "#745ddd";
+// const darkPurple = "#483c7b";
 const midPurple = "#8174bb";
 const lightPurple = "#a99fd1";
-const lightGrey = "#f8f7ff";
+const lightPurple2 = "#c6bbf4ff";
+const lightPurple3 = "#d6ccffff";
+export const lightGrey = "#f8f7ff";
 const midGrey = "#7a8486";
 const darkGrey = "#274149";
 
 export const lightPalette = {
   mode: "light" as const,
   primary: {
-    main: midPurple,
-    light: lightPurple,
+    // main: lightPurple,
+    main: lightPurple2,
+    light: lightGrey,
     dark: darkPurple,
   },
   secondary: {
@@ -44,25 +60,23 @@ export const lightPalette = {
     default: lightGrey,
     paper: "#fff",
   },
-  text: { primary: lightGrey, secondary: darkGrey },
-
-  // text: { primary: "#000" },
+  text: { primary: darkGrey, secondary: lightGrey },
 };
 
 export const darkPalette = {
   mode: "dark" as const,
   primary: {
-    main: lightPurple, // #a99fd1, lighter purple for accents
-    light: "#d1c7ee", // even lighter for hover/active
-    dark: darkPurple, // #745ddd, for contrast
+    main: darkPurple,
+    light: darkPlum,
+    dark: midPurple,
   },
   secondary: {
     main: "#b0bec5", // soft grey-blue for secondary accents
     light: "#cfd8dc",
-    dark: "#78909c",
+    dark: lightGrey,
   },
   background: {
-    default: "#18122B", // deep purple/black for main background
+    default: darkPlum, // deep purple/black for main background
     paper: "#232042", // slightly lighter for cards/panels
   },
   text: {
@@ -89,11 +103,16 @@ export function getTheme(mode: "light" | "dark" = "light") {
         white: common.white,
         black: common.black,
       },
-    },
-    status: {
-      online: "#00c853",
-      busy: "#ffa000",
-      offline: "#b0bec5",
+      status: {
+        online: "#00c853",
+        busy: "#ffa000",
+        offline: "#b0bec5",
+      },
+      accent: {
+        primary: ctaColor,
+        primaryText: lightGrey,
+        primaryHighlight: lightGrey,
+      },
     },
   });
 }

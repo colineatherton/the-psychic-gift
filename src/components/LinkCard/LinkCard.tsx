@@ -1,10 +1,10 @@
 "use client";
 
-import { Box, Card, CardContent, Typography } from "@mui/material";
-import CTAButton from "../CTAButton/CTAButton";
 import theme from "@/app/theme";
+import { Box, Card, CardContent, Typography } from "@mui/material";
+import { CTAButton } from "../CTAButton/CTAButton";
 
-export default function LinkCard({
+export function LinkCard({
   iconPath,
   title,
   description,

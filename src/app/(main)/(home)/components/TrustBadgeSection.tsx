@@ -1,17 +1,31 @@
-import TrustBadge from "@/components/TrustBadge/TrustBadge";
-import { Stack } from "@mui/material";
+"use client";
+
+import { PageContainer } from "@/components/PageContainer/PageContainer";
+import { TrustBadge } from "@/components/TrustBadge/TrustBadge";
+import { Box, Grid, Stack } from "@mui/material";
 
 export default function TrustBadgeSection() {
   return (
-    <Stack
-      direction="row"
-      alignItems="center"
-      width="100%"
-      justifyContent="space-between"
+    <Box
+      sx={{
+        // background: (theme) => theme.palette.secondary.light,
+        padding: 2,
+      }}
     >
-      <TrustBadge src="/badges/readings-given.png" />
-      <TrustBadge src="/badges/est-2002.png" />
-      <TrustBadge src="/badges/satisfaction-guarantee-2.png" />
-    </Stack>
+      <PageContainer centered>
+        <Grid container height="100%" py={10} width={"100%"}>
+          <Stack
+            direction="row"
+            alignItems="center"
+            width="100%"
+            justifyContent="space-between"
+          >
+            <TrustBadge src="readings-given.png" />
+            <TrustBadge src="est-2002.png" />
+            <TrustBadge src="satisfaction-guarantee-2.png" />
+          </Stack>
+        </Grid>
+      </PageContainer>
+    </Box>
   );
 }

@@ -9,6 +9,7 @@ import {
 } from "material-ui-popup-state/hooks";
 import PopupHoverMenu from "material-ui-popup-state/HoverMenu";
 import { cloneElement, useRef } from "react";
+import { StyledMenuItem } from "./HoverMenu.styles";
 
 interface Props {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -61,18 +62,15 @@ export const HoverMenu = ({ TriggerEl, items, gap, delay }: Props) => {
         }}
       >
         {items.map((item) => (
-          <MenuItem
+          <StyledMenuItem
             key={item.label}
             onClick={() => {
               item.onClick();
               popupState.close();
             }}
-            sx={{
-              color: theme.palette.text.secondary,
-            }}
           >
             {item.label}
-          </MenuItem>
+          </StyledMenuItem>
         ))}
       </PopupHoverMenu>
     </>

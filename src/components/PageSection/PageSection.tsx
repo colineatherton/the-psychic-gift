@@ -10,7 +10,7 @@ interface PageSectionProps {
   children: ReactNode;
 }
 
-export default function PageSection({
+export function PageSection({
   background,
   stretchItems,
   paddingBottom,

@@ -7,11 +7,7 @@ interface NumberWithTextProps {
   body: string;
 }
 
-export default function NumberWithText({
-  number,
-  title,
-  body,
-}: NumberWithTextProps) {
+export function NumberWithText({ number, title, body }: NumberWithTextProps) {
   return (
     <>
       <Box

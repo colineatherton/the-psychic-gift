@@ -1,4 +1,4 @@
-import { ReaderGrid } from "@/components/ReaderGrid/ReaderList";
+import { ReaderGrid } from "@/components/ReaderGrid/ReaderGrid";
 import {
   ALL_ABILITIES,
   ALL_SKILLS,

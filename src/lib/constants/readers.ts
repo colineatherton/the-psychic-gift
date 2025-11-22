@@ -1,8 +1,8 @@
-import { ReaderConfig } from "@/lib/types/readers";
-import { Reader } from "@/components/ReaderGrid/ReaderList";
+import { ReaderConfig, Status } from "@/lib/types/readers";
+import { Reader } from "@/components/ReaderGrid/ReaderGrid";
 
 export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
-  ["adele"]: {
+  ["adele-3622"]: {
     name: "Adele",
     pin: 3622,
     description:
@@ -19,9 +19,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: [],
     },
     ctaText: "Connect with Adele",
-    imageUrl: "img/readers/by_pin/3622.png",
+    imageUrl: "img/readers/original/by_pin/3622.png",
   },
-  ["aelissa"]: {
+  ["aelissa-4444"]: {
     name: "Aelissa",
     pin: 4444,
     description:
@@ -33,9 +33,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["gentle", "precise"],
     },
     ctaText: "Connect with Aelissa",
-    imageUrl: "img/readers/by_pin/4444.png",
+    imageUrl: "img/readers/original/by_pin/4444.png",
   },
-  ["alice"]: {
+  ["alice-6543"]: {
     name: "Alice",
     pin: 6543,
     description:
@@ -47,9 +47,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["direct"],
     },
     ctaText: "Connect with Alice",
-    imageUrl: "img/readers/by_pin/6543.png",
+    imageUrl: "img/readers/original/by_pin/6543.png",
   },
-  ["andy"]: {
+  ["andy-3399"]: {
     name: "Andy",
     pin: 3399,
     description:
@@ -61,9 +61,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["supportive", "compassionate"],
     },
     ctaText: "Connect with Andy",
-    imageUrl: "img/readers/by_pin/3399.png",
+    imageUrl: "img/readers/original/by_pin/3399.png",
   },
-  ["angel"]: {
+  ["angel-1441"]: {
     name: "Angel",
     pin: 1441,
     description:
@@ -75,9 +75,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["supportive"],
     },
     ctaText: "Connect with Angel",
-    imageUrl: "img/readers/by_pin/1441.png",
+    imageUrl: "img/readers/original/by_pin/1441.png",
   },
-  ["bryony"]: {
+  ["bryony-2727"]: {
     name: "Bryony",
     pin: 2727,
     description:
@@ -89,9 +89,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["supportive", "direct"],
     },
     ctaText: "Connect with Bryony",
-    imageUrl: "img/readers/by_pin/2727.png",
+    imageUrl: "img/readers/original/by_pin/2727.png",
   },
-  ["ellie"]: {
+  ["ellie-1180"]: {
     name: "Ellie",
     pin: 1180,
     description:
@@ -103,9 +103,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["nature-connected", "spiritual"],
     },
     ctaText: "Connect with Ellie",
-    imageUrl: "img/readers/by_pin/1180.png",
+    imageUrl: "img/readers/original/by_pin/1180.png",
   },
-  ["fran"]: {
+  ["fran-1133"]: {
     name: "Fran",
     pin: 1133,
     description:
@@ -117,9 +117,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["direct"],
     },
     ctaText: "Connect with Fran",
-    imageUrl: "img/readers/by_pin/1133.png",
+    imageUrl: "img/readers/original/by_pin/1133.png",
   },
-  ["hope"]: {
+  ["hope-3203"]: {
     name: "Hope",
     pin: 3203,
     description:
@@ -131,9 +131,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: [],
     },
     ctaText: "Connect with Hope",
-    imageUrl: "img/readers/by_pin/3203.png",
+    imageUrl: "img/readers/original/by_pin/3203.png",
   },
-  ["jasmine"]: {
+  ["jasmine-5115"]: {
     name: "Jasmine",
     pin: 5115,
     description:
@@ -145,9 +145,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["compassionate", "direct"],
     },
     ctaText: "Connect with Jasmine",
-    imageUrl: "img/readers/by_pin/5115.png",
+    imageUrl: "img/readers/original/by_pin/5115.png",
   },
-  ["joanna"]: {
+  ["joanna-4567"]: {
     name: "Joanna",
     pin: 4567,
     description:
@@ -159,9 +159,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["compassionate", "direct", "precise"],
     },
     ctaText: "Connect with Joanna",
-    imageUrl: "img/readers/by_pin/4567.png",
+    imageUrl: "img/readers/original/by_pin/4567.png",
   },
-  ["john"]: {
+  ["john-5152"]: {
     name: "John",
     pin: 5152,
     description:
@@ -173,9 +173,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["compassionate", "direct"],
     },
     ctaText: "Connect with John",
-    imageUrl: "img/readers/by_pin/5152.png",
+    imageUrl: "img/readers/original/by_pin/5152.png",
   },
-  ["josephine"]: {
+  ["josephine-4499"]: {
     name: "Josephine",
     pin: 4499,
     description:
@@ -187,9 +187,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["supportive"],
     },
     ctaText: "Connect with Josephine",
-    imageUrl: "img/readers/by_pin/4499.png",
+    imageUrl: "img/readers/original/by_pin/4499.png",
   },
-  ["karen"]: {
+  ["karen-5791"]: {
     name: "Karen",
     pin: 5791,
     description:
@@ -201,9 +201,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["supportive"],
     },
     ctaText: "Connect with Karen",
-    imageUrl: "img/readers/by_pin/5791.png",
+    imageUrl: "img/readers/original/by_pin/5791.png",
   },
-  ["maggie"]: {
+  ["maggie-9801"]: {
     name: "Maggie",
     pin: 9801,
     description:
@@ -215,9 +215,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["compassionate", "direct"],
     },
     ctaText: "Connect with Maggie",
-    imageUrl: "img/readers/by_pin/9801.png",
+    imageUrl: "img/readers/original/by_pin/9801.png",
   },
-  ["mariah"]: {
+  ["mariah-1881"]: {
     name: "Mariah",
     pin: 1881,
     description:
@@ -229,9 +229,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["supportive"],
     },
     ctaText: "Connect with Mariah",
-    imageUrl: "img/readers/by_pin/1881.png",
+    imageUrl: "img/readers/original/by_pin/1881.png",
   },
-  ["mary"]: {
+  ["mary-5055"]: {
     name: "Mary",
     pin: 5055,
     description:
@@ -243,9 +243,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["direct", "empowering"],
     },
     ctaText: "Connect with Mary",
-    imageUrl: "img/readers/by_pin/5055.png",
+    imageUrl: "img/readers/original/by_pin/5055.png",
   },
-  ["mavis"]: {
+  ["mavis-1010"]: {
     name: "Mavis",
     pin: 1010,
     description:
@@ -257,9 +257,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["direct", "precise", "uplifting"],
     },
     ctaText: "Connect with Mavis",
-    imageUrl: "img/readers/by_pin/1010.png",
+    imageUrl: "img/readers/original/by_pin/1010.png",
   },
-  ["michaela"]: {
+  ["michaela-3232"]: {
     name: "Michaela",
     pin: 3232,
     description:
@@ -271,9 +271,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["direct"],
     },
     ctaText: "Connect with Michaela",
-    imageUrl: "img/readers/by_pin/3232.png",
+    imageUrl: "img/readers/original/by_pin/3232.png",
   },
-  ["pauline"]: {
+  ["pauline-3798"]: {
     name: "Pauline",
     pin: 3798,
     description:
@@ -285,9 +285,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: [],
     },
     ctaText: "Connect with Pauline",
-    imageUrl: "img/readers/by_pin/3798.png",
+    imageUrl: "img/readers/original/by_pin/3798.png",
   },
-  ["robbie"]: {
+  ["robbie-3443"]: {
     name: "Robbie",
     pin: 3443,
     description:
@@ -299,9 +299,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["uplifting"],
     },
     ctaText: "Connect with Robbie",
-    imageUrl: "img/readers/by_pin/3443.png",
+    imageUrl: "img/readers/original/by_pin/3443.png",
   },
-  ["ruth"]: {
+  ["ruth-2022"]: {
     name: "Ruth",
     pin: 2022,
     description:
@@ -313,9 +313,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["direct", "transformational"],
     },
     ctaText: "Connect with Ruth",
-    imageUrl: "img/readers/by_pin/2022.png",
+    imageUrl: "img/readers/original/by_pin/2022.png",
   },
-  ["sandra"]: {
+  ["sandra-2662"]: {
     name: "Sandra",
     pin: 2662,
     description:
@@ -327,9 +327,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: [],
     },
     ctaText: "Connect with Sandra",
-    imageUrl: "img/readers/by_pin/2662.png",
+    imageUrl: "img/readers/original/by_pin/2662.png",
   },
-  ["sarah"]: {
+  ["sarah-9888"]: {
     name: "Sarah",
     pin: 9888,
     description:
@@ -341,9 +341,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["earth-based", "intuitive"],
     },
     ctaText: "Connect with Sarah",
-    imageUrl: "img/readers/by_pin/9888.png",
+    imageUrl: "img/readers/original/by_pin/9888.png",
   },
-  ["toby"]: {
+  ["toby-2333"]: {
     name: "Toby",
     pin: 2333,
     description:
@@ -355,9 +355,9 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: ["uplifting"],
     },
     ctaText: "Connect with Toby",
-    imageUrl: "img/readers/by_pin/2333.png",
+    imageUrl: "img/readers/original/by_pin/2333.png",
   },
-  ["vanessa"]: {
+  ["vanessa-3900"]: {
     name: "Vanessa",
     pin: 3900,
     description:
@@ -369,7 +369,7 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
       themes: [],
     },
     ctaText: "Connect with Vanessa",
-    imageUrl: "img/readers/by_pin/3900.png",
+    imageUrl: "img/readers/original/by_pin/3900.png",
   },
 };
 
@@ -379,7 +379,7 @@ export const READER_CARDS: Reader[] = READER_LIST.map((reader) => ({
   name: reader.name,
   image: reader.imageUrl,
   pin: reader.pin.toString(),
-  status: "online", // Default status, can be updated dynamically
+  status: Status.online, // Default status, can be updated dynamically
   skills: [
     ...reader.specialties.abilities,
     ...reader.specialties.tools,
@@ -393,6 +393,29 @@ export const READER_CARDS: Reader[] = READER_LIST.map((reader) => ({
     },
   ],
 }));
+
+export const GET_READER_CARD = (key: string): Reader => {
+  const reader = READER_CONFIG_MAP[key];
+
+  return {
+    name: reader.name,
+    image: reader.imageUrl,
+    pin: reader.pin.toString(),
+    status: Status.online, // Default status, can be updated dynamically
+    skills: [
+      ...reader.specialties.abilities,
+      ...reader.specialties.tools,
+      ...reader.specialties.topics,
+      ...reader.specialties.themes,
+    ],
+    callOptions: [
+      {
+        label: "Call Now",
+        number: `+1234567890`, // Placeholder number, should be replaced with actual logic
+      },
+    ],
+  };
+};
 
 export const READER_STATUS_OPTIONS = [
   { value: "online", label: "Online" },
@@ -409,7 +432,7 @@ export const ALL_SKILLS = () => {
 export const ALL_ABILITIES = () => {
   const skillSet = new Set<string>();
   READER_LIST.forEach((r) =>
-    r.specialties.abilities.forEach((s) => skillSet.add(s))
+    r.specialties.abilities.forEach((s) => skillSet.add(s)),
   );
   return Array.from(skillSet).sort();
 };
@@ -417,7 +440,7 @@ export const ALL_ABILITIES = () => {
 export const ALL_TOOLS = () => {
   const skillSet = new Set<string>();
   READER_LIST.forEach((r) =>
-    r.specialties.tools.forEach((s) => skillSet.add(s))
+    r.specialties.tools.forEach((s) => skillSet.add(s)),
   );
   return Array.from(skillSet).sort();
 };
@@ -426,8 +449,8 @@ export const ALL_TOPICS = () => {
   const skillSet = new Set<string>();
   READER_LIST.forEach((r) =>
     [...r.specialties.topics, ...r.specialties.themes].forEach((s) =>
-      skillSet.add(s)
-    )
+      skillSet.add(s),
+    ),
   );
   return Array.from(skillSet).sort();
 };

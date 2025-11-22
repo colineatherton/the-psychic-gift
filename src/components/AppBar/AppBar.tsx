@@ -1,206 +1,228 @@
 "use client";
 
-import theme from "@/app/theme";
-import { CTA_PRIMARY_LABEL } from "@/lib/constants/Messages";
-import { PAGES, READING_PAGES } from "@/lib/constants/urls";
-import AdbIcon from "@mui/icons-material/Adb";
+import { HoverMenu, IconToggle, PrimaryCTAButton } from "@/components";
+import { NavIcons, PAGES, READING_PAGES } from "@/lib/constants/urls";
+import { DarkModeRounded, WbSunnyRounded } from "@mui/icons-material";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
-import MUIAppBar from "@mui/material/AppBar";
+import { Grid, useMediaQuery } from "@mui/material";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import { styled } from "@mui/material/styles";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import CTAButton from "../CTAButton/CTAButton";
-import { HoverMenu } from "../HoverMenu/HoverMenu";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import {
+  StyledAppBar,
+  StyledAppBarContainer,
+  StyledBadge,
+  StyledContainer,
+  StyledImg,
+  StyledLinksContainer,
+  StyledNavLink,
+} from "./AppBar.styles";
+import { MobileDrawer } from "./MobileMenu/MobileMenu";
 
-const StyledAppBar = styled(MUIAppBar)(({ theme }) => ({
-  marginTop: 0,
-  background: theme.palette.primary.main,
-  color: theme.palette.text.primary,
-  ".MuiBox-root p, .MuiBox-root button": {
-    color: theme.palette.text.primary,
-    fontSize: "1rem",
+import theme, { darkPlum, lightGrey } from "@/app/theme";
+import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
+
+const navIcons: Record<NavIcons, React.ReactNode> = {
+  [NavIcons.Offer]: <AutoAwesomeIcon />,
+};
+
+const menuIcons = [
+  {
+    id: "open",
+    label: "Open menu",
+    color: theme.palette.common.white,
+    icon: <MenuIcon fontSize="large" />,
   },
-}));
+  {
+    id: "close",
+    label: "Close menu",
+    color: theme.palette.common.white,
+    icon: <CloseIcon fontSize="large" />,
+  },
+];
 
-const StyledNavButton = styled(Button)`
-  text-transform: none;
-`;
+export const themeIcons = [
+  {
+    id: "light",
+    label: "Light mode",
+    color: lightGrey,
+    icon: <WbSunnyRounded fontSize="small" />,
+    glow: true,
+  },
+  {
+    id: "dark",
+    label: "Dark mode",
+    color: darkPlum,
+    icon: <DarkModeRounded fontSize="small" />,
+    glow: true,
+  },
+];
 
 interface AppBarProps {
   themeMode: "light" | "dark";
   onThemeToggle: () => void;
+  onNavigate: (url: string) => void;
 }
 
-export function AppBar({ themeMode, onThemeToggle }: AppBarProps) {
-  const router = useRouter();
-  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
+  const { getOnlineReaders } = useReaderFeedContext();
+  const [mounted, setMounted] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [drawerTopOffset, setDrawerTopOffset] = useState(0);
+  const appBarRef = useRef<HTMLDivElement>(null);
+  const drawerAnchorRef = useRef<HTMLDivElement>(null);
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
+  const showFullMenu = useMediaQuery("(min-width:650px)");
+  const showMenuIconOnly = useMediaQuery("(max-width:475px)");
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (showFullMenu) {
+      setMobileMenuOpen(false);
+    }
+  }, [showFullMenu]);
+
+  useEffect(() => {
+    const updateOffset = () => {
+      const top = drawerAnchorRef.current?.getBoundingClientRect().top ?? 0;
+      setDrawerTopOffset(Math.floor(top));
+    };
+    updateOffset();
+
+    const ro = new ResizeObserver(updateOffset);
+    if (appBarRef.current) ro.observe(appBarRef.current);
+
+    window.addEventListener("resize", updateOffset);
+    window.addEventListener("orientationchange", updateOffset);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", updateOffset);
+      window.removeEventListener("orientationchange", updateOffset);
+    };
+  }, []);
 
   return (
-    <Box sx={{ backgroundColor: theme.palette.primary.light }}>
-      <StyledAppBar position="fixed" elevation={0}>
-        <Container maxWidth="lg">
-          <Toolbar
-            disableGutters
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <Box sx={{ position: "relative", height: 100, width: 200, mr: 2 }}>
-              <Image
-                src="/logo.png"
-                alt="The Psychic Gift Logo"
-                fill
-                style={{ objectFit: "contain" }}
-                priority
-              />
-            </Box>
-
-            {/* Mobile menu */}
-            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{ display: { xs: "block", md: "none" } }}
-              >
-                {PAGES.map((page) => (
-                  <MenuItem
-                    key={page.label}
-                    onClick={() => {
-                      handleCloseNavMenu();
-                      router.push(page.path);
-                    }}
-                  >
-                    <Typography sx={{ textAlign: "center" }}>
-                      {page.label}
-                    </Typography>
-                  </MenuItem>
-                ))}
-                {READING_PAGES.map((page) => (
-                  <MenuItem
-                    key={page.label}
-                    onClick={() => {
-                      handleCloseNavMenu();
-                      router.push(page.path);
-                    }}
-                  >
-                    <Typography sx={{ textAlign: "center" }}>
-                      {page.label}
-                    </Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
-            <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: "flex", md: "none" },
-                flexGrow: 1,
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-              LOGO
-            </Typography>
-
-            {/* Desktop menu */}
-            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              <HoverMenu
-                TriggerEl={
-                  <Typography
-                    sx={{
-                      my: 2,
-                      color: theme.palette.common.white,
-                      display: "block",
-                      px: 2,
-                      fontWeight: 500,
-                      userSelect: "none",
-                      alignSelf: "center",
-                      marginLeft: "auto",
-                    }}
-                    aria-controls="menu-readings"
-                    variant="body1"
-                  >
-                    Phone Readings
-                  </Typography>
-                }
-                items={READING_PAGES.map((page) => ({
-                  label: page.label,
-                  onClick: () => router.push(page.path),
-                }))}
-                gap={3}
-                delay={600}
-              />
-              {PAGES.map((page) => (
-                <StyledNavButton
-                  key={page.label}
-                  onClick={() => router.push(page.path)}
-                  sx={{ my: 2, color: "white", display: "block" }}
+    <>
+      <StyledAppBar position="fixed" elevation={0} ref={appBarRef}>
+        <StyledAppBarContainer maxWidth={false}>
+          <StyledContainer maxWidth="lg">
+            <Box sx={{ width: "100%", px: 0, py: 0 }}>
+              <Grid container alignItems="center">
+                <Box
+                  sx={{
+                    width: "100%",
+                    maxWidth: { xs: 150, sm: 240, md: 265 },
+                    my: 2,
+                  }}
                 >
-                  {page.label}
-                  {page.path === "/offers" ? " ⚡️" : ""}
-                </StyledNavButton>
-              ))}
+                  <StyledImg
+                    src="/logo-gold-star.png"
+                    alt="The Psychic Gift Logo"
+                    onClick={() => onNavigate("/")}
+                  />
+                </Box>
+                {mounted && (
+                  <>
+                    <Grid
+                      marginLeft="auto"
+                      container
+                      spacing={1}
+                      alignItems="center"
+                    >
+                      {!showMenuIconOnly && (
+                        <>
+                          <Grid>
+                            <IconToggle
+                              onClick={onThemeToggle}
+                              initial={themeMode}
+                              iconList={themeIcons}
+                            />
+                          </Grid>
+                          <Grid>
+                            <StyledBadge
+                              badgeContent={getOnlineReaders().length}
+                            >
+                              <PrimaryCTAButton
+                                size="small"
+                                onClick={() => undefined}
+                                mode="compact"
+                                label="Find Your Psychic"
+                              />
+                            </StyledBadge>
+                          </Grid>
+                        </>
+                      )}
+                      {!showFullMenu && (
+                        <Box marginLeft={2} display="inline">
+                          <IconToggle
+                            onClick={() => setMobileMenuOpen((v) => !v)}
+                            initial="open"
+                            iconList={menuIcons}
+                          />
+                        </Box>
+                      )}
+                    </Grid>
+                  </>
+                )}
+              </Grid>
             </Box>
-            <CTAButton
-              variant="primary"
-              size="small"
-              ml={2}
-              label={CTA_PRIMARY_LABEL}
-            />
-            <button onClick={onThemeToggle}>
-              Toggle {themeMode === "light" ? "Dark" : "Light"} Mode
-            </button>
-          </Toolbar>
-        </Container>
+          </StyledContainer>
+        </StyledAppBarContainer>
+        <StyledLinksContainer maxWidth={false} $showFullMenu={showFullMenu}>
+          <Grid
+            flexGrow={1}
+            textAlign="center"
+            justifyContent="center"
+            gap={2}
+            display="flex"
+          >
+            {showFullMenu && (
+              <>
+                <HoverMenu
+                  TriggerEl={
+                    <StyledNavLink variant="text" size="large">
+                      Phone readings
+                    </StyledNavLink>
+                  }
+                  items={READING_PAGES.map((page) => ({
+                    label: page.label,
+                    onClick: () => onNavigate(page.path),
+                  }))}
+                  gap={1}
+                  delay={600}
+                />
+                {PAGES.map((page) => (
+                  <Link key={page.label} href={page.path}>
+                    <StyledNavLink
+                      variant="text"
+                      onClick={() => onNavigate(page.path)}
+                      size="large"
+                      startIcon={page.icon ? navIcons[page.icon] : undefined}
+                    >
+                      {page.label}
+                    </StyledNavLink>
+                  </Link>
+                ))}
+              </>
+            )}
+          </Grid>
+        </StyledLinksContainer>
+        {/* Sentinel element at the very bottom of the AppBar */}
+        <Box ref={drawerAnchorRef} sx={{ height: 0 }} />
       </StyledAppBar>
-    </Box>
+      <MobileDrawer
+        open={mobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
+        topOffset={drawerTopOffset}
+        showMenuIconOnly={showMenuIconOnly}
+        onThemeToggle={onThemeToggle}
+        themeMode={themeMode}
+      />
+    </>
   );
 }

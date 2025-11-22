@@ -1,7 +1,6 @@
-// OfferBanner.tsx
 import { AppBar, Container, Toolbar } from "@mui/material";
 
-export default function OfferBanner({ message }: { message: string }) {
+export function OfferBanner({ message }: { message: string }) {
   return (
     <AppBar
       position="fixed"

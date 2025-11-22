@@ -1,7 +1,7 @@
 "use client";
 
-import CTAButton from "@/components/CTAButton/CTAButton";
-import { CTA_PRIMARY_LABEL } from "@/lib/constants/Messages";
+import { CTAButton } from "@/components/CTAButton/CTAButton";
+import { CTA_PRIMARY_LABEL } from "@/lib/constants/messages";
 import { Grid, Stack, Typography } from "@mui/material";
 
 export default function FeaturedReaderSection() {
