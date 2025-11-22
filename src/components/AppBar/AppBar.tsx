@@ -162,8 +162,13 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                       {!showFullMenu && (
                         <Box marginLeft={2} display="inline">
                           <IconToggle
+                            key={mobileMenuOpen ? "menu-open" : "menu-closed"} // remount to sync
                             onClick={() => setMobileMenuOpen((v) => !v)}
-                            initial="open"
+                            initial={
+                              mobileMenuOpen
+                                ? ("close" as const)
+                                : ("open" as const)
+                            } // reflect current state
                             iconList={menuIcons}
                           />
                         </Box>
