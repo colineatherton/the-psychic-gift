@@ -51,12 +51,6 @@ export const FeaturedReader = () => {
     });
   }, []);
 
-  const particlesLoaded = async (
-    container?: ParticaleContainer,
-  ): Promise<void> => {
-    console.log(container);
-  };
-
   const options: ISourceOptions = useMemo(
     () => ({
       fullScreen: { enable: false },
@@ -136,7 +130,6 @@ export const FeaturedReader = () => {
           <StyledParticles>
             <Particles
               id="tsparticles2"
-              particlesLoaded={particlesLoaded}
               className={styles.particles}
               options={options}
             />
@@ -178,7 +171,7 @@ export const FeaturedReader = () => {
                 status={getStatus(
                   getReaderByPin(Number(GET_READER_CARD(key).pin))?.status,
                 )}
-                onCallNow={() => undefined}
+                onChooseCallOptions={() => undefined}
                 mode="featured"
                 description={description}
               />
