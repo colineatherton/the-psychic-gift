@@ -1,14 +1,20 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { ReaderFeedItem } from "../types/readers";
 
-const READER_FEED_URL = "/api/readers"; // or wherever your route.ts endpoint is
+const READER_FEED_URL = "/api/readers";
 
-// --- Context Type ---
 type ReaderFeedContextType = {
   readers: ReaderFeedItem[];
   isLoading: boolean;
   error: Error | null;
   lastUpdated: Date | null;
+  recentlyAvailable?: ReaderFeedItem;
   getReaderByPin: (pin: number) => ReaderFeedItem | undefined;
   getOnlineReaders: () => ReaderFeedItem[];
 };
@@ -17,7 +23,6 @@ export const ReaderFeedContext = createContext<
   ReaderFeedContextType | undefined
 >(undefined);
 
-// --- Provider Component ---
 export const ReaderFeedProvider = ({
   children,
 }: {
@@ -27,6 +32,29 @@ export const ReaderFeedProvider = ({
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
+  const [recentlyAvailable, setRecentlyAvailable] = useState<ReaderFeedItem>();
+
+  // Skip diffing the very first fetch
+  const hasLoadedRef = useRef(false);
+
+  const detectTransitions = (
+    prev: ReaderFeedItem[],
+    next: ReaderFeedItem[],
+  ) => {
+    // Map previous statuses by id for quick lookup
+    const prevStatus = new Map<number, ReaderFeedItem["status"]>();
+    prev.forEach((r) => prevStatus.set(r.id, r.status));
+
+    // Find first reader whose status changed TO online (1) from NOT online
+    const transitioned = next.find((n) => {
+      const before = prevStatus.get(n.id);
+      return before !== undefined && before !== 1 && n.status === 1;
+    });
+
+    if (transitioned) {
+      setRecentlyAvailable(transitioned);
+    }
+  };
 
   const fetchReaders = async () => {
     try {
@@ -34,28 +62,35 @@ export const ReaderFeedProvider = ({
       const res = await fetch(READER_FEED_URL, { cache: "no-store" });
       if (!res.ok) throw new Error(`Feed failed with status ${res.status}`);
       const data: ReaderFeedItem[] = await res.json();
-      setReaders(data);
+
+      setReaders((prev) => {
+        if (hasLoadedRef.current) {
+          detectTransitions(prev, data);
+        } else {
+          hasLoadedRef.current = true;
+        }
+        return data;
+      });
+
       setLastUpdated(new Date());
       setIsLoading(false);
     } catch (err) {
-      if (err instanceof Error) {
-        setError(err);
-      } else {
-        setError(new Error("Unknown error"));
-      }
+      setError(err instanceof Error ? err : new Error("Unknown error"));
       setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: NodeJS.Timeout | undefined;
 
     const startPolling = () => {
       fetchReaders();
-      interval = setInterval(fetchReaders, 10000); // 10s while visible
+      interval = setInterval(fetchReaders, 10000);
     };
 
-    const stopPolling = () => clearInterval(interval);
+    const stopPolling = () => {
+      if (interval) clearInterval(interval);
+    };
 
     const handleVisibilityChange = () => {
       if (document.visibilityState === "visible") {
@@ -74,10 +109,7 @@ export const ReaderFeedProvider = ({
     };
   }, []);
 
-  const getReaderByPin = (pin: number) => {
-    return readers.find((r) => r.id === pin);
-  };
-
+  const getReaderByPin = (pin: number) => readers.find((r) => r.id === pin);
   const getOnlineReaders = () => readers.filter((r) => r.status === 1);
 
   return (
@@ -87,6 +119,7 @@ export const ReaderFeedProvider = ({
         isLoading,
         error,
         lastUpdated,
+        recentlyAvailable,
         getReaderByPin,
         getOnlineReaders,
       }}

@@ -31,7 +31,7 @@ type ReaderCardProps = {
     label: string;
     number: string;
   }[];
-  onCallNow: (key: string) => void;
+  onChooseCallOptions: (key: string) => void;
   mode?: "default" | "compact" | "featured";
   description?: string;
 };
@@ -47,7 +47,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
   pin,
   status,
   skills,
-  onCallNow,
+  onChooseCallOptions,
   mode = "default",
   description,
 }) => {
@@ -210,7 +210,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
           <PrimaryCTAButton
             size="large"
             fullWidth={true}
-            onClick={() => onCallNow(name.toLocaleLowerCase())}
+            onClick={() => onChooseCallOptions(name.toLocaleLowerCase())}
             mode={mode === "compact" ? "compact" : "default"}
             icon={<PhoneIcon fontSize="large" />}
             label="Choose Call Options"

@@ -10,6 +10,7 @@ import { CssBaseline } from "@mui/material";
 import { useState, useMemo } from "react";
 import { getTheme } from "../theme";
 import { useRouter } from "next/navigation";
+import { ReaderAvailableAlert } from "@/components";
 
 export default function MainLayout({
   children,
@@ -36,6 +37,7 @@ export default function MainLayout({
           onNavigate={handleNavigate}
         />
         {children}
+        <ReaderAvailableAlert />
         <OfferBanner
           message={`☀️ Summer madness continues! £10 off every credit card reading! Call
           0800 915 2347 & quote "summer madness 25"`}

@@ -74,7 +74,7 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
   const appBarRef = useRef<HTMLDivElement>(null);
   const drawerAnchorRef = useRef<HTMLDivElement>(null);
 
-  const showFullMenu = useMediaQuery("(min-width:650px)");
+  const showFullMenu = useMediaQuery("(min-width:765px)");
   const showMenuIconOnly = useMediaQuery("(max-width:475px)");
 
   useEffect(() => {

@@ -1,35 +1,75 @@
-import { Snackbar, Alert } from "@mui/material";
-import { useState, useEffect } from "react";
+import CallIcon from "@mui/icons-material/Call";
+import { READER_CARDS } from "@/lib/constants/readers";
+import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
+import { Box, Button, IconButton, Slide, Snackbar } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Reader } from "../ReaderGrid/ReaderGrid";
+import CloseIcon from "@mui/icons-material/Close";
 
 interface Props {
-  readerName: string;
-  specialism: string;
-  open: boolean;
-  onClose: () => void;
+  // readerName: string;
+  // specialism: string;
+  // open: boolean;
+  // onClose: () => void;
 }
 
-export function ReaderAvailableAlert({
-  readerName,
-  specialism,
-  open,
-  onClose,
-}: Props) {
-  const [autoHideDuration, setAutoHideDuration] = useState(6000);
+export const ReaderAvailableAlert = (
+  {
+    // readerName,
+    // specialism,
+    // open,
+    // onClose,
+  }: Props,
+) => {
+  const { recentlyAvailable } = useReaderFeedContext();
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (open) setAutoHideDuration(6000);
-  }, [open]);
+    if (recentlyAvailable) {
+      setOpen(false);
+      requestAnimationFrame(() => setOpen(true));
+    }
+  }, [recentlyAvailable]);
 
   return (
     <Snackbar
       open={open}
-      autoHideDuration={autoHideDuration}
-      onClose={onClose}
-      anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-    >
-      <Alert onClose={onClose} severity="info" sx={{ width: "100%" }}>
-        {readerName} is now available — specialising in {specialism}. Call now!
-      </Alert>
-    </Snackbar>
+      onClose={() => setOpen(false)}
+      anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+      action={
+        <>
+          <Button size="small">Choose call options</Button>
+          <IconButton
+            size="small"
+            aria-label="close"
+            color="inherit"
+            onClick={() => setOpen(false)}
+          >
+            <CloseIcon fontSize="small" />
+          </IconButton>
+        </>
+      }
+      slots={{ transition: Slide }}
+      slotProps={{
+        clickAwayListener: {
+          onClickAway: (event) => {
+            // @ts-ignore: Material-UI custom property for preventing default clickAway behavior
+            event.defaultMuiPrevented = true;
+          },
+        },
+      }}
+      sx={{
+        bottom: { xs: 50 },
+        "& .MuiPaper-root": {
+          backgroundColor: (theme) => theme.palette.primary.dark,
+        },
+      }}
+      message={
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <CallIcon />
+          {`${recentlyAvailable?.displayName} is now available for a reading! Use PIN: ${recentlyAvailable?.id}`}
+        </Box>
+      }
+    />
   );
-}
+};
