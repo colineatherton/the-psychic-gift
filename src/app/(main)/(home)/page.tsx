@@ -1,17 +1,18 @@
-import { HeroSection } from "@/components/HeroSection/HeroSection";
 import {
   CTA,
+  FAQs,
   FeaturedReader,
+  Hero,
   HowItWorks,
   InternalLinks,
+  Readers,
   Testimonials,
+  TrustBadges,
   WhyPsychicGift,
 } from "@/components/Sections";
-import { FAQsSection } from "@/components/Sections/FAQsSection/FAQsSection";
+
 import { homePageFAQs } from "@/lib/constants/faqs/homePage";
 import { homePageInternalLinks } from "@/lib/constants/internalLinks";
-import ReadersSection from "./components/ReadersSection";
-import TrustBadgeSection from "./components/TrustBadgeSection";
 
 export const metadata = {
   title: "Phoenix Rising | Awaken Your Vision",
@@ -35,9 +36,9 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <HeroSection />
-      <ReadersSection />
-      <TrustBadgeSection />
+      <Hero />
+      <Readers />
+      <TrustBadges />
       <WhyPsychicGift />
       <CTA heading="Ready to speak to someone who truly listens?" />
       <HowItWorks />
@@ -45,16 +46,7 @@ export default function Home() {
       <Testimonials />
       <InternalLinks links={homePageInternalLinks} />
       <CTA heading="Ready when you are" />
-      <FAQsSection items={homePageFAQs} />
+      <FAQs items={homePageFAQs} />
     </>
   );
 }
-// ideas for new sections
-// explaining the various skills / tools - tarot, astrology, mediumship etc
-// links to blog posts
-// links to landing pages
-// benefits of a reading
-// benefits of the gift (similar to why choose us but more about the service)
-// how to prepare for a reading
-// what to expect from a reading
-// how to make the most of your reading

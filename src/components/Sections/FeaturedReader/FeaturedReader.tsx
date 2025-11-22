@@ -1,15 +1,10 @@
 "use client";
 
 import { ReaderCard } from "@/components";
-import {
-  StyledHeroSection,
-  StyledParticles,
-} from "@/components/HeroSection/HeroSection.styles";
-import {
-  GET_READER_CARD,
-  READER_CARDS,
-  READER_CONFIG_MAP,
-} from "@/lib/constants/readers";
+import { getStatus } from "@/components/ReaderGrid/ReaderGrid";
+import { StyledParticles } from "@/components/Sections/Hero/Hero.styles";
+import { GET_READER_CARD, READER_CONFIG_MAP } from "@/lib/constants/readers";
+import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
 import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
 import {
   ISourceOptions,
@@ -20,17 +15,8 @@ import {
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useMemo, useState } from "react";
 import { loadFull } from "tsparticles";
-import styles from "../../HeroSection/HeroSection.module.css";
+import styles from "../Hero/Hero.module.css";
 import { StyledFeaturedReaderSection } from "./FeaturedReader.styles";
-import {
-  ReaderFeedContext,
-  useReaderFeedContext,
-} from "@/lib/context/ReaderFeedContext";
-import { get } from "http";
-import { statusLabels } from "@/components/ReaderCard/ReaderCard";
-import { getStatus } from "@/components/ReaderGrid/ReaderGrid";
-// import { loadImageShape } from "tsparticles-shape-image";
-// import { ImageEngine } from "tsparticles-shape-image/types/types";
 
 const getFeaturedReaderKey = (): string => {
   // Get all reader keys from READER_CONFIG_MAP

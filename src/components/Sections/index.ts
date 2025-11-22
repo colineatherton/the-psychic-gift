@@ -4,3 +4,7 @@ export { HowItWorks } from "./HowItWorks/HowItWorks";
 export { FeaturedReader } from "./FeaturedReader/FeaturedReader";
 export { Testimonials } from "./Testimonials/Testimonials";
 export { InternalLinks } from "./InternalLinks/InternalLinks";
+export { FAQs } from "./FAQs/FAQs";
+export { Readers } from "./Readers/Readers";
+export { TrustBadges } from "./TrustBadges/TrustBadges";
+export { Hero } from "./Hero/Hero";

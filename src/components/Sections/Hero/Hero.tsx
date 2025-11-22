@@ -2,7 +2,7 @@
 
 import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
 import type { Container as ParticaleContainer } from "@tsparticles/engine";
-import styles from "./HeroSection.module.css";
+import styles from "./Hero.module.css";
 
 import {
   type ISourceOptions,
@@ -12,15 +12,15 @@ import {
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useMemo, useState } from "react";
 import { loadFull } from "tsparticles";
-import { OfferCallout } from "../OfferCallout/OfferCallout";
-import { PrimaryCTAButton } from "../PrimaryCTAButton/PrimaryCTAButton";
+import { OfferCallout } from "../../OfferCallout/OfferCallout";
+import { PrimaryCTAButton } from "../../PrimaryCTAButton/PrimaryCTAButton";
 import {
   StyledContent,
   StyledHeroSection,
   StyledParticles,
-} from "./HeroSection.styles";
+} from "./Hero.styles";
 
-export function HeroSection() {
+export const Hero = () => {
   const [init, setInit] = useState(false);
   const theme = useTheme();
 
@@ -222,4 +222,4 @@ export function HeroSection() {
       </StyledContent>
     </StyledHeroSection>
   );
-}
+};

@@ -1,14 +1,12 @@
 export { AppBar } from "./AppBar/AppBar";
 export { CTAButton } from "./CTAButton/CTAButton";
-export { FAQs } from "./FAQs/FAQs";
+export { FAQ } from "./FAQ/FAQ";
 export { FeatureCard } from "./FeatureCard/FeatureCard";
 export { HoverMenu } from "./HoverMenu/HoverMenu";
 export { IconToggle } from "./IconToggle/IconToggle";
 export { LinkCard } from "./LinkCard/LinkCard";
 export { NumberWithText } from "./NumberWithText/NumberWithText";
 export { OfferBanner } from "./OfferBanner/OfferBanner";
-export { PageContainer } from "./PageContainer/PageContainer";
-export { PageSection } from "./PageSection/PageSection";
 export { PrimaryCTAButton } from "./PrimaryCTAButton/PrimaryCTAButton";
 export { ReaderAvailableAlert } from "./ReaderAvailableAlert/ReaderAvailableAlert";
 export { ReaderCard } from "./ReaderCard/ReaderCard";

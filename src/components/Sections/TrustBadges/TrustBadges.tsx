@@ -1,18 +1,22 @@
 "use client";
 
-import { PageContainer } from "@/components/PageContainer/PageContainer";
 import { TrustBadge } from "@/components/TrustBadge/TrustBadge";
-import { Box, Grid, Stack } from "@mui/material";
+import { Box, Container, Grid, Stack } from "@mui/material";
 
-export default function TrustBadgeSection() {
+export const TrustBadges = () => {
   return (
     <Box
       sx={{
-        // background: (theme) => theme.palette.secondary.light,
         padding: 2,
       }}
     >
-      <PageContainer centered>
+      <Container
+        maxWidth="lg"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
         <Grid container height="100%" py={10} width={"100%"}>
           <Stack
             direction="row"
@@ -25,7 +29,7 @@ export default function TrustBadgeSection() {
             <TrustBadge src="satisfaction-guarantee-2.png" />
           </Stack>
         </Grid>
-      </PageContainer>
+      </Container>
     </Box>
   );
-}
+};

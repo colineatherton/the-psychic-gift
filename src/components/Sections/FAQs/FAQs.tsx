@@ -1,16 +1,16 @@
 "use client";
 
-import { FAQs } from "@/components/FAQs/FAQs";
+import { FAQ } from "@/components/FAQ/FAQ";
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 
-interface FAQsSectionProps {
+interface FAQsProps {
   items: {
     question: string;
     answer: string;
   }[];
 }
 
-export const FAQsSection = ({ items }: FAQsSectionProps) => {
+export const FAQs = ({ items }: FAQsProps) => {
   return (
     <Box
       sx={{
@@ -41,7 +41,9 @@ export const FAQsSection = ({ items }: FAQsSectionProps) => {
             >
               Frequently asked questions
             </Typography>
-            <FAQs items={items} />
+            {items.map(({ question, answer }, index) => (
+              <FAQ key={index} id={index} question={question} answer={answer} />
+            ))}
           </Stack>
         </Grid>
       </Container>
