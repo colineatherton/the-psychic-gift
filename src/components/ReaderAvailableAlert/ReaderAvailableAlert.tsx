@@ -3,10 +3,12 @@ import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
 import { Box, Button, IconButton, Slide, Snackbar } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
+import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 
 export const ReaderAvailableAlert = () => {
   const { recentlyAvailable, getReaderByPin, lastUpdated } =
     useReaderFeedContext();
+  const { handleChooseCallOptions } = useReaderSelectContext();
   const [open, setOpen] = useState(false);
 
   // Track dismissed reader IDs so we don't re-show while they remain online
@@ -48,15 +50,26 @@ export const ReaderAvailableAlert = () => {
     setOpen(false);
   };
 
+  if (!recentlyAvailable) return null;
+
   return (
     <Snackbar
-      key={recentlyAvailable?.id || "none"}
+      key={recentlyAvailable.id || "none"}
       open={open}
       onClose={handleClose}
       anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
       action={
         <>
-          <Button size="small">Choose call options</Button>
+          <Button
+            size="small"
+            onClick={() =>
+              handleChooseCallOptions(
+                `${recentlyAvailable.displayName.toLocaleLowerCase()}-${recentlyAvailable.id}`,
+              )
+            }
+          >
+            Choose call options
+          </Button>
           <IconButton
             size="small"
             aria-label="close"

@@ -112,7 +112,7 @@ export const HowItWorks = () => {
                 <StepCard
                   step={3}
                   title="Get insights and guidance instantly"
-                  body="Start your reading and get the clarity you’re seeking. Every call is recorded for your peace of mind."
+                  body="Provide the PIN for your chosen reader to start your reading and get the clarity you’re seeking. Every call is recorded for your peace of mind."
                   backgroundColor={theme.palette.primary.dark}
                 />
               </Grid>

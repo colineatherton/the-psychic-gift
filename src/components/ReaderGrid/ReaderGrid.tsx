@@ -52,7 +52,7 @@ type ReaderGridProps = {
   withFilters?: boolean;
   onlineOnly?: boolean;
   sortBy?: "alpha" | "status";
-  mode?: "default" | "compact";
+  mode?: "selected" | "default" | "compact" | "featured";
 };
 
 export const ReaderGrid: React.FC<ReaderGridProps> = ({

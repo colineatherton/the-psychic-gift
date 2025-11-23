@@ -1,11 +1,11 @@
 import { Button, Typography, useTheme } from "@mui/material";
-import { OfferCalloutCard } from "../OfferCalloutCard/OfferCalloutCard";
+import { CalloutCard } from "../CalloutCard/CalloutCard";
 
 export const OfferCallout = () => {
   const theme = useTheme(); // Access theme dynamically
 
   return (
-    <OfferCalloutCard>
+    <CalloutCard>
       <Typography
         fontFamily="Montserrat Variable, sans-serif"
         fontSize="1.2rem"
@@ -31,6 +31,6 @@ export const OfferCallout = () => {
         &amp; Quote <strong>"DISCOVER".</strong>
       </Typography>
       <Button sx={{ mt: 2 }}>Learn more</Button>
-    </OfferCalloutCard>
+    </CalloutCard>
   );
 };

@@ -2,14 +2,16 @@ import { Status } from "@/lib/types/readers";
 import { alpha, Card, CardHeader, Chip, styled } from "@mui/material";
 
 export const StyledCard = styled(Card)<{
-  mode: "default" | "compact" | "featured";
+  mode: "default" | "compact" | "featured" | "selected";
 }>(({ theme, mode }) => ({
   backdropFilter: "blur(8px)", // Optional: Add a blur effect
   background: alpha(theme.palette.primary.light, 0.8),
   boxShadow:
     mode === "featured"
       ? `0px 16px 24px ${theme.palette.primary.main}`
-      : "0px 4px 6px rgba(0, 0, 0, 0.2)", // Subtle shadow for depth
+      : mode !== "selected"
+        ? "0px 4px 6px rgba(0, 0, 0, 0.2)"
+        : "none", // Subtle shadow for depth
   height: "100%",
   display: "flex",
   flexDirection: "column",
@@ -19,12 +21,14 @@ export const StyledCard = styled(Card)<{
     boxShadow:
       mode === "featured"
         ? `0px 24px 32px ${theme.palette.primary.main}`
-        : `0px 8px 12px ${theme.palette.primary.main}`, // Enhanced shadow on hover for depth
+        : mode !== "selected"
+          ? `0px 8px 12px ${theme.palette.primary.main}`
+          : "none", // Enhanced shadow on hover for depth
   },
 }));
 
 export const StyledCardHeader = styled(CardHeader)<{
-  mode: "default" | "compact" | "featured";
+  mode: "default" | "compact" | "featured" | "selected";
 }>(({ theme, mode }) => ({
   backgroundColor: theme.palette.primary.main,
   width: "100%",

@@ -4,7 +4,7 @@ import { IconToggle } from "./IconToggle";
 import { themeIcons } from "../AppBar/AppBar";
 
 const meta = {
-  title: "Example/IconToggle",
+  title: "Buttons/IconToggle",
   component: IconToggle,
   parameters: {
     layout: "centered",

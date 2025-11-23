@@ -1,11 +1,7 @@
 import { Box, useTheme } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 
-export const OfferCalloutCard = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+export const CalloutCard = ({ children }: { children: React.ReactNode }) => {
   const theme = useTheme(); // Access theme dynamically
 
   return (

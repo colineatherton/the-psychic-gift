@@ -5,19 +5,14 @@ import { getStatus } from "@/components/ReaderGrid/ReaderGrid";
 import { StyledParticles } from "@/components/Sections/Hero/Hero.styles";
 import { GET_READER_CARD, READER_CONFIG_MAP } from "@/lib/constants/readers";
 import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
+import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
-import {
-  ISourceOptions,
-  MoveDirection,
-  OutMode,
-  type Container as ParticaleContainer,
-} from "@tsparticles/engine";
+import { ISourceOptions, MoveDirection, OutMode } from "@tsparticles/engine";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useMemo, useState } from "react";
 import { loadFull } from "tsparticles";
 import styles from "../Hero/Hero.module.css";
 import { StyledFeaturedReaderSection } from "./FeaturedReader.styles";
-import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 
 const getFeaturedReaderKey = (): string => {
   // Get all reader keys from READER_CONFIG_MAP
@@ -101,18 +96,8 @@ export const FeaturedReader = () => {
         shape: {
           type: "star",
         },
-        // shape: {
-        //   type: "image",
-        //   image: {
-        //     src: "/particles/tarot-purple.png",
-        //     // src: "/readers/original/3623.png",
-        //     // width: 100, // Optional: Set image dimensions for better scaling
-        //     // height: 100,
-        //   },
-        // },
         size: {
           value: { min: 2, max: 6 },
-          // value: { min: 10, max: 20 }, // Increased size for better visibility of images
         },
       },
       detectRetina: true,
@@ -124,7 +109,6 @@ export const FeaturedReader = () => {
     <StyledFeaturedReaderSection>
       <Box
         sx={{
-          // background: (theme) => theme.palette.primary.main,
           padding: 2,
         }}
       >
@@ -168,7 +152,6 @@ export const FeaturedReader = () => {
             <Grid size={{ xs: 12, md: 8 }} sx={{ width: "100%", zIndex: 999 }}>
               {/* avoid the "online" status while loading */}
               <ReaderCard
-                // {...READER_CARDS[0]}
                 {...GET_READER_CARD(key)}
                 status={getStatus(
                   getReaderByPin(Number(GET_READER_CARD(key).pin))?.status,

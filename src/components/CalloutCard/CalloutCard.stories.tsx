@@ -1,16 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-
-import { OfferCalloutCard } from "./OfferCalloutCard";
+import { CalloutCard } from "./CalloutCard";
 
 const meta = {
-  title: "Cards/OfferCalloutCard",
-  component: OfferCalloutCard,
+  title: "Cards/CalloutCard",
+  component: CalloutCard,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
   args: {},
-} satisfies Meta<typeof OfferCalloutCard>;
+} satisfies Meta<typeof CalloutCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

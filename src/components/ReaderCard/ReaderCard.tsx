@@ -23,17 +23,12 @@ import {
 
 type ReaderCardProps = {
   name: string;
-  image: string;
   pin: string;
   status: Status;
   skills: string[];
-  callOptions: {
-    label: string;
-    number: string;
-  }[];
-  onChooseCallOptions: (key: string) => void;
-  mode?: "default" | "compact" | "featured";
+  mode?: "default" | "compact" | "featured" | "selected";
   description?: string;
+  onChooseCallOptions: (key: string) => void;
 };
 
 export const statusLabels: Record<ReaderCardProps["status"], string> = {
@@ -47,9 +42,9 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
   pin,
   status,
   skills,
-  onChooseCallOptions,
   mode = "default",
   description,
+  onChooseCallOptions,
 }) => {
   const theme = useTheme();
 
@@ -93,7 +88,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
             background: `linear-gradient(180deg, ${theme.palette.primary.main} 50%, ${theme.palette.primary.light} 50%)`,
           }}
         >
-          {mode === "featured" ? (
+          {["featured", "selected"].includes(mode) ? (
             <StyledReaderContainer>
               <StyledReaderImg
                 src={`/readers/original/${pin}.png`}
@@ -190,7 +185,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
               </Tooltip>
             )}
           </Stack>
-          {description && mode === "featured" && (
+          {description && ["featured", "selected"].includes(mode) && (
             <Typography
               fontFamily="Montserrat Variable, sans-serif"
               fontWeight={500}
@@ -205,42 +200,44 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
           )}
         </Box>
       </CardContent>
-      <Box sx={{ p: 2, pt: 0 }}>
-        <Stack gap={2} direction={mode === "featured" ? "row" : "column"}>
-          <PrimaryCTAButton
-            size="large"
-            fullWidth={true}
-            onClick={() =>
-              onChooseCallOptions(`${name.toLocaleLowerCase()}-${pin}`)
-            }
-            mode={mode === "compact" ? "compact" : "default"}
-            icon={<PhoneIcon fontSize="large" />}
-            label="Choose Call Options"
-          />
+      {mode !== "selected" && (
+        <Box sx={{ p: 2, pt: 0 }}>
+          <Stack gap={2} direction={mode === "featured" ? "row" : "column"}>
+            <PrimaryCTAButton
+              size="large"
+              fullWidth={true}
+              onClick={() =>
+                onChooseCallOptions(`${name.toLocaleLowerCase()}-${pin}`)
+              }
+              mode={mode === "compact" ? "compact" : "default"}
+              icon={<PhoneIcon fontSize="large" />}
+              label="Choose Call Options"
+            />
 
-          <Button
-            size="large"
-            variant="outlined"
-            fullWidth={true}
-            href={`/psychic-readers/${name.toLocaleLowerCase()}-${pin}`}
-            sx={{
-              borderRadius: 8,
-              ...(mode === "compact"
-                ? {}
-                : {
-                    pt: 2,
-                    pb: 2,
-                    px: 2,
-                  }),
-              border: `1px solid ${theme.palette.primary.dark}`,
-              color: theme.palette.primary.dark,
-              fontSize: mode === "compact" ? "0.8rem" : "1rem",
-            }}
-          >
-            View profile
-          </Button>
-        </Stack>
-      </Box>
+            <Button
+              size="large"
+              variant="outlined"
+              fullWidth={true}
+              href={`/psychic-readers/${name.toLocaleLowerCase()}-${pin}`}
+              sx={{
+                borderRadius: 8,
+                ...(mode === "compact"
+                  ? {}
+                  : {
+                      pt: 2,
+                      pb: 2,
+                      px: 2,
+                    }),
+                border: `1px solid ${theme.palette.primary.dark}`,
+                color: theme.palette.primary.dark,
+                fontSize: mode === "compact" ? "0.8rem" : "1rem",
+              }}
+            >
+              View profile
+            </Button>
+          </Stack>
+        </Box>
+      )}
     </StyledCard>
   );
 };
