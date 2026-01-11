@@ -426,7 +426,9 @@ export const READER_STATUS_OPTIONS = [
 export const ALL_SKILLS = () => {
   const skillSet = new Set<string>();
   READER_CARDS.forEach((r) => r.skills.forEach((s) => skillSet.add(s)));
-  return Array.from(skillSet).sort();
+  return Array.from(skillSet)
+    .map((skill) => ({ label: skill }))
+    .sort();
 };
 
 export const ALL_ABILITIES = () => {
@@ -434,7 +436,9 @@ export const ALL_ABILITIES = () => {
   READER_LIST.forEach((r) =>
     r.specialties.abilities.forEach((s) => skillSet.add(s)),
   );
-  return Array.from(skillSet).sort();
+  return Array.from(skillSet)
+    .map((skill) => ({ label: skill }))
+    .sort();
 };
 
 export const ALL_TOOLS = () => {
@@ -442,7 +446,9 @@ export const ALL_TOOLS = () => {
   READER_LIST.forEach((r) =>
     r.specialties.tools.forEach((s) => skillSet.add(s)),
   );
-  return Array.from(skillSet).sort();
+  return Array.from(skillSet)
+    .map((skill) => ({ label: skill }))
+    .sort();
 };
 
 export const ALL_TOPICS = () => {
@@ -452,5 +458,15 @@ export const ALL_TOPICS = () => {
       skillSet.add(s),
     ),
   );
-  return Array.from(skillSet).sort();
+  return Array.from(skillSet)
+    .map((skill) => ({ label: skill }))
+    .sort();
+};
+
+export const ALL_STATUSES = () => {
+  return [
+    { key: Status.online.toString(), label: "Ready to talk" },
+    { key: Status.busy.toString(), label: "In a reading" },
+    { key: Status.offline.toString(), label: "Away right now" },
+  ];
 };

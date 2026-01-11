@@ -1,18 +1,7 @@
 "use client";
 
-import {
-  PrimaryCTAButton,
-  ReaderCard,
-  ReaderGrid,
-  TrustBadge,
-} from "@/components";
-import {
-  ALL_ABILITIES,
-  ALL_SKILLS,
-  ALL_TOOLS,
-  ALL_TOPICS,
-  READER_CARDS,
-} from "@/lib/constants/readers";
+import { PrimaryCTAButton, ReaderCard, TrustBadge } from "@/components";
+import { READER_CARDS } from "@/lib/constants/readers";
 import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 import { Status } from "@/lib/types/readers";
@@ -28,7 +17,6 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
-  DialogTitle,
   Grid,
   Slide,
   Stack,
@@ -38,10 +26,8 @@ import {
 import { TransitionProps } from "@mui/material/transitions";
 import pluralize from "@theothergothamdev/pluralize-ts";
 import { forwardRef } from "react";
-import { getStatus } from "../ReaderGrid/ReaderGrid";
-import { TrustBadges } from "../Sections";
 import { ReaderList } from "../ReaderList/ReaderList";
-import { CalloutCard } from "../CalloutCard/CalloutCard";
+import { getStatus } from "../ReaderFilters/ReaderFilters";
 
 interface ReaderModalProps {}
 

@@ -126,6 +126,7 @@ export const ReaderFeedProvider = ({
   const getReaderByPin = (pin: number) => readers.find((r) => r.id === pin);
   const getOnlineReaders = () => readers.filter((r) => r.status === 1);
 
+  console.log("ReaderFeedContext", readers);
   return (
     <ReaderFeedContext.Provider
       value={{

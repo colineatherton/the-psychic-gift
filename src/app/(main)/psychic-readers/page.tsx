@@ -1,3 +1,5 @@
+import { ReaderFilters } from "@/components/ReaderFilters/ReaderFilters";
+import { ReaderFiltersController } from "@/components/ReaderFiltersController/ReaderFiltersController";
 import { ReaderGrid } from "@/components/ReaderGrid/ReaderGrid";
 import {
   ALL_ABILITIES,
@@ -6,6 +8,7 @@ import {
   ALL_TOPICS,
   READER_CARDS,
 } from "@/lib/constants/readers";
+import { Container, Grid } from "@mui/material";
 
 export const metadata = {
   title: "Phoenix Rising | Awaken Your Vision",
@@ -28,24 +31,10 @@ export const metadata = {
 
 export default function PsychicReaders() {
   return (
-    <>
-      <h1>psychic readers</h1>
-      <p>✅ Purpose: Discovery page for readers</p>
-      <p>🎯 Goal: Build trust and drive engagement with reader profiles</p>
-      <p>📦 Content & Elements:</p>
-      <p>• Grid or card layout of all readers</p>
-      <p>• Status badge (online/busy/offline)</p>
-      <p>• “View Profile” or expand call options</p>
-      <p>• Filters (by skill, availability, language — future)</p>
-      <p>• Option to highlight featured readers</p>
-      <hr></hr>
-      <ReaderGrid
-        readers={READER_CARDS}
-        allSkills={ALL_SKILLS()}
-        allAbilities={ALL_ABILITIES()}
-        allTools={ALL_TOOLS()}
-        allTopics={ALL_TOPICS()}
-      />
-    </>
+    <Container maxWidth="lg">
+      <Grid container height="100%" py={6} width={"100%"}>
+        <ReaderFiltersController />
+      </Grid>
+    </Container>
   );
 }
