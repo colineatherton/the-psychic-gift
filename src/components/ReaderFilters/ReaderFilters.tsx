@@ -114,7 +114,7 @@ export const ReaderFilters: React.FC<ReaderGridProps> = ({
 
   return (
     <Box flexGrow={1}>
-      <Box mt={20} mb={6}>
+      <Box mt={6} mb={6}>
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4 }}>
             <MultiSelect

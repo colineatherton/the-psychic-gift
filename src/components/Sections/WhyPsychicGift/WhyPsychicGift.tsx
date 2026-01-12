@@ -98,14 +98,11 @@ export function WhyPsychicGift() {
                 variant="body2"
                 component="p"
               >
-                We’ve been guiding callers since 2002 — but our story goes back
-                further. John, our founder, was inspired by his grandmother, a
-                gifted medium who helped people long before it was mainstream.
-                Today, we continue that legacy with a carefully selected team of
-                clairvoyants, mediums, and tarot readers — all chosen for their
-                empathy, integrity, and insight. The Psychic Gift has helped
-                thousands find clarity, comfort, and insight - through genuine
-                readings from gifted clairvoyants and mediums.{" "}
+                We’ve been guiding callers since 2002 with a carefully selected
+                team of clairvoyants, mediums, and tarot readers — all chosen
+                for their empathy, integrity, and insight. The Psychic Gift has
+                helped thousands find clarity, comfort, and insight - through
+                genuine readings from gifted clairvoyants and mediums.{" "}
                 <Link href="/about">Learn more about our story.</Link>
               </Typography>
             </Grid>

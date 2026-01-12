@@ -1,14 +1,5 @@
-import { ReaderFilters } from "@/components/ReaderFilters/ReaderFilters";
 import { ReaderFiltersController } from "@/components/ReaderFiltersController/ReaderFiltersController";
-import { ReaderGrid } from "@/components/ReaderGrid/ReaderGrid";
-import {
-  ALL_ABILITIES,
-  ALL_SKILLS,
-  ALL_TOOLS,
-  ALL_TOPICS,
-  READER_CARDS,
-} from "@/lib/constants/readers";
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 
 export const metadata = {
   title: "Phoenix Rising | Awaken Your Vision",

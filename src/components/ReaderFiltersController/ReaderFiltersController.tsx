@@ -6,7 +6,7 @@ import { Status } from "@/lib/types/readers";
 import React, { ChangeEvent, useMemo, useState } from "react";
 import { ReaderFilters } from "../ReaderFilters/ReaderFilters";
 import { ReaderGrid } from "../ReaderGrid/ReaderGrid";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, useTheme } from "@mui/material";
 import pluralize from "@theothergothamdev/pluralize-ts";
 
 export const getStatus = (status: number | undefined): Status => {
@@ -39,6 +39,7 @@ type ReaderFiltersControllerProps = {};
 export const ReaderFiltersController: React.FC<
   ReaderFiltersControllerProps
 > = ({}) => {
+  const theme = useTheme();
   const { getReaderByPin } = useReaderFeedContext();
   const [sortBy, setSortBy] = useState<"alpha" | "status">("alpha");
   const [selectedStatuses, setSelectedStatuses] = useState<
@@ -182,6 +183,19 @@ export const ReaderFiltersController: React.FC<
 
   return (
     <>
+      <Grid size={{ xs: 12 }} mt={20}>
+        <Typography
+          fontFamily="Montserrat Variable, sans-serif"
+          fontWeight={500}
+          fontSize="2rem"
+          variant="h2"
+          component="h2"
+          textAlign="center"
+          color={theme.palette.text.primary}
+        >
+          Explore our gifted psychic readers
+        </Typography>
+      </Grid>
       <ReaderFilters
         filters={{
           sortBy,
