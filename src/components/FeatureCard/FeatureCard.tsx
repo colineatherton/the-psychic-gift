@@ -3,7 +3,7 @@ import { Card, CardContent, Box, Typography } from "@mui/material";
 interface FeatureCardProps {
   src: string;
   title: string;
-  body: string;
+  body: string | React.ReactNode;
 }
 
 export function FeatureCard({ src, title, body }: FeatureCardProps) {

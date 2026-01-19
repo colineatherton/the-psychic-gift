@@ -1,10 +1,8 @@
 "use client";
 
-import { PrimaryCTAButton } from "@/components";
 import { CTA } from "@/components/Sections";
-import { CircleImage } from "@/components/Sections/WhyPsychicGift/WhyPsychicGift.styles";
 import { Box, Grid, Typography, useTheme } from "@mui/material";
-import { AboutImage, AboutImageSection } from "./AboutContent.styles";
+import { AboutImageSection } from "./AboutContent.styles";
 
 export default function AboutContent() {
   const theme = useTheme();

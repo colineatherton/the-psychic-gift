@@ -1,3 +1,7 @@
+import { Container, Grid } from "@mui/material";
+import AboutContent from "../about/AboutContent";
+import HowPsychicReadingsWork from "./HowPsychicReadingsWork";
+
 export const metadata = {
   title: "Phoenix Rising | Awaken Your Vision",
   description: "Track your creative ascent with clarity, focus, and fire.",
@@ -19,16 +23,12 @@ export const metadata = {
 
 export default function HowItWorks() {
   return (
-    <>
-      <h1>how it works</h1>
-      <p>✅ Purpose: Overcome hesitation and demystify the service</p>
-      <p>🎯 Goal: Support conversion by clarifying process</p>
-      <p>📦 Content & Elements:</p>
-      <p>• Hero: “How It Works”</p>
-      <p>• Step-by-step: Choose → Call → Speak</p>
-      <p>• Method comparison: Credit Card, Phone Bill, Prepay</p>
-      <p>• Copy explaining reader PINs and offers</p>
-      <p>• Inline support links or contact mention</p>
-    </>
+    <Container maxWidth="lg">
+      <Grid container minHeight="100vh" py={6} width={"100%"}>
+        <Grid size={12} mt={20}>
+          <HowPsychicReadingsWork />
+        </Grid>
+      </Grid>
+    </Container>
   );
 }

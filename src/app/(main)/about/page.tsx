@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import AboutContent from "./AboutContent";
 
 export const metadata = {
