@@ -1,9 +1,7 @@
-import { Button, Typography, useTheme } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { CalloutCard } from "../CalloutCard/CalloutCard";
 
 export const OfferCallout = () => {
-  const theme = useTheme(); // Access theme dynamically
-
   return (
     <CalloutCard>
       <Typography
@@ -28,7 +26,7 @@ export const OfferCallout = () => {
         <a href="tel:08009152333">
           <strong>0800 915 2333</strong>
         </a>{" "}
-        &amp; Quote <strong>"DISCOVER".</strong>
+        &amp; Quote <strong>&quot;DISCOVER&quot;.</strong>
       </Typography>
       <Button sx={{ mt: 2 }}>Learn more</Button>
     </CalloutCard>

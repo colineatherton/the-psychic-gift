@@ -132,7 +132,7 @@ export default function HowPsychicReadingsWork() {
           component="h2"
           textAlign="center"
         >
-          Step 2: Choose how you'd like to pay
+          Step 2: Choose how you&apos;d like to pay
         </Typography>
       </Grid>
       <Grid container spacing={4} width={"100%"} mb={6}>
@@ -144,7 +144,8 @@ export default function HowPsychicReadingsWork() {
               <>
                 <ul>
                   <li>
-                    £1.50 per minute, plus your phone provider's access charge
+                    £1.50 per minute, plus your phone provider&apos;s access
+                    charge
                   </li>
                   <li>Calls are limited to 26 minutes per call</li>
                 </ul>
@@ -236,15 +237,15 @@ export default function HowPsychicReadingsWork() {
               <>
                 <ul>
                   <li>
-                    You'll then be connected directly to your chosen psychic
-                    reader
+                    You&apos;ll then be connected directly to your chosen
+                    psychic reader
                   </li>
                   <li>Readings begin straight away</li>
                   <li>Calls are private and recorded for your peace of mind</li>
                   <li>
-                    If we're unable to connect you for any reason, alternative
-                    arrangements will be made so you can still receive your
-                    reading.
+                    If we&apos;re unable to connect you for any reason,
+                    alternative arrangements will be made so you can still
+                    receive your reading.
                   </li>
                 </ul>
               </>
@@ -286,7 +287,7 @@ export default function HowPsychicReadingsWork() {
             body={
               <ul>
                 <li>
-                  You'll hear a warning shortly before your minutes run out
+                  You&apos;ll hear a warning shortly before your minutes run out
                 </li>
                 <li>You can end the call or top up and continue</li>
                 <li>Any unused minutes remain safely on your account</li>

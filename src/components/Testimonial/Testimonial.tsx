@@ -18,6 +18,7 @@ export function Testimonial({
 }: TestimonialProps) {
   return (
     <>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/icons/quote.png"
         alt="Illustration"

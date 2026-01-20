@@ -1,5 +1,5 @@
 import { ReaderFiltersController } from "@/components/ReaderFiltersController/ReaderFiltersController";
-import { Container, Grid, Typography } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 
 export const metadata = {
   title: "Phoenix Rising | Awaken Your Vision",

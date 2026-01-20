@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import type { Meta, StoryObj, StoryContext } from "@storybook/nextjs-vite";
 import { ReaderModal } from "./ReaderModal";
 import { ReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 import { ReaderFeedContext } from "@/lib/context/ReaderFeedContext";
@@ -53,7 +53,10 @@ function buildMockFeed(selectedPin: number): {
 }
 
 // --- Decorator ---
-const ModalDecorator = (Story: any, ctx: any) => {
+const ModalDecorator = (
+  Story: React.ComponentType,
+  ctx: StoryContext<{ readerKey?: string }>,
+) => {
   const readerKey: string = ctx.args.readerKey || defaultReaderKey;
   const config = READER_CONFIG_MAP[readerKey];
   const feedValue = buildMockFeed(config.pin);

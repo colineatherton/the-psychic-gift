@@ -26,32 +26,28 @@ import {
 import { TransitionProps } from "@mui/material/transitions";
 import pluralize from "@theothergothamdev/pluralize-ts";
 import { forwardRef } from "react";
-import { ReaderList } from "../ReaderList/ReaderList";
 import { getStatus } from "../ReaderFilters/ReaderFilters";
-
-interface ReaderModalProps {}
+import { ReaderList } from "../ReaderList/ReaderList";
 
 const Transition = forwardRef(function Transition(
   props: TransitionProps & {
-    children: React.ReactElement<any, any>;
+    children: React.ReactElement;
   },
   ref: React.Ref<unknown>,
 ) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export const ReaderModal: React.FC<ReaderModalProps> = ({}) => {
+export const ReaderModal: React.FC = () => {
   const { readerModalOpen, readerConfig, handleCloseReaderModal } =
     useReaderSelectContext();
-  const { getReaderByPin, getOnlineReaders } = useReaderFeedContext();
+  const { getReaderByPin } = useReaderFeedContext();
   const theme = useTheme();
 
   const logoSrc =
     theme.palette.mode === "light"
       ? "/logo-gold-star-dark.png"
       : "/logo-gold-star.png";
-
-  const onlineReadersCount = getOnlineReaders().length;
 
   const readerStatus = getStatus(
     readerConfig ? getReaderByPin(Number(readerConfig.pin))?.status : undefined,
@@ -198,7 +194,7 @@ export const ReaderModal: React.FC<ReaderModalProps> = ({}) => {
                       />
                     </Box>
                     <Typography>
-                      £1.50/min plus your phone company's access charge
+                      £1.50/min plus your phone company&apos;s access charge
                     </Typography>
                   </Stack>
                 </AccordionSummary>

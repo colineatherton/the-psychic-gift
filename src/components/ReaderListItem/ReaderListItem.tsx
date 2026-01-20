@@ -1,10 +1,8 @@
 "use client";
 
-import PhoneIcon from "@mui/icons-material/Phone";
 import { Status } from "@/lib/types/readers";
 import {
   Avatar,
-  Box,
   Chip,
   Divider,
   ListItem,
@@ -12,12 +10,9 @@ import {
   ListItemText,
   Stack,
   Tooltip,
-  Typography,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import React from "react";
-import { StyledChip } from "./ReaderListItem.styles";
-import { PrimaryCTAButton } from "../PrimaryCTAButton/PrimaryCTAButton";
 
 type ReaderListItemProps = {
   name: string;
@@ -38,11 +33,8 @@ export const statusLabels: Record<ReaderListItemProps["status"], string> = {
 export const ReaderListItem: React.FC<ReaderListItemProps> = ({
   name,
   pin,
-  status,
   skills,
-  description,
   divider = false,
-  onChooseCallOptions,
 }) => {
   const theme = useTheme();
 

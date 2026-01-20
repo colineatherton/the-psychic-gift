@@ -102,7 +102,7 @@ export const FeaturedReader = () => {
       },
       detectRetina: true,
     }),
-    [],
+    [theme.palette.primary.main],
   );
 
   return (

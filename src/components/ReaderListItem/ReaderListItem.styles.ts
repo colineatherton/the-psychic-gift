@@ -1,5 +1,5 @@
 import { Status } from "@/lib/types/readers";
-import { alpha, Card, CardHeader, Chip, styled } from "@mui/material";
+import { Chip, styled } from "@mui/material";
 
 export const StyledChip = styled(Chip, {
   shouldForwardProp: (prop) => prop !== "$status", // Explicitly exclude $status from being forwarded

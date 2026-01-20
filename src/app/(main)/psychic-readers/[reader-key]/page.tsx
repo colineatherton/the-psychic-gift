@@ -3,6 +3,7 @@
 import theme from "@/app/theme";
 import { READER_CONFIG_MAP } from "@/lib/constants/readers";
 import { notFound } from "next/navigation";
+import { use } from "react";
 
 // todo: refactor page so it is not use client and restore metadata
 // export const metadata = {
@@ -27,12 +28,12 @@ import { notFound } from "next/navigation";
 // key is i.e amara and if the key is not found, it will return a 404
 // if overlap we will include -[specialty] and then -[pin]
 
-export default async function PsychicReader({
+export default function PsychicReader({
   params,
 }: {
-  params: { "reader-key": string };
+  params: Promise<{ "reader-key": string }>;
 }) {
-  const key = params["reader-key"];
+  const { "reader-key": key } = use(params);
   const config = READER_CONFIG_MAP[key];
 
   if (!config) {

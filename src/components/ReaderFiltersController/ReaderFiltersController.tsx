@@ -34,11 +34,7 @@ export type Reader = {
   }[];
 };
 
-type ReaderFiltersControllerProps = {};
-
-export const ReaderFiltersController: React.FC<
-  ReaderFiltersControllerProps
-> = ({}) => {
+export const ReaderFiltersController = () => {
   const theme = useTheme();
   const { getReaderByPin } = useReaderFeedContext();
   const [sortBy, setSortBy] = useState<"alpha" | "status">("alpha");

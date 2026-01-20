@@ -15,7 +15,7 @@ export const StyledAppBarContainer = styled(Container)(({ theme }) => ({
   boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
 }));
 
-export const StyledContainer = styled(Container)(({ theme }) => ({
+export const StyledContainer = styled(Container)(() => ({
   background: "transparent",
 }));
 

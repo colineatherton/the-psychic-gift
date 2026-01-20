@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 import { READER_CARDS } from "@/lib/constants/readers";
-import { Grid, List, useTheme } from "@mui/material";
 import { ReaderListItem } from "./ReaderListItem";
 
 const meta = {
@@ -23,7 +22,6 @@ export const Default: Story = {
     onChooseCallOptions: () => undefined,
   },
   render: (args) => {
-    const theme = useTheme();
     return <ReaderListItem {...args} />;
   },
 };

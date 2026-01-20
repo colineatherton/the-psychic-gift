@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 import { READER_CARDS } from "@/lib/constants/readers";
 import { ReaderFeedProvider } from "@/lib/context/ReaderFeedContext";
-import { useTheme } from "@mui/material";
 import { ReaderList } from "./ReaderList";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -27,7 +26,6 @@ export const Default: Story = {
     readers: READER_CARDS,
   },
   render: (args) => {
-    const theme = useTheme();
     return (
       <ReaderFeedProvider>
         <ReaderList {...args} />

@@ -1,5 +1,6 @@
 import React, {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useRef,
@@ -70,7 +71,7 @@ export const ReaderFeedProvider = ({
     });
   };
 
-  const fetchReaders = async () => {
+  const fetchReaders = useCallback(async () => {
     try {
       setIsLoading(true);
       const res = await fetch(READER_FEED_URL, { cache: "no-store" });
@@ -92,7 +93,7 @@ export const ReaderFeedProvider = ({
       setError(err instanceof Error ? err : new Error("Unknown error"));
       setIsLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     let interval: NodeJS.Timeout | undefined;
@@ -121,7 +122,7 @@ export const ReaderFeedProvider = ({
       stopPolling();
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, []);
+  }, [fetchReaders]);
 
   const getReaderByPin = (pin: number) => readers.find((r) => r.id === pin);
   const getOnlineReaders = () => readers.filter((r) => r.status === 1);

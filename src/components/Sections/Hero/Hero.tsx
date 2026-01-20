@@ -4,6 +4,7 @@ import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
 import type { Container as ParticaleContainer } from "@tsparticles/engine";
 import styles from "./Hero.module.css";
 
+import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 import {
   type ISourceOptions,
   MoveDirection,
@@ -19,7 +20,6 @@ import {
   StyledHeroSection,
   StyledParticles,
 } from "./Hero.styles";
-import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 
 export const Hero = () => {
   const { handleFindYourPsychic } = useReaderSelectContext();
@@ -94,7 +94,7 @@ export const Hero = () => {
       },
       detectRetina: true,
     }),
-    [],
+    [theme.palette.primary.light],
   );
 
   return (
@@ -133,6 +133,7 @@ export const Hero = () => {
                   width: { xs: "75%", sm: "50%" },
                 }}
               >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/illustrations/person-on-phone.png"
                   alt="Illustration"
@@ -195,6 +196,7 @@ export const Hero = () => {
               alignSelf={"center"}
               justifySelf={"flex-end"}
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/illustrations/person-on-phone.png"
                 alt="Illustration"

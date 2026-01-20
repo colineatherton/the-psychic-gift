@@ -5,16 +5,13 @@ import "../globals.css";
 import { ReaderAvailableAlert, ReaderModal } from "@/components";
 import { AppBar } from "@/components/AppBar/AppBar";
 import { OfferBanner } from "@/components/OfferBanner/OfferBanner";
+import { ReaderFeedProvider } from "@/lib/context/ReaderFeedContext";
+import { ReaderSelectProvider } from "@/lib/context/ReaderSelectContext";
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { getTheme } from "../theme";
-import {
-  ReaderSelectProvider,
-  useReaderSelectContext,
-} from "@/lib/context/ReaderSelectContext";
-import { ReaderFeedProvider } from "@/lib/context/ReaderFeedContext";
 
 export default function MainLayout({
   children,

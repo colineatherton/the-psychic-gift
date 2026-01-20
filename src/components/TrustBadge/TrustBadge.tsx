@@ -17,9 +17,10 @@ export function TrustBadge({ src }: { src: string }) {
         },
       }}
     >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         alt="Illustration"
-        src={`badges/${theme.palette.mode}/${src}`}
+        src={`/badges/${theme.palette.mode}/${src}`}
         style={{
           width: "100%",
           height: "auto",

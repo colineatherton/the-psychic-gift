@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
+import { Button } from "@mui/material";
 import { HoverMenu } from "./HoverMenu";
-import { Button, useTheme } from "@mui/material";
 
 const meta = {
   title: "Inputs/HoverMenu",

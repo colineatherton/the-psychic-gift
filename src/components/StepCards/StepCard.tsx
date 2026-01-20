@@ -1,5 +1,4 @@
 import { Avatar, Card, CardContent, Grid, Typography } from "@mui/material";
-import { PrimaryCTAButton } from "../PrimaryCTAButton/PrimaryCTAButton";
 
 interface StepCardProps {
   step: number;

@@ -1,10 +1,10 @@
-import { useState } from "react";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
+import { useTheme } from "@mui/material";
+import Autocomplete from "@mui/material/Autocomplete";
 import Checkbox from "@mui/material/Checkbox";
 import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
-import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
-import CheckBoxIcon from "@mui/icons-material/CheckBox";
-import { useTheme } from "@mui/material";
+import { useState } from "react";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -22,7 +22,6 @@ interface MultiSelectProps {
 export const MultiSelect = ({
   options,
   label,
-  multiple = true,
   placeholder,
   value: externalValue,
   onChange: externalOnChange,
@@ -39,9 +38,11 @@ export const MultiSelect = ({
       options={options}
       value={value}
       onChange={(_, newValue) => {
-        externalOnChange
-          ? externalOnChange(newValue)
-          : setInternalValue(newValue);
+        if (externalOnChange) {
+          externalOnChange(newValue);
+        } else {
+          setInternalValue(newValue);
+        }
       }}
       disableCloseOnSelect
       getOptionLabel={(option) => option.label}

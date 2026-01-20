@@ -84,7 +84,7 @@ export const ReaderAvailableAlert = () => {
       slotProps={{
         clickAwayListener: {
           onClickAway: (event) => {
-            // @ts-ignore prevent default MUI clickAway close if you want manual only
+            // @ts-expect-error prevent default MUI clickAway close if you want manual only
             event.defaultMuiPrevented = true;
           },
         },

@@ -1,7 +1,5 @@
 "use client";
 
-import theme from "@/app/theme";
-import MenuItem from "@mui/material/MenuItem";
 import {
   bindHover,
   bindMenu,

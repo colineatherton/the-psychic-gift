@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { StepCard } from "./StepCard";
-import { Box, Grid } from "@mui/material";
 import { PrimaryCTAButton } from "../PrimaryCTAButton/PrimaryCTAButton";
+import { StepCard } from "./StepCard";
 
 const meta = {
   title: "Cards/StepCard",

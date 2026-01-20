@@ -1,5 +1,4 @@
 import { Container, Grid } from "@mui/material";
-import AboutContent from "../about/AboutContent";
 import HowPsychicReadingsWork from "./HowPsychicReadingsWork";
 
 export const metadata = {

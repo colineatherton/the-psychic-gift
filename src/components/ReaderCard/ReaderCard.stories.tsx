@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { ReaderCard } from "./ReaderCard";
-import { Box, Grid, useTheme } from "@mui/material";
 import { READER_CARDS } from "@/lib/constants/readers";
+import { Grid } from "@mui/material";
+import { ReaderCard } from "./ReaderCard";
 
 const meta = {
   title: "Cards/ReaderCard",
@@ -20,10 +20,9 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     ...READER_CARDS[0],
-    onCallNow: () => undefined,
+    onChooseCallOptions: () => undefined,
   },
   render: (args) => {
-    const theme = useTheme();
     return (
       <Grid container width="100%" justifyContent={"center"}>
         <Grid size={{ xs: 6 }}>
@@ -37,10 +36,9 @@ export const Default: Story = {
 export const Compact: Story = {
   args: {
     ...READER_CARDS[0],
-    onCallNow: () => undefined,
+    onChooseCallOptions: () => undefined,
   },
   render: (args) => {
-    const theme = useTheme();
     return (
       <Grid container width="100%">
         <Grid size={{ xs: 6 }} sx={{ width: "100%" }}>
@@ -54,10 +52,9 @@ export const Compact: Story = {
 export const Featured: Story = {
   args: {
     ...READER_CARDS[0],
-    onCallNow: () => undefined,
+    onChooseCallOptions: () => undefined,
   },
   render: (args) => {
-    const theme = useTheme();
     return (
       <Grid container width="100%">
         <Grid size={{ xs: 6 }} sx={{ width: "100%" }}>

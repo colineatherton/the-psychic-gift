@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
-import { styled, Theme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 
-export const StyledReaderImg = styled("img")(({ theme }) => ({
+export const StyledReaderImg = styled("img")(() => ({
   borderRadius: "30px",
   width: "100%",
   display: "block",
@@ -32,7 +32,7 @@ export const StyledReaderContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const StyledFeaturedReaderSection = styled("section")(({ theme }) => ({
+export const StyledFeaturedReaderSection = styled("section")(() => ({
   position: "relative",
   minHeight: "90vh",
   backgroundSize: "cover",

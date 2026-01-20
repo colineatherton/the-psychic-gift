@@ -3,15 +3,14 @@
 import { IconToggle } from "@/components";
 import { PrimaryCTAButton } from "@/components/PrimaryCTAButton/PrimaryCTAButton";
 import { PAGES, READING_PAGES } from "@/lib/constants/urls";
+import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import { themeIcons } from "../AppBar";
-import { StyledBadge } from "../AppBar.styles";
 import { StyledDrawer, StyledListItemText } from "./MobileMenu.styles";
-import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 
 interface MobileDrawerProps {
   open: boolean;
@@ -56,7 +55,8 @@ export const MobileDrawer = ({
           </Grid>
         ) : null}
         <List>
-          {[...READING_PAGES, ...PAGES].map(({ label, path }, index) => (
+          {/* onclick?? using path? */}
+          {[...READING_PAGES, ...PAGES].map(({ label }) => (
             <ListItem key={label} disablePadding alignItems="center">
               <ListItemButton sx={{ width: "100%", justifyContent: "center" }}>
                 <StyledListItemText

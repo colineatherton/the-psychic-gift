@@ -82,6 +82,7 @@ export function WhyPsychicGift() {
           <Grid container spacing={4} width={"100%"} alignItems="center">
             <Grid size={3}>
               <CircleImage>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/psychic-reading-2.png"
                   alt="Psychic reading"

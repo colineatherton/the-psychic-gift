@@ -37,6 +37,7 @@ export function LinkCard({
           alignItems={"center"}
           px={2}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={`/icons/${iconPath}.png`}
             alt="Illustration"

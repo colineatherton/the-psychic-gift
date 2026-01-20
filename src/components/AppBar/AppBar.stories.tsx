@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { AppBar } from "./AppBar";
 import { useTheme } from "@mui/material";
+import { AppBar } from "./AppBar";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -24,7 +24,7 @@ export const Default: Story = {
   args: {
     onThemeToggle: () => {},
     themeMode: "light",
-    onNavigate: (url: string) => {},
+    onNavigate: () => {},
   },
   render: (args) => {
     const theme = useTheme();

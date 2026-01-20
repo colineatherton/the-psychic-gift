@@ -15,7 +15,6 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  Typography,
 } from "@mui/material";
 import React, { useMemo } from "react";
 import { MultiSelect } from "../MultiSelect/MultiSelect";

@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
 
-export const CircleImage = styled("div")(({ theme }) => ({
+export const CircleImage = styled("div")(() => ({
   position: "relative",
   maxWidth: 320,
   maxHeight: 320,

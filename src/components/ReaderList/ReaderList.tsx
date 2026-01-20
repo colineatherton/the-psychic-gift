@@ -11,6 +11,7 @@ export const ReaderList = ({ readers }: ReaderListProps) => {
     <List sx={{ width: "100%" }}>
       {readers.map((reader, i, arr) => (
         <ReaderListItem
+          key={reader.pin}
           {...reader}
           onChooseCallOptions={() => undefined}
           divider={i < arr.length - 1}

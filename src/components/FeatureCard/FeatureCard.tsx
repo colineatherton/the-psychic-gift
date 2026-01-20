@@ -33,6 +33,7 @@ export function FeatureCard({ src, title, body }: FeatureCardProps) {
           alignItems={"center"}
           px={2}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={src}
             alt="Illustration"
