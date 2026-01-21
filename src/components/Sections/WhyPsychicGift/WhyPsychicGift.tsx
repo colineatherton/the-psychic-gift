@@ -56,9 +56,8 @@ export function WhyPsychicGift() {
             <Grid size={4}>
               <FeatureCard
                 src="/icons/crystal-ball.png"
-                title="Founded on a Family Legacy"
-                body="Started by John and inspired by his grandmother’s own psychic gifts,
-                our story is personal — not corporate."
+                title="Psychic Readings Since 2002"
+                body="Over two decades of connecting seekers with experienced clairvoyants, mediums, and tarot readers who deliver trusted insight and guidance."
               />
             </Grid>
             <Grid size={4}>
