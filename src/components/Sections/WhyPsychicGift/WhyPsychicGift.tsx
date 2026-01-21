@@ -1,7 +1,14 @@
 "use client";
 
 import { FeatureCard } from "@/components/FeatureCard/FeatureCard";
-import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import Link from "next/link";
 import { CircleImage } from "./WhyPsychicGift.styles";
 
@@ -102,9 +109,17 @@ export function WhyPsychicGift() {
                 team of clairvoyants, mediums, and tarot readers — all chosen
                 for their empathy, integrity, and insight. The Psychic Gift has
                 helped thousands find clarity, comfort, and insight - through
-                genuine readings from gifted clairvoyants and mediums.{" "}
-                <Link href="/about">Learn more about our story.</Link>
+                genuine readings from gifted clairvoyants and mediums.
               </Typography>
+              <Link href="/about">
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  sx={{ mt: 2, borderRadius: 2 }}
+                >
+                  Learn More About Us
+                </Button>
+              </Link>
             </Grid>
           </Grid>
         </Grid>
