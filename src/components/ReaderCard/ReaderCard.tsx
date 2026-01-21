@@ -112,6 +112,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
                 height={effectiveImgSize}
                 placeholder="blur"
                 blurDataURL="/readers/blur.png"
+                style={{ objectFit: "cover" }}
               />
             </Avatar>
           )}
