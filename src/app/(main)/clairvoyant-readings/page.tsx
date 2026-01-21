@@ -1,11 +1,16 @@
+import { Container, Grid } from "@mui/material";
+import ClairvoyantReadingsContent from "./ClairvoyantReadingsContent";
+
 export const metadata = {
-  title: "Phoenix Rising | Awaken Your Vision",
-  description: "Track your creative ascent with clarity, focus, and fire.",
+  title: "Clairvoyant Readings by Phone | Speak to a Clairvoyant | The Psychic Gift",
+  description:
+    "Connect with experienced clairvoyants for psychic readings by phone. Our clairvoyant readers use their psychic vision to offer guidance on love, relationships, and life decisions.",
   openGraph: {
-    title: "Phoenix Rising",
-    description: "An app to help you rise from the ashes.",
-    url: "https://phoenixrising.app",
-    siteName: "Phoenix Rising",
+    title: "Clairvoyant Readings | The Psychic Gift",
+    description:
+      "Speak to an experienced clairvoyant by phone. Receive psychic insight and guidance on love, career, and life from trusted readers.",
+    url: "https://thepsychicgift.co.uk/clairvoyant-readings",
+    siteName: "The Psychic Gift",
     images: [
       {
         url: "/og-image.png",
@@ -19,20 +24,12 @@ export const metadata = {
 
 export default function ClairvoyantReadings() {
   return (
-    <>
-      <h1>clairvoyant readings</h1>
-      <p>✅ Purpose: Skill-focused entry point</p>
-      <p>
-        🎯 Goal: Rank for “clairvoyant readings” and attract users who value
-        that ability
-      </p>
-      <p>📦 Content & Elements:</p>
-      <p>• Hero: “Clairvoyant Readings by Phone”</p>
-      <p>• Explainer: “What is clairvoyance?”</p>
-      <p>• Filtered reader grid (clairvoyants only)</p>
-      <p>• Use cases: Love, career, future clarity</p>
-      <p>• Offer reminder</p>
-      <p>• CTA section</p>
-    </>
+    <Container maxWidth="lg">
+      <Grid container minHeight="100vh" py={6} width={"100%"}>
+        <Grid size={12} mt={20}>
+          <ClairvoyantReadingsContent />
+        </Grid>
+      </Grid>
+    </Container>
   );
 }

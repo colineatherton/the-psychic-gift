@@ -1,11 +1,16 @@
+import { Container, Grid } from "@mui/material";
+import PsychicPhoneReadingsContent from "./PsychicPhoneReadingsContent";
+
 export const metadata = {
-  title: "Phoenix Rising | Awaken Your Vision",
-  description: "Track your creative ascent with clarity, focus, and fire.",
+  title: "Psychic Phone Readings | Speak to a Psychic Now | The Psychic Gift",
+  description:
+    "Connect with experienced psychic readers by phone, 24/7. Our trusted clairvoyants, mediums, and tarot readers offer guidance on love, relationships, and life decisions. Call now.",
   openGraph: {
-    title: "Phoenix Rising",
-    description: "An app to help you rise from the ashes.",
-    url: "https://phoenixrising.app",
-    siteName: "Phoenix Rising",
+    title: "Psychic Phone Readings | The Psychic Gift",
+    description:
+      "Speak to a trusted psychic by phone, any time of day or night. Get guidance on love, career, and life from experienced clairvoyants and mediums.",
+    url: "https://thepsychicgift.co.uk/psychic-phone-readings",
+    siteName: "The Psychic Gift",
     images: [
       {
         url: "/og-image.png",
@@ -19,21 +24,12 @@ export const metadata = {
 
 export default function PsychicPhoneReadings() {
   return (
-    <>
-      <h1>psychic phone readings</h1>
-      <p>✅ Purpose: Primary high-intent landing page</p>
-      <p>
-        🎯 Goal: Rank for “psychic phone readings” + convert visitors into
-        callers
-      </p>
-      <p>📦 Content & Elements:</p>
-      <p>• Hero with keyword-optimized H1</p>
-      <p>• Live reader grid</p>
-      <p>• “Why phone readings work” block (icons or benefits list)</p>
-      <p>• How to start a call (steps + number)</p>
-      <p>• FAQs (5–6 common objections or clarifiers)</p>
-      <p>• Offer CTA tile</p>
-      <p>• Sticky tap-to-call bar (mobile)</p>
-    </>
+    <Container maxWidth="lg">
+      <Grid container minHeight="100vh" py={6} width={"100%"}>
+        <Grid size={12} mt={20}>
+          <PsychicPhoneReadingsContent />
+        </Grid>
+      </Grid>
+    </Container>
   );
 }

@@ -1,11 +1,16 @@
+import { Container, Grid } from "@mui/material";
+import CallAPsychicNowContent from "./CallAPsychicNowContent";
+
 export const metadata = {
-  title: "Phoenix Rising | Awaken Your Vision",
-  description: "Track your creative ascent with clarity, focus, and fire.",
+  title: "Call a Psychic Now | Speak to a Psychic Immediately | The Psychic Gift",
+  description:
+    "Call a psychic now and connect instantly. Our experienced readers are available 24/7 for immediate guidance on love, relationships, and life. No appointment needed.",
   openGraph: {
-    title: "Phoenix Rising",
-    description: "An app to help you rise from the ashes.",
-    url: "https://phoenixrising.app",
-    siteName: "Phoenix Rising",
+    title: "Call a Psychic Now | The Psychic Gift",
+    description:
+      "Speak to a psychic immediately. Our trusted readers are online now and ready to help with love, career, and life guidance.",
+    url: "https://thepsychicgift.co.uk/call-a-psychic-now",
+    siteName: "The Psychic Gift",
     images: [
       {
         url: "/og-image.png",
@@ -19,17 +24,12 @@ export const metadata = {
 
 export default function CallNow() {
   return (
-    <>
-      <h1>call a psychic now</h1>
-      <p>✅ Purpose: Urgency-focused mobile-first conversion funnel</p>
-      <p>🎯 Goal: Capture users ready to act immediately</p>
-      <p>📦 Content & Elements:</p>
-      <p>• Hero: “Speak to a Psychic Now”</p>
-      <p>• Countdown-style urgency block</p>
-      <p>• Online now readers + 1-click call</p>
-      <p>• Offer bar</p>
-      <p>• Minimal copy, maximum CTA focus</p>
-      <p>• Sticky call button always visible</p>
-    </>
+    <Container maxWidth="lg">
+      <Grid container minHeight="100vh" py={6} width={"100%"}>
+        <Grid size={12} mt={20}>
+          <CallAPsychicNowContent />
+        </Grid>
+      </Grid>
+    </Container>
   );
 }

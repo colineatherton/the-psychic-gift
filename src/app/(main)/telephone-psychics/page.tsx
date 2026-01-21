@@ -1,11 +1,16 @@
+import { Container, Grid } from "@mui/material";
+import TelephonePsychicsContent from "./TelephonePsychicsContent";
+
 export const metadata = {
-  title: "Phoenix Rising | Awaken Your Vision",
-  description: "Track your creative ascent with clarity, focus, and fire.",
+  title: "Telephone Psychics | Speak to a Psychic by Phone | The Psychic Gift",
+  description:
+    "Connect with experienced telephone psychics for personal guidance and spiritual insight. Our trusted readers are available by phone 24/7. Call now for your reading.",
   openGraph: {
-    title: "Phoenix Rising",
-    description: "An app to help you rise from the ashes.",
-    url: "https://phoenixrising.app",
-    siteName: "Phoenix Rising",
+    title: "Telephone Psychics | The Psychic Gift",
+    description:
+      "Speak directly to a telephone psychic for guidance on love, life, and relationships. Experienced readers available now.",
+    url: "https://thepsychicgift.co.uk/telephone-psychics",
+    siteName: "The Psychic Gift",
     images: [
       {
         url: "/og-image.png",
@@ -19,20 +24,12 @@ export const metadata = {
 
 export default function TelephonePsychics() {
   return (
-    <>
-      <h1>telephone psychics</h1>
-      <p>
-        ✅ Purpose: Alternative entry for same intent with different phrasing
-      </p>
-      <p>🎯 Goal: Capture traffic searching for telephone psychics</p>
-      <p>📦 Content & Elements:</p>
-      <p>• Shorter page, more reader-focused</p>
-      <p>• Reader grid featured more prominently</p>
-      <p>
-        • Explainer: “What’s the difference between telephone and other psychic
-        services?”
-      </p>
-      <p>• Reused FAQs (lightly rewritten)</p>
-    </>
+    <Container maxWidth="lg">
+      <Grid container minHeight="100vh" py={6} width={"100%"}>
+        <Grid size={12} mt={20}>
+          <TelephonePsychicsContent />
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
