@@ -35,7 +35,18 @@ export const OfferCallout = () => {
         </a>{" "}
         &amp; Quote <strong>&quot;DISCOVER&quot;.</strong>
       </Typography>
-      <Button sx={{ mt: 2 }} onClick={handleLearnMore}>
+      <Button
+        sx={{
+          mt: 2,
+          backgroundColor: (theme) => theme.palette.accent.primary,
+          color: (theme) => theme.palette.accent.primaryText,
+          fontWeight: 600,
+          "&:hover": {
+            backgroundColor: (theme) => theme.palette.primary.dark,
+          },
+        }}
+        onClick={handleLearnMore}
+      >
         Learn more
       </Button>
     </CalloutCard>
