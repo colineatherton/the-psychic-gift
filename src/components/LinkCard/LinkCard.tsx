@@ -1,7 +1,6 @@
 "use client";
 
-import theme from "@/app/theme";
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import { Box, Card, CardContent, Typography, useTheme } from "@mui/material";
 import { CTAButton } from "../CTAButton/CTAButton";
 
 export function LinkCard({
@@ -15,6 +14,8 @@ export function LinkCard({
   description: string;
   href: string;
 }) {
+  const theme = useTheme();
+
   return (
     <Card
       sx={{
@@ -66,7 +67,11 @@ export function LinkCard({
             fontFamily="Montserrat Variable, sans-serif"
             fontWeight={500}
             fontSize="1rem"
-            color={theme.palette.secondary.dark}
+            color={
+              theme.palette.mode === "light"
+                ? theme.palette.secondary.dark
+                : theme.palette.common.white
+            }
             lineHeight="1.6"
             variant="body2"
             component="p"
