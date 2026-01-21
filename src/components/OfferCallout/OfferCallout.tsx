@@ -1,7 +1,14 @@
 import { Button, Typography } from "@mui/material";
+import { useRouter } from "next/navigation";
 import { CalloutCard } from "../CalloutCard/CalloutCard";
 
 export const OfferCallout = () => {
+  const router = useRouter();
+
+  const handleLearnMore = () => {
+    router.push("/offers");
+  };
+
   return (
     <CalloutCard>
       <Typography
@@ -28,7 +35,9 @@ export const OfferCallout = () => {
         </a>{" "}
         &amp; Quote <strong>&quot;DISCOVER&quot;.</strong>
       </Typography>
-      <Button sx={{ mt: 2 }}>Learn more</Button>
+      <Button sx={{ mt: 2 }} onClick={handleLearnMore}>
+        Learn more
+      </Button>
     </CalloutCard>
   );
 };
