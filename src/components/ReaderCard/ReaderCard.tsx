@@ -53,7 +53,10 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
     mode === "compact" ? 2 : skills.length,
   );
 
-  const remainingSkills = skills.slice(2, skills.length).join(", ");
+  const remainingSkills = skills
+    .slice(2, skills.length)
+    .map((skill) => skill.charAt(0).toUpperCase() + skill.slice(1))
+    .join(", ");
 
   const effectiveImgSize = mode === "compact" ? 85 : 100;
 
