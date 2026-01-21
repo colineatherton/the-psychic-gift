@@ -1,7 +1,11 @@
 "use client";
 
-import theme from "@/app/theme";
+import { ReaderCard } from "@/components/ReaderCard/ReaderCard";
 import { READER_CONFIG_MAP } from "@/lib/constants/readers";
+import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
+import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
+import { Status } from "@/lib/types/readers";
+import { Box, Container, Grid } from "@mui/material";
 import { notFound } from "next/navigation";
 import { use } from "react";
 
@@ -40,64 +44,47 @@ export default function PsychicReader({
     notFound(); // Returns a 404 page if the key is not found
   }
 
-  return (
-    <>
-      <h1>psychic reader</h1>
-      <p>
-        ✅ Purpose: Build reader trust, increase call conversion, expand SEO
-        footprint
-      </p>
-      <p>🎯 Goal: Help hesitant or returning users pick someone specific</p>
-      <p>📦 Content & Features:</p>
-      <p>• Reader name, image, and live status badge</p>
-      <p>• Skill tags (clairvoyant, tarot, love readings, etc.)</p>
-      <p>• Short personal bio</p>
-      <p>• Tap-to-call buttons for all payment methods</p>
-      <p>• PIN code display</p>
-      <p>• Review/testimonial block (optional)</p>
-      <p>• Link back to /our-psychics and other available readers</p>
-      <hr></hr>
+  const { handleChooseCallOptions } = useReaderSelectContext();
+  const { getReaderByPin } = useReaderFeedContext();
 
-      <div style={{ maxWidth: 500, margin: "0 auto", padding: 24 }}>
-        <h1>{config.name}</h1>
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          {/* <Image
-            src={`/${config.imageUrl}`}
-            alt={config.name}
-            width={120}
-            height={120}
-            style={{ borderRadius: "50%", objectFit: "cover" }}
-          /> */}
-          <div>
-            <div>
-              <strong>PIN:</strong> {config.pin}
-            </div>
-            <div>
-              <strong>Specialties:</strong>{" "}
-              {config.specialties.abilities.join(", ")}
-            </div>
-            <div>
-              <strong>Topics:</strong> {config.specialties.topics.join(", ")}
-            </div>
-          </div>
-        </div>
-        <p style={{ marginTop: 16 }}>{config.description}</p>
-        <button
-          style={{
-            marginTop: 24,
-            padding: "12px 24px",
-            background: theme.palette.primary.main,
-            color: theme.palette.common.white,
-            border: "none",
-            borderRadius: 8,
-            fontWeight: 600,
-            fontSize: 18,
-            cursor: "pointer",
-          }}
-        >
-          {config.ctaText}
-        </button>
-      </div>
-    </>
+  // Combine all specialties for the skills display
+  const allSkills = [
+    ...config.specialties.abilities,
+    ...config.specialties.tools,
+    ...config.specialties.topics,
+    ...config.specialties.themes,
+  ];
+
+  // Get dynamic status from reader feed
+  const readerFeedData = getReaderByPin(config.pin);
+  const readerStatus = readerFeedData
+    ? readerFeedData.status === 1
+      ? Status.online
+      : readerFeedData.status === 2
+        ? Status.busy
+        : Status.offline
+    : Status.offline;
+
+  return (
+    <Container maxWidth="lg">
+      <Grid container minHeight="100vh" py={6} width={"100%"}>
+        <Grid size={12} mt={20}>
+          <Box display="flex" justifyContent="center">
+            <Box sx={{ maxWidth: 600, width: "100%" }}>
+              <ReaderCard
+                name={config.name}
+                pin={config.pin.toString()}
+                status={readerStatus}
+                skills={allSkills}
+                mode="featured"
+                description={config.description}
+                onChooseCallOptions={handleChooseCallOptions}
+                hideViewProfile={true}
+              />
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
+    </Container>
   );
 }

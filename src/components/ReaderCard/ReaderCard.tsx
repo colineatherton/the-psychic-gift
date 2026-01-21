@@ -29,6 +29,7 @@ type ReaderCardProps = {
   mode?: "default" | "compact" | "featured" | "selected";
   description?: string;
   onChooseCallOptions: (key: string) => void;
+  hideViewProfile?: boolean;
 };
 
 export const statusLabels: Record<ReaderCardProps["status"], string> = {
@@ -45,6 +46,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
   mode = "default",
   description,
   onChooseCallOptions,
+  hideViewProfile = false,
 }) => {
   const theme = useTheme();
 
@@ -218,27 +220,29 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
               label="Choose Call Options"
             />
 
-            <Button
-              size="large"
-              variant="outlined"
-              fullWidth={true}
-              href={`/psychic-readers/${name.toLocaleLowerCase()}-${pin}`}
-              sx={{
-                borderRadius: 8,
-                ...(mode === "compact"
-                  ? {}
-                  : {
-                      pt: 2,
-                      pb: 2,
-                      px: 2,
-                    }),
-                border: `1px solid ${theme.palette.primary.dark}`,
-                color: theme.palette.primary.dark,
-                fontSize: mode === "compact" ? "0.8rem" : "1rem",
-              }}
-            >
-              View profile
-            </Button>
+            {!hideViewProfile && (
+              <Button
+                size="large"
+                variant="outlined"
+                fullWidth={true}
+                href={`/psychic-readers/${name.toLocaleLowerCase()}-${pin}`}
+                sx={{
+                  borderRadius: 8,
+                  ...(mode === "compact"
+                    ? {}
+                    : {
+                        pt: 2,
+                        pb: 2,
+                        px: 2,
+                      }),
+                  border: `1px solid ${theme.palette.primary.dark}`,
+                  color: theme.palette.primary.dark,
+                  fontSize: mode === "compact" ? "0.8rem" : "1rem",
+                }}
+              >
+                View profile
+              </Button>
+            )}
           </Stack>
         </Box>
       )}
