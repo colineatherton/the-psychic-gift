@@ -13,7 +13,10 @@ export function FeatureCard({ src, title, body }: FeatureCardProps) {
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        background: (theme) => theme.palette.common.white,
+        background: (theme) =>
+          theme.palette.mode === "light"
+            ? theme.palette.common.white
+            : theme.palette.primary.dark,
         borderRadius: 4,
         transition: "transform 0.25s ease",
         boxShadow: 4,
