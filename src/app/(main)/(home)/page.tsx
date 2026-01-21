@@ -15,13 +15,15 @@ import { homePageFAQs } from "@/lib/constants/faqs/homePage";
 import { homePageInternalLinks } from "@/lib/constants/internalLinks";
 
 export const metadata = {
-  title: "Phoenix Rising | Awaken Your Vision",
-  description: "Track your creative ascent with clarity, focus, and fire.",
+  title: "The Psychic Gift | Trusted Psychic Readings by Phone",
+  description:
+    "Connect with experienced psychic readers by phone, 24/7. Trusted clairvoyants, mediums, and tarot readers offering guidance on love, relationships, and life. Call now.",
   openGraph: {
-    title: "Phoenix Rising",
-    description: "An app to help you rise from the ashes.",
-    url: "https://phoenixrising.app",
-    siteName: "Phoenix Rising",
+    title: "The Psychic Gift | Trusted Psychic Readings by Phone",
+    description:
+      "Speak to a trusted psychic by phone, any time of day or night. Experienced clairvoyants and mediums ready to help.",
+    url: "https://thepsychicgift.co.uk",
+    siteName: "The Psychic Gift",
     images: [
       {
         url: "/og-image.png",

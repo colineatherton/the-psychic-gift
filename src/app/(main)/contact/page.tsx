@@ -1,11 +1,13 @@
 export const metadata = {
-  title: "Phoenix Rising | Awaken Your Vision",
-  description: "Track your creative ascent with clarity, focus, and fire.",
+  title: "Contact Us | The Psychic Gift",
+  description:
+    "Get in touch with The Psychic Gift. Contact our support team for help with your psychic reading, billing questions, or general enquiries.",
   openGraph: {
-    title: "Phoenix Rising",
-    description: "An app to help you rise from the ashes.",
-    url: "https://phoenixrising.app",
-    siteName: "Phoenix Rising",
+    title: "Contact Us | The Psychic Gift",
+    description:
+      "Contact The Psychic Gift support team. We're here to help with any questions.",
+    url: "https://thepsychicgift.co.uk/contact",
+    siteName: "The Psychic Gift",
     images: [
       {
         url: "/og-image.png",

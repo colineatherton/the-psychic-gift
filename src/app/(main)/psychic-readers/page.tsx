@@ -2,13 +2,15 @@ import { ReaderFiltersController } from "@/components/ReaderFiltersController/Re
 import { Container, Grid } from "@mui/material";
 
 export const metadata = {
-  title: "Phoenix Rising | Awaken Your Vision",
-  description: "Track your creative ascent with clarity, focus, and fire.",
+  title: "Our Psychic Readers | The Psychic Gift",
+  description:
+    "Browse our trusted psychic readers. Find clairvoyants, mediums, and tarot readers available now for phone readings. See who's online and choose your reader.",
   openGraph: {
-    title: "Phoenix Rising",
-    description: "An app to help you rise from the ashes.",
-    url: "https://phoenixrising.app",
-    siteName: "Phoenix Rising",
+    title: "Our Psychic Readers | The Psychic Gift",
+    description:
+      "Meet our gifted psychic readers. Browse profiles and find the right clairvoyant, medium, or tarot reader for you.",
+    url: "https://thepsychicgift.co.uk/psychic-readers",
+    siteName: "The Psychic Gift",
     images: [
       {
         url: "/og-image.png",

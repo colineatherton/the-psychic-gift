@@ -2,13 +2,15 @@ import { Container, Grid } from "@mui/material";
 import HowPsychicReadingsWork from "./HowPsychicReadingsWork";
 
 export const metadata = {
-  title: "Phoenix Rising | Awaken Your Vision",
-  description: "Track your creative ascent with clarity, focus, and fire.",
+  title: "How Psychic Readings Work | The Psychic Gift",
+  description:
+    "Learn how to get a psychic phone reading with The Psychic Gift. Simple steps to connect with our trusted clairvoyants, mediums, and tarot readers 24/7.",
   openGraph: {
-    title: "Phoenix Rising",
-    description: "An app to help you rise from the ashes.",
-    url: "https://phoenixrising.app",
-    siteName: "Phoenix Rising",
+    title: "How Psychic Readings Work | The Psychic Gift",
+    description:
+      "A simple guide to getting your psychic phone reading. Choose your reader, call, and connect.",
+    url: "https://thepsychicgift.co.uk/how-psychic-readings-work",
+    siteName: "The Psychic Gift",
     images: [
       {
         url: "/og-image.png",

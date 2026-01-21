@@ -1,13 +1,15 @@
 import { Container, Grid, Typography } from "@mui/material";
 
 export const metadata = {
-  title: "Phoenix Rising | Awaken Your Vision",
-  description: "Track your creative ascent with clarity, focus, and fire.",
+  title: "Special Offers | The Psychic Gift",
+  description:
+    "Exclusive offers for new clients at The Psychic Gift. Get discounted psychic phone readings from our trusted clairvoyants, mediums, and tarot readers.",
   openGraph: {
-    title: "Phoenix Rising",
-    description: "An app to help you rise from the ashes.",
-    url: "https://phoenixrising.app",
-    siteName: "Phoenix Rising",
+    title: "Special Offers | The Psychic Gift",
+    description:
+      "Exclusive introductory offers for new clients. Try a psychic reading at a special rate.",
+    url: "https://thepsychicgift.co.uk/offers",
+    siteName: "The Psychic Gift",
     images: [
       {
         url: "/og-image.png",

@@ -1,11 +1,13 @@
 export const metadata = {
-  title: "Phoenix Rising | Awaken Your Vision",
-  description: "Track your creative ascent with clarity, focus, and fire.",
+  title: "Terms and Conditions | The Psychic Gift",
+  description:
+    "Read the terms and conditions for using The Psychic Gift psychic phone reading service. Information on pricing, payments, and service guidelines.",
   openGraph: {
-    title: "Phoenix Rising",
-    description: "An app to help you rise from the ashes.",
-    url: "https://phoenixrising.app",
-    siteName: "Phoenix Rising",
+    title: "Terms and Conditions | The Psychic Gift",
+    description:
+      "Terms and conditions for The Psychic Gift psychic reading service.",
+    url: "https://thepsychicgift.co.uk/terms-and-conditions",
+    siteName: "The Psychic Gift",
     images: [
       {
         url: "/og-image.png",
