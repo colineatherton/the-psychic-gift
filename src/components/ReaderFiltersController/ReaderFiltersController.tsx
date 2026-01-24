@@ -137,29 +137,31 @@ export const ReaderFiltersController = () => {
       selectedStatuses.length === 0 ||
       selectedStatuses.map((s) => s.key).includes(reader.status.toString());
 
+    const readerSkillsLower = reader.skills.map((s) => s.toLowerCase());
+
     const skillMatch =
       selectedSkills.length === 0 ||
       selectedSkills
-        .map((s) => s.label)
-        .every((label) => reader.skills.includes(label));
+        .map((s) => s.label.toLowerCase())
+        .every((label) => readerSkillsLower.includes(label));
 
     const toolMatch =
       selectedTools.length === 0 ||
       selectedTools
-        .map((t) => t.label)
-        .every((label) => reader.skills.includes(label));
+        .map((t) => t.label.toLowerCase())
+        .every((label) => readerSkillsLower.includes(label));
 
     const abilityMatch =
       selectedAbilities.length === 0 ||
       selectedAbilities
-        .map((a) => a.label)
-        .every((label) => reader.skills.includes(label));
+        .map((a) => a.label.toLowerCase())
+        .every((label) => readerSkillsLower.includes(label));
 
     const topicMatch =
       selectedTopics.length === 0 ||
       selectedTopics
-        .map((t) => t.label)
-        .every((label) => reader.skills.includes(label));
+        .map((t) => t.label.toLowerCase())
+        .every((label) => readerSkillsLower.includes(label));
 
     return statusMatch && skillMatch && toolMatch && abilityMatch && topicMatch;
   });

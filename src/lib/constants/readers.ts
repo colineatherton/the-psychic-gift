@@ -423,11 +423,14 @@ export const READER_STATUS_OPTIONS = [
   { value: "offline", label: "Offline" },
 ];
 
+const capitalize = (str: string) =>
+  str.charAt(0).toUpperCase() + str.slice(1);
+
 export const ALL_SKILLS = () => {
   const skillSet = new Set<string>();
   READER_CARDS.forEach((r) => r.skills.forEach((s) => skillSet.add(s)));
   return Array.from(skillSet)
-    .map((skill) => ({ label: skill }))
+    .map((skill) => ({ label: capitalize(skill) }))
     .sort();
 };
 
@@ -437,7 +440,7 @@ export const ALL_ABILITIES = () => {
     r.specialties.abilities.forEach((s) => skillSet.add(s)),
   );
   return Array.from(skillSet)
-    .map((skill) => ({ label: skill }))
+    .map((skill) => ({ label: capitalize(skill) }))
     .sort();
 };
 
@@ -447,7 +450,7 @@ export const ALL_TOOLS = () => {
     r.specialties.tools.forEach((s) => skillSet.add(s)),
   );
   return Array.from(skillSet)
-    .map((skill) => ({ label: skill }))
+    .map((skill) => ({ label: capitalize(skill) }))
     .sort();
 };
 
@@ -459,7 +462,7 @@ export const ALL_TOPICS = () => {
     ),
   );
   return Array.from(skillSet)
-    .map((skill) => ({ label: skill }))
+    .map((skill) => ({ label: capitalize(skill) }))
     .sort();
 };
 

@@ -193,7 +193,7 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                 <HoverMenu
                   TriggerEl={
                     <StyledNavLink variant="text" size="large">
-                      Phone readings
+                      Phone Readings
                     </StyledNavLink>
                   }
                   items={READING_PAGES.map((page) => ({
