@@ -47,6 +47,7 @@ export const IconToggle = <T,>({
           border: `1px solid ${theme.palette.primary.light}`,
           background: theme.palette.primary.dark,
           color: icon.color,
+          boxShadow: "0 2px 8px rgba(0,0,0,0.25)",
           transition:
             "box-shadow 0.4s ease, background 0.3s ease, transform 0.2s ease",
           "&:hover": {
