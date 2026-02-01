@@ -13,7 +13,7 @@ import {
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useMemo, useState } from "react";
 import { loadFull } from "tsparticles";
-import { OfferCallout } from "../../OfferCallout/OfferCallout";
+import { PhoneCallout } from "../../PhoneCallout/PhoneCallout";
 import { PrimaryCTAButton } from "../../PrimaryCTAButton/PrimaryCTAButton";
 import {
   StyledContent,
@@ -187,7 +187,7 @@ export const Hero = () => {
                 label="Find Your Psychic"
                 mb={4}
               />
-              <OfferCallout />
+              <PhoneCallout />
             </Grid>
             <Grid
               size={{ xs: 12, md: 5 }}
@@ -206,22 +206,7 @@ export const Hero = () => {
                 }}
               />
             </Grid>
-            <Grid size={{ xs: 12 }}>
-              <Typography
-                fontFamily="Montserrat Variable, sans-serif"
-                fontWeight={500}
-                fontSize="0.9rem"
-                color={theme.palette.text.primary}
-                lineHeight="1.6"
-                variant="body2"
-                component="p"
-                marginTop={6}
-              >
-                £10 for 10 mins, £1.50 / min thereafter | Card & Phone Bill
-                Options | All Calls Recorded
-              </Typography>
-            </Grid>
-          </Grid>
+                      </Grid>
         </Container>
       </StyledContent>
     </StyledHeroSection>

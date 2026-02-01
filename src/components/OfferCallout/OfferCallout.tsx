@@ -23,17 +23,9 @@ export const OfferCallout = () => {
       <Typography
         fontFamily="Montserrat Variable, sans-serif"
         fontSize="1rem"
-        mb={1}
       >
         <strong>10 Minutes</strong> for just <strong>£5</strong> for every new
-        client!
-      </Typography>
-      <Typography fontFamily="Montserrat Variable, sans-serif" fontSize="1rem">
-        Call:{" "}
-        <a href="tel:08009152333">
-          <strong>0800 915 2333</strong>
-        </a>{" "}
-        &amp; Quote <strong>&quot;DISCOVER&quot;.</strong>
+        client! Quote <strong>&quot;DISCOVER&quot;</strong> when you call.
       </Typography>
       <Button
         sx={{
