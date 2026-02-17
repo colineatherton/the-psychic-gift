@@ -45,11 +45,11 @@ export function Footer() {
                       fontFamily: "Montserrat Variable, sans-serif",
                       fontSize: { xs: "0.875rem", sm: "1rem" },
                       color: isActive
-                        ? theme.palette.primary.main
-                        : theme.palette.text.secondary,
+                        ? theme.palette.primary.dark
+                        : theme.palette.text.primary,
                       fontWeight: isActive ? 600 : 400,
                       "&:hover": {
-                        color: theme.palette.primary.main,
+                        color: theme.palette.primary.dark,
                       },
                       transition: "color 0.2s ease",
                     }}
@@ -65,7 +65,7 @@ export function Footer() {
               sx={{
                 fontFamily: "Montserrat Variable, sans-serif",
                 fontSize: "0.75rem",
-                color: theme.palette.text.disabled,
+                color: theme.palette.secondary.main,
                 textAlign: "center",
                 mt: 2,
               }}
