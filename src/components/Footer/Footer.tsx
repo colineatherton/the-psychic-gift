@@ -2,6 +2,7 @@
 
 import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const footerLinks = [
   { label: "Terms & Conditions", path: "/terms-and-conditions" },
@@ -11,6 +12,7 @@ const footerLinks = [
 
 export function Footer() {
   const theme = useTheme();
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -34,23 +36,29 @@ export function Footer() {
               flexWrap: "wrap",
             }}
           >
-            {footerLinks.map((link) => (
-              <Link key={link.path} href={link.path} style={{ textDecoration: "none" }}>
-                <Typography
-                  sx={{
-                    fontFamily: "Montserrat Variable, sans-serif",
-                    fontSize: { xs: "0.875rem", sm: "1rem" },
-                    color: theme.palette.text.secondary,
-                    "&:hover": {
-                      color: theme.palette.primary.main,
-                    },
-                    transition: "color 0.2s ease",
-                  }}
-                >
-                  {link.label}
-                </Typography>
-              </Link>
-            ))}
+            {footerLinks.map((link) => {
+              const isActive = pathname === link.path;
+              return (
+                <Link key={link.path} href={link.path} style={{ textDecoration: "none" }}>
+                  <Typography
+                    sx={{
+                      fontFamily: "Montserrat Variable, sans-serif",
+                      fontSize: { xs: "0.875rem", sm: "1rem" },
+                      color: isActive
+                        ? theme.palette.primary.main
+                        : theme.palette.text.secondary,
+                      fontWeight: isActive ? 600 : 400,
+                      "&:hover": {
+                        color: theme.palette.primary.main,
+                      },
+                      transition: "color 0.2s ease",
+                    }}
+                  >
+                    {link.label}
+                  </Typography>
+                </Link>
+              );
+            })}
           </Grid>
           <Grid size={12}>
             <Typography
