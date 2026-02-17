@@ -37,7 +37,7 @@ export type Reader = {
 export const ReaderFiltersController = () => {
   const theme = useTheme();
   const { getReaderByPin } = useReaderFeedContext();
-  const [sortBy, setSortBy] = useState<"alpha" | "status">("alpha");
+  const [sortBy, setSortBy] = useState<"alpha" | "status">("status");
   const [selectedStatuses, setSelectedStatuses] = useState<
     {
       label: string;
