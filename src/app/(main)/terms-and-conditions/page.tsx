@@ -1,7 +1,10 @@
+import { Container, Grid } from "@mui/material";
+import TermsContent from "./TermsContent";
+
 export const metadata = {
   title: "Terms and Conditions | The Psychic Gift",
   description:
-    "Read the terms and conditions for using The Psychic Gift psychic phone reading service. Information on pricing, payments, and service guidelines.",
+    "Read the terms and conditions for using The Psychic Gift psychic phone reading service. Information on pricing, payments, satisfaction guarantee and service guidelines.",
   openGraph: {
     title: "Terms and Conditions | The Psychic Gift",
     description:
@@ -21,22 +24,12 @@ export const metadata = {
 
 export default function TermsAndConditions() {
   return (
-    <>
-      <h1>terms and conditions</h1>
-      <p>✅ Purpose: Set clear terms for using the service</p>
-      <p>
-        🎯 Goal: Cover liabilities, pricing, refunds, disclaimers (especially
-        psychic-specific disclaimers)
-      </p>
-      <p>📦 Content Outline:</p>
-      <p>
-        • What the readings are and aren’t (for entertainment, not medical/legal
-        advice)
-      </p>
-      <p>• Pricing structure</p>
-      <p>• Refund policy (or “all calls final” if that’s the case)</p>
-      <p>• Age requirement (usually 18+)</p>
-      <p>• Payment types</p>
-    </>
+    <Container maxWidth="lg">
+      <Grid container minHeight="100vh" py={6} width={"100%"}>
+        <Grid size={12} mt={20}>
+          <TermsContent />
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
