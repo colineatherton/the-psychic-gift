@@ -101,7 +101,7 @@ export default function TermsContent() {
       </Box>
 
       {/* Satisfaction Guarantee */}
-      <Box component="section" id="satisfaction-guarantee">
+      <Box component="section" id="satisfaction-guarantee" sx={{ scrollMarginTop: "180px" }}>
         <Typography variant="h2" component="h2" sx={headingStyles}>
           Satisfaction Guarantee
         </Typography>
