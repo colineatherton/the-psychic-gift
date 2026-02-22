@@ -2,7 +2,13 @@
 
 import "../globals.css";
 
-import { CookieConsent, Footer, ReaderAvailableAlert, ReaderModal } from "@/components";
+import {
+  CookieConsent,
+  Footer,
+  GoogleAnalytics,
+  ReaderAvailableAlert,
+  ReaderModal,
+} from "@/components";
 import { AppBar } from "@/components/AppBar/AppBar";
 import { OfferBanner } from "@/components/OfferBanner/OfferBanner";
 import { ReaderFeedProvider } from "@/lib/context/ReaderFeedContext";
@@ -46,6 +52,7 @@ export default function MainLayout({
           />
           <ReaderModal />
           <CookieConsent />
+          <GoogleAnalytics />
         </ReaderSelectProvider>
       </ReaderFeedProvider>
     </ThemeProvider>
