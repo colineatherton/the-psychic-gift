@@ -35,7 +35,7 @@ function createStory(readers: ReaderFeedItem[], Story: React.FC) {
 
 export const Default: Story = {
   args: {
-    heading: "Ready to speak to someone who truly listens?",
+    heading: "Ready to speak to someone who really listens?",
   },
   decorators: [
     (Story) => {
@@ -63,7 +63,7 @@ export const Default: Story = {
 
 export const MultipleAvailableReaderCTA: Story = {
   args: {
-    heading: "Ready to speak to someone who truly listens?",
+    heading: "Ready to speak to someone who really listens?",
   },
   decorators: [
     (Story) => {
@@ -98,7 +98,7 @@ export const MultipleAvailableReaderCTA: Story = {
 
 export const SingleAvailableReaderCTA: Story = {
   args: {
-    heading: "Ready to speak to someone who truly listens?",
+    heading: "Ready to speak to someone who really listens?",
   },
   decorators: [
     (Story) => {
@@ -119,7 +119,7 @@ export const SingleAvailableReaderCTA: Story = {
 
 export const NoAvailableReadersCTA: Story = {
   args: {
-    heading: "Ready to speak to someone who truly listens?",
+    heading: "Ready to speak to someone who really listens?",
   },
   decorators: [
     (Story) => {

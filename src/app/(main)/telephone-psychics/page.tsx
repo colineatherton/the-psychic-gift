@@ -4,7 +4,7 @@ import TelephonePsychicsContent from "./TelephonePsychicsContent";
 export const metadata = {
   title: "Telephone Psychics | Speak to a Psychic by Phone | The Psychic Gift",
   description:
-    "Connect with experienced telephone psychics for personal guidance and spiritual insight. Our trusted readers are available by phone 24/7. Call now for your reading.",
+    "Connect with experienced telephone psychics for personal guidance and spiritual insight. Our gifted readers are available by phone 24/7. Call now for your reading.",
   openGraph: {
     title: "Telephone Psychics | The Psychic Gift",
     description:

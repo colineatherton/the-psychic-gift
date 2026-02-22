@@ -4,7 +4,7 @@ import AboutContent from "./AboutContent";
 export const metadata = {
   title: "About Us | The Psychic Gift",
   description:
-    "Learn about The Psychic Gift and our carefully chosen team of clairvoyants, mediums, and tarot readers. Trusted psychic readings by phone since 2002.",
+    "Learn about The Psychic Gift and our carefully chosen team of clairvoyants, mediums, and tarot readers. Psychic readings by phone since 2002.",
   openGraph: {
     title: "About Us | The Psychic Gift",
     description:

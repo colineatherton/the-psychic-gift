@@ -4,7 +4,7 @@ import HowPsychicReadingsWork from "./HowPsychicReadingsWork";
 export const metadata = {
   title: "How Psychic Readings Work | The Psychic Gift",
   description:
-    "Learn how to get a psychic phone reading with The Psychic Gift. Simple steps to connect with our trusted clairvoyants, mediums, and tarot readers 24/7.",
+    "Learn how to get a psychic phone reading with The Psychic Gift. Simple steps to connect with our experienced clairvoyants, mediums, and tarot readers 24/7.",
   openGraph: {
     title: "How Psychic Readings Work | The Psychic Gift",
     description:

@@ -83,9 +83,9 @@ export default function AboutContent() {
         >
           Many people come to us during moments of uncertainty - questions of
           love, relationships, direction, or emotional balance. Through
-          intuitive insight and spiritual connection, our readers help
-          illuminate paths, possibilities, and influences that may not be
-          immediately visible.
+          intuitive insight and spiritual connection, our readers illuminate
+          paths, possibilities, and influences that may not be immediately
+          visible.
         </Typography>
       </Grid>
       <AboutImageSection />

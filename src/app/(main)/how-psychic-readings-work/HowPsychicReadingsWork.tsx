@@ -110,7 +110,7 @@ export default function HowPsychicReadingsWork() {
         <Grid size={6}>
           <FeatureCard
             src="/icons/hands-heart.png"
-            title="Unsure who to choose? We'll help"
+            title="Unsure who to choose? We'll assist"
             body="If you're unsure, our team can connect you to the next available reader"
           />
         </Grid>
@@ -342,7 +342,7 @@ export default function HowPsychicReadingsWork() {
         <Grid size={4}>
           <FeatureCard
             src="/icons/hands-heart.png"
-            title="Need help?"
+            title="Need support?"
             body="Support helpline: 0808 156 0022 - Full details are available in our Terms & Conditions"
           />
         </Grid>

@@ -50,7 +50,7 @@ export default function PsychicPhoneReadingsContent() {
           textAlign="center"
         >
           Connect with experienced psychic readers by phone, any time of day or
-          night. Our trusted clairvoyants, mediums, and tarot readers are here
+          night. Our gifted clairvoyants, mediums, and tarot readers are here
           to offer guidance on love, relationships, career, and life decisions.
         </Typography>
       </Grid>
@@ -131,7 +131,7 @@ export default function PsychicPhoneReadingsContent() {
           component="h2"
           textAlign="center"
         >
-          What Can a Psychic Reading Help With?
+          What Can a Psychic Reading Offer?
         </Typography>
       </Grid>
       <Grid size={12} mb={4}>
@@ -147,7 +147,7 @@ export default function PsychicPhoneReadingsContent() {
         >
           People call our psychic phone line for many reasons. Whether
           you&apos;re seeking clarity on a specific situation or simply want
-          spiritual insight, our readers are here to help.
+          spiritual insight, our readers are here to guide you.
         </Typography>
       </Grid>
       <Grid container spacing={4} width={"100%"} mb={6}>

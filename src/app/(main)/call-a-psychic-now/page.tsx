@@ -8,7 +8,7 @@ export const metadata = {
   openGraph: {
     title: "Call a Psychic Now | The Psychic Gift",
     description:
-      "Speak to a psychic immediately. Our trusted readers are online now and ready to help with love, career, and life guidance.",
+      "Speak to a psychic immediately. Our experienced readers are online now and ready to offer guidance on love, career, and life.",
     url: "https://thepsychicgift.co.uk/call-a-psychic-now",
     siteName: "The Psychic Gift",
     images: [
