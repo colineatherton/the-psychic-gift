@@ -1,5 +1,6 @@
 import { Container, Grid } from "@mui/material";
 import ContactContent from "./ContactContent";
+import { ReCaptchaProvider } from "@/components/ReCaptchaProvider/ReCaptchaProvider";
 
 export const metadata = {
   title: "Contact Us | The Psychic Gift",
@@ -24,12 +25,14 @@ export const metadata = {
 
 export default function Contact() {
   return (
-    <Container maxWidth="lg">
-      <Grid container minHeight="100vh" py={6} width="100%">
-        <Grid size={12} mt={20}>
-          <ContactContent />
+    <ReCaptchaProvider>
+      <Container maxWidth="lg">
+        <Grid container minHeight="100vh" py={6} width="100%">
+          <Grid size={12} mt={20}>
+            <ContactContent />
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </ReCaptchaProvider>
   );
 }

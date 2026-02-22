@@ -1,9 +1,43 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
+
+const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "john@bureautelecoms.com";
+
+// Only initialize Resend if API key is present
+const resend = process.env.RESEND_API_KEY
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
+
+async function verifyRecaptcha(token: string): Promise<boolean> {
+  if (!RECAPTCHA_SECRET_KEY) {
+    console.warn("RECAPTCHA_SECRET_KEY not set, skipping verification");
+    return true;
+  }
+
+  try {
+    const response = await fetch(
+      "https://www.google.com/recaptcha/api/siteverify",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `secret=${RECAPTCHA_SECRET_KEY}&response=${token}`,
+      }
+    );
+
+    const data = await response.json();
+    // reCAPTCHA v3 returns a score (0.0 - 1.0), we accept 0.5 and above
+    return data.success && (data.score === undefined || data.score >= 0.5);
+  } catch (error) {
+    console.error("reCAPTCHA verification error:", error);
+    return false;
+  }
+}
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, phone, subject, message } = body;
+    const { name, email, phone, subject, message, recaptchaToken } = body;
 
     // Validate required fields
     if (!name || !email || !subject || !message) {
@@ -22,20 +56,82 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // In production, this would send an email or save to a database
-    // For now, log the submission and return success
-    console.log("Contact form submission:", {
-      name,
-      email,
-      phone: phone || "Not provided",
-      subject,
-      message,
-      timestamp: new Date().toISOString(),
-    });
+    // Verify reCAPTCHA
+    if (recaptchaToken) {
+      const isValidRecaptcha = await verifyRecaptcha(recaptchaToken);
+      if (!isValidRecaptcha) {
+        return NextResponse.json(
+          { error: "reCAPTCHA verification failed. Please try again." },
+          { status: 400 }
+        );
+      }
+    }
 
-    // TODO: Integrate with email service (e.g., SendGrid, Resend, or PHPMailer API)
-    // TODO: Add reCAPTCHA verification
-    // TODO: Save to database
+    // Format subject label
+    const subjectLabels: Record<string, string> = {
+      comments: "Comments",
+      complaints: "Complaints",
+      billing: "Billing Enquiry",
+      readings: "About Readings",
+      work: "Work for The Psychic Gift",
+      other: "Other",
+    };
+    const subjectLabel = subjectLabels[subject] || subject;
+
+    // Send email via Resend
+    if (resend) {
+      const { error } = await resend.emails.send({
+        from: "The Psychic Gift <noreply@thepsychicgift.co.uk>",
+        to: [CONTACT_EMAIL],
+        replyTo: email,
+        subject: `Contact Form: ${subjectLabel} - The Psychic Gift`,
+        html: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Subject:</strong> ${subjectLabel}</p>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
+          <hr />
+          <p><strong>Message:</strong></p>
+          <p>${message.replace(/\n/g, "<br />")}</p>
+          <hr />
+          <p style="color: #666; font-size: 12px;">
+            Submitted: ${new Date().toLocaleString("en-GB", { timeZone: "Europe/London" })}
+          </p>
+        `,
+        text: `
+New Contact Form Submission
+
+Subject: ${subjectLabel}
+Name: ${name}
+Email: ${email}
+Phone: ${phone || "Not provided"}
+
+Message:
+${message}
+
+Submitted: ${new Date().toLocaleString("en-GB", { timeZone: "Europe/London" })}
+        `,
+      });
+
+      if (error) {
+        console.error("Resend error:", error);
+        return NextResponse.json(
+          { error: "There was a problem sending your message. Please try again later." },
+          { status: 500 }
+        );
+      }
+    } else {
+      // Fallback: log submission if Resend not configured
+      console.log("Contact form submission (Resend not configured):", {
+        name,
+        email,
+        phone: phone || "Not provided",
+        subject: subjectLabel,
+        message,
+        timestamp: new Date().toISOString(),
+      });
+    }
 
     return NextResponse.json(
       { success: true, message: "Thank you for your enquiry. We will respond within 48 hours." },

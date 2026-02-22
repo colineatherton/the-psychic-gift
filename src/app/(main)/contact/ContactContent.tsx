@@ -17,7 +17,8 @@ import {
   useTheme,
 } from "@mui/material";
 import Link from "next/link";
-import { useState } from "react";
+import { useCallback, useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const SUBJECT_OPTIONS = [
   { value: "comments", label: "Comments" },
@@ -30,6 +31,7 @@ const SUBJECT_OPTIONS = [
 
 export default function ContactContent() {
   const theme = useTheme();
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -57,16 +59,22 @@ export default function ContactContent() {
     setSubmitStatus(null);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
 
     try {
+      // Get reCAPTCHA token if available
+      let recaptchaToken = null;
+      if (executeRecaptcha) {
+        recaptchaToken = await executeRecaptcha("contact_form");
+      }
+
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, recaptchaToken }),
       });
 
       const data = await response.json();
@@ -85,7 +93,7 @@ export default function ContactContent() {
     } finally {
       setIsSubmitting(false);
     }
-  };
+  }, [executeRecaptcha, formData]);
 
   return (
     <>
