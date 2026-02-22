@@ -1,4 +1,5 @@
 export { AppBar } from "./AppBar/AppBar";
+export { CookieConsent } from "./CookieConsent/CookieConsent";
 export { CTAButton } from "./CTAButton/CTAButton";
 export { FAQ } from "./FAQ/FAQ";
 export { FeatureCard } from "./FeatureCard/FeatureCard";

@@ -2,7 +2,7 @@
 
 import "../globals.css";
 
-import { ReaderAvailableAlert, ReaderModal, Footer } from "@/components";
+import { CookieConsent, Footer, ReaderAvailableAlert, ReaderModal } from "@/components";
 import { AppBar } from "@/components/AppBar/AppBar";
 import { OfferBanner } from "@/components/OfferBanner/OfferBanner";
 import { ReaderFeedProvider } from "@/lib/context/ReaderFeedContext";
@@ -45,6 +45,7 @@ export default function MainLayout({
             message={`🎁 Special Offer: 10 Minutes for just £5 for new clients! Call 0800 915 2333 & quote "DISCOVER"`}
           />
           <ReaderModal />
+          <CookieConsent />
         </ReaderSelectProvider>
       </ReaderFeedProvider>
     </ThemeProvider>
