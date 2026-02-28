@@ -51,22 +51,20 @@ export default function ContactContent() {
       ? "/logo-gold-star-dark.png"
       : "/logo-gold-star.png";
 
+  const isLight = theme.palette.mode === "light";
+  const borderColor = isLight ? "rgba(0,0,0,0.3)" : "rgba(255,255,255,0.4)";
+  const borderHover = isLight ? "rgba(0,0,0,0.6)" : "rgba(255,255,255,0.7)";
+  const borderFocus = isLight ? theme.palette.primary.dark : theme.palette.common.white;
+  const labelFocus = isLight ? theme.palette.primary.dark : theme.palette.common.white;
+
   const fieldSx = {
     mb: 2,
     "& .MuiOutlinedInput-root": {
-      "& .MuiOutlinedInput-notchedOutline": {
-        borderColor: "rgba(255,255,255,0.4)",
-      },
-      "&:hover .MuiOutlinedInput-notchedOutline": {
-        borderColor: "rgba(255,255,255,0.7)",
-      },
-      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-        borderColor: theme.palette.common.white,
-      },
+      "& .MuiOutlinedInput-notchedOutline": { borderColor },
+      "&:hover .MuiOutlinedInput-notchedOutline": { borderColor: borderHover },
+      "&.Mui-focused .MuiOutlinedInput-notchedOutline": { borderColor: borderFocus },
     },
-    "& .MuiInputLabel-root.Mui-focused": {
-      color: theme.palette.common.white,
-    },
+    "& .MuiInputLabel-root.Mui-focused": { color: labelFocus },
     "& .MuiInputBase-input:-webkit-autofill": {
       WebkitBoxShadow: `0 0 0 100px ${theme.palette.primary.light} inset`,
       WebkitTextFillColor: theme.palette.text.primary,
