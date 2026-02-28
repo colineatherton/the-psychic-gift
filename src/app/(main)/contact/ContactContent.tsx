@@ -51,6 +51,15 @@ export default function ContactContent() {
       ? "/logo-gold-star-dark.png"
       : "/logo-gold-star.png";
 
+  const fieldSx = {
+    mb: 2,
+    "& .MuiInputBase-input:-webkit-autofill": {
+      WebkitBoxShadow: `0 0 0 100px ${theme.palette.primary.light} inset`,
+      WebkitTextFillColor: theme.palette.text.primary,
+      caretColor: theme.palette.text.primary,
+    },
+  };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | { target: { name: string; value: string } }
   ) => {
@@ -338,7 +347,7 @@ export default function ContactContent() {
               value={formData.name}
               onChange={handleChange}
               required
-              sx={{ mb: 2 }}
+              sx={fieldSx}
             />
             <TextField
               fullWidth
@@ -348,7 +357,7 @@ export default function ContactContent() {
               value={formData.email}
               onChange={handleChange}
               required
-              sx={{ mb: 2 }}
+              sx={fieldSx}
             />
             <TextField
               fullWidth
@@ -356,7 +365,7 @@ export default function ContactContent() {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              sx={{ mb: 2 }}
+              sx={fieldSx}
             />
             <FormControl fullWidth sx={{ mb: 2 }}>
               <InputLabel id="subject-label">Nature of Enquiry *</InputLabel>
@@ -384,7 +393,7 @@ export default function ContactContent() {
               required
               multiline
               rows={4}
-              sx={{ mb: 3 }}
+              sx={{ ...fieldSx, mb: 3 }}
             />
             <Button
               type="submit"
