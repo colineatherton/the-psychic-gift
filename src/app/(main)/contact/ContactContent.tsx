@@ -53,6 +53,20 @@ export default function ContactContent() {
 
   const fieldSx = {
     mb: 2,
+    "& .MuiOutlinedInput-root": {
+      "& .MuiOutlinedInput-notchedOutline": {
+        borderColor: "rgba(255,255,255,0.4)",
+      },
+      "&:hover .MuiOutlinedInput-notchedOutline": {
+        borderColor: "rgba(255,255,255,0.7)",
+      },
+      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+        borderColor: theme.palette.common.white,
+      },
+    },
+    "& .MuiInputLabel-root.Mui-focused": {
+      color: theme.palette.common.white,
+    },
     "& .MuiInputBase-input:-webkit-autofill": {
       WebkitBoxShadow: `0 0 0 100px ${theme.palette.primary.light} inset`,
       WebkitTextFillColor: theme.palette.text.primary,
@@ -367,7 +381,7 @@ export default function ContactContent() {
               onChange={handleChange}
               sx={fieldSx}
             />
-            <FormControl fullWidth sx={{ mb: 2 }}>
+            <FormControl fullWidth sx={fieldSx}>
               <InputLabel id="subject-label">Nature of Enquiry *</InputLabel>
               <Select
                 labelId="subject-label"
