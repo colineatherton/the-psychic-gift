@@ -53,7 +53,7 @@ export function CookieConsent() {
           top: 0,
           left: 0,
           right: 0,
-          zIndex: theme.zIndex.appBar + 1,
+          zIndex: theme.zIndex.drawer + 2,
           backgroundColor: theme.palette.background.paper,
           borderBottom: `1px solid ${theme.palette.divider}`,
           boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
