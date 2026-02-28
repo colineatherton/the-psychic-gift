@@ -1,8 +1,10 @@
 export { AppBar } from "./AppBar/AppBar";
+export { CookieConsent } from "./CookieConsent/CookieConsent";
 export { CTAButton } from "./CTAButton/CTAButton";
 export { FAQ } from "./FAQ/FAQ";
 export { FeatureCard } from "./FeatureCard/FeatureCard";
 export { Footer } from "./Footer/Footer";
+export { GoogleAnalytics } from "./GoogleAnalytics/GoogleAnalytics";
 export { HoverMenu } from "./HoverMenu/HoverMenu";
 export { IconToggle } from "./IconToggle/IconToggle";
 export { LinkCard } from "./LinkCard/LinkCard";
