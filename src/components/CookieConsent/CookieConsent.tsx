@@ -54,9 +54,9 @@ export function CookieConsent() {
           left: 0,
           right: 0,
           zIndex: theme.zIndex.drawer + 2,
-          backgroundColor: theme.palette.background.paper,
-          borderBottom: `1px solid ${theme.palette.divider}`,
-          boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
+          backgroundColor: theme.palette.primary.dark,
+          borderBottom: `1px solid ${theme.palette.primary.light}`,
+          boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
           py: 2,
         }}
       >
@@ -74,7 +74,7 @@ export function CookieConsent() {
               sx={{
                 fontFamily: "Montserrat Variable, sans-serif",
                 fontSize: { xs: "0.85rem", sm: "0.9rem" },
-                color: theme.palette.text.primary,
+                color: theme.palette.common.white,
                 flex: 1,
               }}
             >
@@ -82,7 +82,7 @@ export function CookieConsent() {
               <Link
                 href="/privacy-policy"
                 style={{
-                  color: theme.palette.primary.dark,
+                  color: theme.palette.common.white,
                   textDecoration: "underline",
                 }}
               >
@@ -104,11 +104,11 @@ export function CookieConsent() {
                   fontFamily: "Montserrat Variable, sans-serif",
                   fontWeight: 500,
                   textTransform: "none",
-                  borderColor: theme.palette.divider,
-                  color: theme.palette.text.secondary,
+                  borderColor: "rgba(255,255,255,0.5)",
+                  color: theme.palette.common.white,
                   "&:hover": {
-                    borderColor: theme.palette.text.secondary,
-                    backgroundColor: "transparent",
+                    borderColor: theme.palette.common.white,
+                    backgroundColor: "rgba(255,255,255,0.1)",
                   },
                 }}
               >
@@ -122,10 +122,10 @@ export function CookieConsent() {
                   fontFamily: "Montserrat Variable, sans-serif",
                   fontWeight: 500,
                   textTransform: "none",
-                  backgroundColor: theme.palette.primary.dark,
-                  color: theme.palette.common.white,
+                  backgroundColor: theme.palette.common.white,
+                  color: theme.palette.primary.dark,
                   "&:hover": {
-                    backgroundColor: theme.palette.primary.main,
+                    backgroundColor: "rgba(255,255,255,0.85)",
                   },
                 }}
               >
