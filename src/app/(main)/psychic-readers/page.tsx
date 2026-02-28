@@ -4,7 +4,7 @@ import { Container, Grid } from "@mui/material";
 export const metadata = {
   title: "Our Psychic Readers | The Psychic Gift",
   description:
-    "Browse our trusted psychic readers. Find clairvoyants, mediums, and tarot readers available now for phone readings. See who's online and choose your reader.",
+    "Browse our gifted psychic readers. Find clairvoyants, mediums, and tarot readers available now for phone readings. See who's online and choose your reader.",
   openGraph: {
     title: "Our Psychic Readers | The Psychic Gift",
     description:

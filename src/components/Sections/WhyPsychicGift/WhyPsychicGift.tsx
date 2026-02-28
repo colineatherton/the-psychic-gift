@@ -64,7 +64,7 @@ export function WhyPsychicGift() {
               <FeatureCard
                 src="/icons/crystal-ball.png"
                 title="Psychic Readings Since 2002"
-                body="Over two decades of connecting seekers with experienced clairvoyants, mediums, and tarot readers who deliver trusted insight and guidance."
+                body="Over two decades of connecting seekers with experienced clairvoyants, mediums, and tarot readers who deliver insightful guidance."
               />
             </Grid>
             <Grid size={4}>
@@ -78,7 +78,7 @@ export function WhyPsychicGift() {
             <Grid size={4}>
               <FeatureCard
                 src="/icons/hands-heart.png"
-                title="Trusted by Thousands"
+                title="Relied on by Thousands"
                 body="We’ve supported countless callers through love, life, and difficult
             decisions. All calls are confidential and recorded for your peace of
             mind."
@@ -108,8 +108,8 @@ export function WhyPsychicGift() {
                 We’ve been guiding callers since 2002 with a carefully selected
                 team of clairvoyants, mediums, and tarot readers — all chosen
                 for their empathy, integrity, and insight. The Psychic Gift has
-                helped thousands find clarity, comfort, and insight - through
-                genuine readings from gifted clairvoyants and mediums.
+                supported thousands in finding clarity, comfort, and insight -
+                through sincere readings from gifted clairvoyants and mediums.
               </Typography>
               <Link href="/about">
                 <Button

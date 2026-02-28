@@ -19,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     src: "/icons/hands-heart.png",
-    title: "Trusted by Thousands",
+    title: "Relied on by Thousands",
     body: "We’ve supported countless callers through love, life, and difficult decisions. All calls are confidential and recorded for your peace of mind.",
   },
 };
@@ -27,7 +27,7 @@ export const Default: Story = {
 export const FeatureCardGrid: Story = {
   args: {
     src: "/icons/hands-heart.png",
-    title: "Trusted by Thousands",
+    title: "Relied on by Thousands",
     body: "We’ve supported countless callers through love, life, and difficult decisions. All calls are confidential and recorded for your peace of mind.",
   },
   render: () => (
@@ -52,7 +52,7 @@ export const FeatureCardGrid: Story = {
         <Grid size={4}>
           <FeatureCard
             src="/icons/hands-heart.png"
-            title="Trusted by Thousands"
+            title="Relied on by Thousands"
             body="We’ve supported countless callers through love, life, and difficult
             decisions. All calls are confidential and recorded for your peace of
             mind."

@@ -51,7 +51,7 @@ export default function ClairvoyantReadingsContent() {
         >
           Receive insight from experienced clairvoyants who use their psychic
           vision to see beyond the surface. Our clairvoyant readers are
-          available by phone to help you find clarity and direction.
+          available by phone to guide you towards clarity and direction.
         </Typography>
       </Grid>
 
@@ -148,7 +148,7 @@ export default function ClairvoyantReadingsContent() {
         >
           Our clairvoyant readers can offer guidance across many areas of life.
           Whether you&apos;re facing a decision, seeking understanding, or
-          looking for direction, a clairvoyant reading can help.
+          looking for direction, a clairvoyant reading can provide insight.
         </Typography>
       </Grid>
       <Grid container spacing={4} width={"100%"} mb={6}>

@@ -3,7 +3,7 @@ import { Container, Grid, Typography } from "@mui/material";
 export const metadata = {
   title: "Special Offers | The Psychic Gift",
   description:
-    "Exclusive offers for new clients at The Psychic Gift. Get discounted psychic phone readings from our trusted clairvoyants, mediums, and tarot readers.",
+    "Exclusive offers for new clients at The Psychic Gift. Get discounted psychic phone readings from our gifted clairvoyants, mediums, and tarot readers.",
   openGraph: {
     title: "Special Offers | The Psychic Gift",
     description:

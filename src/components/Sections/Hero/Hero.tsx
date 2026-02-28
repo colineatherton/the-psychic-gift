@@ -179,7 +179,7 @@ export const Hero = () => {
                 marginBottom={6}
               >
                 Speak to a caring psychic and find clarity in love, life, or
-                your next steps - trusted for over 23 years.
+                your next steps - relied on for over 23 years.
               </Typography>
               <PrimaryCTAButton
                 size="large"

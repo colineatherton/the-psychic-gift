@@ -1,11 +1,11 @@
 export const metadata = {
   title: "Contact Us | The Psychic Gift",
   description:
-    "Get in touch with The Psychic Gift. Contact our support team for help with your psychic reading, billing questions, or general enquiries.",
+    "Get in touch with The Psychic Gift. Contact our support team for assistance with your psychic reading, billing questions, or general enquiries.",
   openGraph: {
     title: "Contact Us | The Psychic Gift",
     description:
-      "Contact The Psychic Gift support team. We're here to help with any questions.",
+      "Contact The Psychic Gift support team. We're here to assist with any questions.",
     url: "https://thepsychicgift.co.uk/contact",
     siteName: "The Psychic Gift",
     images: [

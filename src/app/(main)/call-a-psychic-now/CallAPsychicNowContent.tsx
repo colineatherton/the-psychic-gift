@@ -89,7 +89,7 @@ export default function CallAPsychicNowContent() {
         >
           No appointments, no waiting. Our psychic readers are standing by to
           take your call. Within moments, you could be speaking to someone who
-          can help.
+          can offer guidance.
         </Typography>
       </Grid>
       <Grid container spacing={4} width={"100%"} mb={6}>

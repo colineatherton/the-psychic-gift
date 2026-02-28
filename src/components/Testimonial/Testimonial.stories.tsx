@@ -19,7 +19,7 @@ export const Default: Story = {
   args: {
     clientName: "Keith",
     quote:
-      "This guy is the real deal! Accurate, compassionate, and truly gifted.",
+      "This reader is the real deal! Insightful, compassionate, and gifted.",
     reader: "Mystic Maya",
     pin: "1234",
   },
