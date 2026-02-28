@@ -25,6 +25,8 @@
     "next": "^15.5.9",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-google-recaptcha-v3": "^1.11.0",
+    "resend": "^6.9.2",
     "tsparticles": "^3.9.1",
     "tsparticles-shape-image": "^2.12.0"
   },

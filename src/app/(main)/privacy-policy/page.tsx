@@ -1,3 +1,6 @@
+import { Container, Grid } from "@mui/material";
+import PrivacyContent from "./PrivacyContent";
+
 export const metadata = {
   title: "Privacy Policy | The Psychic Gift",
   description:
@@ -21,19 +24,12 @@ export const metadata = {
 
 export default function PrivacyPolicy() {
   return (
-    <>
-      <h1>privacy policy</h1>
-      <p>✅ Purpose: GDPR compliance and user data transparency</p>
-      <p>
-        🎯 Goal: Show you handle personal data responsibly (especially phone
-        usage)
-      </p>
-      <p></p>
-      <p>📦 Content Outline:</p>
-      <p>• What data you collect (call history, names, payment info)</p>
-      <p>• How it’s stored/used</p>
-      <p>• Cookies</p>
-      <p>• User rights and contact for data requests</p>
-    </>
+    <Container maxWidth="lg">
+      <Grid container minHeight="100vh" py={6} width="100%">
+        <Grid size={12} mt={20}>
+          <PrivacyContent />
+        </Grid>
+      </Grid>
+    </Container>
   );
 }

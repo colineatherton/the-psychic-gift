@@ -1,3 +1,7 @@
+import { Container, Grid } from "@mui/material";
+import ContactContent from "./ContactContent";
+import { ReCaptchaProvider } from "@/components/ReCaptchaProvider/ReCaptchaProvider";
+
 export const metadata = {
   title: "Contact Us | The Psychic Gift",
   description:
@@ -21,14 +25,14 @@ export const metadata = {
 
 export default function Contact() {
   return (
-    <>
-      <h1>contact</h1>
-      <p>✅ Purpose: Support + trust signal</p>
-      <p>🎯 Goal: Allow questions, issue resolution, and policy reassurance</p>
-      <p>📦 Content & Elements:</p>
-      <p>• Simple email or form (no login)</p>
-      <p>• Optional phone number or support hours</p>
-      <p>• Quick links: FAQs, refund policy, privacy, T&Cs</p>
-    </>
+    <ReCaptchaProvider>
+      <Container maxWidth="lg">
+        <Grid container minHeight="100vh" py={6} width="100%">
+          <Grid size={12} mt={20}>
+            <ContactContent />
+          </Grid>
+        </Grid>
+      </Container>
+    </ReCaptchaProvider>
   );
 }

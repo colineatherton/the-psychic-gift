@@ -25,7 +25,7 @@ export const metadata = {
 export default function TermsAndConditions() {
   return (
     <Container maxWidth="lg">
-      <Grid container minHeight="100vh" py={6} width={"100%"}>
+      <Grid container minHeight="100vh" py={6} width="100%">
         <Grid size={12} mt={20}>
           <TermsContent />
         </Grid>
