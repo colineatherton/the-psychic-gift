@@ -2,6 +2,7 @@ export { AppBar } from "./AppBar/AppBar";
 export { CTAButton } from "./CTAButton/CTAButton";
 export { FAQ } from "./FAQ/FAQ";
 export { FeatureCard } from "./FeatureCard/FeatureCard";
+export { Footer } from "./Footer/Footer";
 export { HoverMenu } from "./HoverMenu/HoverMenu";
 export { IconToggle } from "./IconToggle/IconToggle";
 export { LinkCard } from "./LinkCard/LinkCard";

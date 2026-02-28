@@ -24,9 +24,13 @@ export const TrustBadges = () => {
             width="100%"
             justifyContent="space-between"
           >
-            <TrustBadge src="readings-given.png" />
-            <TrustBadge src="est-2002.png" />
-            <TrustBadge src="satisfaction-guarantee-2.png" />
+            <TrustBadge src="readings-given.png" alt="Millions of readings given" />
+            <TrustBadge src="est-2002.png" alt="Established 2002" />
+            <TrustBadge
+              src="satisfaction-guarantee-2.png"
+              alt="Satisfaction guarantee"
+              href="/terms-and-conditions#satisfaction-guarantee"
+            />
           </Stack>
         </Grid>
       </Container>
