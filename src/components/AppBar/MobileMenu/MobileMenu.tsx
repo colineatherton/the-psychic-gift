@@ -2,9 +2,11 @@
 
 import { IconToggle } from "@/components";
 import { PrimaryCTAButton } from "@/components/PrimaryCTAButton/PrimaryCTAButton";
+import { CALL_OPTIONS } from "@/lib/constants/phoneNumbers";
 import { PAGES, READING_PAGES } from "@/lib/constants/urls";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
-import { Grid } from "@mui/material";
+import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
+import { Divider, Grid, Stack, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -54,6 +56,38 @@ export const MobileDrawer = ({
             />
           </Grid>
         ) : null}
+        <Box sx={{ px: 2, py: 1.5 }}>
+          {CALL_OPTIONS.map((opt) => (
+            <Box
+              key={opt.number}
+              component="a"
+              href={`tel:${opt.number.replace(/\s/g, "")}`}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                py: 0.75,
+                color: "common.white",
+                textDecoration: "none",
+                "&:hover .phone-number": { color: "accent.primary" },
+              }}
+            >
+              <PhoneInTalkIcon sx={{ fontSize: "1rem", opacity: 0.75 }} />
+              <Stack direction="row" alignItems="baseline" gap={1}>
+                <Typography
+                  className="phone-number"
+                  sx={{ fontSize: "0.9rem", fontWeight: 700, lineHeight: 1, transition: "color 0.15s" }}
+                >
+                  {opt.number}
+                </Typography>
+                <Typography sx={{ fontSize: "0.75rem", opacity: 0.65, lineHeight: 1 }}>
+                  {opt.title}
+                </Typography>
+              </Stack>
+            </Box>
+          ))}
+        </Box>
+        <Divider sx={{ borderColor: "rgba(255,255,255,0.15)" }} />
         <List>
           {/* onclick?? using path? */}
           {[...READING_PAGES, ...PAGES].map(({ label }) => (

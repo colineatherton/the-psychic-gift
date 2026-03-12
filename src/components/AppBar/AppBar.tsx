@@ -1,12 +1,13 @@
 "use client";
 
 import { HoverMenu, IconToggle, PrimaryCTAButton } from "@/components";
+import { CALL_OPTIONS } from "@/lib/constants/phoneNumbers";
 import { NavIcons, PAGES, READING_PAGES } from "@/lib/constants/urls";
-import { DarkModeRounded, WbSunnyRounded } from "@mui/icons-material";
+import { DarkModeRounded, PhoneInTalk, WbSunnyRounded } from "@mui/icons-material";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Grid, useMediaQuery } from "@mui/material";
+import { Grid, Stack, Typography, useMediaQuery } from "@mui/material";
 import Box from "@mui/material/Box";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -128,6 +129,39 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                     onClick={() => onNavigate("/")}
                   />
                 </Box>
+                {mounted && showFullMenu && (
+                  <Box sx={{ ml: 3, flexShrink: 0 }}>
+                    {CALL_OPTIONS.map((opt) => (
+                      <Box
+                        key={opt.number}
+                        component="a"
+                        href={`tel:${opt.number.replace(/\s/g, "")}`}
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 0.75,
+                          color: "common.white",
+                          textDecoration: "none",
+                          py: 0.3,
+                          "&:hover .phone-number": { color: "accent.primary" },
+                        }}
+                      >
+                        <PhoneInTalk sx={{ fontSize: "0.85rem", opacity: 0.75 }} />
+                        <Stack direction="row" alignItems="baseline" gap={0.75}>
+                          <Typography
+                            className="phone-number"
+                            sx={{ fontSize: "0.82rem", fontWeight: 700, lineHeight: 1, transition: "color 0.15s" }}
+                          >
+                            {opt.number}
+                          </Typography>
+                          <Typography sx={{ fontSize: "0.68rem", opacity: 0.65, lineHeight: 1 }}>
+                            {opt.title}
+                          </Typography>
+                        </Stack>
+                      </Box>
+                    ))}
+                  </Box>
+                )}
                 {mounted && (
                   <>
                     <Grid

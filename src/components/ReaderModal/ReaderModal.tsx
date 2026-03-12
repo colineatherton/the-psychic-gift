@@ -1,6 +1,7 @@
 "use client";
 
 import { ReaderCard, TrustBadge } from "@/components";
+import { CALL_OPTIONS } from "@/lib/constants/phoneNumbers";
 import { READER_CARDS } from "@/lib/constants/readers";
 import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
@@ -40,23 +41,6 @@ const Transition = forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const CALL_OPTIONS = [
-  {
-    title: "Credit / Debit Card",
-    number: "0800 915 2333",
-    price: "£32.95 for 20 mins, then £1.50/min",
-  },
-  {
-    title: "Pre-Pay Minutes",
-    number: "0808 156 4920",
-    price: "£1.50/min · 10% bonus on purchases over £60",
-  },
-  {
-    title: "Pay by Phone Bill",
-    number: "0906 176 1960",
-    price: "£1.50/min + network access charge",
-  },
-];
 
 const OFCOM_DISCLAIMER =
   "All calls are recorded; the caller must be 18 or over and have the bill payer's permission. Readings under UK law are deemed to be for entertainment only. Helpline: 0800 156 0022.";
