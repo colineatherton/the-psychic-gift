@@ -236,16 +236,22 @@ export const ReaderModal: React.FC = () => {
           <>
             {isMobile ? (
               /* Mobile: stacked layout */
-              <Stack spacing={2}>
+              <Stack spacing={2} sx={{ pt: 2 }}>
                 <ReaderCard
                   name={readerConfig.name}
                   pin={readerConfig.pin.toString()}
                   status={readerStatus}
-                  skills={readerConfig.specialties.topics}
+                  skills={[
+                    ...readerConfig.specialties.abilities,
+                    ...readerConfig.specialties.tools,
+                    ...readerConfig.specialties.topics,
+                    ...readerConfig.specialties.themes,
+                  ]}
                   onChooseCallOptions={() => undefined}
                   description={readerConfig.description}
                   mode="compact"
                   hideActions
+                  showAllSkills
                 />
                 {callOptionsSection}
                 {otherReadersAccordion}
@@ -260,7 +266,12 @@ export const ReaderModal: React.FC = () => {
                     name={readerConfig.name}
                     pin={readerConfig.pin.toString()}
                     status={readerStatus}
-                    skills={readerConfig.specialties.topics}
+                    skills={[
+                      ...readerConfig.specialties.abilities,
+                      ...readerConfig.specialties.tools,
+                      ...readerConfig.specialties.topics,
+                      ...readerConfig.specialties.themes,
+                    ]}
                     onChooseCallOptions={() => undefined}
                     description={readerConfig.description}
                     mode="selected"
