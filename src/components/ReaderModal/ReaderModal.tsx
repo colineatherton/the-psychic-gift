@@ -5,6 +5,7 @@ import { READER_CARDS } from "@/lib/constants/readers";
 import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 import { Status } from "@/lib/types/readers";
+import CloseIcon from "@mui/icons-material/Close";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   Accordion,
@@ -15,6 +16,8 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
+  DialogTitle,
+  IconButton,
   Slide,
   Stack,
   Typography,
@@ -170,6 +173,16 @@ export const ReaderModal: React.FC = () => {
       }
       slots={{ transition: Transition }}
     >
+      {isMobile && (
+        <DialogTitle sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", py: 1 }}>
+          <Typography variant="h6">
+            {readerConfig ? readerConfig.name : "Find Your Psychic"}
+          </Typography>
+          <IconButton onClick={handleCloseReaderModal} edge="end" aria-label="close">
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
+      )}
       <DialogContent sx={{ p: isMobile ? 2 : 3 }}>
         {/* State 1: No reader selected — full-width reader list */}
         {!readerConfig && (
@@ -224,9 +237,11 @@ export const ReaderModal: React.FC = () => {
           </>
         )}
       </DialogContent>
-      <DialogActions>
-        <Button onClick={handleCloseReaderModal}>Close</Button>
-      </DialogActions>
+      {!isMobile && (
+        <DialogActions>
+          <Button onClick={handleCloseReaderModal}>Close</Button>
+        </DialogActions>
+      )}
     </Dialog>
   );
 };
