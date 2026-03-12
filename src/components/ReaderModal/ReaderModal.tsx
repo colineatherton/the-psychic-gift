@@ -114,9 +114,6 @@ export const ReaderModal: React.FC = () => {
       {CALL_OPTIONS.map((opt) => (
         <CallOptionCard key={opt.number} {...opt} />
       ))}
-      <Typography variant="caption" color="secondary.main" display="block" sx={{ mt: 1, mb: 2 }}>
-        {OFCOM_DISCLAIMER}
-      </Typography>
     </Box>
   );
 
@@ -139,17 +136,22 @@ export const ReaderModal: React.FC = () => {
   );
 
   const trustBadges = (
-    <Stack
-      direction="row"
-      alignItems="center"
-      width="100%"
-      justifyContent="space-between"
-      mt={2}
-    >
-      <TrustBadge src="readings-given.png" />
-      <TrustBadge src="est-2002.png" />
-      <TrustBadge src="satisfaction-guarantee-2.png" />
-    </Stack>
+    <Box>
+      <Stack
+        direction="row"
+        alignItems="center"
+        width="100%"
+        justifyContent="space-between"
+        mt={2}
+      >
+        <TrustBadge src="readings-given.png" />
+        <TrustBadge src="est-2002.png" />
+        <TrustBadge src="satisfaction-guarantee-2.png" />
+      </Stack>
+      <Typography variant="caption" color="secondary.main" display="block" sx={{ mt: 2 }}>
+        {OFCOM_DISCLAIMER}
+      </Typography>
+    </Box>
   );
 
   return (
