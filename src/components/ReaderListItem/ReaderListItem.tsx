@@ -11,6 +11,7 @@ import {
   ListItemText,
   Stack,
   Tooltip,
+  Typography,
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import React from "react";
@@ -85,7 +86,12 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
     <>
       <ListItem
         alignItems="flex-start"
-        secondaryAction={`PIN: ${pin}`}
+        secondaryAction={
+          <Stack alignItems="flex-end" spacing={0.5}>
+            <StatusChip label={statusLabel} size="small" statusColor={statusColor} />
+            <Typography variant="caption" color="text.secondary">{`PIN: ${pin}`}</Typography>
+          </Stack>
+        }
         onClick={() => onChooseCallOptions(`${name.toLocaleLowerCase()}-${pin}`)}
         sx={{
           cursor: "pointer",
@@ -111,16 +117,7 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
           </Tooltip>
         </ListItemAvatar>
         <ListItemText
-          primary={
-            <Stack direction="row" alignItems="center" gap={1}>
-              {name}
-              <StatusChip
-                label={statusLabel}
-                size="small"
-                statusColor={statusColor}
-              />
-            </Stack>
-          }
+          primary={name}
           secondary={
             <Stack direction="row" flexWrap="wrap" gap={1.5} paddingY={1}>
               {effectiveSkills.map((skill) => (
