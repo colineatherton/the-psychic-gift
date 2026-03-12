@@ -1,4 +1,5 @@
 import { Card, CardActionArea, Stack, Typography } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 
 interface CallOptionCardProps {
   title: string;
@@ -11,9 +12,13 @@ export const CallOptionCard = ({ title, number, price }: CallOptionCardProps) =>
     <Card
       sx={{
         mb: 1.5,
-        bgcolor: "primary.dark",
+        borderRadius: 3,
         border: "none",
-        "&:hover": { filter: "brightness(1.12)" },
+        bgcolor: (theme) => alpha(theme.palette.primary.dark, 0.55),
+        transition: "background-color 0.2s",
+        "&:hover": {
+          bgcolor: "primary.dark",
+        },
       }}
     >
       <CardActionArea

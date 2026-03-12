@@ -89,7 +89,7 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
         onClick={() => onChooseCallOptions(`${name.toLocaleLowerCase()}-${pin}`)}
         sx={{
           cursor: "pointer",
-          borderRadius: 1,
+          borderRadius: 2,
           transition: "background-color 0.15s",
           "&:hover": {
             bgcolor: theme.palette.mode === "dark"

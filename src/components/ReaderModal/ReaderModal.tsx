@@ -66,7 +66,7 @@ export const ReaderModal: React.FC = () => {
     useReaderSelectContext();
   const { getReaderByPin } = useReaderFeedContext();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const logoSrc =
     theme.palette.mode === "light"
