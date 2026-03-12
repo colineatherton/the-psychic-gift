@@ -15,13 +15,13 @@ export const CallOptionCard = ({ title, number, price }: CallOptionCardProps) =>
         sx={{ px: 2, py: 1.5 }}
       >
         <Stack spacing={0.5}>
-          <Typography variant="caption" color="text.secondary" fontWeight={600} textTransform="uppercase" letterSpacing={0.5}>
+          <Typography variant="caption" color="secondary.main" fontWeight={600} textTransform="uppercase" letterSpacing={0.5}>
             {title}
           </Typography>
-          <Typography variant="h5" fontWeight={700} color="primary">
+          <Typography variant="h5" fontWeight={700} color="text.primary">
             {number}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="secondary.main">
             {price}
           </Typography>
         </Stack>
