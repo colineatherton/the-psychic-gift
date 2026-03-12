@@ -86,7 +86,7 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
       <ListItem
         alignItems="flex-start"
         secondaryAction={`PIN: ${pin}`}
-        onClick={() => onChooseCallOptions(pin)}
+        onClick={() => onChooseCallOptions(`${name.toLocaleLowerCase()}-${pin}`)}
         sx={{ cursor: "pointer" }}
       >
         <ListItemAvatar>
