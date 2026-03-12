@@ -202,7 +202,7 @@ export const ReaderModal: React.FC = () => {
               Choose a reader below to see call options
             </Typography>
             <Typography align="center" color="secondary.main" variant="caption" display="block" sx={{ mb: 1 }}>
-              Est. 2002 · Satisfaction guarantee
+              Over 150,000 readings given · Est. 2002 · Satisfaction guarantee
             </Typography>
             <Typography align="center" fontWeight={700} sx={{ mb: 2, color: "status.online" }}>
               🟢 {availableReaders.length} {pluralize("reader", availableReaders.length)} available now
