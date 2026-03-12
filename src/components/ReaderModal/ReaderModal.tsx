@@ -201,8 +201,11 @@ export const ReaderModal: React.FC = () => {
             <Typography align="center" color="secondary.main" sx={{ mb: 0.5 }}>
               Choose a reader below to see call options
             </Typography>
-            <Typography align="center" color="secondary.main" variant="caption" display="block" sx={{ mb: 2 }}>
-              ✨ Millions of readings given · Est. 2002 · Satisfaction guarantee
+            <Typography align="center" color="secondary.main" variant="caption" display="block" sx={{ mb: 1 }}>
+              Est. 2002 · Satisfaction guarantee
+            </Typography>
+            <Typography align="center" fontWeight={700} sx={{ mb: 2, color: "status.online" }}>
+              🟢 {availableReaders.length} {pluralize("reader", availableReaders.length)} available now
             </Typography>
             <ReaderList
               readers={availableReaders}
