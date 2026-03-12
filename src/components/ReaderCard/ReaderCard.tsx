@@ -30,6 +30,7 @@ type ReaderCardProps = {
   description?: string;
   onChooseCallOptions: (key: string) => void;
   hideViewProfile?: boolean;
+  hideActions?: boolean;
 };
 
 export const statusLabels: Record<ReaderCardProps["status"], string> = {
@@ -47,6 +48,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
   description,
   onChooseCallOptions,
   hideViewProfile = false,
+  hideActions = false,
 }) => {
   const theme = useTheme();
 
@@ -206,7 +208,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
           )}
         </Box>
       </CardContent>
-      {mode !== "selected" && (
+      {mode !== "selected" && !hideActions && (
         <Box sx={{ p: 2, pt: 0 }}>
           <Stack gap={2} direction={mode === "featured" ? "row" : "column"}>
             <PrimaryCTAButton

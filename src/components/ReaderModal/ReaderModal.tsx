@@ -143,7 +143,7 @@ export const ReaderModal: React.FC = () => {
           {pluralize("is", availableReaders.length)} available to take your call ✨
         </Typography>
       </AccordionSummary>
-      <AccordionDetails sx={{ maxHeight: 300, overflowY: "auto", p: 0 }}>
+      <AccordionDetails sx={{ p: 0 }}>
         <ReaderList
           readers={availableReaders}
           onChooseCallOptions={handleChooseCallOptions}
@@ -245,6 +245,7 @@ export const ReaderModal: React.FC = () => {
                   onChooseCallOptions={() => undefined}
                   description={readerConfig.description}
                   mode="compact"
+                  hideActions
                 />
                 {callOptionsSection}
                 {otherReadersAccordion}

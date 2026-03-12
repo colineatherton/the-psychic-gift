@@ -49,6 +49,22 @@ export const Compact: Story = {
   },
 };
 
+export const CompactNoActions: Story = {
+  args: {
+    ...READER_CARDS[0],
+    onChooseCallOptions: () => undefined,
+  },
+  render: (args) => {
+    return (
+      <Grid container width="100%">
+        <Grid size={{ xs: 6 }} sx={{ width: "100%" }}>
+          <ReaderCard {...args} mode="compact" hideActions />
+        </Grid>
+      </Grid>
+    );
+  },
+};
+
 export const Featured: Story = {
   args: {
     ...READER_CARDS[0],
