@@ -87,7 +87,16 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
         alignItems="flex-start"
         secondaryAction={`PIN: ${pin}`}
         onClick={() => onChooseCallOptions(`${name.toLocaleLowerCase()}-${pin}`)}
-        sx={{ cursor: "pointer" }}
+        sx={{
+          cursor: "pointer",
+          borderRadius: 1,
+          transition: "background-color 0.15s",
+          "&:hover": {
+            bgcolor: theme.palette.mode === "dark"
+              ? "rgba(116, 93, 221, 0.2)"
+              : "rgba(198, 187, 244, 0.35)",
+          },
+        }}
       >
         <ListItemAvatar>
           <Tooltip title={statusLabel} placement="top">

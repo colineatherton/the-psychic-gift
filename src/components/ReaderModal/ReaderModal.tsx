@@ -174,11 +174,11 @@ export const ReaderModal: React.FC = () => {
       slots={{ transition: Transition }}
     >
       {isMobile && (
-        <DialogTitle sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", py: 1 }}>
-          <Typography variant="h6">
+        <DialogTitle sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", py: 1.5, px: 2, bgcolor: "primary.dark" }}>
+          <Typography variant="h6" color="common.white" fontWeight={600}>
             {readerConfig ? readerConfig.name : "Find Your Psychic"}
           </Typography>
-          <IconButton onClick={handleCloseReaderModal} edge="end" aria-label="close" color="primary" sx={{ bgcolor: "primary.light", "&:hover": { bgcolor: "primary.main", color: "common.white" } }}>
+          <IconButton onClick={handleCloseReaderModal} edge="end" aria-label="close" sx={{ color: "common.white" }}>
             <CloseIcon />
           </IconButton>
         </DialogTitle>
