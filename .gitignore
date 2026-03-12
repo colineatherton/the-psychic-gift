@@ -45,6 +45,7 @@ storybook-static
 
 # claude
 .claude
+!.claude/settings.json
 
 # project management docs
 .project

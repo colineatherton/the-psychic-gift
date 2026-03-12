@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/colineatherton/Desktop/**)",
+      "Bash(git fetch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git rebase:*)",
+      "Bash(git push:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git pull:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git status:*)",
+      "Bash(git branch:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr create:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr edit:*)",
+      "Bash(gh issue create:*)",
+      "Bash(gh issue view:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh issue edit:*)",
+      "Bash(gh api:*)",
+      "Bash(ls:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm run build:*)"
+    ]
+  }
+}

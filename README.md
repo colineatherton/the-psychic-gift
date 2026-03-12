@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Psychic Gift
+
+Psychic phone reading service — Next.js web app.
+
+- **Production:** https://thepsychicgift.co.uk
+- **GitHub Project Board:** https://github.com/users/colineatherton/projects/3/views/1
+
+## Stack
+
+- **Next.js 15** (App Router) + TypeScript
+- **MUI v7** — custom purple theme
+- **Vercel** — hosting + PR preview deployments
+- **Resend** — contact form email delivery
+- **reCAPTCHA v3** — contact form spam protection
+- **Google Analytics** — behind cookie consent
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file:
 
-## Learn More
+```env
+# Contact form
+RESEND_API_KEY=
+CONTACT_EMAIL=
 
-To learn more about Next.js, take a look at the following resources:
+# reCAPTCHA v3
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY=
+RECAPTCHA_SECRET_KEY=
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Google Analytics
+NEXT_PUBLIC_GA_MEASUREMENT_ID=
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Scripts
 
-## Deploy on Vercel
+```bash
+npm run dev        # Dev server (Turbopack)
+npm run build      # Production build
+npm run lint       # ESLint
+npm run storybook  # Component explorer
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Branch Naming
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`feature/` · `fix/` · `chore/`
+
+PRs get automatic Vercel preview deployments.

@@ -1,0 +1,6 @@
+package-lock.json
+*.stories.tsx
+*.stories.ts
+storybook-static/
+.storybook/
+public/
