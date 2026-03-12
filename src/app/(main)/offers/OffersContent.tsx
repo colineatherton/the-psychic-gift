@@ -2,7 +2,7 @@
 
 import { CallOptionCard } from "@/components/ReaderModal/CallOptionCard";
 import { TrustBadge } from "@/components/TrustBadge/TrustBadge";
-import { Box, Container, Grid, Paper, Stack, Typography, useTheme } from "@mui/material";
+import { Box, Container, Grid, Paper, Typography, useTheme } from "@mui/material";
 
 const CALL_OPTIONS = [
   {
@@ -48,7 +48,7 @@ export function OffersContent() {
   const isDark = theme.palette.mode === "dark";
 
   return (
-    <Container maxWidth="lg" sx={{ pt: { xs: 12, md: 14 }, pb: 8 }}>
+    <Container maxWidth="lg" sx={{ pt: { xs: 16, md: 20 }, pb: 8 }}>
       {/* Hero offer card */}
       <Box
         sx={{
@@ -242,23 +242,21 @@ export function OffersContent() {
       </Box>
 
       {/* Trust badges */}
-      <Box mb={4}>
-        <Stack
-          direction="row"
-          alignItems="center"
-          width="100%"
-          justifyContent="space-between"
-          sx={{ maxWidth: 600, mx: "auto" }}
-        >
+      <Grid container spacing={2} alignItems="center" justifyContent="center" mb={4}>
+        <Grid size={{ xs: 4 }}>
           <TrustBadge src="readings-given.png" alt="Over 150,000 readings given" />
+        </Grid>
+        <Grid size={{ xs: 4 }}>
           <TrustBadge src="est-2002.png" alt="Established 2002" />
+        </Grid>
+        <Grid size={{ xs: 4 }}>
           <TrustBadge
             src="satisfaction-guarantee-2.png"
             alt="Satisfaction guarantee"
             href="/terms-and-conditions#satisfaction-guarantee"
           />
-        </Stack>
-      </Box>
+        </Grid>
+      </Grid>
 
       <Typography
         variant="caption"
