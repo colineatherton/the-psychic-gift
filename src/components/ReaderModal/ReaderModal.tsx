@@ -85,12 +85,14 @@ export const ReaderModal: React.FC = () => {
 
   const callOptionsSection = (
     <Box>
-      <Box
-        component="img"
-        src={logoSrc}
-        alt="The Psychic Gift"
-        sx={{ height: 80, display: "block", margin: "0 auto", mb: 2 }}
-      />
+      {!isMobile && (
+        <Box
+          component="img"
+          src={logoSrc}
+          alt="The Psychic Gift"
+          sx={{ height: 80, display: "block", margin: "0 auto", mb: 2 }}
+        />
+      )}
       {readerConfig && (
         <Typography align="center" sx={{ mb: 2 }}>
           {readerStatus === Status.online ? (
@@ -109,7 +111,7 @@ export const ReaderModal: React.FC = () => {
       {CALL_OPTIONS.map((opt) => (
         <CallOptionCard key={opt.number} {...opt} />
       ))}
-      <Typography variant="caption" color="text.secondary" display="block" sx={{ mt: 1, mb: 2 }}>
+      <Typography variant="caption" color="secondary.main" display="block" sx={{ mt: 1, mb: 2 }}>
         {OFCOM_DISCLAIMER}
       </Typography>
     </Box>
@@ -190,7 +192,7 @@ export const ReaderModal: React.FC = () => {
                   skills={readerConfig.specialties.topics}
                   onChooseCallOptions={() => undefined}
                   description={readerConfig.description}
-                  mode="selected"
+                  mode="compact"
                 />
                 {callOptionsSection}
                 {otherReadersAccordion}
