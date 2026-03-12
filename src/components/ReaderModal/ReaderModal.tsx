@@ -178,7 +178,7 @@ export const ReaderModal: React.FC = () => {
           <Typography variant="h6">
             {readerConfig ? readerConfig.name : "Find Your Psychic"}
           </Typography>
-          <IconButton onClick={handleCloseReaderModal} edge="end" aria-label="close">
+          <IconButton onClick={handleCloseReaderModal} edge="end" aria-label="close" color="primary" sx={{ bgcolor: "primary.light", "&:hover": { bgcolor: "primary.main", color: "common.white" } }}>
             <CloseIcon />
           </IconButton>
         </DialogTitle>
@@ -186,10 +186,24 @@ export const ReaderModal: React.FC = () => {
       <DialogContent sx={{ p: isMobile ? 2 : 3 }}>
         {/* State 1: No reader selected — full-width reader list */}
         {!readerConfig && (
-          <ReaderList
-            readers={availableReaders}
-            onChooseCallOptions={handleChooseCallOptions}
-          />
+          <Box>
+            <Box
+              component="img"
+              src={logoSrc}
+              alt="The Psychic Gift"
+              sx={{ height: isMobile ? 60 : 80, display: "block", margin: "0 auto", mb: 1 }}
+            />
+            <Typography variant="h5" align="center" fontWeight={600} sx={{ mb: 0.5 }}>
+              Find Your Psychic
+            </Typography>
+            <Typography align="center" color="secondary.main" sx={{ mb: 2 }}>
+              Choose a reader below to see call options
+            </Typography>
+            <ReaderList
+              readers={availableReaders}
+              onChooseCallOptions={handleChooseCallOptions}
+            />
+          </Box>
         )}
 
         {/* State 2: Reader selected */}
