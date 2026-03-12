@@ -91,6 +91,20 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Bryony",
     imageUrl: "img/readers/original/by_pin/2727.png",
   },
+  ["daisy-6006"]: {
+    name: "Daisy",
+    pin: 6006,
+    description:
+      "Daisy is an intuitive psychic and spiritual medium with strong Celtic and Romany roots. Aware of her gifts from early childhood, she works both psychically and with spirit to offer clear, insightful guidance. Daisy uses tools such as tarot and oracle cards, crystal ball, tea leaf readings and psychometry. Daisy is polite, honest and focused on clarity.",
+    specialties: {
+      abilities: ["psychic", "medium", "intuitive"],
+      tools: ["tarot", "oracle cards", "crystal ball", "tea leaves", "psychometry"],
+      topics: ["guidance"],
+      themes: ["honest", "direct"],
+    },
+    ctaText: "Connect with Daisy",
+    imageUrl: "img/readers/original/by_pin/6006.png",
+  },
   ["ellie-1180"]: {
     name: "Ellie",
     pin: 1180,
