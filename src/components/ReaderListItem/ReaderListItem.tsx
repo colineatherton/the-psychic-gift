@@ -89,7 +89,7 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
         secondaryAction={
           <Stack alignItems="flex-end" spacing={0.5}>
             <StatusChip label={statusLabel} size="small" statusColor={statusColor} />
-            <Typography variant="caption" color="text.secondary">{`PIN: ${pin}`}</Typography>
+            <Typography variant="caption" color="secondary.main">{`PIN: ${pin}`}</Typography>
           </Stack>
         }
         onClick={() => onChooseCallOptions(`${name.toLocaleLowerCase()}-${pin}`)}
