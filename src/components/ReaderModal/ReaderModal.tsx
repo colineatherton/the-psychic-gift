@@ -198,8 +198,11 @@ export const ReaderModal: React.FC = () => {
             <Typography variant="h5" align="center" fontWeight={600} sx={{ mb: 0.5 }}>
               Find Your Psychic
             </Typography>
-            <Typography align="center" color="secondary.main" sx={{ mb: 2 }}>
+            <Typography align="center" color="secondary.main" sx={{ mb: 0.5 }}>
               Choose a reader below to see call options
+            </Typography>
+            <Typography align="center" color="secondary.main" variant="caption" display="block" sx={{ mb: 2 }}>
+              ✨ Millions of readings given · Est. 2002 · Satisfaction guarantee
             </Typography>
             <ReaderList
               readers={availableReaders}
