@@ -30,6 +30,8 @@ type ReaderCardProps = {
   description?: string;
   onChooseCallOptions: (key: string) => void;
   hideViewProfile?: boolean;
+  hideActions?: boolean;
+  showAllSkills?: boolean;
 };
 
 export const statusLabels: Record<ReaderCardProps["status"], string> = {
@@ -47,12 +49,14 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
   description,
   onChooseCallOptions,
   hideViewProfile = false,
+  hideActions = false,
+  showAllSkills = false,
 }) => {
   const theme = useTheme();
 
   const effectiveSkills = skills.slice(
     0,
-    mode === "compact" ? 2 : skills.length,
+    mode === "compact" && !showAllSkills ? 2 : skills.length,
   );
 
   const remainingSkills = skills
@@ -206,7 +210,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
           )}
         </Box>
       </CardContent>
-      {mode !== "selected" && (
+      {mode !== "selected" && !hideActions && (
         <Box sx={{ p: 2, pt: 0 }}>
           <Stack gap={2} direction={mode === "featured" ? "row" : "column"}>
             <PrimaryCTAButton

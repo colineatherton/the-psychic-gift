@@ -11,6 +11,7 @@ import {
   ListItemText,
   Stack,
   Tooltip,
+  Typography,
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import React from "react";
@@ -72,6 +73,7 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
   status,
   skills,
   divider = false,
+  onChooseCallOptions,
 }) => {
   const theme = useTheme();
   const statusColor = theme.palette.status[status];
@@ -84,7 +86,23 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
     <>
       <ListItem
         alignItems="flex-start"
-        secondaryAction={`PIN: ${pin}`}
+        secondaryAction={
+          <Stack alignItems="flex-end" spacing={0.5}>
+            <StatusChip label={statusLabel} size="small" statusColor={statusColor} />
+            <Typography variant="caption" color="secondary.main">{`PIN: ${pin}`}</Typography>
+          </Stack>
+        }
+        onClick={() => onChooseCallOptions(`${name.toLocaleLowerCase()}-${pin}`)}
+        sx={{
+          cursor: "pointer",
+          borderRadius: 2,
+          transition: "background-color 0.15s",
+          "&:hover": {
+            bgcolor: theme.palette.mode === "dark"
+              ? "rgba(116, 93, 221, 0.2)"
+              : "rgba(198, 187, 244, 0.35)",
+          },
+        }}
       >
         <ListItemAvatar>
           <Tooltip title={statusLabel} placement="top">
@@ -99,16 +117,7 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
           </Tooltip>
         </ListItemAvatar>
         <ListItemText
-          primary={
-            <Stack direction="row" alignItems="center" gap={1}>
-              {name}
-              <StatusChip
-                label={statusLabel}
-                size="small"
-                statusColor={statusColor}
-              />
-            </Stack>
-          }
+          primary={name}
           secondary={
             <Stack direction="row" flexWrap="wrap" gap={1.5} paddingY={1}>
               {effectiveSkills.map((skill) => (

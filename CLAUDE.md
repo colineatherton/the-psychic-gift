@@ -51,4 +51,5 @@ add it to `settings.json` and include it in the next PR.
 
 - **AppBar z-index:** `StyledAppBar` uses `zIndex: drawer + 1` = **1201** — overlays need `drawer + 2`
 - **MUI TextField on purple backgrounds:** default focus colour is `primary.main` — invisible on purple `Paper`. Always override focused outline + label with `primary.dark` (light) / `white` (dark)
+- **`text.secondary` is near-white (`#f8f7ff`) in light mode** — invisible on white `Paper`. Use `secondary.main` (`#7a8486`) for muted text on light backgrounds instead.
 - **Layout is `"use client"`** — all providers are client-side

@@ -1,14 +1,14 @@
 "use client";
 
-import { PrimaryCTAButton, ReaderCard, TrustBadge } from "@/components";
+import { ReaderCard, TrustBadge } from "@/components";
 import { READER_CARDS } from "@/lib/constants/readers";
 import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 import { Status } from "@/lib/types/readers";
+import CloseIcon from "@mui/icons-material/Close";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   Accordion,
-  AccordionActions,
   AccordionDetails,
   AccordionSummary,
   Box,
@@ -16,18 +16,20 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
-  Grid,
+  DialogTitle,
+  IconButton,
   Slide,
   Stack,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import { TransitionProps } from "@mui/material/transitions";
 import pluralize from "@theothergothamdev/pluralize-ts";
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import { getStatus } from "../ReaderFilters/ReaderFilters";
 import { ReaderList } from "../ReaderList/ReaderList";
+import { CallOptionCard } from "./CallOptionCard";
 
 const Transition = forwardRef(function Transition(
   props: TransitionProps & {
@@ -38,11 +40,38 @@ const Transition = forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
+const CALL_OPTIONS = [
+  {
+    title: "Credit / Debit Card",
+    number: "0800 915 2333",
+    price: "£32.95 for 20 mins, then £1.50/min",
+  },
+  {
+    title: "Pre-Pay Minutes",
+    number: "0808 156 4920",
+    price: "£1.50/min · 10% bonus on purchases over £60",
+  },
+  {
+    title: "Pay by Phone Bill",
+    number: "0906 176 1960",
+    price: "£1.50/min + network access charge",
+  },
+];
+
+const OFCOM_DISCLAIMER =
+  "All calls are recorded; the caller must be 18 or over and have the bill payer's permission. Readings under UK law are deemed to be for entertainment only. Helpline: 0800 156 0022.";
+
 export const ReaderModal: React.FC = () => {
-  const { readerModalOpen, readerConfig, handleCloseReaderModal } =
+  const { readerModalOpen, readerConfig, handleCloseReaderModal, handleChooseCallOptions: _handleChooseCallOptions } =
     useReaderSelectContext();
   const { getReaderByPin } = useReaderFeedContext();
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  const handleChooseCallOptions = (key: string) => {
+    setAccordionOpen(false);
+    _handleChooseCallOptions(key);
+  };
 
   const logoSrc =
     theme.palette.mode === "light"
@@ -53,233 +82,217 @@ export const ReaderModal: React.FC = () => {
     readerConfig ? getReaderByPin(Number(readerConfig.pin))?.status : undefined,
   );
 
+  const [accordionOpen, setAccordionOpen] = useState(false);
+
   const availableReaders = READER_CARDS.filter((reader) => {
     if (readerConfig && reader.pin === readerConfig.pin.toString()) {
       return false;
     }
-
     const apiReader = getReaderByPin(Number(reader.pin));
     const status = apiReader ? getStatus(apiReader.status) : Status.offline;
-
-    if (status === Status.online) {
-      return {
-        ...reader,
-        status,
-      };
-    }
-
-    return false;
+    return status === Status.online;
   });
+
+  const callOptionsSection = (
+    <Box>
+      {!isMobile && (
+        <Box
+          component="img"
+          src={logoSrc}
+          alt="The Psychic Gift"
+          sx={{ height: 80, display: "block", margin: "0 auto", mb: 2 }}
+        />
+      )}
+      {readerConfig && (
+        <Typography align="center" sx={{ mb: 2 }}>
+          {readerStatus === Status.online ? (
+            <>
+              Connect with <strong>{readerConfig.name}</strong> now — choose a call option and use PIN{" "}
+              <strong>{readerConfig.pin}</strong>
+            </>
+          ) : (
+            <>
+              Connect with <strong>{readerConfig.name}</strong> — choose a call option and once they are ready to talk, use PIN{" "}
+              <strong>{readerConfig.pin}</strong>
+            </>
+          )}
+        </Typography>
+      )}
+      {CALL_OPTIONS.map((opt) => (
+        <CallOptionCard key={opt.number} {...opt} />
+      ))}
+      {availableReaders.length > 0 && readerConfig && (
+        <Typography
+          variant="body2"
+          align="center"
+          sx={{ mt: 1, cursor: "pointer", color: "secondary.main", "&:hover": { color: "text.primary" }, textDecoration: "underline" }}
+          onClick={() => setAccordionOpen(true)}
+        >
+          Not connecting with {readerConfig.name}? Browse other readers →
+        </Typography>
+      )}
+    </Box>
+  );
+
+  const otherReadersAccordion = availableReaders.length > 0 && (
+    <Accordion expanded={accordionOpen} onChange={(_, expanded) => setAccordionOpen(expanded)}>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography component="span">
+          ✨ {availableReaders.length}{" "}
+          {pluralize("other psychic", availableReaders.length)}{" "}
+          {pluralize("is", availableReaders.length)} available to take your call ✨
+        </Typography>
+      </AccordionSummary>
+      <AccordionDetails sx={{ p: 0 }}>
+        <ReaderList
+          readers={availableReaders}
+          onChooseCallOptions={handleChooseCallOptions}
+        />
+      </AccordionDetails>
+    </Accordion>
+  );
+
+  const trustBadges = (
+    <Box>
+      <Stack
+        direction="row"
+        alignItems="center"
+        width="100%"
+        justifyContent="space-between"
+        mt={2}
+      >
+        <TrustBadge src="readings-given.png" />
+        <TrustBadge src="est-2002.png" />
+        <TrustBadge src="satisfaction-guarantee-2.png" />
+      </Stack>
+      <Typography variant="caption" color="secondary.main" display="block" sx={{ mt: 2 }}>
+        {OFCOM_DISCLAIMER}
+      </Typography>
+    </Box>
+  );
 
   return (
     <Dialog
-      fullWidth={true}
-      maxWidth={"lg"}
+      fullWidth={!isMobile}
+      fullScreen={isMobile}
+      maxWidth="lg"
       open={readerModalOpen}
       onClose={handleCloseReaderModal}
       scroll="paper"
-      sx={{
-        "& .MuiDialog-paper": {
-          height: "90vh",
-          maxHeight: "90vh",
-          borderRadius: 6,
-        },
-        height: "100%",
-      }}
+      sx={
+        !isMobile
+          ? {
+              "& .MuiDialog-paper": {
+                height: "90vh",
+                maxHeight: "90vh",
+                borderRadius: 6,
+              },
+            }
+          : undefined
+      }
       slots={{ transition: Transition }}
     >
-      {/* <DialogTitle>
-        {readerConfig ? "Choose Call Options" : "Find Your Psychic"}
-      </DialogTitle> */}
-      <DialogContent>
-        <Grid
-          container
-          flexGrow={1}
-          sx={{
-            alignItems: "stretch",
-            minHeight: "100%",
-          }}
-          spacing={2}
-        >
-          <Grid size={{ xs: 12, sm: 6 }}>
-            {readerConfig ? (
-              <ReaderCard
-                name={readerConfig.name}
-                pin={readerConfig.pin.toString()}
-                status={readerStatus}
-                skills={readerConfig.specialties.topics}
-                onChooseCallOptions={() => undefined}
-                description={readerConfig.description}
-                mode="selected"
-              />
-            ) : (
-              <ReaderList readers={availableReaders} />
-            )}
-          </Grid>
-          <Grid size={{ xs: 12, sm: 6 }}>
+      {isMobile && (
+        <DialogTitle sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", py: 1.5, px: 2, bgcolor: "primary.dark" }}>
+          <Typography variant="h6" color="common.white" fontWeight={600}>
+            {readerConfig ? readerConfig.name : "Find Your Psychic"}
+          </Typography>
+          <IconButton onClick={handleCloseReaderModal} edge="end" aria-label="close" sx={{ color: "common.white" }}>
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
+      )}
+      <DialogContent sx={{ p: isMobile ? 2 : 3 }}>
+        {/* State 1: No reader selected — full-width reader list */}
+        {!readerConfig && (
+          <Box>
             <Box
               component="img"
               src={logoSrc}
               alt="The Psychic Gift"
-              sx={{
-                height: 100,
-                display: "block",
-                margin: "0 auto",
-                mb: 4,
-              }}
+              sx={{ height: isMobile ? 60 : 80, display: "block", margin: "0 auto", mb: 1 }}
             />
-            {readerConfig &&
-              (readerStatus === Status.online ? (
-                <Typography>
-                  Connect with <strong>{readerConfig.name}</strong> now - choose
-                  a call option and use PIN <strong>{readerConfig.pin}</strong>
-                </Typography>
-              ) : (
-                <Typography>
-                  Connect with <strong>{readerConfig.name}</strong> - choose a
-                  call option and once they are ready to talk, use PIN{" "}
-                  <strong>{readerConfig.pin}</strong>
-                </Typography>
-              ))}
+            <Typography variant="h5" align="center" fontWeight={600} sx={{ mb: 0.5 }}>
+              Find Your Psychic
+            </Typography>
+            <Typography align="center" color="secondary.main" sx={{ mb: 0.5 }}>
+              Choose a reader below to see call options
+            </Typography>
+            <Typography align="center" color="secondary.main" variant="caption" display="block" sx={{ mb: 1 }}>
+              Over 150,000 readings given · Est. 2002 · Satisfaction guarantee
+            </Typography>
+            <Typography align="center" fontWeight={700} sx={{ mb: 2, color: "status.online" }}>
+              🟢 {availableReaders.length} {pluralize("reader", availableReaders.length)} available now
+            </Typography>
+            <ReaderList
+              readers={availableReaders}
+              onChooseCallOptions={handleChooseCallOptions}
+            />
+          </Box>
+        )}
 
-            <DialogContentText sx={{ mt: 4 }}>
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1-content"
-                  id="panel1-header"
-                >
-                  <Stack>
-                    <Typography>
-                      Freephone for credit or debit card payments - call:
-                    </Typography>
-                    <Box sx={{ alignSelf: "flex-start" }}>
-                      <PrimaryCTAButton
-                        size="large"
-                        mode="compact"
-                        onClick={() => {}}
-                        label="UK Freephone: 0800 915 2345"
-                        mb={4}
-                      />
-                    </Box>
-                    <Typography>
-                      £32.95 for the first 20 minutes, £1.50/min thereafter
-                    </Typography>
-                  </Stack>
-                </AccordionSummary>
-                <AccordionDetails>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
-                </AccordionDetails>
-                <AccordionActions>credit card icons</AccordionActions>
-              </Accordion>
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel2-content"
-                  id="panel2-header"
-                >
-                  <Stack>
-                    <Typography>
-                      For payments on your phone bill - call:
-                    </Typography>
-                    <Box sx={{ alignSelf: "flex-start" }}>
-                      <PrimaryCTAButton
-                        size="large"
-                        mode="compact"
-                        onClick={() => {}}
-                        label="UK: 0906 110 0960"
-                        mb={4}
-                      />
-                    </Box>
-                    <Typography>
-                      £1.50/min plus your phone company&apos;s access charge
-                    </Typography>
-                  </Stack>
-                </AccordionSummary>
-                <AccordionDetails>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
-                </AccordionDetails>
-                <AccordionActions>credit card icons</AccordionActions>
-              </Accordion>
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel3-content"
-                  id="panel3-header"
-                >
-                  <Stack>
-                    <Typography>
-                      To Prepay with Bonus Minutes - call:
-                    </Typography>
-                    <Box sx={{ alignSelf: "flex-start" }}>
-                      <PrimaryCTAButton
-                        size="large"
-                        mode="compact"
-                        onClick={() => {}}
-                        label="UK Freephone: 0808 156 4920"
-                        mb={4}
-                      />
-                      <PrimaryCTAButton
-                        size="large"
-                        mode="compact"
-                        onClick={() => {}}
-                        label="UK Local: 0113 732 0631"
-                        mb={4}
-                      />
-                    </Box>
-                    <Typography>
-                      £1.50/min, 10% extra free for purchases over £60
-                    </Typography>
-                  </Stack>
-                </AccordionSummary>
-                <AccordionDetails>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
-                </AccordionDetails>
-                <AccordionActions>credit card icons</AccordionActions>
-              </Accordion>
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel4-content"
-                  id="panel4-header"
-                >
-                  {/* other minus the selected, if selected - dont show this at all if there are none or if the selected reader is online */}
-                  {/* if no reader was selected, make this the right panel - ie dont show it here */}
-                  <Typography component="span">
-                    ✨ {availableReaders.length}{" "}
-                    {pluralize("other psychics", availableReaders.length)}{" "}
-                    {pluralize("are", availableReaders.length)} available to
-                    take your call ✨
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <ReaderList readers={availableReaders} />
-                </AccordionDetails>
-              </Accordion>
-            </DialogContentText>
-            <Stack
-              direction="row"
-              alignItems="center"
-              width="100%"
-              justifyContent="space-between"
-              mt={4}
-            >
-              <TrustBadge src="readings-given.png" />
-              <TrustBadge src="est-2002.png" />
-              <TrustBadge src="satisfaction-guarantee-2.png" />
-            </Stack>
-          </Grid>
-        </Grid>
+        {/* State 2: Reader selected */}
+        {readerConfig && (
+          <>
+            {isMobile ? (
+              /* Mobile: stacked layout */
+              <Stack spacing={2} sx={{ pt: 2 }}>
+                <ReaderCard
+                  name={readerConfig.name}
+                  pin={readerConfig.pin.toString()}
+                  status={readerStatus}
+                  skills={[
+                    ...readerConfig.specialties.abilities,
+                    ...readerConfig.specialties.tools,
+                    ...readerConfig.specialties.topics,
+                    ...readerConfig.specialties.themes,
+                  ]}
+                  onChooseCallOptions={() => undefined}
+                  description={readerConfig.description}
+                  mode="compact"
+                  hideActions
+                  showAllSkills
+                />
+                {callOptionsSection}
+                {otherReadersAccordion}
+                {trustBadges}
+              </Stack>
+            ) : (
+              /* Desktop: two-column layout */
+              <Box display="flex" gap={3} minHeight="100%">
+                {/* Left 45%: selected reader */}
+                <Box flex="0 0 45%" overflow="auto">
+                  <ReaderCard
+                    name={readerConfig.name}
+                    pin={readerConfig.pin.toString()}
+                    status={readerStatus}
+                    skills={[
+                      ...readerConfig.specialties.abilities,
+                      ...readerConfig.specialties.tools,
+                      ...readerConfig.specialties.topics,
+                      ...readerConfig.specialties.themes,
+                    ]}
+                    onChooseCallOptions={() => undefined}
+                    description={readerConfig.description}
+                    mode="selected"
+                  />
+                </Box>
+                {/* Right 55%: call options + other readers + trust badges */}
+                <Box flex="1 1 55%" overflow="auto">
+                  {callOptionsSection}
+                  {otherReadersAccordion}
+                  {trustBadges}
+                </Box>
+              </Box>
+            )}
+          </>
+        )}
       </DialogContent>
-      <DialogActions>
-        <Button onClick={handleCloseReaderModal}>Close</Button>
-      </DialogActions>
+      {!isMobile && (
+        <DialogActions>
+          <Button onClick={handleCloseReaderModal}>Close</Button>
+        </DialogActions>
+      )}
     </Dialog>
   );
 };
