@@ -1,3 +1,5 @@
+"use client";
+
 import PhoneIcon from "@mui/icons-material/Phone";
 import { Card, CardActionArea, Snackbar, Stack, Typography } from "@mui/material";
 import { alpha } from "@mui/material/styles";
