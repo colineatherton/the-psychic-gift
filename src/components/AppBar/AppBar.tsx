@@ -139,22 +139,22 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                         sx={{
                           display: "flex",
                           alignItems: "center",
-                          gap: 0.75,
+                          gap: 1,
                           color: "common.white",
                           textDecoration: "none",
-                          py: 0.3,
+                          py: 0.4,
                           "&:hover .phone-number": { color: "accent.primary" },
                         }}
                       >
-                        <PhoneInTalk sx={{ fontSize: "0.85rem", opacity: 0.75 }} />
+                        <PhoneInTalk sx={{ fontSize: "1rem", opacity: 0.75 }} />
                         <Stack direction="row" alignItems="baseline" gap={0.75}>
                           <Typography
                             className="phone-number"
-                            sx={{ fontSize: "0.82rem", fontWeight: 700, lineHeight: 1, transition: "color 0.15s" }}
+                            sx={{ fontSize: "0.95rem", fontWeight: 700, lineHeight: 1, transition: "color 0.15s" }}
                           >
                             {opt.number}
                           </Typography>
-                          <Typography sx={{ fontSize: "0.68rem", opacity: 0.65, lineHeight: 1 }}>
+                          <Typography sx={{ fontSize: "0.75rem", opacity: 0.7, lineHeight: 1 }}>
                             {opt.title}
                           </Typography>
                         </Stack>

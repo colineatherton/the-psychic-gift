@@ -56,7 +56,7 @@ export const MobileDrawer = ({
             />
           </Grid>
         ) : null}
-        <Box sx={{ px: 2, py: 1.5 }}>
+        <Box sx={{ px: 2, py: 1.5, bgcolor: "primary.dark" }}>
           {CALL_OPTIONS.map((opt) => (
             <Box
               key={opt.number}
@@ -76,18 +76,18 @@ export const MobileDrawer = ({
               <Stack direction="row" alignItems="baseline" gap={1}>
                 <Typography
                   className="phone-number"
-                  sx={{ fontSize: "0.9rem", fontWeight: 700, lineHeight: 1, transition: "color 0.15s" }}
+                  sx={{ fontSize: "1rem", fontWeight: 700, lineHeight: 1, transition: "color 0.15s" }}
                 >
                   {opt.number}
                 </Typography>
-                <Typography sx={{ fontSize: "0.75rem", opacity: 0.65, lineHeight: 1 }}>
+                <Typography sx={{ fontSize: "0.78rem", opacity: 0.7, lineHeight: 1 }}>
                   {opt.title}
                 </Typography>
               </Stack>
             </Box>
           ))}
         </Box>
-        <Divider sx={{ borderColor: "rgba(255,255,255,0.15)" }} />
+        <Divider />
         <List>
           {/* onclick?? using path? */}
           {[...READING_PAGES, ...PAGES].map(({ label }) => (
