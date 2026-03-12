@@ -52,7 +52,7 @@ export function OffersContent() {
       {/* Hero offer card */}
       <Box
         sx={{
-          background: `linear-gradient(135deg, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
+          background: `linear-gradient(135deg, #18122B 0%, ${theme.palette.primary.dark} 100%)`,
           borderRadius: 4,
           p: { xs: 4, md: 6 },
           textAlign: "center",
@@ -88,7 +88,7 @@ export function OffersContent() {
         />
         <Typography
           sx={{
-            color: "accent.primary",
+            color: "rgba(255, 215, 0, 0.9)",
             letterSpacing: 2,
             display: "block",
             mb: 1,
@@ -118,7 +118,7 @@ export function OffersContent() {
         >
           for 10 minutes
         </Typography>
-        <Typography sx={{ color: "rgba(255,255,255,0.7)", mb: 3, maxWidth: 480, mx: "auto" }}>
+        <Typography sx={{ color: "rgba(255,255,255,0.85)", mb: 3, maxWidth: 480, mx: "auto" }}>
           Your first step into the world of psychic insight — try a reading at
           this exclusive introductory rate, available to all new clients.
         </Typography>
