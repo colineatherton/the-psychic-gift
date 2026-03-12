@@ -72,6 +72,7 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
   status,
   skills,
   divider = false,
+  onChooseCallOptions,
 }) => {
   const theme = useTheme();
   const statusColor = theme.palette.status[status];
@@ -85,6 +86,8 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
       <ListItem
         alignItems="flex-start"
         secondaryAction={`PIN: ${pin}`}
+        onClick={() => onChooseCallOptions(pin)}
+        sx={{ cursor: "pointer" }}
       >
         <ListItemAvatar>
           <Tooltip title={statusLabel} placement="top">
