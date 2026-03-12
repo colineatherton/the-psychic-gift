@@ -1,3 +1,4 @@
+import PhoneIcon from "@mui/icons-material/Phone";
 import { Card, CardActionArea, Stack, Typography } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 
@@ -33,9 +34,12 @@ export const CallOptionCard = ({ title, number, price }: CallOptionCardProps) =>
           <Typography variant="caption" fontWeight={600} textTransform="uppercase" letterSpacing={0.5} sx={{ color: "rgba(255,255,255,0.75)" }}>
             {title}
           </Typography>
-          <Typography variant="h5" fontWeight={700} color="common.white">
-            {number}
-          </Typography>
+          <Stack direction="row" alignItems="center" gap={1}>
+            <PhoneIcon sx={{ color: "common.white", fontSize: "1.4rem" }} />
+            <Typography variant="h5" fontWeight={700} color="common.white">
+              {number}
+            </Typography>
+          </Stack>
           <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.75)" }}>
             {price}
           </Typography>
