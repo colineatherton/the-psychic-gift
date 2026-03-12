@@ -26,7 +26,7 @@ import {
 } from "@mui/material";
 import { TransitionProps } from "@mui/material/transitions";
 import pluralize from "@theothergothamdev/pluralize-ts";
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import { getStatus } from "../ReaderFilters/ReaderFilters";
 import { ReaderList } from "../ReaderList/ReaderList";
 import { CallOptionCard } from "./CallOptionCard";
@@ -62,11 +62,16 @@ const OFCOM_DISCLAIMER =
   "All calls are recorded; the caller must be 18 or over and have the bill payer's permission. Readings under UK law are deemed to be for entertainment only. Helpline: 0800 156 0022.";
 
 export const ReaderModal: React.FC = () => {
-  const { readerModalOpen, readerConfig, handleCloseReaderModal, handleChooseCallOptions } =
+  const { readerModalOpen, readerConfig, handleCloseReaderModal, handleChooseCallOptions: _handleChooseCallOptions } =
     useReaderSelectContext();
   const { getReaderByPin } = useReaderFeedContext();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  const handleChooseCallOptions = (key: string) => {
+    setAccordionOpen(false);
+    _handleChooseCallOptions(key);
+  };
 
   const logoSrc =
     theme.palette.mode === "light"
@@ -76,6 +81,8 @@ export const ReaderModal: React.FC = () => {
   const readerStatus = getStatus(
     readerConfig ? getReaderByPin(Number(readerConfig.pin))?.status : undefined,
   );
+
+  const [accordionOpen, setAccordionOpen] = useState(false);
 
   const availableReaders = READER_CARDS.filter((reader) => {
     if (readerConfig && reader.pin === readerConfig.pin.toString()) {
@@ -114,11 +121,21 @@ export const ReaderModal: React.FC = () => {
       {CALL_OPTIONS.map((opt) => (
         <CallOptionCard key={opt.number} {...opt} />
       ))}
+      {availableReaders.length > 0 && readerConfig && (
+        <Typography
+          variant="body2"
+          align="center"
+          sx={{ mt: 1, cursor: "pointer", color: "secondary.main", "&:hover": { color: "text.primary" }, textDecoration: "underline" }}
+          onClick={() => setAccordionOpen(true)}
+        >
+          Not connecting with {readerConfig.name}? Browse other readers →
+        </Typography>
+      )}
     </Box>
   );
 
   const otherReadersAccordion = availableReaders.length > 0 && (
-    <Accordion>
+    <Accordion expanded={accordionOpen} onChange={(_, expanded) => setAccordionOpen(expanded)}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Typography component="span">
           ✨ {availableReaders.length}{" "}
