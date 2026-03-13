@@ -14,29 +14,37 @@ import styles from "../Hero/Hero.module.css";
 import { StyledFeaturedReaderSection } from "./FeaturedReader.styles";
 import { getStatus } from "@/components/ReaderFilters/ReaderFilters";
 
-const getFeaturedReaderKey = (): string => {
-  // Get all reader keys from READER_CONFIG_MAP
+const getDailyReaderKey = (): string => {
   const readerKeys = Object.keys(READER_CONFIG_MAP);
-  const readerCount = readerKeys.length;
-
-  // Calculate the day of the year (1-365 or 366 for leap years)
   const now = new Date();
   const startOfYear = new Date(now.getFullYear(), 0, 0);
   const dayOfYear = Math.floor(
     (now.getTime() - startOfYear.getTime()) / (1000 * 60 * 60 * 24),
   );
-
-  // Cycle through readers based on day of year
-  const index = dayOfYear % readerCount;
-  return readerKeys[index];
+  return readerKeys[dayOfYear % readerKeys.length];
 };
 
 export const FeaturedReader = () => {
   const theme = useTheme();
-  const key = getFeaturedReaderKey();
-  const { description } = READER_CONFIG_MAP[key];
-  const { getReaderByPin } = useReaderFeedContext();
+  const { getReaderByPin, getOnlineReaders } = useReaderFeedContext();
   const { handleChooseCallOptions } = useReaderSelectContext();
+
+  const key = useMemo(() => {
+    const dailyKey = getDailyReaderKey();
+    const dailyPin = Number(GET_READER_CARD(dailyKey).pin);
+    if (getReaderByPin(dailyPin)?.status === 1) return dailyKey;
+    // Daily pick is offline — find first online reader
+    const onlineReaders = getOnlineReaders();
+    if (onlineReaders.length > 0) {
+      const onlineKey = Object.keys(READER_CONFIG_MAP).find(
+        (k) => Number(GET_READER_CARD(k).pin) === onlineReaders[0].id,
+      );
+      if (onlineKey) return onlineKey;
+    }
+    return dailyKey;
+  }, [getReaderByPin, getOnlineReaders]);
+
+  const { description } = READER_CONFIG_MAP[key];
 
   const [init, setInit] = useState(false);
   useEffect(() => {
