@@ -1,3 +1,4 @@
+import { NEW_CLIENT_OFFER_CODE, NEW_CLIENT_OFFER_LABEL, NEW_CLIENT_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
 import { Box, Typography, useTheme } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -54,7 +55,7 @@ export const PhoneCallout = () => {
           opacity: 0.9,
         }}
       >
-        £10 for 10 mins · £1.50/min thereafter · Card & Phone Bill Options
+        £32.95 for 20 mins · £1.50/min thereafter · Card &amp; Phone Bill Options
       </Typography>
       <Typography
         fontFamily="Montserrat Variable, sans-serif"
@@ -65,8 +66,7 @@ export const PhoneCallout = () => {
           marginTop: 1.5,
         }}
       >
-        New clients: <strong>10 mins for £5</strong> – quote
-        &quot;DISCOVER&quot;
+        {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – quote &quot;{NEW_CLIENT_OFFER_CODE}&quot;
       </Typography>
     </Box>
   );
