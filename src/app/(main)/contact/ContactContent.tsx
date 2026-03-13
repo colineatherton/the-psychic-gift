@@ -223,7 +223,7 @@ export default function ContactContent() {
             >
               <strong>Support Hours:</strong>
               <br />
-              Monday – Sunday: 9am – 9pm
+              Monday – Sunday: 8am – 10pm
             </Typography>
           </Paper>
         </Grid>
