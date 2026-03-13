@@ -2,8 +2,9 @@
 
 import { CallOptionCard } from "@/components/ReaderModal/CallOptionCard";
 import { TrustBadge } from "@/components/TrustBadge/TrustBadge";
-import { CALL_OPTIONS, NEW_CLIENT_OFFER_CODE, NEW_CLIENT_OFFER_LABEL, NEW_CLIENT_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
-import { Box, Container, Grid, Paper, Typography, useTheme } from "@mui/material";
+import { CALL_OPTIONS, NCO_NUMBER, NEW_CLIENT_OFFER_CODE, NEW_CLIENT_OFFER_LABEL, NEW_CLIENT_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
+import { Box, Container, Divider, Grid, Paper, Typography, useTheme } from "@mui/material";
+import PhoneIcon from "@mui/icons-material/Phone";
 
 const STEPS = [
   {
@@ -197,31 +198,110 @@ export function OffersContent() {
         ))}
       </Grid>
 
-      {/* Call options */}
+      {/* NCO call section */}
       <Typography
         variant="h5"
         fontWeight={700}
         textAlign="center"
-        mb={3}
+        mb={1}
         fontFamily="Montserrat Variable, sans-serif"
       >
         Call now to claim your offer
+      </Typography>
+      <Typography
+        variant="body2"
+        color="secondary.main"
+        textAlign="center"
+        mb={3}
+      >
+        This offer is available via our Reception line only, Monday–Sunday 8am–10pm.
+      </Typography>
+      <Box
+        component="a"
+        href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 1.5,
+          maxWidth: 360,
+          mx: "auto",
+          mb: 2,
+          p: 2.5,
+          borderRadius: 3,
+          bgcolor: "primary.dark",
+          textDecoration: "none",
+          color: "common.white",
+          "&:hover": { opacity: 0.9 },
+        }}
+      >
+        <PhoneIcon sx={{ fontSize: "1.6rem" }} />
+        <Typography fontWeight={800} fontSize="1.6rem" fontFamily="Montserrat Variable, sans-serif">
+          {NCO_NUMBER}
+        </Typography>
+      </Box>
+      <Typography
+        variant="caption"
+        color="secondary.main"
+        display="block"
+        textAlign="center"
+        mb={2}
+        sx={{ maxWidth: 400, mx: "auto" }}
+      >
+        Free from UK landlines and mobiles. Quote &ldquo;{NEW_CLIENT_OFFER_CODE}&rdquo; when connected to Reception.
+      </Typography>
+
+      {/* Eligibility note */}
+      <Paper
+        elevation={0}
+        sx={{
+          maxWidth: 480,
+          mx: "auto",
+          mb: 6,
+          p: 2.5,
+          borderRadius: 2,
+          border: `1px solid ${theme.palette.divider}`,
+          bgcolor: theme.palette.mode === "dark" ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.02)",
+        }}
+      >
+        <Typography variant="body2" fontWeight={700} mb={0.5}>
+          Am I eligible?
+        </Typography>
+        <Typography variant="body2" color="secondary.main">
+          This offer is for new clients only — those who have not had a credit card call with us in
+          the last 3 months. It is not available via Pre-Pay or the 0906 line. If you&apos;re unsure,
+          our Reception team will be happy to advise when you call.
+        </Typography>
+        <Typography variant="caption" color="secondary.main" display="block" mt={1.5}>
+          All calls are recorded; the caller must be 18 or over and have the bill payer&apos;s
+          permission. Readings under UK law are deemed to be for entertainment only.
+          Helpline: 0808 156 0022.
+        </Typography>
+      </Paper>
+
+      {/* Standard call options */}
+      <Divider sx={{ mb: 6 }} />
+      <Typography
+        variant="h5"
+        fontWeight={700}
+        textAlign="center"
+        mb={1}
+        fontFamily="Montserrat Variable, sans-serif"
+      >
+        All call options
+      </Typography>
+      <Typography
+        variant="body2"
+        color="secondary.main"
+        textAlign="center"
+        mb={3}
+      >
+        Standard rates — the new client offer applies to the Reception (Credit/Debit Card) line only.
       </Typography>
       <Box sx={{ maxWidth: 480, mx: "auto", mb: 6 }}>
         {CALL_OPTIONS.map((opt) => (
           <CallOptionCard key={opt.number} {...opt} />
         ))}
-        <Typography
-          variant="caption"
-          color="secondary.main"
-          display="block"
-          mt={2}
-          textAlign="center"
-        >
-          All calls are recorded; the caller must be 18 or over and have the
-          bill payer&apos;s permission. Readings under UK law are deemed to be
-          for entertainment only. Helpline: 0800 156 0022.
-        </Typography>
       </Box>
 
       {/* Trust badges */}
@@ -247,7 +327,11 @@ export function OffersContent() {
         textAlign="center"
         display="block"
       >
+<<<<<<< HEAD
         New Client Offer available to first-time callers who have not made a Credit/Debit Card call to The Psychic Gift in the last 3 months. Standard rates apply after the promotional 10 minutes.{" "}
+=======
+        {NEW_CLIENT_OFFER_LABEL} available to first-time callers who have not made a Credit/Debit Card call to The Psychic Gift in the last 3 months. Standard rates apply after the promotional 10 minutes.{" "}
+>>>>>>> f8f3003 (fix: clarify offer page call options — NCO via Reception only, standard rates separated (#68))
         <a href="/terms-and-conditions#new-client-offer" style={{ color: "inherit" }}>
           Full T&amp;Cs apply.
         </a>
