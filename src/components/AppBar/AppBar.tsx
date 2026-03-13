@@ -7,7 +7,7 @@ import { DarkModeRounded, PhoneInTalk, WbSunnyRounded } from "@mui/icons-materia
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Divider, Grid, Stack, Typography, useMediaQuery } from "@mui/material";
+import { Badge, Divider, Grid, Stack, Typography, useMediaQuery } from "@mui/material";
 import Box from "@mui/material/Box";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -242,16 +242,32 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                   )}
                   {!showFullMenu && (
                     <Box marginLeft={2} display="inline">
-                      <IconToggle
-                        key={mobileMenuOpen ? "menu-open" : "menu-closed"}
-                        onClick={() => setMobileMenuOpen((v) => !v)}
-                        initial={
-                          mobileMenuOpen
-                            ? ("close" as const)
-                            : ("open" as const)
-                        }
-                        iconList={menuIcons}
-                      />
+                      <Badge
+                        variant="dot"
+                        invisible={!showMenuIconOnly || getOnlineReaders().length === 0 || mobileMenuOpen}
+                        sx={(theme) => ({
+                          "& .MuiBadge-dot": {
+                            backgroundColor: theme.palette.status.online,
+                            animation: "pulse 2s infinite",
+                            "--pulse-color": theme.palette.status.online,
+                            width: 10,
+                            height: 10,
+                            top: 4,
+                            right: 4,
+                          },
+                        })}
+                      >
+                        <IconToggle
+                          key={mobileMenuOpen ? "menu-open" : "menu-closed"}
+                          onClick={() => setMobileMenuOpen((v) => !v)}
+                          initial={
+                            mobileMenuOpen
+                              ? ("close" as const)
+                              : ("open" as const)
+                          }
+                          iconList={menuIcons}
+                        />
+                      </Badge>
                     </Box>
                   )}
                 </Grid>
