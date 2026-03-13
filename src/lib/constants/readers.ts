@@ -203,6 +203,20 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Josephine",
     imageUrl: "img/readers/original/by_pin/4499.png",
   },
+  ["julien-4334"]: {
+    name: "Julien",
+    pin: 4334,
+    description:
+      "Julien is an experienced Tarot reader and psychic medium with a loyal and varied client base. His investigative style blends steady clairvoyance with guidance from loved ones in spirit. Using Tarot in every reading, Julien offers clear insight, emotional support and practical options, so you can move forward with confidence and renewed emotional clarity.",
+    specialties: {
+      abilities: ["clairvoyance", "mediumship", "psychic"],
+      tools: ["tarot"],
+      topics: ["guidance", "emotional healing"],
+      themes: ["investigative", "supportive"],
+    },
+    ctaText: "Connect with Julien",
+    imageUrl: "img/readers/original/by_pin/4334.png",
+  },
   ["karen-5791"]: {
     name: "Karen",
     pin: 5791,
