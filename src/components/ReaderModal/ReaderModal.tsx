@@ -43,7 +43,7 @@ const Transition = forwardRef(function Transition(
 
 
 const OFCOM_DISCLAIMER =
-  "All calls are recorded; the caller must be 18 or over and have the bill payer's permission. Readings under UK law are deemed to be for entertainment only. Helpline: 0800 156 0022.";
+  "All calls are recorded; the caller must be 18 or over and have the bill payer's permission. Readings under UK law are deemed to be for entertainment only. Helpline: 0808 156 0022.";
 
 export const ReaderModal: React.FC = () => {
   const { readerModalOpen, readerConfig, handleCloseReaderModal, handleChooseCallOptions: _handleChooseCallOptions } =
