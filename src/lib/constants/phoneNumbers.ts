@@ -25,6 +25,6 @@ export const INTERNATIONAL_MOBILE_NUMBER = "+44 113 732 0633";
 
 // Seeker Offer — introductory rate for first-time callers
 // Quote code to be confirmed with phone system team before launch
-export const NEW_CLIENT_OFFER_CODE = "DISCOVER"; // TODO: update when phone team confirms new code
-export const NEW_CLIENT_OFFER_LABEL = "Seeker Offer";
+export const NEW_CLIENT_OFFER_CODE = "SEEKER"; // TODO: confirm with phone team before launch
+export const NEW_CLIENT_OFFER_LABEL = "New Client Offer";
 export const NEW_CLIENT_OFFER_PRICE = "10 mins for £5";
