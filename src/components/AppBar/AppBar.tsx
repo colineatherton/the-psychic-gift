@@ -7,7 +7,7 @@ import { DarkModeRounded, PhoneInTalk, WbSunnyRounded } from "@mui/icons-materia
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Grid, Stack, Typography, useMediaQuery } from "@mui/material";
+import { Divider, Grid, Stack, Typography, useMediaQuery } from "@mui/material";
 import Box from "@mui/material/Box";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -79,6 +79,7 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
 
   const showFullMenu = useMediaQuery("(min-width:765px)");
   const showMenuIconOnly = useMediaQuery("(max-width:475px)");
+  const showHeaderNumbers = useMediaQuery("(min-width:1024px)");
 
   useEffect(() => {
     setMounted(true);
@@ -114,103 +115,145 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
       <StyledAppBar position="fixed" elevation={0} ref={appBarRef}>
         <StyledAppBarContainer maxWidth={false}>
           <StyledContainer maxWidth="lg">
-            <Box sx={{ width: "100%", px: 0, py: 0 }}>
-              <Grid container alignItems="center">
-                <Box
-                  sx={{
-                    width: "100%",
-                    maxWidth: { xs: 150, sm: 240, md: 265 },
-                    my: 2,
-                  }}
+            <Box
+              sx={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                px: 0,
+                py: 0,
+              }}
+            >
+              {/* Logo */}
+              <Box
+                sx={{
+                  flexShrink: 0,
+                  width: "100%",
+                  maxWidth: showHeaderNumbers
+                    ? 200
+                    : { xs: 150, sm: 240, md: 265 },
+                  my: showHeaderNumbers ? 1 : 2,
+                  transition: "max-width 0.2s",
+                }}
+              >
+                <StyledImg
+                  src="/logo-gold-star.png"
+                  alt="The Psychic Gift Logo"
+                  onClick={() => onNavigate("/")}
+                />
+              </Box>
+
+              {/* Phone numbers — 1024px+ only */}
+              {mounted && showHeaderNumbers && (
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  sx={{ flex: 1, justifyContent: "center", mx: 2 }}
+                  divider={
+                    <Divider
+                      orientation="vertical"
+                      flexItem
+                      sx={{ borderColor: "rgba(255,255,255,0.2)", my: 1 }}
+                    />
+                  }
                 >
-                  <StyledImg
-                    src="/logo-gold-star.png"
-                    alt="The Psychic Gift Logo"
-                    onClick={() => onNavigate("/")}
-                  />
-                </Box>
-                {mounted && showFullMenu && (
-                  <Box sx={{ ml: 3, flexShrink: 0 }}>
-                    {CALL_OPTIONS.map((opt) => (
-                      <Box
-                        key={opt.number}
-                        component="a"
-                        href={`tel:${opt.number.replace(/\s/g, "")}`}
+                  {CALL_OPTIONS.map((opt) => (
+                    <Box
+                      key={opt.number}
+                      component="a"
+                      href={`tel:${opt.number.replace(/\s/g, "")}`}
+                      sx={{
+                        textAlign: "center",
+                        px: 2,
+                        py: 0.5,
+                        textDecoration: "none",
+                        color: "common.white",
+                        "&:hover .phone-number": { color: "accent.primary" },
+                      }}
+                    >
+                      <Typography
                         sx={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 1,
-                          color: "common.white",
-                          textDecoration: "none",
-                          py: 0.4,
-                          "&:hover .phone-number": { color: "accent.primary" },
+                          fontSize: "0.65rem",
+                          textTransform: "uppercase",
+                          letterSpacing: 1.5,
+                          opacity: 0.65,
+                          display: "block",
+                          mb: 0.5,
                         }}
                       >
-                        <PhoneInTalk sx={{ fontSize: "1rem", opacity: 0.75 }} />
-                        <Stack direction="row" alignItems="baseline" gap={0.75}>
-                          <Typography
-                            className="phone-number"
-                            sx={{ fontSize: "0.95rem", fontWeight: 700, lineHeight: 1, transition: "color 0.15s" }}
-                          >
-                            {opt.number}
-                          </Typography>
-                          <Typography sx={{ fontSize: "0.75rem", opacity: 0.7, lineHeight: 1 }}>
-                            {opt.title}
-                          </Typography>
-                        </Stack>
-                      </Box>
-                    ))}
-                  </Box>
-                )}
-                {mounted && (
-                  <>
-                    <Grid
-                      marginLeft="auto"
-                      container
-                      spacing={1}
-                      alignItems="center"
-                    >
-                      {!showMenuIconOnly && (
-                        <>
-                          <Grid>
-                            <IconToggle
-                              onClick={onThemeToggle}
-                              initial={themeMode}
-                              iconList={themeIcons}
-                            />
-                          </Grid>
-                          <Grid>
-                            <StyledBadge
-                              badgeContent={getOnlineReaders().length}
-                            >
-                              <PrimaryCTAButton
-                                size="small"
-                                onClick={handleFindYourPsychic}
-                                mode="compact"
-                                label="Find Your Psychic"
-                              />
-                            </StyledBadge>
-                          </Grid>
-                        </>
-                      )}
-                      {!showFullMenu && (
-                        <Box marginLeft={2} display="inline">
-                          <IconToggle
-                            key={mobileMenuOpen ? "menu-open" : "menu-closed"} // remount to sync
-                            onClick={() => setMobileMenuOpen((v) => !v)}
-                            initial={
-                              mobileMenuOpen
-                                ? ("close" as const)
-                                : ("open" as const)
-                            } // reflect current state
-                            iconList={menuIcons}
+                        {opt.title}
+                      </Typography>
+                      <Stack
+                        direction="row"
+                        alignItems="center"
+                        justifyContent="center"
+                        gap={0.75}
+                      >
+                        <PhoneInTalk sx={{ fontSize: "1.1rem", opacity: 0.75 }} />
+                        <Typography
+                          className="phone-number"
+                          sx={{
+                            fontSize: "1.35rem",
+                            fontWeight: 800,
+                            lineHeight: 1,
+                            letterSpacing: -0.3,
+                            transition: "color 0.15s",
+                          }}
+                        >
+                          {opt.number}
+                        </Typography>
+                      </Stack>
+                    </Box>
+                  ))}
+                </Stack>
+              )}
+
+              {/* Right side CTAs */}
+              {mounted && (
+                <Grid
+                  marginLeft="auto"
+                  container
+                  spacing={1}
+                  alignItems="center"
+                  sx={{ flexShrink: 0 }}
+                >
+                  {!showMenuIconOnly && (
+                    <>
+                      <Grid>
+                        <IconToggle
+                          onClick={onThemeToggle}
+                          initial={themeMode}
+                          iconList={themeIcons}
+                        />
+                      </Grid>
+                      <Grid>
+                        <StyledBadge badgeContent={getOnlineReaders().length}>
+                          <PrimaryCTAButton
+                            size="small"
+                            onClick={handleFindYourPsychic}
+                            mode="compact"
+                            label="Find Your Psychic"
                           />
-                        </Box>
-                      )}
-                    </Grid>
-                  </>
-                )}
-              </Grid>
+                        </StyledBadge>
+                      </Grid>
+                    </>
+                  )}
+                  {!showFullMenu && (
+                    <Box marginLeft={2} display="inline">
+                      <IconToggle
+                        key={mobileMenuOpen ? "menu-open" : "menu-closed"}
+                        onClick={() => setMobileMenuOpen((v) => !v)}
+                        initial={
+                          mobileMenuOpen
+                            ? ("close" as const)
+                            : ("open" as const)
+                        }
+                        iconList={menuIcons}
+                      />
+                    </Box>
+                  )}
+                </Grid>
+              )}
             </Box>
           </StyledContainer>
         </StyledAppBarContainer>
