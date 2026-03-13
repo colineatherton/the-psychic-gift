@@ -43,9 +43,9 @@ export const homePageInternalLinks: InternalLink[] = [
   },
   {
     iconPath: "speech",
-    title: "Testimonials",
+    title: "Speak to a Psychic",
     description:
-      "Real feedback from people just like you – honest, heartfelt, and reassuring.",
-    href: "/about#testimonials",
+      "Our readers are available now. Take the first step – no appointment needed.",
+    href: "/call-a-psychic-now",
   },
 ];
