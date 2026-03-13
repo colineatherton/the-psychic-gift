@@ -22,15 +22,22 @@ export const TrustBadges = () => {
             direction="row"
             alignItems="center"
             width="100%"
-            justifyContent="space-between"
+            justifyContent="center"
+            gap={{ xs: 2, md: 6 }}
           >
-            <TrustBadge src="readings-given.png" alt="Millions of readings given" />
-            <TrustBadge src="est-2002.png" alt="Established 2002" />
-            <TrustBadge
-              src="satisfaction-guarantee-2.png"
-              alt="Satisfaction guarantee"
-              href="/terms-and-conditions#satisfaction-guarantee"
-            />
+            <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
+              <TrustBadge src="readings-given.png" alt="Millions of readings given" />
+            </Box>
+            <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
+              <TrustBadge src="est-2002.png" alt="Established 2002" />
+            </Box>
+            <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
+              <TrustBadge
+                src="satisfaction-guarantee-2.png"
+                alt="Satisfaction guarantee"
+                href="/terms-and-conditions#satisfaction-guarantee"
+              />
+            </Box>
           </Stack>
         </Grid>
       </Container>
