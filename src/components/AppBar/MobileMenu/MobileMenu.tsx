@@ -6,11 +6,12 @@ import { CALL_OPTIONS } from "@/lib/constants/phoneNumbers";
 import { PAGES, READING_PAGES } from "@/lib/constants/urls";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
-import { Divider, Grid, Stack, Typography } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
+import Link from "next/link";
 import { themeIcons } from "../AppBar";
 import { StyledDrawer, StyledListItemText } from "./MobileMenu.styles";
 
@@ -41,21 +42,43 @@ export const MobileDrawer = ({
       onClose={onClose}
     >
       <Box
-        sx={{ width: "auto" }}
+        sx={{ width: "auto", display: "flex", flexDirection: "column", height: "100%" }}
         role="presentation"
         onClick={onClose}
         onKeyDown={onClose}
       >
         {showMenuIconOnly ? (
-          <Grid mt={2}>
+          <Box sx={{ px: 2, pt: 2 }}>
             <PrimaryCTAButton
               size="medium"
               onClick={handleFindYourPsychic}
               label="Find Your Psychic"
               fullWidth
             />
-          </Grid>
+          </Box>
         ) : null}
+
+        {/* Scrollable nav links */}
+        <Box sx={{ flex: 1, overflowY: "auto" }}>
+          <List>
+            {[...READING_PAGES, ...PAGES].map(({ label, path }) => (
+              <ListItem key={label} disablePadding alignItems="center">
+                <Link href={path} style={{ width: "100%", textDecoration: "none", color: "inherit" }}>
+                  <ListItemButton sx={{ width: "100%", justifyContent: "center" }}>
+                    <StyledListItemText
+                      slotProps={{ primary: { align: "center" } }}
+                      primary={label}
+                    />
+                  </ListItemButton>
+                </Link>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+
+        <Divider />
+
+        {/* Phone numbers — bottom, thumb-friendly */}
         <Box sx={{ bgcolor: "primary.dark" }}>
           {CALL_OPTIONS.map((opt, i) => (
             <Box
@@ -88,28 +111,15 @@ export const MobileDrawer = ({
             </Box>
           ))}
         </Box>
-        <Divider />
-        <List>
-          {/* onclick?? using path? */}
-          {[...READING_PAGES, ...PAGES].map(({ label }) => (
-            <ListItem key={label} disablePadding alignItems="center">
-              <ListItemButton sx={{ width: "100%", justifyContent: "center" }}>
-                <StyledListItemText
-                  slotProps={{ primary: { align: "center" } }}
-                  primary={label}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+
         {showMenuIconOnly ? (
-          <Grid mb={2} display="flex" justifyContent="center">
+          <Box sx={{ py: 2, display: "flex", justifyContent: "center" }}>
             <IconToggle
               onClick={onThemeToggle}
               initial={themeMode}
               iconList={themeIcons}
             />
-          </Grid>
+          </Box>
         ) : null}
       </Box>
     </StyledDrawer>

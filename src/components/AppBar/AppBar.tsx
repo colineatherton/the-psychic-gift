@@ -210,37 +210,6 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                 </Stack>
               )}
 
-              {/* Compact numbers — 765–1023px */}
-              {mounted && showCompactNumbers && (
-                <Stack
-                  direction="row"
-                  alignItems="center"
-                  sx={{ flex: 1, justifyContent: "center", mx: 2, gap: 2 }}
-                >
-                  {CALL_OPTIONS.map((opt) => (
-                    <Box
-                      key={opt.number}
-                      component="a"
-                      href={`tel:${opt.number.replace(/\s/g, "")}`}
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 0.5,
-                        color: "common.white",
-                        textDecoration: "none",
-                        whiteSpace: "nowrap",
-                        "&:hover": { color: "accent.primary" },
-                      }}
-                    >
-                      <PhoneInTalk sx={{ fontSize: "0.9rem", opacity: 0.7 }} />
-                      <Typography sx={{ fontSize: "0.88rem", fontWeight: 700, lineHeight: 1 }}>
-                        {opt.number}
-                      </Typography>
-                    </Box>
-                  ))}
-                </Stack>
-              )}
-
               {/* Right side CTAs */}
               {mounted && (
                 <Grid
@@ -289,6 +258,40 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
               )}
             </Box>
           </StyledContainer>
+          {/* Compact numbers row — 765–1023px, separate row to avoid layout conflicts */}
+          {mounted && showCompactNumbers && (
+            <Stack
+              direction="row"
+              justifyContent="center"
+              gap={{ sm: 3, md: 4 }}
+              sx={{
+                py: 0.75,
+                borderTop: "1px solid rgba(255,255,255,0.1)",
+              }}
+            >
+              {CALL_OPTIONS.map((opt) => (
+                <Box
+                  key={opt.number}
+                  component="a"
+                  href={`tel:${opt.number.replace(/\s/g, "")}`}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 0.5,
+                    color: "common.white",
+                    textDecoration: "none",
+                    whiteSpace: "nowrap",
+                    "&:hover": { color: "accent.primary" },
+                  }}
+                >
+                  <PhoneInTalk sx={{ fontSize: "0.9rem", opacity: 0.7 }} />
+                  <Typography sx={{ fontSize: "0.88rem", fontWeight: 700, lineHeight: 1 }}>
+                    {opt.number}
+                  </Typography>
+                </Box>
+              ))}
+            </Stack>
+          )}
         </StyledAppBarContainer>
         <StyledLinksContainer maxWidth={false} $showFullMenu={showFullMenu}>
           <Grid
