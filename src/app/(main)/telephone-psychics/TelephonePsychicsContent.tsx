@@ -2,6 +2,7 @@
 
 import { FeatureCard } from "@/components";
 import { CTA } from "@/components/Sections";
+import { PhoneCallout } from "@/components/PhoneCallout/PhoneCallout";
 import { Box, Grid, Typography, useTheme } from "@mui/material";
 
 export default function TelephonePsychicsContent() {
@@ -37,6 +38,9 @@ export default function TelephonePsychicsContent() {
             margin: "0 auto",
           }}
         />
+      </Grid>
+      <Grid size={12} mb={4}>
+        <PhoneCallout />
       </Grid>
       <Grid size={12} mb={4}>
         <Typography
