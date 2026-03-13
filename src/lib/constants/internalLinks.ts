@@ -25,14 +25,14 @@ export const homePageInternalLinks: InternalLink[] = [
     title: "How It Works",
     description:
       "A quick guide to choosing a psychic and starting your reading in just a few steps.",
-    href: "/how-it-works",
+    href: "/how-psychic-readings-work",
   },
   {
     iconPath: "heart-hands-2",
     title: "Why The Psychic Gift",
     description:
       "Learn what makes us different – a family legacy rooted in care, not corporations.",
-    href: "/why-the-psychic-gift",
+    href: "/about",
   },
   {
     iconPath: "phone",
@@ -46,6 +46,6 @@ export const homePageInternalLinks: InternalLink[] = [
     title: "Testimonials",
     description:
       "Real feedback from people just like you – honest, heartfelt, and reassuring.",
-    href: "/testimonials",
+    href: "/about#testimonials",
   },
 ];
