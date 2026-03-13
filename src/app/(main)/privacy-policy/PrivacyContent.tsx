@@ -1,6 +1,7 @@
 "use client";
 
 import { Box, Grid, Typography, useTheme } from "@mui/material";
+import { HELPLINE_NUMBER } from "@/lib/constants/phoneNumbers";
 
 export default function PrivacyContent() {
   const theme = useTheme();
@@ -89,7 +90,7 @@ export default function PrivacyContent() {
           privacy@thepsychicgift.co.uk
         </a>
         <br />
-        Support Helpline: 0808 156 0022
+        Support Helpline: {HELPLINE_NUMBER}
         <br />
         Address: The Psychic Gift, Customer Services, PO Box 2802, London, W1A
         5RB

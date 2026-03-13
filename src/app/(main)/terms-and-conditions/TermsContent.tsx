@@ -1,6 +1,7 @@
 "use client";
 
 import { Box, Grid, Typography, useTheme } from "@mui/material";
+import { HELPLINE_NUMBER } from "@/lib/constants/phoneNumbers";
 
 export default function TermsContent() {
   const theme = useTheme();
@@ -188,7 +189,7 @@ export default function TermsContent() {
         If you have a complaint about our service, please contact our customer
         support team at{" "}
         <a href="tel:08081560022" style={{ color: "inherit" }}>
-          0808 156 0022
+          {HELPLINE_NUMBER}
         </a>{" "}
         or email{" "}
         <a href="mailto:support@thepsychicgift.co.uk" style={{ color: "inherit" }}>

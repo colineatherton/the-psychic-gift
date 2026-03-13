@@ -1,5 +1,6 @@
 "use client";
 
+import { HELPLINE_NUMBER } from "@/lib/constants/phoneNumbers";
 import {
   Alert,
   Box,
@@ -186,7 +187,7 @@ export default function ContactContent() {
                 href="tel:08081560022"
                 sx={{ color: "inherit", textDecoration: "underline" }}
               >
-                0808 156 0022
+                {HELPLINE_NUMBER}
               </MuiLink>
               <br />
               <Typography
