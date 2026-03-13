@@ -80,7 +80,7 @@ export function OfferBanner({ message }: { message: string }) {
               </Box>
               <Typography
                 component="a"
-                href="/terms-and-conditions"
+                href="/terms-and-conditions#new-client-offer"
                 fontFamily="Montserrat Variable, sans-serif"
                 sx={{
                   fontSize: { xs: "0.75rem", sm: "0.85rem" },

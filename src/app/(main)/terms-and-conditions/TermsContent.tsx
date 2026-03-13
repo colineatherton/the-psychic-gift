@@ -134,9 +134,24 @@ export default function TermsContent() {
 
       <Typography
         sx={{ ...sectionTitleSx, scrollMarginTop: "120px" }}
+        id="new-client-offer"
+      >
+        5. New Client Offer
+      </Typography>
+      <Typography sx={paragraphSx}>
+        We offer 10 minutes for £5 to first-time callers as an introductory
+        rate. To be eligible, you must not have made a Credit/Debit Card line
+        call to The Psychic Gift in the last 3 months. The offer applies to
+        Credit/Debit Card calls only and is available once per customer.
+        Standard rates apply after the promotional 10 minutes. Quote{" "}
+        <strong>SEEKER</strong> when connecting to claim the offer.
+      </Typography>
+
+      <Typography
+        sx={{ ...sectionTitleSx, scrollMarginTop: "120px" }}
         id="satisfaction-guarantee"
       >
-        5. Satisfaction Guarantee
+        6. Satisfaction Guarantee
       </Typography>
       <Typography sx={paragraphSx}>
         We want you to be satisfied with your reading experience. If you are
@@ -152,7 +167,7 @@ export default function TermsContent() {
         right to refuse repeat claims or claims made in bad faith.
       </Typography>
 
-      <Typography sx={sectionTitleSx}>6. Call Recording</Typography>
+      <Typography sx={sectionTitleSx}>7. Call Recording</Typography>
       <Typography sx={paragraphSx}>
         All calls may be recorded for quality assurance, training, and
         regulatory compliance purposes. Recordings are stored securely and
@@ -160,7 +175,7 @@ export default function TermsContent() {
         access to recordings of your own calls by contacting customer support.
       </Typography>
 
-      <Typography sx={sectionTitleSx}>7. Reader Independence</Typography>
+      <Typography sx={sectionTitleSx}>8. Reader Independence</Typography>
       <Typography sx={paragraphSx}>
         The psychic readers available through The Psychic Gift are independent
         contractors, not employees. While we carefully select and monitor our
@@ -169,7 +184,7 @@ export default function TermsContent() {
         do not represent The Psychic Gift.
       </Typography>
 
-      <Typography sx={sectionTitleSx}>8. Disclaimer</Typography>
+      <Typography sx={sectionTitleSx}>9. Disclaimer</Typography>
       <Typography sx={paragraphSx}>
         Readings are provided for entertainment purposes only. We make no
         guarantees, representations, or warranties regarding the accuracy,
@@ -184,7 +199,7 @@ export default function TermsContent() {
         emotional distress, or any consequential damages.
       </Typography>
 
-      <Typography sx={sectionTitleSx}>9. Complaints</Typography>
+      <Typography sx={sectionTitleSx}>10. Complaints</Typography>
       <Typography sx={paragraphSx}>
         If you have a complaint about our service, please contact our customer
         support team at{" "}
@@ -211,7 +226,7 @@ export default function TermsContent() {
         .
       </Typography>
 
-      <Typography sx={sectionTitleSx}>10. Service Availability</Typography>
+      <Typography sx={sectionTitleSx}>11. Service Availability</Typography>
       <Typography sx={paragraphSx}>
         We aim to provide our service 24 hours a day, 7 days a week. However, we
         do not guarantee uninterrupted availability and may suspend service for
@@ -220,7 +235,7 @@ export default function TermsContent() {
         available at any given time.
       </Typography>
 
-      <Typography sx={sectionTitleSx}>11. Governing Law</Typography>
+      <Typography sx={sectionTitleSx}>12. Governing Law</Typography>
       <Typography sx={paragraphSx}>
         These terms and conditions are governed by and construed in accordance
         with the laws of England and Wales. Any disputes arising from these
@@ -228,7 +243,7 @@ export default function TermsContent() {
         England and Wales.
       </Typography>
 
-      <Typography sx={sectionTitleSx}>12. Changes to Terms</Typography>
+      <Typography sx={sectionTitleSx}>13. Changes to Terms</Typography>
       <Typography sx={paragraphSx}>
         We reserve the right to update these terms and conditions at any time.
         Changes will be effective immediately upon posting to this page. Your
