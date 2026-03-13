@@ -8,7 +8,7 @@ import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 export const ReaderAvailableAlert = () => {
   const { recentlyAvailable, getReaderByPin, lastUpdated } =
     useReaderFeedContext();
-  const { handleChooseCallOptions } = useReaderSelectContext();
+  const { handleChooseCallOptions, readerModalOpen } = useReaderSelectContext();
   const [open, setOpen] = useState(false);
 
   // Track dismissed reader IDs so we don't re-show while they remain online
@@ -50,7 +50,7 @@ export const ReaderAvailableAlert = () => {
     setOpen(false);
   };
 
-  if (!recentlyAvailable) return null;
+  if (!recentlyAvailable || readerModalOpen) return null;
 
   return (
     <Snackbar
@@ -90,7 +90,7 @@ export const ReaderAvailableAlert = () => {
         },
       }}
       sx={{
-        top: { xs: 72, sm: 80 },
+        top: { xs: 72, sm: 136 },
         "& .MuiPaper-root": {
           backgroundColor: (theme) => theme.palette.primary.dark,
         },
