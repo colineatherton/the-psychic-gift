@@ -189,17 +189,6 @@ export default function HowPsychicReadingsWork() {
             }
           />
         </Grid>
-        <Typography
-          fontFamily="Montserrat Variable, sans-serif"
-          fontWeight={500}
-          fontSize="1rem"
-          color={theme.palette.secondary.dark}
-          lineHeight="2"
-          variant="body2"
-          component="p"
-        >
-          <em>All pricing is shown before you connect.</em>
-        </Typography>
       </Grid>
       <Grid
         size={12}
