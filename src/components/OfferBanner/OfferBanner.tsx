@@ -54,27 +54,42 @@ export function OfferBanner({ message }: { message: string }) {
               justifyContent: "center",
             }}
           >
-            <Box
-              component="a"
-              href="tel:08081564939"
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-                textDecoration: "none",
-                color: "inherit",
-              }}
-            >
-              <PhoneIcon sx={{ fontSize: "1.2rem", color: "common.white" }} />
-              <Typography
-                fontFamily="Montserrat Variable, sans-serif"
-                fontWeight={600}
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+              <Box
+                component="a"
+                href="tel:08081564939"
                 sx={{
-                  fontSize: { xs: "0.85rem", sm: "1rem" },
-                  color: "common.white",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                  textDecoration: "none",
+                  color: "inherit",
                 }}
               >
-                {message}
+                <PhoneIcon sx={{ fontSize: "1.2rem", color: "common.white" }} />
+                <Typography
+                  fontFamily="Montserrat Variable, sans-serif"
+                  fontWeight={600}
+                  sx={{
+                    fontSize: { xs: "0.85rem", sm: "1rem" },
+                    color: "common.white",
+                  }}
+                >
+                  {message}
+                </Typography>
+              </Box>
+              <Typography
+                component="a"
+                href="/terms-and-conditions"
+                fontFamily="Montserrat Variable, sans-serif"
+                sx={{
+                  fontSize: { xs: "0.75rem", sm: "0.85rem" },
+                  color: "rgba(255,255,255,0.7)",
+                  textDecoration: "underline",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                T&amp;Cs apply
               </Typography>
             </Box>
           </Toolbar>
