@@ -187,7 +187,7 @@ export const Hero = () => {
                 label="Find Your Psychic"
                 mb={4}
               />
-              <PhoneCallout />
+              <PhoneCallout compact />
             </Grid>
             <Grid
               size={{ xs: 12, md: 5 }}
