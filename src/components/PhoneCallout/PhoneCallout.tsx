@@ -5,8 +5,83 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import { Box, Divider, Stack, Typography, useTheme } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 
-export const PhoneCallout = () => {
+interface PhoneCalloutProps {
+  compact?: boolean;
+}
+
+export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
   const theme = useTheme();
+  const ccOption = CALL_OPTIONS[0];
+
+  if (compact) {
+    return (
+      <Box
+        sx={{
+          backdropFilter: "blur(4px)",
+          background: alpha(theme.palette.primary.dark, 0.3),
+          border: `2px solid ${theme.palette.accent.primary}`,
+          borderRadius: theme.spacing(1),
+          padding: { xs: theme.spacing(2), md: theme.spacing(2.5) },
+          marginBottom: theme.spacing(2),
+        }}
+      >
+        <Box
+          component="a"
+          href={`tel:${ccOption.number.replace(/\s/g, "")}`}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 1.5,
+            textDecoration: "none",
+            color: "inherit",
+            mb: 1,
+            "&:hover .phone-number": { color: "accent.primary" },
+          }}
+        >
+          <PhoneIcon
+            sx={{
+              fontSize: { xs: "1.8rem", md: "2rem" },
+              color: theme.palette.accent.primary,
+            }}
+          />
+          <Typography
+            className="phone-number"
+            fontFamily="Montserrat Variable, sans-serif"
+            fontWeight={700}
+            sx={{
+              fontSize: { xs: "1.6rem", md: "2rem" },
+              color: theme.palette.text.primary,
+              transition: "color 0.15s",
+            }}
+          >
+            {ccOption.number}
+          </Typography>
+        </Box>
+        <Typography
+          fontFamily="Montserrat Variable, sans-serif"
+          fontWeight={500}
+          sx={{
+            fontSize: { xs: "0.95rem", md: "1.05rem" },
+            color: theme.palette.text.primary,
+            opacity: 0.8,
+          }}
+        >
+          {ccOption.price}
+        </Typography>
+        <Typography
+          fontFamily="Montserrat Variable, sans-serif"
+          fontWeight={600}
+          sx={{
+            fontSize: { xs: "0.9rem", md: "1rem" },
+            color: theme.palette.accent.primaryText,
+            mt: 1,
+          }}
+        >
+          {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – quote &quot;{NEW_CLIENT_OFFER_CODE}&quot;
+        </Typography>
+      </Box>
+    );
+  }
 
   return (
     <Box
@@ -100,6 +175,7 @@ export const PhoneCallout = () => {
           color: theme.palette.text.primary,
           borderTop: `1px solid ${alpha(theme.palette.text.primary, 0.15)}`,
           pt: 1.5,
+          textAlign: "center",
         }}
       >
         {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – quote &quot;{NEW_CLIENT_OFFER_CODE}&quot;
