@@ -56,8 +56,8 @@ export const MobileDrawer = ({
             />
           </Grid>
         ) : null}
-        <Box sx={{ px: 2, py: 1.5, bgcolor: "primary.dark" }}>
-          {CALL_OPTIONS.map((opt) => (
+        <Box sx={{ bgcolor: "primary.dark" }}>
+          {CALL_OPTIONS.map((opt, i) => (
             <Box
               key={opt.number}
               component="a"
@@ -65,25 +65,26 @@ export const MobileDrawer = ({
               sx={{
                 display: "flex",
                 alignItems: "center",
-                gap: 1,
-                py: 0.75,
+                gap: 1.5,
+                px: 2,
+                py: 1.25,
                 color: "common.white",
                 textDecoration: "none",
-                "&:hover .phone-number": { color: "accent.primary" },
+                borderTop: i > 0 ? "1px solid rgba(255,255,255,0.1)" : "none",
+                "&:hover": { bgcolor: "rgba(255,255,255,0.08)" },
               }}
             >
-              <PhoneInTalkIcon sx={{ fontSize: "1rem", opacity: 0.75 }} />
-              <Stack direction="row" alignItems="baseline" gap={1}>
+              <PhoneInTalkIcon sx={{ fontSize: "1.4rem", opacity: 0.8, flexShrink: 0 }} />
+              <Box>
                 <Typography
-                  className="phone-number"
-                  sx={{ fontSize: "1rem", fontWeight: 700, lineHeight: 1, transition: "color 0.15s" }}
+                  sx={{ fontSize: "1.05rem", fontWeight: 800, lineHeight: 1.2 }}
                 >
                   {opt.number}
                 </Typography>
-                <Typography sx={{ fontSize: "0.78rem", opacity: 0.7, lineHeight: 1 }}>
-                  {opt.title}
+                <Typography sx={{ fontSize: "0.72rem", opacity: 0.65, lineHeight: 1.3, mt: 0.25 }}>
+                  {opt.title} · {opt.price}
                 </Typography>
-              </Stack>
+              </Box>
             </Box>
           ))}
         </Box>

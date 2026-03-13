@@ -80,6 +80,7 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
   const showFullMenu = useMediaQuery("(min-width:765px)");
   const showMenuIconOnly = useMediaQuery("(max-width:475px)");
   const showHeaderNumbers = useMediaQuery("(min-width:1024px)");
+  const showCompactNumbers = showFullMenu && !showHeaderNumbers;
 
   useEffect(() => {
     setMounted(true);
@@ -179,6 +180,7 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                           opacity: 0.65,
                           display: "block",
                           mb: 0.5,
+                          whiteSpace: "nowrap",
                         }}
                       >
                         {opt.title}
@@ -203,6 +205,37 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                           {opt.number}
                         </Typography>
                       </Stack>
+                    </Box>
+                  ))}
+                </Stack>
+              )}
+
+              {/* Compact numbers — 765–1023px */}
+              {mounted && showCompactNumbers && (
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  sx={{ flex: 1, justifyContent: "center", mx: 2, gap: 2 }}
+                >
+                  {CALL_OPTIONS.map((opt) => (
+                    <Box
+                      key={opt.number}
+                      component="a"
+                      href={`tel:${opt.number.replace(/\s/g, "")}`}
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 0.5,
+                        color: "common.white",
+                        textDecoration: "none",
+                        whiteSpace: "nowrap",
+                        "&:hover": { color: "accent.primary" },
+                      }}
+                    >
+                      <PhoneInTalk sx={{ fontSize: "0.9rem", opacity: 0.7 }} />
+                      <Typography sx={{ fontSize: "0.88rem", fontWeight: 700, lineHeight: 1 }}>
+                        {opt.number}
+                      </Typography>
                     </Box>
                   ))}
                 </Stack>

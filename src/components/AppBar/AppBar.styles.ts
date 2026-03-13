@@ -10,8 +10,8 @@ export const StyledAppBar = styled(MUIAppBar)(({ theme }) => ({
 }));
 
 export const StyledAppBarContainer = styled(Container)(({ theme }) => ({
-  backdropFilter: "blur(8px)",
-  background: alpha(theme.palette.primary.main, 0.8),
+  backdropFilter: "blur(12px)",
+  background: alpha(theme.palette.primary.dark, 0.92),
   boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
 }));
 
