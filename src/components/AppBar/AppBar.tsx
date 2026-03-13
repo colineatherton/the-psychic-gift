@@ -1,12 +1,13 @@
 "use client";
 
 import { HoverMenu, IconToggle, PrimaryCTAButton } from "@/components";
+import { CALL_OPTIONS } from "@/lib/constants/phoneNumbers";
 import { NavIcons, PAGES, READING_PAGES } from "@/lib/constants/urls";
-import { DarkModeRounded, WbSunnyRounded } from "@mui/icons-material";
+import { DarkModeRounded, PhoneInTalk, WbSunnyRounded } from "@mui/icons-material";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Grid, useMediaQuery } from "@mui/material";
+import { Badge, Divider, Grid, Stack, Typography, useMediaQuery } from "@mui/material";
 import Box from "@mui/material/Box";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -78,6 +79,8 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
 
   const showFullMenu = useMediaQuery("(min-width:765px)");
   const showMenuIconOnly = useMediaQuery("(max-width:475px)");
+  const showHeaderNumbers = useMediaQuery("(min-width:1024px)");
+  const showCompactNumbers = showFullMenu && !showHeaderNumbers;
 
   useEffect(() => {
     setMounted(true);
@@ -113,72 +116,198 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
       <StyledAppBar position="fixed" elevation={0} ref={appBarRef}>
         <StyledAppBarContainer maxWidth={false}>
           <StyledContainer maxWidth="lg">
-            <Box sx={{ width: "100%", px: 0, py: 0 }}>
-              <Grid container alignItems="center">
-                <Box
-                  sx={{
-                    width: "100%",
-                    maxWidth: { xs: 150, sm: 240, md: 265 },
-                    my: 2,
-                  }}
+            <Box
+              sx={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                px: 0,
+                py: 0,
+              }}
+            >
+              {/* Logo */}
+              <Box
+                sx={{
+                  flexShrink: 0,
+                  width: "100%",
+                  maxWidth: showHeaderNumbers
+                    ? 200
+                    : { xs: 150, sm: 240, md: 265 },
+                  my: showHeaderNumbers ? 1 : 2,
+                  transition: "max-width 0.2s",
+                }}
+              >
+                <StyledImg
+                  src="/logo-gold-star.png"
+                  alt="The Psychic Gift Logo"
+                  onClick={() => onNavigate("/")}
+                />
+              </Box>
+
+              {/* Phone numbers — 1024px+ only */}
+              {mounted && showHeaderNumbers && (
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  sx={{ flex: 1, justifyContent: "center", mx: 2 }}
+                  divider={
+                    <Divider
+                      orientation="vertical"
+                      flexItem
+                      sx={{ borderColor: "rgba(255,255,255,0.2)", my: 1 }}
+                    />
+                  }
                 >
-                  <StyledImg
-                    src="/logo-gold-star.png"
-                    alt="The Psychic Gift Logo"
-                    onClick={() => onNavigate("/")}
-                  />
-                </Box>
-                {mounted && (
-                  <>
-                    <Grid
-                      marginLeft="auto"
-                      container
-                      spacing={1}
-                      alignItems="center"
+                  {CALL_OPTIONS.map((opt) => (
+                    <Box
+                      key={opt.number}
+                      component="a"
+                      href={`tel:${opt.number.replace(/\s/g, "")}`}
+                      sx={{
+                        textAlign: "center",
+                        px: 2,
+                        py: 0.5,
+                        textDecoration: "none",
+                        color: "common.white",
+                        "&:hover .phone-number": { color: "accent.primary" },
+                      }}
                     >
-                      {!showMenuIconOnly && (
-                        <>
-                          <Grid>
-                            <IconToggle
-                              onClick={onThemeToggle}
-                              initial={themeMode}
-                              iconList={themeIcons}
-                            />
-                          </Grid>
-                          <Grid>
-                            <StyledBadge
-                              badgeContent={getOnlineReaders().length}
-                            >
-                              <PrimaryCTAButton
-                                size="small"
-                                onClick={handleFindYourPsychic}
-                                mode="compact"
-                                label="Find Your Psychic"
-                              />
-                            </StyledBadge>
-                          </Grid>
-                        </>
-                      )}
-                      {!showFullMenu && (
-                        <Box marginLeft={2} display="inline">
-                          <IconToggle
-                            key={mobileMenuOpen ? "menu-open" : "menu-closed"} // remount to sync
-                            onClick={() => setMobileMenuOpen((v) => !v)}
-                            initial={
-                              mobileMenuOpen
-                                ? ("close" as const)
-                                : ("open" as const)
-                            } // reflect current state
-                            iconList={menuIcons}
+                      <Typography
+                        sx={{
+                          fontSize: "0.65rem",
+                          textTransform: "uppercase",
+                          letterSpacing: 1.5,
+                          opacity: 0.65,
+                          display: "block",
+                          mb: 0.5,
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {opt.title}
+                      </Typography>
+                      <Stack
+                        direction="row"
+                        alignItems="center"
+                        justifyContent="center"
+                        gap={0.75}
+                      >
+                        <PhoneInTalk sx={{ fontSize: "1.1rem", opacity: 0.75 }} />
+                        <Typography
+                          className="phone-number"
+                          sx={{
+                            fontSize: "1.35rem",
+                            fontWeight: 800,
+                            lineHeight: 1,
+                            letterSpacing: -0.3,
+                            transition: "color 0.15s",
+                          }}
+                        >
+                          {opt.number}
+                        </Typography>
+                      </Stack>
+                    </Box>
+                  ))}
+                </Stack>
+              )}
+
+              {/* Right side CTAs */}
+              {mounted && (
+                <Grid
+                  marginLeft="auto"
+                  container
+                  spacing={1}
+                  alignItems="center"
+                  sx={{ flexShrink: 0 }}
+                >
+                  {!showMenuIconOnly && (
+                    <>
+                      <Grid>
+                        <IconToggle
+                          onClick={onThemeToggle}
+                          initial={themeMode}
+                          iconList={themeIcons}
+                        />
+                      </Grid>
+                      <Grid>
+                        <StyledBadge badgeContent={getOnlineReaders().length}>
+                          <PrimaryCTAButton
+                            size="small"
+                            onClick={handleFindYourPsychic}
+                            mode="compact"
+                            label="Find Your Psychic"
                           />
-                        </Box>
-                      )}
-                    </Grid>
-                  </>
-                )}
-              </Grid>
+                        </StyledBadge>
+                      </Grid>
+                    </>
+                  )}
+                  {!showFullMenu && (
+                    <Box marginLeft={2} display="inline">
+                      <Badge
+                        variant="dot"
+                        invisible={!showMenuIconOnly || getOnlineReaders().length === 0 || mobileMenuOpen}
+                        sx={(theme) => ({
+                          "& .MuiBadge-dot": {
+                            backgroundColor: theme.palette.status.online,
+                            animation: "pulse 2s infinite",
+                            "--pulse-color": theme.palette.status.online,
+                            width: 10,
+                            height: 10,
+                            top: 4,
+                            right: 4,
+                          },
+                        })}
+                      >
+                        <IconToggle
+                          key={mobileMenuOpen ? "menu-open" : "menu-closed"}
+                          onClick={() => setMobileMenuOpen((v) => !v)}
+                          initial={
+                            mobileMenuOpen
+                              ? ("close" as const)
+                              : ("open" as const)
+                          }
+                          iconList={menuIcons}
+                        />
+                      </Badge>
+                    </Box>
+                  )}
+                </Grid>
+              )}
             </Box>
           </StyledContainer>
+          {/* Compact numbers row — 765–1023px, separate row to avoid layout conflicts */}
+          {mounted && showCompactNumbers && (
+            <Stack
+              direction="row"
+              justifyContent="center"
+              gap={{ sm: 3, md: 4 }}
+              sx={{
+                py: 0.75,
+                borderTop: "1px solid rgba(255,255,255,0.1)",
+              }}
+            >
+              {CALL_OPTIONS.map((opt) => (
+                <Box
+                  key={opt.number}
+                  component="a"
+                  href={`tel:${opt.number.replace(/\s/g, "")}`}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 0.5,
+                    color: "common.white",
+                    textDecoration: "none",
+                    whiteSpace: "nowrap",
+                    "&:hover": { color: "accent.primary" },
+                  }}
+                >
+                  <PhoneInTalk sx={{ fontSize: "0.9rem", opacity: 0.7 }} />
+                  <Typography sx={{ fontSize: "0.88rem", fontWeight: 700, lineHeight: 1 }}>
+                    {opt.number}
+                  </Typography>
+                </Box>
+              ))}
+            </Stack>
+          )}
         </StyledAppBarContainer>
         <StyledLinksContainer maxWidth={false} $showFullMenu={showFullMenu}>
           <Grid

@@ -57,7 +57,7 @@ export const ReaderAvailableAlert = () => {
       key={recentlyAvailable.id || "none"}
       open={open}
       onClose={handleClose}
-      anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+      anchorOrigin={{ vertical: "top", horizontal: "center" }}
       action={
         <>
           <Button
@@ -90,7 +90,7 @@ export const ReaderAvailableAlert = () => {
         },
       }}
       sx={{
-        bottom: { xs: 50 },
+        top: { xs: 72, sm: 80 },
         "& .MuiPaper-root": {
           backgroundColor: (theme) => theme.palette.primary.dark,
         },
