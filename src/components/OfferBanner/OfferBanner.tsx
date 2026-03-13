@@ -65,12 +65,13 @@ export function OfferBanner({ message }: { message: string }) {
                 color: "inherit",
               }}
             >
-              <PhoneIcon sx={{ fontSize: "1.2rem" }} />
+              <PhoneIcon sx={{ fontSize: "1.2rem", color: "common.white" }} />
               <Typography
                 fontFamily="Montserrat Variable, sans-serif"
                 fontWeight={600}
                 sx={{
                   fontSize: { xs: "0.85rem", sm: "1rem" },
+                  color: "common.white",
                 }}
               >
                 {message}
