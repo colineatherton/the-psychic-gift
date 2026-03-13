@@ -100,13 +100,13 @@ export default function TermsContent() {
 
       <Typography sx={sectionTitleSx}>3. Pricing</Typography>
       <Typography sx={paragraphSx}>
-        <strong>Credit/Debit Card Payments (0800 915 2333):</strong>
+        <strong>Credit/Debit Card Payments (0800 915 2345):</strong>
         <br />
         £32.95 for the first 20 minutes, then £1.50 per minute thereafter. Calls
         can last up to 90 minutes.
       </Typography>
       <Typography sx={paragraphSx}>
-        <strong>Pay by Phone Bill (0906 176 1960):</strong>
+        <strong>Pay by Phone Bill (0906 110 0960):</strong>
         <br />
         £1.50 per minute plus your phone company&apos;s access charge. Calls are
         limited to 26 minutes per call.

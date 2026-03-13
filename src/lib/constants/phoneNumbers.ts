@@ -1,7 +1,8 @@
 export const CALL_OPTIONS = [
   {
     title: "Credit / Debit Card",
-    number: "0800 915 2333",
+    number: "0800 915 2345",
+    mobileNumber: "0808 156 4931",
     price: "£32.95 for 20 mins, then £1.50/min",
   },
   {
@@ -11,7 +12,13 @@ export const CALL_OPTIONS = [
   },
   {
     title: "Pay by Phone Bill",
-    number: "0906 176 1960",
+    number: "0906 110 0960",
+    mobileNumber: "0906 110 0951",
     price: "£1.50/min + network access charge",
   },
 ];
+
+export const NCO_NUMBER = "0808 156 4939";
+export const HELPLINE_NUMBER = "0808 156 0022";
+export const INTERNATIONAL_NUMBER = "+44 113 732 0619";
+export const INTERNATIONAL_MOBILE_NUMBER = "+44 113 732 0633";
