@@ -54,7 +54,7 @@ export const PhoneCallout = () => {
           opacity: 0.9,
         }}
       >
-        £10 for 10 mins · £1.50/min thereafter · Card & Phone Bill Options
+        £32.95 for 20 mins · £1.50/min thereafter · Card &amp; Phone Bill Options
       </Typography>
       <Typography
         fontFamily="Montserrat Variable, sans-serif"
@@ -65,8 +65,7 @@ export const PhoneCallout = () => {
           marginTop: 1.5,
         }}
       >
-        New clients: <strong>10 mins for £5</strong> – quote
-        &quot;DISCOVER&quot;
+        New clients: <strong>10 mins for £5</strong> – quote &quot;DISCOVER&quot;
       </Typography>
     </Box>
   );
