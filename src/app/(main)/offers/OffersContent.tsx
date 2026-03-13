@@ -2,7 +2,7 @@
 
 import { CallOptionCard } from "@/components/ReaderModal/CallOptionCard";
 import { TrustBadge } from "@/components/TrustBadge/TrustBadge";
-import { CALL_OPTIONS, NEW_CLIENT_OFFER_CODE, NEW_CLIENT_OFFER_LABEL, SEEKER_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
+import { CALL_OPTIONS, NEW_CLIENT_OFFER_CODE, NEW_CLIENT_OFFER_LABEL, NEW_CLIENT_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
 import { Box, Container, Grid, Paper, Typography, useTheme } from "@mui/material";
 
 const STEPS = [

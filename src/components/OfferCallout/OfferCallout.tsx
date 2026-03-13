@@ -1,4 +1,4 @@
-import { NEW_CLIENT_OFFER_CODE, SEEKER_OFFER_LABEL, NEW_CLIENT_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
+import { NEW_CLIENT_OFFER_CODE, NEW_CLIENT_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
 import { Button, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { CalloutCard } from "../CalloutCard/CalloutCard";
