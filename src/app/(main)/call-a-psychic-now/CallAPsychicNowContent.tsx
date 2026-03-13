@@ -97,21 +97,21 @@ export default function CallAPsychicNowContent() {
         </Typography>
       </Grid>
       <Grid container spacing={4} width={"100%"} mb={6}>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/readers.png"
             title="Readers Online Now"
             body="See which psychics are currently available and ready to connect with you straight away."
           />
         </Grid>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/clock.png"
             title="No Appointment Needed"
             body="Call any time — day or night, weekday or weekend. Our lines are open 24 hours a day, 7 days a week."
           />
         </Grid>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/speech.png"
             title="Instant Connection"
@@ -140,21 +140,21 @@ export default function CallAPsychicNowContent() {
         </Typography>
       </Grid>
       <Grid container spacing={4} width={"100%"} mb={6}>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/search.png"
             title="1. Choose Your Reader"
             body="Browse our available psychics and select the reader you'd like to speak with — or let us connect you to the next available."
           />
         </Grid>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/phone.png"
             title="2. Dial the Number"
             body="Call our psychic line and follow the simple prompts. Enter your reader's PIN if you know who you want."
           />
         </Grid>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/crystal-ball.png"
             title="3. Start Your Reading"
