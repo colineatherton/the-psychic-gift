@@ -2,6 +2,7 @@
 
 import { FeatureCard } from "@/components";
 import { CTA } from "@/components/Sections";
+import { HELPLINE_NUMBER } from "@/lib/constants/phoneNumbers";
 import { Box, Grid, Typography, useTheme } from "@mui/material";
 
 export default function HowPsychicReadingsWork() {
@@ -343,7 +344,7 @@ export default function HowPsychicReadingsWork() {
           <FeatureCard
             src="/icons/hands-heart.png"
             title="Need support?"
-            body="Support helpline: 0808 156 0022 - Full details are available in our Terms & Conditions"
+            body={`Support helpline: ${HELPLINE_NUMBER} - Full details are available in our Terms & Conditions`}
           />
         </Grid>
       </Grid>

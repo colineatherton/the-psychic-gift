@@ -80,11 +80,13 @@ export const MobileDrawer = ({
 
         {/* Phone numbers — bottom, thumb-friendly */}
         <Box sx={{ bgcolor: "primary.dark" }}>
-          {CALL_OPTIONS.map((opt, i) => (
+          {CALL_OPTIONS.map((opt, i) => {
+            const displayNumber = opt.mobileNumber ?? opt.number;
+            return (
             <Box
               key={opt.number}
               component="a"
-              href={`tel:${opt.number.replace(/\s/g, "")}`}
+              href={`tel:${displayNumber.replace(/\s/g, "")}`}
               sx={{
                 display: "flex",
                 alignItems: "center",
@@ -102,14 +104,15 @@ export const MobileDrawer = ({
                 <Typography
                   sx={{ fontSize: "1.05rem", fontWeight: 800, lineHeight: 1.2 }}
                 >
-                  {opt.number}
+                  {displayNumber}
                 </Typography>
                 <Typography sx={{ fontSize: "0.72rem", opacity: 0.65, lineHeight: 1.3, mt: 0.25 }}>
                   {opt.title} · {opt.price}
                 </Typography>
               </Box>
             </Box>
-          ))}
+            );
+          })}
         </Box>
 
         {showMenuIconOnly ? (
