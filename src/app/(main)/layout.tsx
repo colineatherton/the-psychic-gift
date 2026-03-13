@@ -11,7 +11,7 @@ import {
 } from "@/components";
 import { AppBar } from "@/components/AppBar/AppBar";
 import { OfferBanner } from "@/components/OfferBanner/OfferBanner";
-import { NCO_NUMBER } from "@/lib/constants/phoneNumbers";
+import { NCO_NUMBER, SEEKER_OFFER_CODE, SEEKER_OFFER_LABEL, SEEKER_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
 import { ReaderFeedProvider } from "@/lib/context/ReaderFeedContext";
 import { ReaderSelectProvider } from "@/lib/context/ReaderSelectContext";
 import { ThemeProvider } from "@emotion/react";
@@ -49,7 +49,7 @@ export default function MainLayout({
           <Footer />
           <ReaderAvailableAlert />
           <OfferBanner
-            message={`🎁 Special Offer: 10 Minutes for just £5 for new clients! Call ${NCO_NUMBER} & quote "DISCOVER"`}
+            message={`🎁 ${SEEKER_OFFER_LABEL}: ${SEEKER_OFFER_PRICE} for first-time callers! Call ${NCO_NUMBER} & quote "${SEEKER_OFFER_CODE}"`}
           />
           <ReaderModal />
           <CookieConsent />
