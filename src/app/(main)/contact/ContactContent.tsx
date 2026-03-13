@@ -441,7 +441,7 @@ export default function ContactContent() {
       </Grid>
 
       <Grid container spacing={2} width="100%" mb={6} justifyContent="center">
-        <Grid size={{ xs: 6, sm: 3 }}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <Link href="/how-psychic-readings-work" passHref>
             <Paper
               elevation={0}
@@ -462,7 +462,7 @@ export default function ContactContent() {
             </Paper>
           </Link>
         </Grid>
-        <Grid size={{ xs: 6, sm: 3 }}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <Link href="/terms-and-conditions" passHref>
             <Paper
               elevation={0}
@@ -483,7 +483,7 @@ export default function ContactContent() {
             </Paper>
           </Link>
         </Grid>
-        <Grid size={{ xs: 6, sm: 3 }}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <Link href="/privacy-policy" passHref>
             <Paper
               elevation={0}
@@ -504,7 +504,7 @@ export default function ContactContent() {
             </Paper>
           </Link>
         </Grid>
-        <Grid size={{ xs: 6, sm: 3 }}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <Link href="/psychic-readers" passHref>
             <Paper
               elevation={0}

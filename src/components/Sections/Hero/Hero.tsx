@@ -146,7 +146,7 @@ export const Hero = () => {
             </Grid>
             <Grid
               size={{ xs: 12, md: 7 }}
-              sx={{ paddingRight: theme.spacing(6) }}
+              sx={{ paddingRight: { xs: 0, md: theme.spacing(6) } }}
             >
               <Typography
                 fontFamily="Montserrat Variable, sans-serif"

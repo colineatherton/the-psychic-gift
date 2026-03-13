@@ -60,14 +60,14 @@ export function WhyPsychicGift() {
             />
           </Grid>
           <Grid container spacing={4} width={"100%"} mb={6}>
-            <Grid size={4}>
+            <Grid size={{ xs: 12, md: 4 }}>
               <FeatureCard
                 src="/icons/crystal-ball.png"
                 title="Psychic Readings Since 2002"
                 body="Over two decades of connecting seekers with experienced clairvoyants, mediums, and tarot readers who deliver insightful guidance."
               />
             </Grid>
-            <Grid size={4}>
+            <Grid size={{ xs: 12, md: 4 }}>
               <FeatureCard
                 src="/icons/stars.png"
                 title="Hand-Picked, Gifted Psychics"
@@ -75,7 +75,7 @@ export function WhyPsychicGift() {
                 empathy, and integrity."
               />
             </Grid>
-            <Grid size={4}>
+            <Grid size={{ xs: 12, md: 4 }}>
               <FeatureCard
                 src="/icons/hands-heart.png"
                 title="Relied on by Thousands"
@@ -86,7 +86,7 @@ export function WhyPsychicGift() {
             </Grid>
           </Grid>
           <Grid container spacing={4} width={"100%"} alignItems="center">
-            <Grid size={3}>
+            <Grid size={{ xs: 12, md: 3 }}>
               <CircleImage>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -95,7 +95,7 @@ export function WhyPsychicGift() {
                 />
               </CircleImage>
             </Grid>
-            <Grid size={9}>
+            <Grid size={{ xs: 12, md: 9 }}>
               <Typography
                 fontFamily="Montserrat Variable, sans-serif"
                 fontWeight={500}
