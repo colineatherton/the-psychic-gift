@@ -1,4 +1,4 @@
-import { SEEKER_OFFER_CODE, SEEKER_OFFER_LABEL, SEEKER_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
+import { NEW_CLIENT_OFFER_CODE, NEW_CLIENT_OFFER_LABEL, NEW_CLIENT_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
 import { Box, Typography, useTheme } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -66,7 +66,7 @@ export const PhoneCallout = () => {
           marginTop: 1.5,
         }}
       >
-        {SEEKER_OFFER_LABEL}: <strong>{SEEKER_OFFER_PRICE}</strong> – quote &quot;{SEEKER_OFFER_CODE}&quot;
+        {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – quote &quot;{NEW_CLIENT_OFFER_CODE}&quot;
       </Typography>
     </Box>
   );

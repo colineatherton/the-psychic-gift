@@ -2,7 +2,7 @@
 
 import { CallOptionCard } from "@/components/ReaderModal/CallOptionCard";
 import { TrustBadge } from "@/components/TrustBadge/TrustBadge";
-import { CALL_OPTIONS, SEEKER_OFFER_CODE, SEEKER_OFFER_LABEL, SEEKER_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
+import { CALL_OPTIONS, NEW_CLIENT_OFFER_CODE, NEW_CLIENT_OFFER_LABEL, SEEKER_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
 import { Box, Container, Grid, Paper, Typography, useTheme } from "@mui/material";
 
 const STEPS = [
@@ -15,8 +15,8 @@ const STEPS = [
   {
     icon: "/icons/phone.png",
     number: "2",
-    title: `Call and quote "${SEEKER_OFFER_CODE}"`,
-    desc: `Choose a call option below and quote "${SEEKER_OFFER_CODE}" when you connect.`,
+    title: `Call and quote "${NEW_CLIENT_OFFER_CODE}"`,
+    desc: `Choose a call option below and quote "${NEW_CLIENT_OFFER_CODE}" when you connect.`,
   },
   {
     icon: "/icons/crystal-ball.png",
@@ -80,7 +80,7 @@ export function OffersContent() {
             textTransform: "uppercase",
           }}
         >
-          {SEEKER_OFFER_LABEL}
+          {NEW_CLIENT_OFFER_LABEL}
         </Typography>
         <Typography
           component="p"
@@ -129,7 +129,7 @@ export function OffersContent() {
               fontFamily: "monospace",
             }}
           >
-            {SEEKER_OFFER_CODE}
+            {NEW_CLIENT_OFFER_CODE}
           </Typography>
         </Box>
       </Box>

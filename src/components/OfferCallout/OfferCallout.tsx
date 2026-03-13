@@ -1,4 +1,4 @@
-import { SEEKER_OFFER_CODE, SEEKER_OFFER_LABEL, SEEKER_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
+import { NEW_CLIENT_OFFER_CODE, SEEKER_OFFER_LABEL, NEW_CLIENT_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
 import { Button, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { CalloutCard } from "../CalloutCard/CalloutCard";
@@ -25,7 +25,7 @@ export const OfferCallout = () => {
         fontFamily="Montserrat Variable, sans-serif"
         fontSize="1rem"
       >
-        <strong>{SEEKER_OFFER_PRICE}</strong> for first-time callers! Quote <strong>&quot;{SEEKER_OFFER_CODE}&quot;</strong> when you call.
+        <strong>{NEW_CLIENT_OFFER_PRICE}</strong> for first-time callers! Quote <strong>&quot;{NEW_CLIENT_OFFER_CODE}&quot;</strong> when you call.
       </Typography>
       <Button
         sx={{
