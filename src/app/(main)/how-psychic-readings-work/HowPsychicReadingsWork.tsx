@@ -197,7 +197,7 @@ export default function HowPsychicReadingsWork() {
           variant="body2"
           component="p"
         >
-          <em>All pricing is shown before you connect.</em>
+          <em>Current pricing is available in our <a href="/terms-and-conditions#pricing" style={{ color: "inherit" }}>Terms &amp; Conditions</a>.</em>
         </Typography>
       </Grid>
       <Grid
