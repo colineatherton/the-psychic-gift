@@ -20,6 +20,7 @@ export const metadata = {
     ],
     type: "website",
   },
+  alternates: { canonical: "/about" },
 };
 
 export default function About() {

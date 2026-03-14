@@ -20,6 +20,7 @@ export const metadata = {
     ],
     type: "website",
   },
+  alternates: { canonical: "/call-a-psychic-now" },
 };
 
 export default function CallNow() {
