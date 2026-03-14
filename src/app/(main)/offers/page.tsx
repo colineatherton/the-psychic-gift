@@ -12,7 +12,7 @@ export const metadata = {
     siteName: "The Psychic Gift",
     images: [
       {
-        url: "/og-image.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
       },
