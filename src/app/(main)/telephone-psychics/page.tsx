@@ -20,6 +20,7 @@ export const metadata = {
     ],
     type: "website",
   },
+  alternates: { canonical: "/telephone-psychics" },
 };
 
 export default function TelephonePsychics() {

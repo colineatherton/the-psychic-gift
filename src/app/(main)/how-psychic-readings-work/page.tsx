@@ -20,6 +20,7 @@ export const metadata = {
     ],
     type: "website",
   },
+  alternates: { canonical: "/how-psychic-readings-work" },
 };
 
 export default function HowItWorks() {
