@@ -11,7 +11,7 @@ export async function GET() {
   ${pages
     .map(
       (page) => `<url>
-        <loc>https://yourdomain.com/${page}</loc>
+        <loc>https://thepsychicgift.co.uk/${page}</loc>
       </url>`
     )
     .join("\n")}
