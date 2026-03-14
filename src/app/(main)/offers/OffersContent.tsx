@@ -327,11 +327,7 @@ export function OffersContent() {
         textAlign="center"
         display="block"
       >
-<<<<<<< HEAD
-        New Client Offer available to first-time callers who have not made a Credit/Debit Card call to The Psychic Gift in the last 3 months. Standard rates apply after the promotional 10 minutes.{" "}
-=======
         {NEW_CLIENT_OFFER_LABEL} available to first-time callers who have not made a Credit/Debit Card call to The Psychic Gift in the last 3 months. Standard rates apply after the promotional 10 minutes.{" "}
->>>>>>> f8f3003 (fix: clarify offer page call options — NCO via Reception only, standard rates separated (#68))
         <a href="/terms-and-conditions#new-client-offer" style={{ color: "inherit" }}>
           Full T&amp;Cs apply.
         </a>
