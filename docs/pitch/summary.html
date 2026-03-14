@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Psychic Gift — Executive Summary</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --dark: #1a0f4e;
+      --mid: #745ddd;
+      --light: #c6bbf4;
+      --pale: #f0eeff;
+      --white: #fff;
+      --muted: #6b7280;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--white);
+      color: #1a1a2e;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, var(--dark), #3d2080);
+      border-radius: 20px;
+      padding: 2.5rem;
+      color: white;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: '✦';
+      position: absolute; top: 1.5rem; right: 2rem;
+      font-size: 3rem; opacity: 0.15;
+    }
+    .eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--light); margin-bottom: 0.6rem; }
+    header h1 { font-size: 1.9rem; font-weight: 800; line-height: 1.15; margin-bottom: 0.6rem; }
+    header p { font-size: 0.9rem; color: rgba(255,255,255,0.65); max-width: 480px; }
+
+    /* STATS ROW */
+    .stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem;
+    }
+    @media(max-width:520px) { .stats { grid-template-columns: repeat(2,1fr); } }
+    .stat {
+      background: var(--pale); border-radius: 14px; padding: 1.2rem 1rem; text-align: center;
+    }
+    .stat .n { font-size: 1.8rem; font-weight: 800; color: var(--dark); line-height: 1; }
+    .stat .l { font-size: 0.68rem; font-weight: 600; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* CARDS */
+    h2 { font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--mid); margin-bottom: 1rem; margin-top: 2rem; }
+
+    .cards { display: grid; gap: 0.75rem; }
+    .card {
+      border-radius: 14px; padding: 1.25rem 1.5rem;
+      border: 1px solid #e5e7eb;
+      display: grid; grid-template-columns: 36px 1fr; gap: 1rem; align-items: start;
+    }
+    .card-icon { font-size: 1.4rem; margin-top: 2px; }
+    .card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+    .card .status {
+      display: inline-block; margin-top: 0.5rem;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 100px;
+    }
+    .done { background: #dcfce7; color: #15803d; }
+    .wip  { background: #fef9c3; color: #854d0e; }
+    .next { background: var(--pale); color: var(--dark); }
+
+    /* PHASE TABLE */
+    .phases { display: grid; gap: 0.6rem; }
+    .phase-row {
+      display: grid; grid-template-columns: 90px 1fr auto;
+      align-items: center; gap: 1rem;
+      padding: 0.9rem 1.2rem; border-radius: 12px;
+      border: 1px solid #e5e7eb;
+    }
+    .phase-row.active { border-color: #86efac; background: #f0fdf4; }
+    .ph-label { font-size: 0.7rem; font-weight: 700; color: var(--mid); text-transform: uppercase; letter-spacing: 1px; }
+    .phase-row.active .ph-label { color: #16a34a; }
+    .ph-title { font-size: 0.85rem; font-weight: 700; }
+    .ph-date { font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
+
+    footer { margin-top: 3rem; text-align: center; font-size: 0.75rem; color: var(--muted); }
+    a.more {
+      display: inline-block; margin-top: 2rem;
+      background: var(--mid); color: white; text-decoration: none;
+      font-size: 0.8rem; font-weight: 700; padding: 10px 24px; border-radius: 100px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Executive Summary · March 2026</div>
+  <h1>The Psychic Gift<br/>Digital Growth Strategy</h1>
+  <p>Rebuilding a 20-year-old business on a platform that can actually compete — and building the systems to keep growing it.</p>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="n">20+</div><div class="l">Indexed reader pages</div></div>
+  <div class="stat"><div class="n">5</div><div class="l">Landing pages live</div></div>
+  <div class="stat"><div class="n">5</div><div class="l">Growth pillars</div></div>
+  <div class="stat"><div class="n">2</div><div class="l">AI research agents</div></div>
+</div>
+
+<h2>What we fixed</h2>
+<div class="cards">
+  <div class="card">
+    <div class="card-icon">🔧</div>
+    <div>
+      <h3>Complete site rebuild</h3>
+      <p>Replaced a broken PHP site (circa 2010, no mobile support, wrong phone numbers, departed readers listed) with a modern Next.js app. Fast, scalable, and built to be found.</p>
+      <span class="status done">Done</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-icon">🔍</div>
+    <div>
+      <h3>SEO from the ground up</h3>
+      <p>Every page now has proper metadata, canonical URLs, and structured data for Google rich results. 20+ reader profiles individually indexed — previously invisible to search engines.</p>
+      <span class="status done">Done</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-icon">📞</div>
+    <div>
+      <h3>Phone numbers everywhere</h3>
+      <p>Correct production numbers on every page, visible on mobile. Clear call-to-action on all service pages and the homepage. Offer page rebuilt for clarity and compliance.</p>
+      <span class="status done">Done</span>
+    </div>
+  </div>
+</div>
+
+<h2>The growth engine (5 pillars)</h2>
+<div class="cards">
+  <div class="card">
+    <div class="card-icon">📈</div>
+    <div>
+      <h3>SEO — organic traffic foundation</h3>
+      <p>Keyword targets set across head terms, service pages, and reader specialties. AI agent runs monthly to spot new opportunities and flag what competitors are ranking for.</p>
+      <span class="status done">Foundation live</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-icon">✍️</div>
+    <div>
+      <h3>Content — blog &amp; informational pages</h3>
+      <p>CMS being built (Sanity). Charlotte manages content herself. Blog targets high-volume, low-competition questions ("what is a clairvoyant", "love reading by phone") — traffic that compounds forever.</p>
+      <span class="status wip">CMS in design</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-icon">💰</div>
+    <div>
+      <h3>Google Ads — immediate traffic</h3>
+      <p>Landing pages are built and ready for ad traffic. Campaign structure planned across brand, high-intent, and specialty keywords. Fastest way to test what converts while SEO builds.</p>
+      <span class="status next">Ready to launch</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-icon">🎯</div>
+    <div>
+      <h3>CRO — make every visitor count</h3>
+      <p>Heatmaps, conversion tracking, and A/B testing to understand the funnel. Which CTAs drive calls? Which offer framing converts? Data-led decisions, not guesswork.</p>
+      <span class="status next">Tracking setup next</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-icon">📲</div>
+    <div>
+      <h3>Social — brand awareness</h3>
+      <p>Reader spotlights, psychic insights, testimonials — strong raw material for Facebook, Instagram, and TikTok. #psychictok has billions of views. Strategy defined, ready to execute.</p>
+      <span class="status next">Strategy defined</span>
+    </div>
+  </div>
+</div>
+
+<h2>The roadmap</h2>
+<div class="phases">
+  <div class="phase-row">
+    <div class="ph-label">Phase 1</div>
+    <div class="ph-title">Rebuild &amp; stabilise — foundation complete</div>
+    <div class="ph-date">✓ Done</div>
+  </div>
+  <div class="phase-row active">
+    <div class="ph-label">Phase 2 →</div>
+    <div class="ph-title">CMS, Google Ads, conversion tracking</div>
+    <div class="ph-date">Now – Q2 2026</div>
+  </div>
+  <div class="phase-row">
+    <div class="ph-label">Phase 3</div>
+    <div class="ph-title">AI research loops, A/B testing, scale</div>
+    <div class="ph-date">Q3 2026</div>
+  </div>
+  <div class="phase-row">
+    <div class="ph-label">Phase 4</div>
+    <div class="ph-title">Email, loyalty, client retention</div>
+    <div class="ph-date">Q4 2026</div>
+  </div>
+</div>
+
+<center>
+  <a class="more" href="index.html">View full strategy →</a>
+</center>
+
+<footer>
+  The Psychic Gift · Confidential · March 2026
+</footer>
+
+</body>
+</html>
