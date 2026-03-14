@@ -1,4 +1,5 @@
 import { OffersContent } from "./OffersContent";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Special Offers | The Psychic Gift",
@@ -22,5 +23,13 @@ export const metadata = {
 };
 
 export default function Offers() {
-  return <OffersContent />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "Offers", path: "/offers" }])) }}
+      />
+      <OffersContent />
+    </>
+  );
 }

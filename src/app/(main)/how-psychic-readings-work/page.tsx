@@ -1,5 +1,6 @@
 import { Container, Grid } from "@mui/material";
 import HowPsychicReadingsWork from "./HowPsychicReadingsWork";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata = {
   title: "How Psychic Readings Work | The Psychic Gift",
@@ -24,12 +25,18 @@ export const metadata = {
 
 export default function HowItWorks() {
   return (
-    <Container maxWidth="lg">
-      <Grid container minHeight="100vh" py={6} width={"100%"}>
-        <Grid size={12} mt={20}>
-          <HowPsychicReadingsWork />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "How It Works", path: "/how-psychic-readings-work" }])) }}
+      />
+      <Container maxWidth="lg">
+        <Grid container minHeight="100vh" py={6} width={"100%"}>
+          <Grid size={12} mt={20}>
+            <HowPsychicReadingsWork />
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </>
   );
 }
