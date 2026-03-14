@@ -21,6 +21,7 @@ export const metadata = {
     ],
     type: "website",
   },
+  alternates: { canonical: "/clairvoyant-readings" },
 };
 
 export default function ClairvoyantReadings() {
