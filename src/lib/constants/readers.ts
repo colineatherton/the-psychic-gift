@@ -133,20 +133,6 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with Fran",
     imageUrl: "img/readers/original/by_pin/1133.png",
   },
-  ["hope-3203"]: {
-    name: "Hope",
-    pin: 3203,
-    description:
-      "Hope is a gifted healer, psychic and medium, with an inherited gift. In terms of clairvoyant abilities, you couldn't ask for someone more well versed, as she is proficient in psychometry, the I Ching, Tarot, palmistry and more. Hope wants to give you messages from Spirit that will allow you to heal and move forward.",
-    specialties: {
-      abilities: ["clairvoyance", "psychic", "mediumship", "healing"],
-      tools: ["tarot", "palmistry", "i ching"],
-      topics: [],
-      themes: [],
-    },
-    ctaText: "Connect with Hope",
-    imageUrl: "img/readers/original/by_pin/3203.png",
-  },
   ["jasmine-5115"]: {
     name: "Jasmine",
     pin: 5115,
@@ -189,20 +175,6 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     ctaText: "Connect with John",
     imageUrl: "img/readers/original/by_pin/5152.png",
   },
-  ["josephine-4499"]: {
-    name: "Josephine",
-    pin: 4499,
-    description:
-      "Josephine leads people on a journey toward spiritual awakening, combining clairvoyance, clairaudience, clairsentience, and remote viewing. With a deep bond to the angelic realm, she offers valuable advice, healing, and empowerment. Her support enables individuals to discover their potential and tackle life's problems with clarity.",
-    specialties: {
-      abilities: ["clairvoyance", "clairsentience", "clairaudience", "healing"],
-      tools: [],
-      topics: ["emotional healing"],
-      themes: ["supportive"],
-    },
-    ctaText: "Connect with Josephine",
-    imageUrl: "img/readers/original/by_pin/4499.png",
-  },
   ["julien-4334"]: {
     name: "Julien",
     pin: 4334,
@@ -230,20 +202,6 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     },
     ctaText: "Connect with Karen",
     imageUrl: "img/readers/original/by_pin/5791.png",
-  },
-  ["maggie-9801"]: {
-    name: "Maggie",
-    pin: 9801,
-    description:
-      "Maggie embodies honesty, compassion, and patience. She attentively listens without passing judgment. As an experienced psychic, she can perceive intentions, reveal motivations, and delve deep into hearts and minds. Maggie utilises her psychic abilities in conjunction with tools like Mediumship, Pegasus Pendulum and The Voyager Tarot.",
-    specialties: {
-      abilities: ["psychic", "mediumship"],
-      tools: ["voyager tarot", "tarot", "pegasus pendulum", "pendulum"],
-      topics: [],
-      themes: ["compassionate", "direct"],
-    },
-    ctaText: "Connect with Maggie",
-    imageUrl: "img/readers/original/by_pin/9801.png",
   },
   ["mariah-1881"]: {
     name: "Mariah",
@@ -286,20 +244,6 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     },
     ctaText: "Connect with Mavis",
     imageUrl: "img/readers/original/by_pin/1010.png",
-  },
-  ["michaela-3232"]: {
-    name: "Michaela",
-    pin: 3232,
-    description:
-      "Michaela has over 12 years' experience; she can advise on all relationships particularly if you have a question early on. Michaela specialises in tackling present problems and challenges to ensure you can achieve your life goals. Michaela often turns to Archangel Michael for guidance and will pass on his messages with honesty and grace.",
-    specialties: {
-      abilities: ["guidance"],
-      tools: [],
-      topics: ["relationships"],
-      themes: ["direct"],
-    },
-    ctaText: "Connect with Michaela",
-    imageUrl: "img/readers/original/by_pin/3232.png",
   },
   ["pauline-3798"]: {
     name: "Pauline",
@@ -384,20 +328,6 @@ export const READER_CONFIG_MAP: Record<string, ReaderConfig> = {
     },
     ctaText: "Connect with Toby",
     imageUrl: "img/readers/original/by_pin/2333.png",
-  },
-  ["vanessa-3900"]: {
-    name: "Vanessa",
-    pin: 3900,
-    description:
-      "Vanessa has a raft of psychic abilities, from mediumship and clairaudience to clairsentience. She also uses cards, crystals and healing. She is highly attuned to the animal kingdom and is a Reiki Master and teacher. Most of all, Vanessa wants her callers to feel comfortable talking to her so that they can freely discuss their problems and worries and formulate a way forward.",
-    specialties: {
-      abilities: ["psychic", "mediumship", "clairsentience", "clairaudience"],
-      tools: ["crystals"],
-      topics: ["emotional healing"],
-      themes: [],
-    },
-    ctaText: "Connect with Vanessa",
-    imageUrl: "img/readers/original/by_pin/3900.png",
   },
 };
 
