@@ -1,25 +1,31 @@
+import { READER_CONFIG_MAP } from "@/lib/constants/readers";
 import { ALL_PAGES } from "@/lib/constants/urls";
 
+const BASE_URL = "https://thepsychicgift.co.uk";
+
 export async function GET() {
-  const pages = ALL_PAGES.map((page) => {
-    // Assuming page is a string representing the path
-    return page.path.replace(/^\//, ""); // Remove leading slash if present
-  });
+  const staticPaths = ALL_PAGES.map((page) =>
+    page.path.replace(/^\//, "")
+  );
+
+  const readerPaths = Object.keys(READER_CONFIG_MAP).map(
+    (key) => `psychic-readers/${key}`
+  );
+
+  const allPaths = [...staticPaths, ...readerPaths];
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${pages
+  ${allPaths
     .map(
-      (page) => `<url>
-        <loc>https://thepsychicgift.co.uk/${page}</loc>
-      </url>`
+      (path) => `<url>
+    <loc>${BASE_URL}/${path}</loc>
+  </url>`
     )
-    .join("\n")}
+    .join("\n  ")}
 </urlset>`;
 
   return new Response(body, {
-    headers: {
-      "Content-Type": "application/xml",
-    },
+    headers: { "Content-Type": "application/xml" },
   });
 }
