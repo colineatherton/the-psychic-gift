@@ -20,7 +20,7 @@ import { use } from "react";
 //     siteName: "Phoenix Rising",
 //     images: [
 //       {
-//         url: "/og-image.png",
+//         url: "/opengraph-image",
 //         width: 1200,
 //         height: 630,
 //       },
