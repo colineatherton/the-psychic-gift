@@ -20,6 +20,7 @@ export const metadata = {
     ],
     type: "website",
   },
+  alternates: { canonical: "/terms-and-conditions" },
 };
 
 export default function TermsAndConditions() {

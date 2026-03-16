@@ -34,6 +34,7 @@ export const metadata = {
     ],
     type: "website",
   },
+  alternates: { canonical: "/" },
 };
 
 export default function Home() {
