@@ -1,5 +1,6 @@
 import { Container, Grid } from "@mui/material";
 import AboutContent from "./AboutContent";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata = {
   title: "About Us | The Psychic Gift",
@@ -13,7 +14,7 @@ export const metadata = {
     siteName: "The Psychic Gift",
     images: [
       {
-        url: "/og-image.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
       },
@@ -24,12 +25,18 @@ export const metadata = {
 
 export default function About() {
   return (
-    <Container maxWidth="lg">
-      <Grid container minHeight="100vh" py={6} width={"100%"}>
-        <Grid size={12} mt={20}>
-          <AboutContent />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "About Us", path: "/about" }])) }}
+      />
+      <Container maxWidth="lg">
+        <Grid container minHeight="100vh" py={6} width={"100%"}>
+          <Grid size={12} mt={20}>
+            <AboutContent />
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </>
   );
 }

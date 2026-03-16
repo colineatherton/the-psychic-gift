@@ -1,5 +1,6 @@
 import { Container, Grid } from "@mui/material";
 import ClairvoyantReadingsContent from "./ClairvoyantReadingsContent";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Clairvoyant Readings by Phone | Speak to a Clairvoyant | The Psychic Gift",
@@ -13,7 +14,7 @@ export const metadata = {
     siteName: "The Psychic Gift",
     images: [
       {
-        url: "/og-image.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
       },
@@ -24,12 +25,18 @@ export const metadata = {
 
 export default function ClairvoyantReadings() {
   return (
-    <Container maxWidth="lg">
-      <Grid container minHeight="100vh" py={6} width={"100%"}>
-        <Grid size={12} mt={20}>
-          <ClairvoyantReadingsContent />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "Clairvoyant Readings", path: "/clairvoyant-readings" }])) }}
+      />
+      <Container maxWidth="lg">
+        <Grid container minHeight="100vh" py={6} width={"100%"}>
+          <Grid size={12} mt={20}>
+            <ClairvoyantReadingsContent />
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </>
   );
 }

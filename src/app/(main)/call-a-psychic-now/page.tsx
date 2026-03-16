@@ -1,5 +1,6 @@
 import { Container, Grid } from "@mui/material";
 import CallAPsychicNowContent from "./CallAPsychicNowContent";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Call a Psychic Now | Speak to a Psychic Immediately | The Psychic Gift",
@@ -13,7 +14,7 @@ export const metadata = {
     siteName: "The Psychic Gift",
     images: [
       {
-        url: "/og-image.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
       },
@@ -24,12 +25,18 @@ export const metadata = {
 
 export default function CallNow() {
   return (
-    <Container maxWidth="lg">
-      <Grid container minHeight="100vh" py={6} width={"100%"}>
-        <Grid size={12} mt={20}>
-          <CallAPsychicNowContent />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "Call a Psychic Now", path: "/call-a-psychic-now" }])) }}
+      />
+      <Container maxWidth="lg">
+        <Grid container minHeight="100vh" py={6} width={"100%"}>
+          <Grid size={12} mt={20}>
+            <CallAPsychicNowContent />
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </>
   );
 }
