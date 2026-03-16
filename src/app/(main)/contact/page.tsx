@@ -1,6 +1,7 @@
 import { Container, Grid } from "@mui/material";
 import ContactContent from "./ContactContent";
 import { ReCaptchaProvider } from "@/components/ReCaptchaProvider/ReCaptchaProvider";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Contact Us | The Psychic Gift",
@@ -25,14 +26,20 @@ export const metadata = {
 
 export default function Contact() {
   return (
-    <ReCaptchaProvider>
-      <Container maxWidth="lg">
-        <Grid container minHeight="100vh" py={6} width="100%">
-          <Grid size={12} mt={20}>
-            <ContactContent />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "Contact", path: "/contact" }])) }}
+      />
+      <ReCaptchaProvider>
+        <Container maxWidth="lg">
+          <Grid container minHeight="100vh" py={6} width="100%">
+            <Grid size={12} mt={20}>
+              <ContactContent />
+            </Grid>
           </Grid>
-        </Grid>
-      </Container>
-    </ReCaptchaProvider>
+        </Container>
+      </ReCaptchaProvider>
+    </>
   );
 }

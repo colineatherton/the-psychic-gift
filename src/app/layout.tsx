@@ -2,6 +2,7 @@ import "@fontsource-variable/montserrat";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
 import type { Metadata } from "next";
+import { organizationJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://thepsychicgift.co.uk"),
@@ -29,6 +30,10 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
       </head>
       <body>
         <AppRouterCacheProvider>{children}</AppRouterCacheProvider>

@@ -1,5 +1,6 @@
 import { ReaderFiltersController } from "@/components/ReaderFiltersController/ReaderFiltersController";
 import { Container, Grid } from "@mui/material";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Our Psychic Readers | The Psychic Gift",
@@ -24,10 +25,16 @@ export const metadata = {
 
 export default function PsychicReaders() {
   return (
-    <Container maxWidth="lg">
-      <Grid container height="100%" py={6} width={"100%"}>
-        <ReaderFiltersController />
-      </Grid>
-    </Container>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "Our Psychics", path: "/psychic-readers" }])) }}
+      />
+      <Container maxWidth="lg">
+        <Grid container height="100%" py={6} width={"100%"}>
+          <ReaderFiltersController />
+        </Grid>
+      </Container>
+    </>
   );
 }
