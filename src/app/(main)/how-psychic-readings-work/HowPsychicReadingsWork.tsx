@@ -12,7 +12,7 @@ const SparkleList = ({ items }: { items: string[] }) => (
       {items.map((item, i) => (
         <Box key={i} sx={{ display: "flex", alignItems: "flex-start", gap: 1 }}>
           <AutoAwesomeIcon
-            sx={{ fontSize: "0.85rem", mt: "3px", color: "accent.primary", flexShrink: 0 }}
+            sx={{ fontSize: "0.85rem", mt: "5px", color: "accent.primary", flexShrink: 0 }}
           />
           <Typography
             fontFamily="Montserrat Variable, sans-serif"
