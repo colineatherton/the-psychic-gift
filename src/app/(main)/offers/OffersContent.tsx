@@ -214,7 +214,7 @@ export function OffersContent() {
         textAlign="center"
         mb={3}
       >
-        This offer is available via our Reception line only, Monday–Sunday 8am–10pm.
+        This offer is available via our Credit/Debit Card line only, Monday–Sunday 8am–10pm.
       </Typography>
       <Box
         component="a"
@@ -296,7 +296,7 @@ export function OffersContent() {
         textAlign="center"
         mb={3}
       >
-        Standard rates — the new client offer applies to the Reception (Credit/Debit Card) line only.
+        Standard rates — the new client offer applies to the Credit/Debit Card line only.
       </Typography>
       <Box sx={{ maxWidth: 480, mx: "auto", mb: 6 }}>
         {CALL_OPTIONS.map((opt) => (
