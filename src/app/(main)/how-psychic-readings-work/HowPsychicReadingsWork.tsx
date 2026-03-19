@@ -3,7 +3,32 @@
 import { FeatureCard } from "@/components";
 import { CTA } from "@/components/Sections";
 import { HELPLINE_NUMBER } from "@/lib/constants/phoneNumbers";
-import { Box, Grid, Typography, useTheme } from "@mui/material";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import { Box, Grid, Stack, Typography, useTheme } from "@mui/material";
+
+const SparkleList = ({ items }: { items: string[] }) => (
+  <Box sx={{ textAlign: "left", width: "100%" }}>
+    <Stack spacing={1.5}>
+      {items.map((item, i) => (
+        <Box key={i} sx={{ display: "flex", alignItems: "flex-start", gap: 1 }}>
+          <AutoAwesomeIcon
+            sx={{ fontSize: "0.85rem", mt: "5px", color: "accent.primary", flexShrink: 0 }}
+          />
+          <Typography
+            fontFamily="Montserrat Variable, sans-serif"
+            fontWeight={500}
+            fontSize="0.95rem"
+            lineHeight={1.8}
+            variant="body2"
+            component="span"
+          >
+            {item}
+          </Typography>
+        </Box>
+      ))}
+    </Stack>
+  </Box>
+);
 
 export default function HowPsychicReadingsWork() {
   const theme = useTheme();
@@ -142,15 +167,10 @@ export default function HowPsychicReadingsWork() {
             src="/icons/crystal-ball.png"
             title="Pay by phone bill (UK only)"
             body={
-              <>
-                <ul>
-                  <li>
-                    £1.50 per minute, plus your phone provider&apos;s access
-                    charge
-                  </li>
-                  <li>Calls are limited to 26 minutes per call</li>
-                </ul>
-              </>
+              <SparkleList items={[
+                "£1.50 per minute, plus your phone provider's access charge",
+                "Calls are limited to 26 minutes per call",
+              ]} />
             }
           />
         </Grid>
@@ -159,13 +179,11 @@ export default function HowPsychicReadingsWork() {
             src="/icons/stars.png"
             title="Pay by debit or credit card"
             body={
-              <>
-                <ul>
-                  <li>£32.95 for the first 20 minutes</li>
-                  <li>£1.50 per minute after that</li>
-                  <li>Calls can last up to 90 minutes</li>
-                </ul>
-              </>
+              <SparkleList items={[
+                "£32.95 for the first 20 minutes",
+                "£1.50 per minute after that",
+                "Calls can last up to 90 minutes",
+              ]} />
             }
           />
         </Grid>
@@ -174,18 +192,11 @@ export default function HowPsychicReadingsWork() {
             src="/icons/hands-heart.png"
             title="Pre-pay with bonus minutes"
             body={
-              <>
-                <ul>
-                  <li>
-                    Pay in advance and receive free bonus minutes on larger
-                    bundles
-                  </li>
-                  <li>Ideal if you want full control over call length</li>
-                  <li>
-                    Any unused minutes remain on your account for future calls
-                  </li>
-                </ul>
-              </>
+              <SparkleList items={[
+                "Pay in advance and receive free bonus minutes on larger bundles",
+                "Ideal if you want full control over call length",
+                "Any unused minutes remain on your account for future calls",
+              ]} />
             }
           />
         </Grid>
@@ -224,21 +235,12 @@ export default function HowPsychicReadingsWork() {
             src="/icons/stars.png"
             title="Connected & supported"
             body={
-              <>
-                <ul>
-                  <li>
-                    You&apos;ll then be connected directly to your chosen
-                    psychic reader
-                  </li>
-                  <li>Readings begin straight away</li>
-                  <li>Calls are private and recorded for your peace of mind</li>
-                  <li>
-                    If we&apos;re unable to connect you for any reason,
-                    alternative arrangements will be made so you can still
-                    receive your reading.
-                  </li>
-                </ul>
-              </>
+              <SparkleList items={[
+                "You'll then be connected directly to your chosen psychic reader",
+                "Readings begin straight away",
+                "Calls are private and recorded for your peace of mind",
+                "If we're unable to connect you for any reason, alternative arrangements will be made so you can still receive your reading.",
+              ]} />
             }
           />
         </Grid>
@@ -275,13 +277,11 @@ export default function HowPsychicReadingsWork() {
             src="/icons/stars.png"
             title="During your call"
             body={
-              <ul>
-                <li>
-                  You&apos;ll hear a warning shortly before your minutes run out
-                </li>
-                <li>You can end the call or top up and continue</li>
-                <li>Any unused minutes remain safely on your account</li>
-              </ul>
+              <SparkleList items={[
+                "You'll hear a warning shortly before your minutes run out",
+                "You can end the call or top up and continue",
+                "Any unused minutes remain safely on your account",
+              ]} />
             }
           />
         </Grid>
