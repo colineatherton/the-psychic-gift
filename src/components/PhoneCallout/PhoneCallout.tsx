@@ -178,7 +178,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
           textAlign: "center",
         }}
       >
-        {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – quote &quot;{NEW_CLIENT_OFFER_CODE}&quot; (CC line only)
+        {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – quote &quot;{NEW_CLIENT_OFFER_CODE}&quot; (Reception line only)
       </Typography>
     </Box>
   );
