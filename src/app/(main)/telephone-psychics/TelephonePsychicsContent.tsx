@@ -99,21 +99,21 @@ export default function TelephonePsychicsContent() {
       <Grid container spacing={4} width={"100%"} mb={6}>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/crystal-ball.png"
+            src="/icons/phone.png"
             title="Immediate Connection"
             body="No need to travel or wait for an appointment. Pick up the phone and speak to a psychic within moments."
           />
         </Grid>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/stars.png"
+            src="/icons/speech.png"
             title="Voice-to-Voice Readings"
             body="Telephone readings allow for natural conversation, making it easier to ask questions and explore your concerns in depth."
           />
         </Grid>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/hands-heart.png"
+            src="/icons/lock.png"
             title="Comfort & Privacy"
             body="Call from wherever you feel most comfortable — your home, your car, or anywhere that offers you privacy."
           />
@@ -165,7 +165,7 @@ export default function TelephonePsychicsContent() {
         </Grid>
         <Grid size={6}>
           <FeatureCard
-            src="/icons/stars.png"
+            src="/icons/book.png"
             title="Mediums & Tarot Readers"
             body="Connect with loved ones who have passed, or receive guidance through the symbolic wisdom of tarot cards."
           />

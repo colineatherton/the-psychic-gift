@@ -36,18 +36,23 @@ export function FeatureCard({ src, title, body }: FeatureCardProps) {
           alignItems={"center"}
           px={2}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={src}
-            alt="Illustration"
-            style={{
-              width: "80px",
-              height: "auto",
-              display: "flex",
-              margin: "0 auto",
-              alignSelf: "center",
-            }}
-          />
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            sx={{ height: 80 }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={src}
+              alt="Illustration"
+              style={{
+                width: "80px",
+                height: "auto",
+                maxHeight: "80px",
+              }}
+            />
+          </Box>
           <Typography
             fontFamily="Montserrat Variable, sans-serif"
             fontWeight={600}

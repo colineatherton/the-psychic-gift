@@ -99,21 +99,21 @@ export default function CallAPsychicNowContent() {
       <Grid container spacing={4} width={"100%"} mb={6}>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/crystal-ball.png"
+            src="/icons/readers.png"
             title="Readers Online Now"
             body="See which psychics are currently available and ready to connect with you straight away."
           />
         </Grid>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/stars.png"
+            src="/icons/clock.png"
             title="No Appointment Needed"
             body="Call any time — day or night, weekday or weekend. Our lines are open 24 hours a day, 7 days a week."
           />
         </Grid>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/hands-heart.png"
+            src="/icons/speech.png"
             title="Instant Connection"
             body="Choose your reader and be connected within moments. Your reading can begin as soon as you're ready."
           />
@@ -142,21 +142,21 @@ export default function CallAPsychicNowContent() {
       <Grid container spacing={4} width={"100%"} mb={6}>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/crystal-ball.png"
+            src="/icons/search.png"
             title="1. Choose Your Reader"
             body="Browse our available psychics and select the reader you'd like to speak with — or let us connect you to the next available."
           />
         </Grid>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/stars.png"
+            src="/icons/phone.png"
             title="2. Dial the Number"
             body="Call our psychic line and follow the simple prompts. Enter your reader's PIN if you know who you want."
           />
         </Grid>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/hands-heart.png"
+            src="/icons/crystal-ball.png"
             title="3. Start Your Reading"
             body="You'll be connected directly to your psychic. Your reading begins immediately — no waiting around."
           />
