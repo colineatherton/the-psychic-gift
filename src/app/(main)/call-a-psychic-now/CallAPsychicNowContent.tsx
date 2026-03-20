@@ -113,7 +113,7 @@ export default function CallAPsychicNowContent() {
         </Grid>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/phone.png"
+            src="/icons/speech.png"
             title="Instant Connection"
             body="Choose your reader and be connected within moments. Your reading can begin as soon as you're ready."
           />
@@ -149,7 +149,7 @@ export default function CallAPsychicNowContent() {
         </Grid>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/speech.png"
+            src="/icons/phone.png"
             title="2. Dial the Number"
             body="Call our psychic line and follow the simple prompts. Enter your reader's PIN if you know who you want."
           />
