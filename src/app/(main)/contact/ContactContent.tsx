@@ -541,7 +541,7 @@ export default function ContactContent() {
         >
           For billing disputes or complaints, please contact our support team
           who will respond within 48 hours. You can also write to us at: The
-          Psychic Gift, Customer Services, PO Box 2802, London, W1A 5RB.
+          Psychic Gift, PO Box 435, Sittingbourne, ME9 0WB.
         </Typography>
       </Grid>
     </>
