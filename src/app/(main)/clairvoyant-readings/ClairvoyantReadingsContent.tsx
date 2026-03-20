@@ -113,7 +113,7 @@ export default function ClairvoyantReadingsContent() {
         </Grid>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/hands-heart.png"
+            src="/icons/compass.png"
             title="Future Possibilities"
             body="Clairvoyant readings can illuminate paths ahead, helping you understand potential outcomes and make informed choices."
           />
@@ -158,14 +158,14 @@ export default function ClairvoyantReadingsContent() {
       <Grid container spacing={4} width={"100%"} mb={6}>
         <Grid size={6}>
           <FeatureCard
-            src="/icons/crystal-ball.png"
+            src="/icons/hands-heart.png"
             title="Love & Relationships"
             body="Gain clarity on romantic connections, understand a partner's true feelings, or see what lies ahead for your relationship."
           />
         </Grid>
         <Grid size={6}>
           <FeatureCard
-            src="/icons/stars.png"
+            src="/icons/book.png"
             title="Career & Life Purpose"
             body="Receive insight into your professional path, upcoming opportunities, or the direction your life is taking."
           />
