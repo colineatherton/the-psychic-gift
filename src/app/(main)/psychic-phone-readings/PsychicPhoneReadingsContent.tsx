@@ -98,21 +98,21 @@ export default function PsychicPhoneReadingsContent() {
       <Grid container spacing={4} width={"100%"} mb={6}>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/crystal-ball.png"
+            src="/icons/lock.png"
             title="Private & Confidential"
             body="Speak openly without worry. All calls are private, and recordings are kept secure for your peace of mind."
           />
         </Grid>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/stars.png"
+            src="/icons/clock.png"
             title="Available 24/7"
             body="Our psychic readers are available around the clock, so you can call whenever you need guidance — day or night."
           />
         </Grid>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/hands-heart.png"
+            src="/icons/readers.png"
             title="Experienced Readers"
             body="Every reader on our line has been carefully selected for their psychic ability, empathy, and integrity."
           />
@@ -157,14 +157,14 @@ export default function PsychicPhoneReadingsContent() {
       <Grid container spacing={4} width={"100%"} mb={6}>
         <Grid size={6}>
           <FeatureCard
-            src="/icons/crystal-ball.png"
+            src="/icons/hands-heart.png"
             title="Love & Relationships"
             body="Gain insight into your romantic life, understand your partner's feelings, or find clarity on a difficult relationship decision."
           />
         </Grid>
         <Grid size={6}>
           <FeatureCard
-            src="/icons/stars.png"
+            src="/icons/compass.png"
             title="Career & Life Direction"
             body="Explore your path forward, understand what's holding you back, and receive guidance on important life choices."
           />
@@ -193,21 +193,21 @@ export default function PsychicPhoneReadingsContent() {
       <Grid container spacing={4} width={"100%"} mb={6}>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/crystal-ball.png"
+            src="/icons/search.png"
             title="1. Browse Our Readers"
             body="View profiles of our available psychics and choose the reader that feels right for you."
           />
         </Grid>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/stars.png"
+            src="/icons/phone.png"
             title="2. Call the Line"
             body="Dial our phone number and select your reader by PIN, or let our team connect you to the next available psychic."
           />
         </Grid>
         <Grid size={4}>
           <FeatureCard
-            src="/icons/hands-heart.png"
+            src="/icons/crystal-ball.png"
             title="3. Start Your Reading"
             body="You'll be connected directly to your chosen reader. Your reading begins immediately — no waiting, no fuss."
           />
