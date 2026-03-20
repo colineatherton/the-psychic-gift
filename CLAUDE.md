@@ -22,6 +22,7 @@
 
 ## PR Workflow
 
+- **Always branch from `origin/main`** — run `git fetch origin && git checkout -b <branch> origin/main` before starting any new branch. Never branch from another feature/fix branch.
 - **Don't rebase PRs proactively** — Vercel handles it. Only rebase when asked.
 - Get preview URL: `gh api repos/colineatherton/the-psychic-gift/deployments/<id>/statuses --jq '.[0].target_url'`
 - Check visual feedback via screenshots on `~/Desktop` — use `/check-screenshots`

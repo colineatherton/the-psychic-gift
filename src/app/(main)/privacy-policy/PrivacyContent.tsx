@@ -92,8 +92,7 @@ export default function PrivacyContent() {
         <br />
         Support Helpline: {HELPLINE_NUMBER}
         <br />
-        Address: The Psychic Gift, Customer Services, PO Box 2802, London, W1A
-        5RB
+        Address: The Psychic Gift, PO Box 435, Sittingbourne, ME9 0WB
       </Typography>
 
       <Typography sx={sectionTitleSx}>2. Information We Collect</Typography>
@@ -176,10 +175,11 @@ export default function PrivacyContent() {
         purposes for which it was collected:
       </Typography>
       <Typography sx={paragraphSx}>
-        • <strong>Call records:</strong> Retained for up to 12 months
+        • <strong>Call records:</strong> Retained for up to 24 months (Premium
+        Rate calls)
         <br />
-        • <strong>Call recordings:</strong> Retained for up to 6 months unless
-        required for dispute resolution
+        • <strong>Call recordings:</strong> Retained for up to 24 months (Premium
+        Rate calls) unless required for dispute resolution
         <br />
         • <strong>Payment records:</strong> Retained for 7 years for financial
         compliance
@@ -310,7 +310,7 @@ export default function PrivacyContent() {
           component="p"
           textAlign="center"
         >
-          Last updated: February 2026
+          Last updated: March 2026
         </Typography>
       </Grid>
     </>
