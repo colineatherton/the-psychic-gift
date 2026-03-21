@@ -33,6 +33,7 @@ export default function CallAPsychicNowContent() {
           alt="The Psychic Gift"
           sx={{
             height: 100,
+            maxWidth: "100%",
             mt: 1,
             display: "block",
             margin: "0 auto",
