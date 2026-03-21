@@ -15,7 +15,6 @@ const SparkleList = ({ items }: { items: string[] }) => (
             sx={{ fontSize: "0.85rem", mt: "5px", color: "accent.primary", flexShrink: 0 }}
           />
           <Typography
-            fontFamily="Montserrat Variable, sans-serif"
             fontWeight={500}
             fontSize="0.95rem"
             lineHeight={1.8}
@@ -42,7 +41,6 @@ export default function HowPsychicReadingsWork() {
     <>
       <Grid size={12} justifyContent="center" alignItems="center" mb={10}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
           lineHeight="1"
@@ -67,7 +65,6 @@ export default function HowPsychicReadingsWork() {
           }}
         />
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
           lineHeight="1"
@@ -81,7 +78,6 @@ export default function HowPsychicReadingsWork() {
       </Grid>
       <Grid size={12} mb={4}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1rem"
           color={theme.palette.secondary.dark}
@@ -102,7 +98,6 @@ export default function HowPsychicReadingsWork() {
         mb={6}
       >
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
           lineHeight="1"
@@ -115,7 +110,6 @@ export default function HowPsychicReadingsWork() {
       </Grid>
       <Grid size={12} mb={4}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1rem"
           color={theme.palette.secondary.dark}
@@ -153,7 +147,6 @@ export default function HowPsychicReadingsWork() {
         mb={6}
       >
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
           lineHeight="1"
@@ -212,7 +205,6 @@ export default function HowPsychicReadingsWork() {
         mb={6}
       >
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
           lineHeight="1"
@@ -261,7 +253,6 @@ export default function HowPsychicReadingsWork() {
         mb={6}
       >
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
           lineHeight="1"
@@ -311,7 +302,6 @@ export default function HowPsychicReadingsWork() {
         mb={6}
       >
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
           lineHeight="1"

@@ -61,7 +61,6 @@ export function StepCard({
           </Grid>
           <Grid size={{ xs: 12, md: footer ? 6 : 10 }}>
             <Typography
-              fontFamily="Montserrat Variable, sans-serif"
               fontWeight={600}
               fontSize="1.1rem"
               variant="h3"
@@ -70,7 +69,6 @@ export function StepCard({
               {title}
             </Typography>
             <Typography
-              fontFamily="Montserrat Variable, sans-serif"
               fontWeight={500}
               fontSize="1rem"
               variant="body2"

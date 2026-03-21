@@ -68,7 +68,6 @@ export function OfferBanner({ message }: { message: string }) {
               >
                 <PhoneIcon sx={{ fontSize: "1.2rem", color: "common.white" }} />
                 <Typography
-                  fontFamily="Montserrat Variable, sans-serif"
                   fontWeight={600}
                   sx={{
                     fontSize: { xs: "0.85rem", sm: "1rem" },
@@ -81,7 +80,6 @@ export function OfferBanner({ message }: { message: string }) {
               <Typography
                 component="a"
                 href="/terms-and-conditions#new-client-offer"
-                fontFamily="Montserrat Variable, sans-serif"
                 sx={{
                   fontSize: { xs: "0.75rem", sm: "0.85rem" },
                   color: "rgba(255,255,255,0.7)",

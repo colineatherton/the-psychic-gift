@@ -17,7 +17,6 @@ export default function ClairvoyantReadingsContent() {
     <>
       <Grid size={12} justifyContent="center" alignItems="center" mb={10}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
           lineHeight="1"
@@ -42,7 +41,6 @@ export default function ClairvoyantReadingsContent() {
       </Grid>
       <Grid size={12} mb={4}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1rem"
           color={theme.palette.secondary.dark}
@@ -65,7 +63,6 @@ export default function ClairvoyantReadingsContent() {
         mb={6}
       >
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
           lineHeight="1"
@@ -78,7 +75,6 @@ export default function ClairvoyantReadingsContent() {
       </Grid>
       <Grid size={12} mb={4}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1rem"
           color={theme.palette.secondary.dark}
@@ -129,7 +125,6 @@ export default function ClairvoyantReadingsContent() {
         mb={6}
       >
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
           lineHeight="1"
@@ -142,7 +137,6 @@ export default function ClairvoyantReadingsContent() {
       </Grid>
       <Grid size={12} mb={4}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1rem"
           color={theme.palette.secondary.dark}
@@ -181,7 +175,6 @@ export default function ClairvoyantReadingsContent() {
         mb={6}
       >
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
           lineHeight="1"
@@ -194,7 +187,6 @@ export default function ClairvoyantReadingsContent() {
       </Grid>
       <Grid size={12} mb={4}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1rem"
           color={theme.palette.secondary.dark}

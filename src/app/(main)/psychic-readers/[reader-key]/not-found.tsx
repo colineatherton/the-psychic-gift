@@ -121,7 +121,6 @@ export default function ReaderNotFound() {
             <Grid size={12} mt={20}>
               <Stack spacing={4} alignItems="center" textAlign="center">
                 <Typography
-                  fontFamily="Montserrat Variable, sans-serif"
                   fontWeight={700}
                   fontSize="3rem"
                   variant="h1"
@@ -130,7 +129,6 @@ export default function ReaderNotFound() {
                   Reader Not Found
                 </Typography>
                 <Typography
-                  fontFamily="Montserrat Variable, sans-serif"
                   fontSize="1.2rem"
                   lineHeight="1.8"
                   variant="body1"

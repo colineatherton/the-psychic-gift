@@ -54,7 +54,6 @@ export function FeatureCard({ src, title, body }: FeatureCardProps) {
             />
           </Box>
           <Typography
-            fontFamily="Montserrat Variable, sans-serif"
             fontWeight={600}
             fontSize="1.1rem"
             lineHeight="1.6"
@@ -66,7 +65,6 @@ export function FeatureCard({ src, title, body }: FeatureCardProps) {
             {title}
           </Typography>
           <Typography
-            fontFamily="Montserrat Variable, sans-serif"
             fontWeight={500}
             fontSize="1rem"
             lineHeight="1.6"

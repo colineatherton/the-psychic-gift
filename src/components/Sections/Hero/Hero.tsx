@@ -149,7 +149,6 @@ export const Hero = () => {
               sx={{ paddingRight: { xs: 0, md: theme.spacing(6) } }}
             >
               <Typography
-                fontFamily="Montserrat Variable, sans-serif"
                 fontWeight={700}
                 fontSize="3rem"
                 variant="h1"
@@ -160,7 +159,6 @@ export const Hero = () => {
                 Psychic Phone Readings
               </Typography>
               <Typography
-                fontFamily="Montserrat Variable, sans-serif"
                 fontWeight={500}
                 fontSize="2rem"
                 variant="h2"
@@ -170,7 +168,6 @@ export const Hero = () => {
                 Speak with Gifted Clairvoyants by Phone Today
               </Typography>
               <Typography
-                fontFamily="Montserrat Variable, sans-serif"
                 fontWeight={500}
                 fontSize="1rem"
                 lineHeight="1.6"

@@ -30,7 +30,6 @@ export function Testimonial({
         }}
       />
       <Typography
-        fontFamily="Montserrat Variable, sans-serif"
         fontWeight={600}
         fontSize="1.1rem"
         // color="primary"
@@ -43,7 +42,6 @@ export function Testimonial({
         {clientName}
       </Typography>
       <Typography
-        fontFamily="Montserrat Variable, sans-serif"
         fontWeight={500}
         fontSize="1rem"
         // color={theme.palette.secondary.dark}
@@ -56,7 +54,6 @@ export function Testimonial({
         {quote}
       </Typography>
       <Typography
-        fontFamily="Montserrat Variable, sans-serif"
         fontWeight={700}
         fontSize="1rem"
         // color="primary"

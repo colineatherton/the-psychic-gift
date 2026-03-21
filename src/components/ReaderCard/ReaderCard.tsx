@@ -138,7 +138,6 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
             display="block"
             justifyContent="center"
             alignItems="center"
-            fontFamily="Montserrat Variable, sans-serif"
             fontWeight={500}
             fontSize={mode === "compact" ? "1.2rem" : "1.6rem"}
             color={theme.palette.secondary.dark}
@@ -151,7 +150,6 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
             {name}
           </Typography>
           <Typography
-            fontFamily="Montserrat Variable, sans-serif"
             fontWeight={500}
             fontSize={mode === "compact" ? "1rem" : "1.2rem"}
             color={theme.palette.secondary.dark}
@@ -197,7 +195,6 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
           </Stack>
           {description && ["featured", "selected"].includes(mode) && (
             <Typography
-              fontFamily="Montserrat Variable, sans-serif"
               fontWeight={500}
               fontSize="1rem"
               lineHeight="1.6"

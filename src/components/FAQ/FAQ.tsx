@@ -30,7 +30,6 @@ export function FAQ({ id, question, answer }: FAQProps) {
         id={`panel${id}-header`}
       >
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={600}
           fontSize="1.1rem"
           // color="primary"
@@ -43,7 +42,6 @@ export function FAQ({ id, question, answer }: FAQProps) {
       </AccordionSummary>
       <AccordionDetails>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={600}
           fontSize="1.1rem"
           // color="primary"

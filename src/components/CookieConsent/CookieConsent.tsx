@@ -72,7 +72,6 @@ export function CookieConsent() {
           >
             <Typography
               sx={{
-                fontFamily: "Montserrat Variable, sans-serif",
                 fontSize: { xs: "0.85rem", sm: "0.9rem" },
                 color: theme.palette.common.white,
                 flex: 1,
@@ -101,7 +100,6 @@ export function CookieConsent() {
                 size="small"
                 onClick={handleReject}
                 sx={{
-                  fontFamily: "Montserrat Variable, sans-serif",
                   fontWeight: 500,
                   textTransform: "none",
                   borderColor: "rgba(255,255,255,0.5)",
@@ -119,7 +117,6 @@ export function CookieConsent() {
                 size="small"
                 onClick={handleAccept}
                 sx={{
-                  fontFamily: "Montserrat Variable, sans-serif",
                   fontWeight: 500,
                   textTransform: "none",
                   backgroundColor: theme.palette.common.white,

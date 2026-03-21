@@ -51,7 +51,6 @@ export function LinkCard({
             }}
           />
           <Typography
-            fontFamily="Montserrat Variable, sans-serif"
             fontWeight={600}
             fontSize="1.1rem"
             color="primary"
@@ -64,7 +63,6 @@ export function LinkCard({
             {title}
           </Typography>
           <Typography
-            fontFamily="Montserrat Variable, sans-serif"
             fontWeight={500}
             fontSize="1rem"
             color={

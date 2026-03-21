@@ -229,7 +229,6 @@ export const ReaderFiltersController = () => {
     <>
       <Grid size={{ xs: 12 }} mt={20}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
           variant="h2"

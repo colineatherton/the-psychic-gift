@@ -147,7 +147,6 @@ export const FeaturedReader = () => {
           >
             <Grid size={{ xs: 12 }} p={4}>
               <Typography
-                fontFamily="Montserrat Variable, sans-serif"
                 fontWeight={500}
                 fontSize="2rem"
                 variant="h2"
