@@ -48,6 +48,7 @@ export function LinkCard({
               display: "flex",
               margin: "0 auto",
               alignSelf: "center",
+              filter: theme.palette.mode === "dark" ? "brightness(0) invert(1)" : "none",
             }}
           />
           <Typography

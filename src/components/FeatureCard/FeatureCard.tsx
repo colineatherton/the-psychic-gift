@@ -1,4 +1,4 @@
-import { Card, CardContent, Box, Typography } from "@mui/material";
+import { Card, CardContent, Box, Typography, useTheme } from "@mui/material";
 
 interface FeatureCardProps {
   src: string;
@@ -7,6 +7,7 @@ interface FeatureCardProps {
 }
 
 export function FeatureCard({ src, title, body }: FeatureCardProps) {
+  const theme = useTheme();
   return (
     <Card
       sx={{
@@ -50,6 +51,7 @@ export function FeatureCard({ src, title, body }: FeatureCardProps) {
                 width: "80px",
                 height: "auto",
                 maxHeight: "80px",
+                filter: theme.palette.mode === "dark" ? "brightness(0) invert(1)" : "none",
               }}
             />
           </Box>
