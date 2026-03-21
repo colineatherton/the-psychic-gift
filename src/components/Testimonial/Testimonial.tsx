@@ -1,6 +1,6 @@
 "use client";
 
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 import Link from "next/link";
 
 interface TestimonialProps {
@@ -16,6 +16,7 @@ export function Testimonial({
   reader,
   pin,
 }: TestimonialProps) {
+  const theme = useTheme();
   return (
     <>
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -27,6 +28,7 @@ export function Testimonial({
           height: "auto",
           display: "flex",
           marginRight: "0 auto",
+          filter: theme.palette.mode === "dark" ? "brightness(0) invert(1)" : "none",
         }}
       />
       <Typography
