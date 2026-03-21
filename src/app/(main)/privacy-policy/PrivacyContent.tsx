@@ -12,7 +12,6 @@ export default function PrivacyContent() {
       : "/logo-gold-star.png";
 
   const sectionTitleSx = {
-    fontFamily: "Montserrat Variable, sans-serif",
     fontWeight: 600,
     fontSize: "1.25rem",
     lineHeight: "1.4",
@@ -23,7 +22,6 @@ export default function PrivacyContent() {
   };
 
   const paragraphSx = {
-    fontFamily: "Montserrat Variable, sans-serif",
     fontWeight: 400,
     fontSize: "1rem",
     color: theme.palette.secondary.dark,
@@ -37,7 +35,6 @@ export default function PrivacyContent() {
     <>
       <Grid size={12} justifyContent="center" alignItems="center" mb={10}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
           lineHeight="1"
@@ -62,7 +59,6 @@ export default function PrivacyContent() {
 
       <Grid size={12} mb={4}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1rem"
           color={theme.palette.secondary.dark}
@@ -301,7 +297,6 @@ export default function PrivacyContent() {
 
       <Grid size={12} mt={8} mb={4}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={400}
           fontSize="0.875rem"
           color={theme.palette.secondary.dark}

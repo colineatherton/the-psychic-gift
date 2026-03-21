@@ -28,7 +28,6 @@ export const FAQs = ({ items }: FAQsProps) => {
         <Grid container height="100%" pt={6} pb={16} width={"100%"}>
           <Stack direction="column" spacing={4} width="100%">
             <Typography
-              fontFamily="Montserrat Variable, sans-serif"
               fontWeight={500}
               fontSize="2rem"
               // color="primary"

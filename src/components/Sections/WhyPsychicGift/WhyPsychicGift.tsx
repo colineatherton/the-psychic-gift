@@ -37,7 +37,6 @@ export function WhyPsychicGift() {
         <Grid container height="100%" py={10} width={"100%"} spacing={4}>
           <Grid size={12} justifyContent="center" alignItems="center" mb={6}>
             <Typography
-              fontFamily="Montserrat Variable, sans-serif"
               fontWeight={500}
               fontSize="2rem"
               lineHeight="1"
@@ -97,7 +96,6 @@ export function WhyPsychicGift() {
             </Grid>
             <Grid size={9}>
               <Typography
-                fontFamily="Montserrat Variable, sans-serif"
                 fontWeight={500}
                 fontSize="1rem"
                 color={theme.palette.secondary.dark}
