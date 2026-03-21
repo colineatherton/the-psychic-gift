@@ -33,6 +33,7 @@ export default function ClairvoyantReadingsContent() {
           alt="The Psychic Gift"
           sx={{
             height: 100,
+            maxWidth: "100%",
             mt: 1,
             display: "block",
             margin: "0 auto",
@@ -97,21 +98,21 @@ export default function ClairvoyantReadingsContent() {
         </Typography>
       </Grid>
       <Grid container spacing={4} width={"100%"} mb={6}>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/crystal-ball.png"
             title="Psychic Vision"
             body="Clairvoyants see beyond physical reality, receiving visual impressions that offer insight into your life and circumstances."
           />
         </Grid>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/stars.png"
             title="Symbolic Insight"
             body="Visions often come as symbols or images that the reader interprets to provide meaningful guidance for your situation."
           />
         </Grid>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/compass.png"
             title="Future Possibilities"
@@ -156,14 +157,14 @@ export default function ClairvoyantReadingsContent() {
         </Typography>
       </Grid>
       <Grid container spacing={4} width={"100%"} mb={6}>
-        <Grid size={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <FeatureCard
             src="/icons/hands-heart.png"
             title="Love & Relationships"
             body="Gain clarity on romantic connections, understand a partner's true feelings, or see what lies ahead for your relationship."
           />
         </Grid>
-        <Grid size={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <FeatureCard
             src="/icons/book.png"
             title="Career & Life Purpose"

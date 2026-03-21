@@ -31,7 +31,7 @@ export const InternalLinks = ({ links }: InternalLinksProps) => {
       >
         <Grid container spacing={4} width={"100%"}>
           {links.map((link) => (
-            <Grid size={4} key={link.href}>
+            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={link.href}>
               <LinkCard
                 iconPath={link.iconPath}
                 title={link.title}

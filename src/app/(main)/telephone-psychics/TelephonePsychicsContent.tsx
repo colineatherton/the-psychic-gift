@@ -33,6 +33,7 @@ export default function TelephonePsychicsContent() {
           alt="The Psychic Gift"
           sx={{
             height: 100,
+            maxWidth: "100%",
             mt: 1,
             display: "block",
             margin: "0 auto",
@@ -97,21 +98,21 @@ export default function TelephonePsychicsContent() {
         </Typography>
       </Grid>
       <Grid container spacing={4} width={"100%"} mb={6}>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/phone.png"
             title="Immediate Connection"
             body="No need to travel or wait for an appointment. Pick up the phone and speak to a psychic within moments."
           />
         </Grid>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/speech.png"
             title="Voice-to-Voice Readings"
             body="Telephone readings allow for natural conversation, making it easier to ask questions and explore your concerns in depth."
           />
         </Grid>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/lock.png"
             title="Comfort & Privacy"
@@ -156,14 +157,14 @@ export default function TelephonePsychicsContent() {
         </Typography>
       </Grid>
       <Grid container spacing={4} width={"100%"} mb={6}>
-        <Grid size={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <FeatureCard
             src="/icons/crystal-ball.png"
             title="Clairvoyants & Intuitives"
             body="Readers who use their psychic vision to see situations, people, and possibilities that may be hidden from view."
           />
         </Grid>
-        <Grid size={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <FeatureCard
             src="/icons/book.png"
             title="Mediums & Tarot Readers"

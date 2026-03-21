@@ -46,7 +46,7 @@ export const Testimonials = () => {
             </Typography>
             <Grid container width={"100%"} spacing={8} textAlign={"center"}>
               {testimonials.map((testimonial, index) => (
-                <Grid size={4} flexGrow={1} pb={4} key={index}>
+                <Grid size={{ xs: 12, md: 4 }} flexGrow={1} pb={4} key={index}>
                   <Testimonial
                     clientName={testimonial.name}
                     quote={testimonial.quote}
