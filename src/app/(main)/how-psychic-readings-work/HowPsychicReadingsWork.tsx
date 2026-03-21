@@ -126,14 +126,14 @@ export default function HowPsychicReadingsWork() {
         </Typography>
       </Grid>
       <Grid container spacing={4} width={"100%"} mb={6}>
-        <Grid size={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <FeatureCard
             src="/icons/search.png"
             title="See who's available & choose a reader"
             body="Explore our gifted psychics, see who's online, and choose the reader that feels right for you. Choose a reader by name or PIN if you already know who you'd like to speak to."
           />
         </Grid>
-        <Grid size={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <FeatureCard
             src="/icons/readers.png"
             title="Unsure who to choose? We'll assist"
@@ -162,7 +162,7 @@ export default function HowPsychicReadingsWork() {
         </Typography>
       </Grid>
       <Grid container spacing={4} width={"100%"} mb={6}>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/phone.png"
             title="Pay by phone bill (UK only)"
@@ -174,7 +174,7 @@ export default function HowPsychicReadingsWork() {
             }
           />
         </Grid>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/card.png"
             title="Pay by debit or credit card"
@@ -187,7 +187,7 @@ export default function HowPsychicReadingsWork() {
             }
           />
         </Grid>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/gift.png"
             title="Pre-pay with bonus minutes"
@@ -221,7 +221,7 @@ export default function HowPsychicReadingsWork() {
         </Typography>
       </Grid>
       <Grid container spacing={4} width={"100%"} mb={6}>
-        <Grid size={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <FeatureCard
             src="/icons/crystal-ball.png"
             title="Your call experience"
@@ -230,7 +230,7 @@ export default function HowPsychicReadingsWork() {
             }
           />
         </Grid>
-        <Grid size={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <FeatureCard
             src="/icons/hands-heart.png"
             title="Connected & supported"
@@ -265,14 +265,14 @@ export default function HowPsychicReadingsWork() {
         </Typography>
       </Grid>
       <Grid container spacing={4} width={"100%"} mb={6}>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/clock.png"
             title="Using pre-pay minutes"
             body="With pre-pay, you decide how long your call lasts."
           />
         </Grid>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/speech.png"
             title="During your call"
@@ -285,7 +285,7 @@ export default function HowPsychicReadingsWork() {
             }
           />
         </Grid>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/lock.png"
             title="Your pre-pay account"
@@ -315,21 +315,21 @@ export default function HowPsychicReadingsWork() {
         </Typography>
       </Grid>
       <Grid container spacing={4} width={"100%"} mb={6}>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/stars.png"
             title="18+ only"
             body="Callers must be 18 or over and have the bill payer's permission"
           />
         </Grid>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/compass.png"
             title="Entertainment purposes"
             body="Readings are provided for entertainment purposes only under UK law"
           />
         </Grid>
-        <Grid size={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/heart-hands-2.png"
             title="Need support?"

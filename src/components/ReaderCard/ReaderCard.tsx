@@ -116,7 +116,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
             >
               <Image
                 src={`/readers/original/${pin}.png`}
-                alt="Amara"
+                alt={name}
                 width={effectiveImgSize}
                 height={effectiveImgSize}
                 placeholder="blur"
