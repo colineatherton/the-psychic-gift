@@ -1,6 +1,6 @@
 "use client";
 
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 import Link from "next/link";
 
 interface TestimonialProps {
@@ -16,6 +16,7 @@ export function Testimonial({
   reader,
   pin,
 }: TestimonialProps) {
+  const theme = useTheme();
   return (
     <>
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -27,10 +28,10 @@ export function Testimonial({
           height: "auto",
           display: "flex",
           marginRight: "0 auto",
+          filter: theme.palette.mode === "dark" ? "brightness(0) invert(1)" : "none",
         }}
       />
       <Typography
-        fontFamily="Montserrat Variable, sans-serif"
         fontWeight={600}
         fontSize="1.1rem"
         // color="primary"
@@ -43,7 +44,6 @@ export function Testimonial({
         {clientName}
       </Typography>
       <Typography
-        fontFamily="Montserrat Variable, sans-serif"
         fontWeight={500}
         fontSize="1rem"
         // color={theme.palette.secondary.dark}
@@ -56,7 +56,6 @@ export function Testimonial({
         {quote}
       </Typography>
       <Typography
-        fontFamily="Montserrat Variable, sans-serif"
         fontWeight={700}
         fontSize="1rem"
         // color="primary"

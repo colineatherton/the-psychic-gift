@@ -42,7 +42,6 @@ export function Footer() {
                 <Link key={link.path} href={link.path} style={{ textDecoration: "none" }}>
                   <Typography
                     sx={{
-                      fontFamily: "Montserrat Variable, sans-serif",
                       fontSize: { xs: "0.875rem", sm: "1rem" },
                       color: isActive
                         ? theme.palette.primary.dark
@@ -63,7 +62,6 @@ export function Footer() {
           <Grid size={12}>
             <Typography
               sx={{
-                fontFamily: "Montserrat Variable, sans-serif",
                 fontSize: "0.75rem",
                 color: theme.palette.secondary.main,
                 textAlign: "center",

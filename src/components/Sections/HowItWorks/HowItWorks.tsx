@@ -39,7 +39,6 @@ export const HowItWorks = () => {
         <Grid container height="100%" py={6} width="100%">
           <Grid size={12} justifyContent="center" alignItems="center" mb={6}>
             <Typography
-              fontFamily="Montserrat Variable, sans-serif"
               fontWeight={500}
               fontSize="2rem"
               variant="h2"
@@ -59,7 +58,6 @@ export const HowItWorks = () => {
               }}
             />
             <Typography
-              fontFamily="Montserrat Variable, sans-serif"
               fontWeight={500}
               fontSize="2rem"
               lineHeight="1"

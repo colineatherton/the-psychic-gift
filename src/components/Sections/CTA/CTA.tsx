@@ -39,7 +39,6 @@ export function CTA({ heading }: CTASectionProps) {
             justifyItems={"center"}
           >
             <Typography
-              fontFamily="Montserrat Variable, sans-serif"
               fontWeight={500}
               fontSize="2rem"
               color={theme.palette.text.primary}
@@ -59,7 +58,6 @@ export function CTA({ heading }: CTASectionProps) {
             />
             {onlineReadersCount > 0 && (
               <Typography
-                fontFamily="Montserrat Variable, sans-serif"
                 fontWeight={500}
                 fontSize="1rem"
                 color={theme.palette.text.primary}

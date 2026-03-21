@@ -41,10 +41,10 @@ export const AboutImageSection = styled("div")(({ theme }) => ({
     background: `
       linear-gradient(
         to bottom,
-        rgba(248,247,252,0.95) 0%,
-        rgba(248,247,252,0.35) 20%,
-        rgba(248,247,252,0.35) 80%,
-        rgba(248,247,252,0.95) 100%
+        ${theme.palette.background.default}F2 0%,
+        ${theme.palette.background.default}59 20%,
+        ${theme.palette.background.default}59 80%,
+        ${theme.palette.background.default}F2 100%
       )
     `,
     pointerEvents: "none",

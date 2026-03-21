@@ -48,10 +48,10 @@ export function LinkCard({
               display: "flex",
               margin: "0 auto",
               alignSelf: "center",
+              filter: theme.palette.mode === "dark" ? "brightness(0) invert(1)" : "none",
             }}
           />
           <Typography
-            fontFamily="Montserrat Variable, sans-serif"
             fontWeight={600}
             fontSize="1.1rem"
             color="primary"
@@ -64,7 +64,6 @@ export function LinkCard({
             {title}
           </Typography>
           <Typography
-            fontFamily="Montserrat Variable, sans-serif"
             fontWeight={500}
             fontSize="1rem"
             color={

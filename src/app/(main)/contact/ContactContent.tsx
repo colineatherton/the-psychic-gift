@@ -112,7 +112,6 @@ export default function ContactContent() {
     <>
       <Grid size={12} justifyContent="center" alignItems="center" mb={10}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
           lineHeight="1"
@@ -137,7 +136,6 @@ export default function ContactContent() {
 
       <Grid size={12} mb={4}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1rem"
           color={theme.palette.secondary.dark}
@@ -164,7 +162,6 @@ export default function ContactContent() {
             }}
           >
             <Typography
-              fontFamily="Montserrat Variable, sans-serif"
               fontWeight={600}
               fontSize="1.25rem"
               variant="h3"
@@ -174,7 +171,6 @@ export default function ContactContent() {
               Customer Support
             </Typography>
             <Typography
-              fontFamily="Montserrat Variable, sans-serif"
               fontSize="1rem"
               lineHeight="1.8"
               variant="body1"
@@ -199,7 +195,6 @@ export default function ContactContent() {
               </Typography>
             </Typography>
             <Typography
-              fontFamily="Montserrat Variable, sans-serif"
               fontSize="1rem"
               lineHeight="1.8"
               variant="body1"
@@ -216,7 +211,6 @@ export default function ContactContent() {
               </MuiLink>
             </Typography>
             <Typography
-              fontFamily="Montserrat Variable, sans-serif"
               fontSize="1rem"
               lineHeight="1.8"
               variant="body1"
@@ -240,7 +234,6 @@ export default function ContactContent() {
             }}
           >
             <Typography
-              fontFamily="Montserrat Variable, sans-serif"
               fontWeight={600}
               fontSize="1.25rem"
               variant="h3"
@@ -250,7 +243,6 @@ export default function ContactContent() {
               Speak to a Psychic
             </Typography>
             <Typography
-              fontFamily="Montserrat Variable, sans-serif"
               fontSize="1rem"
               lineHeight="1.8"
               variant="body1"
@@ -275,7 +267,6 @@ export default function ContactContent() {
               </Typography>
             </Typography>
             <Typography
-              fontFamily="Montserrat Variable, sans-serif"
               fontSize="1rem"
               lineHeight="1.8"
               variant="body1"
@@ -310,7 +301,6 @@ export default function ContactContent() {
         mb={4}
       >
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1.5rem"
           lineHeight="1"
@@ -429,7 +419,6 @@ export default function ContactContent() {
         mb={6}
       >
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1.5rem"
           lineHeight="1"
@@ -457,7 +446,7 @@ export default function ContactContent() {
                 },
               }}
             >
-              <Typography fontFamily="Montserrat Variable, sans-serif">
+              <Typography>
                 How It Works
               </Typography>
             </Paper>
@@ -478,7 +467,7 @@ export default function ContactContent() {
                 },
               }}
             >
-              <Typography fontFamily="Montserrat Variable, sans-serif">
+              <Typography>
                 Terms & Conditions
               </Typography>
             </Paper>
@@ -499,7 +488,7 @@ export default function ContactContent() {
                 },
               }}
             >
-              <Typography fontFamily="Montserrat Variable, sans-serif">
+              <Typography>
                 Privacy Policy
               </Typography>
             </Paper>
@@ -520,7 +509,7 @@ export default function ContactContent() {
                 },
               }}
             >
-              <Typography fontFamily="Montserrat Variable, sans-serif">
+              <Typography>
                 Our Readers
               </Typography>
             </Paper>
@@ -530,7 +519,6 @@ export default function ContactContent() {
 
       <Grid size={12} mt={10} mb={4}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="0.875rem"
           color={theme.palette.secondary.dark}

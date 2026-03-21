@@ -46,7 +46,6 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
           />
           <Typography
             className="phone-number"
-            fontFamily="Montserrat Variable, sans-serif"
             fontWeight={700}
             sx={{
               fontSize: { xs: "1.6rem", md: "2rem" },
@@ -58,7 +57,6 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
           </Typography>
         </Box>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           sx={{
             fontSize: { xs: "0.95rem", md: "1.05rem" },
@@ -69,7 +67,6 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
           {ccOption.price}
         </Typography>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={600}
           sx={{
             fontSize: { xs: "0.9rem", md: "1rem" },
@@ -142,7 +139,6 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
               </Typography>
               <Typography
                 className="phone-number"
-                fontFamily="Montserrat Variable, sans-serif"
                 fontWeight={700}
                 sx={{
                   fontSize: { xs: "1.1rem", md: "1.25rem" },
@@ -168,7 +164,6 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
         ))}
       </Stack>
       <Typography
-        fontFamily="Montserrat Variable, sans-serif"
         fontWeight={600}
         sx={{
           fontSize: { xs: "0.9rem", md: "1rem" },

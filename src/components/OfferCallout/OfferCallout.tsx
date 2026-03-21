@@ -13,7 +13,6 @@ export const OfferCallout = () => {
   return (
     <CalloutCard>
       <Typography
-        fontFamily="Montserrat Variable, sans-serif"
         fontSize="1.2rem"
         variant="h3"
         component="h3"
@@ -22,7 +21,6 @@ export const OfferCallout = () => {
         🎁 Special Offer
       </Typography>
       <Typography
-        fontFamily="Montserrat Variable, sans-serif"
         fontSize="1rem"
       >
         <strong>{NEW_CLIENT_OFFER_PRICE}</strong> for first-time callers! Quote <strong>&quot;{NEW_CLIENT_OFFER_CODE}&quot;</strong> when you call.
