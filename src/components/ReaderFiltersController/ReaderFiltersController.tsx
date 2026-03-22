@@ -246,7 +246,7 @@ export const ReaderFiltersController = () => {
 
       {/* Mobile: filter trigger button */}
       {isMobile && (
-        <Box sx={{ mt: 4, mb: 2 }}>
+        <Box sx={{ mt: 4, mb: 2, width: "100%" }}>
           <Button
             fullWidth
             startIcon={<TuneIcon />}
@@ -257,7 +257,7 @@ export const ReaderFiltersController = () => {
             Filter & Sort
             {activeFilterCount > 0 ? ` (${activeFilterCount})` : ""}
           </Button>
-          <Typography variant="body2" color="text.secondary" textAlign="center" mt={1}>
+          <Typography variant="body2" color="secondary.main" textAlign="center" mt={1}>
             ✨ {sorted.length} {pluralize("psychics", sorted.length)}{" "}
             {sorted.length < 2 ? "matches" : "match"}
           </Typography>
