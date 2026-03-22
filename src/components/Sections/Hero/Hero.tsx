@@ -181,7 +181,7 @@ export const Hero = () => {
                 Speak to a caring psychic and find clarity in love, life, or
                 your next steps - relied on for over 23 years.
               </Typography>
-              <Box sx={{ width: { xs: "100%", sm: "auto" } }}>
+              <Box sx={{ display: { xs: "block", sm: "inline-block" } }}>
                 <PrimaryCTAButton
                   size="large"
                   fullWidth

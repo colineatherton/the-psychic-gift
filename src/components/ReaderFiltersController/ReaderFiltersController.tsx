@@ -247,18 +247,10 @@ export const ReaderFiltersController = () => {
 
       {/* Mobile: filter trigger button */}
       {isMobile && (
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            mt: 4,
-            mb: 2,
-            gap: 2,
-          }}
-        >
-          <Badge badgeContent={activeFilterCount} color="primary">
+        <Box sx={{ mt: 4, mb: 2 }}>
+          <Badge badgeContent={activeFilterCount} color="primary" sx={{ width: "100%" }}>
             <Button
+              fullWidth
               startIcon={<TuneIcon />}
               variant="outlined"
               onClick={() => setDrawerOpen(true)}
@@ -268,7 +260,7 @@ export const ReaderFiltersController = () => {
               {activeFilterCount > 0 ? ` (${activeFilterCount})` : ""}
             </Button>
           </Badge>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.secondary" textAlign="center" mt={1}>
             ✨ {sorted.length} {pluralize("psychics", sorted.length)}{" "}
             {sorted.length < 2 ? "matches" : "match"}
           </Typography>

@@ -51,7 +51,7 @@ export function CTA({ heading }: CTASectionProps) {
             >
               {heading}
             </Typography>
-            <Box sx={{ width: { xs: "100%", sm: "auto" } }}>
+            <Box sx={{ display: { xs: "block", sm: "inline-block" } }}>
               <PrimaryCTAButton
                 size="large"
                 fullWidth
