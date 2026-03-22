@@ -248,7 +248,7 @@ export const ReaderFiltersController = () => {
       {/* Mobile: filter trigger button */}
       {isMobile && (
         <Box sx={{ mt: 4, mb: 2 }}>
-          <Badge badgeContent={activeFilterCount} color="primary" sx={{ width: "100%" }}>
+          <Badge badgeContent={activeFilterCount} color="primary" sx={{ display: "block", width: "100%" }}>
             <Button
               fullWidth
               startIcon={<TuneIcon />}
