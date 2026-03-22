@@ -3,13 +3,14 @@
 import { HoverMenu, IconToggle, PrimaryCTAButton } from "@/components";
 import { CALL_OPTIONS } from "@/lib/constants/phoneNumbers";
 import { NavIcons, PAGES, READING_PAGES } from "@/lib/constants/urls";
-import { DarkModeRounded, PhoneInTalk, WbSunnyRounded } from "@mui/icons-material";
+import { DarkModeRounded, ExpandMore, PhoneInTalk, WbSunnyRounded } from "@mui/icons-material";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Badge, Divider, Grid, Stack, Typography, useMediaQuery } from "@mui/material";
 import Box from "@mui/material/Box";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import {
   StyledAppBar,
@@ -71,6 +72,8 @@ interface AppBarProps {
 export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
   const { getOnlineReaders } = useReaderFeedContext();
   const { handleFindYourPsychic } = useReaderSelectContext();
+  const pathname = usePathname();
+  const isReadingPage = READING_PAGES.some((p) => p.path === pathname);
   const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [drawerTopOffset, setDrawerTopOffset] = useState(0);
@@ -321,7 +324,12 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
               <>
                 <HoverMenu
                   TriggerEl={
-                    <StyledNavLink variant="text" size="large">
+                    <StyledNavLink
+                      variant="text"
+                      size="large"
+                      $active={isReadingPage}
+                      endIcon={<ExpandMore />}
+                    >
                       Phone Readings
                     </StyledNavLink>
                   }
@@ -338,6 +346,7 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                       variant="text"
                       onClick={() => onNavigate(page.path)}
                       size="large"
+                      $active={pathname === page.path}
                       startIcon={page.icon ? navIcons[page.icon] : undefined}
                     >
                       {page.label}

@@ -32,7 +32,9 @@ export const StyledLinksContainer = styled(Container, {
   background: alpha(theme.palette.primary.dark, 0.8),
 }));
 
-export const StyledNavLink = styled(Button)(({ theme }) => ({
+export const StyledNavLink = styled(Button, {
+  shouldForwardProp: (prop) => prop !== "$active",
+})<{ $active?: boolean }>(({ theme, $active }) => ({
   textTransform: "none",
   color: "white",
   fontWeight: 500,
@@ -48,7 +50,7 @@ export const StyledNavLink = styled(Button)(({ theme }) => ({
     left: "50%",
     bottom: -1,
     transform: "translateX(-50%)",
-    width: 0,
+    width: $active ? "80%" : 0,
     height: 2,
     background: "gold",
     boxShadow: `0 0 8px ${theme.palette.accent.primary}`,
@@ -58,9 +60,16 @@ export const StyledNavLink = styled(Button)(({ theme }) => ({
   "&:hover::after, &.Mui-selected::after, &:focus-visible::after": {
     width: "80%",
   },
+  "& .MuiButton-endIcon": {
+    transition: "transform 220ms ease",
+  },
+  "&[aria-expanded='true'] .MuiButton-endIcon": {
+    transform: "rotate(180deg)",
+  },
   "@media (prefers-reduced-motion: reduce)": {
     transition: "none",
     "&::after": { transition: "none" },
+    "& .MuiButton-endIcon": { transition: "none" },
   },
 }));
 
