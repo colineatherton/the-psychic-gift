@@ -9,7 +9,6 @@ import { ReaderGrid } from "../ReaderGrid/ReaderGrid";
 import TuneIcon from "@mui/icons-material/Tune";
 import CloseIcon from "@mui/icons-material/Close";
 import {
-  Badge,
   Box,
   Button,
   Divider,
@@ -248,18 +247,16 @@ export const ReaderFiltersController = () => {
       {/* Mobile: filter trigger button */}
       {isMobile && (
         <Box sx={{ mt: 4, mb: 2 }}>
-          <Badge badgeContent={activeFilterCount} color="primary" sx={{ display: "block", width: "100%" }}>
-            <Button
-              fullWidth
-              startIcon={<TuneIcon />}
-              variant="outlined"
-              onClick={() => setDrawerOpen(true)}
-              sx={{ borderRadius: 8, textTransform: "none" }}
-            >
-              Filter & Sort
-              {activeFilterCount > 0 ? ` (${activeFilterCount})` : ""}
-            </Button>
-          </Badge>
+          <Button
+            fullWidth
+            startIcon={<TuneIcon />}
+            variant="outlined"
+            onClick={() => setDrawerOpen(true)}
+            sx={{ borderRadius: 8, textTransform: "none" }}
+          >
+            Filter & Sort
+            {activeFilterCount > 0 ? ` (${activeFilterCount})` : ""}
+          </Button>
           <Typography variant="body2" color="text.secondary" textAlign="center" mt={1}>
             ✨ {sorted.length} {pluralize("psychics", sorted.length)}{" "}
             {sorted.length < 2 ? "matches" : "match"}
