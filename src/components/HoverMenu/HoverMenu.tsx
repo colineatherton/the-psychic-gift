@@ -46,6 +46,7 @@ export const HoverMenu = ({ TriggerEl, items, gap, delay }: Props) => {
         ...bindHover(popupState),
         onMouseLeave: handleMouseLeave,
         onMouseEnter: handleMouseEnter,
+        "aria-expanded": popupState.isOpen,
       })}
       <PopupHoverMenu
         {...bindMenu(popupState)}
