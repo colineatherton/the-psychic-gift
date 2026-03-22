@@ -41,9 +41,6 @@ export default function TelephonePsychicsContent() {
         />
       </Grid>
       <Grid size={12} mb={4}>
-        <PhoneCallout />
-      </Grid>
-      <Grid size={12} mb={4}>
         <Typography
           fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
@@ -59,8 +56,6 @@ export default function TelephonePsychicsContent() {
           whenever you need them.
         </Typography>
       </Grid>
-
-      <CTA heading="Connect with a telephone psychic" />
 
       <Grid
         size={12}
@@ -120,6 +115,11 @@ export default function TelephonePsychicsContent() {
           />
         </Grid>
       </Grid>
+
+      <Grid size={12} mb={4}>
+        <PhoneCallout />
+      </Grid>
+      <CTA heading="Connect with a telephone psychic" />
 
       <Grid
         size={12}

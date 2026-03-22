@@ -41,9 +41,6 @@ export default function PsychicPhoneReadingsContent() {
         />
       </Grid>
       <Grid size={12} mb={4}>
-        <PhoneCallout />
-      </Grid>
-      <Grid size={12} mb={4}>
         <Typography
           fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
@@ -59,8 +56,6 @@ export default function PsychicPhoneReadingsContent() {
           to offer guidance on love, relationships, career, and life decisions.
         </Typography>
       </Grid>
-
-      <CTA heading="Speak to a psychic now" />
 
       <Grid
         size={12}
@@ -119,6 +114,11 @@ export default function PsychicPhoneReadingsContent() {
           />
         </Grid>
       </Grid>
+
+      <Grid size={12} mb={4}>
+        <PhoneCallout />
+      </Grid>
+      <CTA heading="Speak to a psychic now" />
 
       <Grid
         size={12}

@@ -41,9 +41,6 @@ export default function ClairvoyantReadingsContent() {
         />
       </Grid>
       <Grid size={12} mb={4}>
-        <PhoneCallout />
-      </Grid>
-      <Grid size={12} mb={4}>
         <Typography
           fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
@@ -59,8 +56,6 @@ export default function ClairvoyantReadingsContent() {
           available by phone to guide you towards clarity and direction.
         </Typography>
       </Grid>
-
-      <CTA heading="Speak to a clairvoyant now" />
 
       <Grid
         size={12}
@@ -120,6 +115,11 @@ export default function ClairvoyantReadingsContent() {
           />
         </Grid>
       </Grid>
+
+      <Grid size={12} mb={4}>
+        <PhoneCallout />
+      </Grid>
+      <CTA heading="Speak to a clairvoyant now" />
 
       <Grid
         size={12}
