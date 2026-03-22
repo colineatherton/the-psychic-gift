@@ -52,7 +52,9 @@ export function WhyPsychicGift() {
               src={logoSrc}
               alt="The Psychic Gift"
               sx={{
-                height: 100,
+                width: "auto",
+                height: "auto",
+                maxHeight: 100,
                 maxWidth: "100%",
                 mt: 1,
                 display: "block",
@@ -87,16 +89,25 @@ export function WhyPsychicGift() {
             </Grid>
           </Grid>
           <Grid container spacing={4} width={"100%"} alignItems="center">
-            <Grid size={{ xs: 12, md: 3 }}>
-              <CircleImage>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/psychic-reading-2.png"
-                  alt="Psychic reading"
-                />
-              </CircleImage>
+            <Grid
+              size={{ xs: 12, md: 3 }}
+              sx={{
+                order: { xs: 2, md: 1 },
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Box sx={{ maxWidth: { xs: 160, md: 320 }, width: "100%" }}>
+                <CircleImage>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/psychic-reading-2.png"
+                    alt="Psychic reading"
+                  />
+                </CircleImage>
+              </Box>
             </Grid>
-            <Grid size={{ xs: 12, md: 9 }}>
+            <Grid size={{ xs: 12, md: 9 }} sx={{ order: { xs: 1, md: 2 } }}>
               <Typography
                 fontFamily="Montserrat Variable, sans-serif"
                 fontWeight={500}

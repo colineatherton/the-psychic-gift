@@ -181,12 +181,15 @@ export const Hero = () => {
                 Speak to a caring psychic and find clarity in love, life, or
                 your next steps - relied on for over 23 years.
               </Typography>
-              <PrimaryCTAButton
-                size="large"
-                onClick={handleFindYourPsychic}
-                label="Find Your Psychic"
-                mb={4}
-              />
+              <Box sx={{ width: { xs: "100%", sm: "auto" } }}>
+                <PrimaryCTAButton
+                  size="large"
+                  fullWidth
+                  onClick={handleFindYourPsychic}
+                  label="Find Your Psychic"
+                  mb={4}
+                />
+              </Box>
               <PhoneCallout compact />
             </Grid>
             <Grid

@@ -44,7 +44,6 @@ export function StepCard({
             justifyContent={"center"}
             alignItems={"center"}
             size={{ xs: 12, md: 2 }}
-            height={"100%"}
           >
             <Avatar
               sx={{

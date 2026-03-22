@@ -19,11 +19,11 @@ export const TrustBadges = () => {
       >
         <Grid container height="100%" py={10} width={"100%"}>
           <Stack
-            direction="row"
+            direction={{ xs: "column", sm: "row" }}
             alignItems="center"
             width="100%"
             justifyContent="center"
-            gap={{ xs: 2, md: 6 }}
+            gap={{ xs: 4, md: 6 }}
           >
             <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
               <TrustBadge src="readings-given.png" alt="Millions of readings given" />
