@@ -32,7 +32,7 @@ export const ReaderGrid: React.FC<ReaderGridProps> = ({
   return (
     <Box flexGrow={1}>
       <Box>
-        <Grid container spacing={4}>
+        <Grid container spacing={{ xs: 2, md: 4 }}>
           {readers.map((reader) => (
             <Grid size={{ xs: 12, sm: 6, md: 4, lg: 4 }} key={reader.pin}>
               <ReaderCard

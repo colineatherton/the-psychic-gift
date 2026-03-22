@@ -305,14 +305,14 @@ export function OffersContent() {
       </Box>
 
       {/* Trust badges */}
-      <Grid container spacing={2} alignItems="center" justifyContent="center" mb={4}>
-        <Grid size={{ xs: 4 }}>
+      <Grid container spacing={4} alignItems="center" justifyContent="center" mb={4}>
+        <Grid size={{ xs: 12, sm: 4 }}>
           <TrustBadge src="readings-given.png" alt="Over 150,000 readings given" />
         </Grid>
-        <Grid size={{ xs: 4 }}>
+        <Grid size={{ xs: 12, sm: 4 }}>
           <TrustBadge src="est-2002.png" alt="Established 2002" />
         </Grid>
-        <Grid size={{ xs: 4 }}>
+        <Grid size={{ xs: 12, sm: 4 }}>
           <TrustBadge
             src="satisfaction-guarantee-2.png"
             alt="Satisfaction guarantee"

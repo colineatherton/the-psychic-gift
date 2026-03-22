@@ -91,6 +91,8 @@ export const ReaderAvailableAlert = () => {
       }}
       sx={{
         top: { xs: 72, sm: 136 },
+        // Stay below the mobile nav drawer (zIndex.drawer = 1200)
+        zIndex: (theme) => theme.zIndex.drawer - 1,
         "& .MuiPaper-root": {
           backgroundColor: (theme) => theme.palette.primary.dark,
         },

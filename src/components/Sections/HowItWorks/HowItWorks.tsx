@@ -53,7 +53,10 @@ export const HowItWorks = () => {
               src={logoSrc}
               alt="The Psychic Gift"
               sx={{
-                height: 100,
+                width: "auto",
+                height: "auto",
+                maxHeight: 100,
+                maxWidth: "100%",
                 display: "block",
                 margin: "0 auto",
               }}

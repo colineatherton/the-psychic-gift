@@ -38,13 +38,12 @@ export function StepCard({
           height: "100%",
         }}
       >
-        <Grid container spacing={4} display={"flex"} height={"100%"}>
+        <Grid container spacing={4} display={"flex"} height={"100%"} alignContent="flex-start">
           <Grid
             display={"flex"}
             justifyContent={"center"}
             alignItems={"center"}
             size={{ xs: 12, md: 2 }}
-            height={"100%"}
           >
             <Avatar
               sx={{

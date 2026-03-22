@@ -146,7 +146,7 @@ export const Hero = () => {
             </Grid>
             <Grid
               size={{ xs: 12, md: 7 }}
-              sx={{ paddingRight: theme.spacing(6) }}
+              sx={{ paddingRight: { xs: 0, md: theme.spacing(6) } }}
             >
               <Typography
                 fontFamily="Montserrat Variable, sans-serif"
@@ -181,12 +181,15 @@ export const Hero = () => {
                 Speak to a caring psychic and find clarity in love, life, or
                 your next steps - relied on for over 23 years.
               </Typography>
-              <PrimaryCTAButton
-                size="large"
-                onClick={handleFindYourPsychic}
-                label="Find Your Psychic"
-                mb={4}
-              />
+              <Box sx={{ display: { xs: "block", sm: "inline-block" } }}>
+                <PrimaryCTAButton
+                  size="large"
+                  fullWidth
+                  onClick={handleFindYourPsychic}
+                  label="Find Your Psychic"
+                  mb={4}
+                />
+              </Box>
               <PhoneCallout compact />
             </Grid>
             <Grid

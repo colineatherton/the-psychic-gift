@@ -116,7 +116,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
             >
               <Image
                 src={`/readers/original/${pin}.png`}
-                alt="Amara"
+                alt={name}
                 width={effectiveImgSize}
                 height={effectiveImgSize}
                 placeholder="blur"
@@ -212,7 +212,14 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
       </CardContent>
       {mode !== "selected" && !hideActions && (
         <Box sx={{ p: 2, pt: 0 }}>
-          <Stack gap={2} direction={mode === "featured" ? "row" : "column"}>
+          <Stack
+            gap={2}
+            direction={
+              mode === "featured"
+                ? { xs: "column", sm: "row" }
+                : "column"
+            }
+          >
             <PrimaryCTAButton
               size="large"
               fullWidth={true}

@@ -51,12 +51,15 @@ export function CTA({ heading }: CTASectionProps) {
             >
               {heading}
             </Typography>
-            <PrimaryCTAButton
-              size="large"
-              onClick={handleFindYourPsychic}
-              label="Find Your Psychic"
-              mb={4}
-            />
+            <Box sx={{ display: { xs: "block", sm: "inline-block" } }}>
+              <PrimaryCTAButton
+                size="large"
+                fullWidth
+                onClick={handleFindYourPsychic}
+                label="Find Your Psychic"
+                mb={4}
+              />
+            </Box>
             {onlineReadersCount > 0 && (
               <Typography
                 fontFamily="Montserrat Variable, sans-serif"
