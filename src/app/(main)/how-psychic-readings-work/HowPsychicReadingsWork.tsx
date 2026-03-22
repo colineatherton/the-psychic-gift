@@ -57,7 +57,9 @@ export default function HowPsychicReadingsWork() {
           src={logoSrc}
           alt="The Psychic Gift"
           sx={{
-            height: 100,
+            width: "auto",
+            height: "auto",
+            maxHeight: 100,
             maxWidth: "100%",
             mt: 1,
             display: "block",
@@ -246,6 +248,11 @@ export default function HowPsychicReadingsWork() {
           />
         </Grid>
       </Grid>
+      {/* Mobile-only CTA after Step 3 — before the legal/pre-pay sections */}
+      <Box sx={{ display: { xs: "block", md: "none" }, mx: -2 }}>
+        <CTA heading="Ready to speak to a reader?" />
+      </Box>
+
       <Grid
         size={12}
         justifyContent="center"

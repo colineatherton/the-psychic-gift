@@ -31,7 +31,9 @@ export default function AboutContent() {
           src={logoSrc}
           alt="The Psychic Gift"
           sx={{
-            height: 100,
+            width: "auto",
+            height: "auto",
+            maxHeight: 100,
             maxWidth: "100%",
             mt: 1,
             display: "block",
@@ -48,6 +50,7 @@ export default function AboutContent() {
           lineHeight="2"
           variant="body2"
           component="p"
+          textAlign={{ xs: "center", sm: "left" }}
         >
           At The Psychic Gift, we honour intuition while respecting personal
           choice.
@@ -62,7 +65,8 @@ export default function AboutContent() {
           lineHeight="2"
           variant="body2"
           component="p"
-          maxWidth={"80%"}
+          maxWidth={{ xs: "100%", md: "80%" }}
+          textAlign={{ xs: "center", sm: "left" }}
         >
           We work with a carefully chosen group of clairvoyants and mediums,
           each bringing their own psychic abilities, spiritual awareness, and
@@ -80,7 +84,8 @@ export default function AboutContent() {
           lineHeight="2"
           variant="body2"
           component="p"
-          maxWidth={"80%"}
+          maxWidth={{ xs: "100%", md: "80%" }}
+          textAlign={{ xs: "center", sm: "left" }}
         >
           Many people come to us during moments of uncertainty - questions of
           love, relationships, direction, or emotional balance. Through
@@ -118,6 +123,7 @@ export default function AboutContent() {
           lineHeight="2"
           variant="body2"
           component="p"
+          textAlign={{ xs: "center", sm: "left" }}
         >
           Our readers are especially attuned to matters of the heart, but they
           also explore family, career, and life purpose. Each reading is shaped
@@ -134,6 +140,7 @@ export default function AboutContent() {
           lineHeight="2"
           variant="body2"
           component="p"
+          textAlign={{ xs: "center", sm: "left" }}
         >
           For those seeking connection beyond the physical world, our mediums
           work gently and respectfully with the spirit realm, offering messages
@@ -170,6 +177,7 @@ export default function AboutContent() {
           lineHeight="2"
           variant="body2"
           component="p"
+          textAlign={{ xs: "center", sm: "left" }}
         >
           We believe life is influenced by both seen and unseen forces, and that
           guidance can come through intuition, spirit, and inner awareness. A
