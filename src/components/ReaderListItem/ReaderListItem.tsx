@@ -110,12 +110,12 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
                 <Avatar alt={name} src={`/readers/original/${pin}.png`} />
               </StatusBadge>
             </Tooltip>
-            <Typography variant="caption" color="secondary.main" lineHeight={1}>{pin}</Typography>
+            <Typography variant="caption" fontWeight={700} color="secondary.main" lineHeight={1}>{pin}</Typography>
           </Stack>
         </ListItemAvatar>
         <ListItemText
           primary={
-            <Stack direction="row" alignItems="center" gap={1} mb={0.5}>
+            <Stack direction="row" alignItems="center" justifyContent="space-between" mb={0.5}>
               <Typography variant="body2" fontWeight={600}>{name}</Typography>
               <StatusChip label={statusLabel} size="small" statusColor={statusColor} />
             </Stack>
