@@ -86,9 +86,6 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
     <>
       <ListItem
         alignItems="flex-start"
-        secondaryAction={
-          <Typography variant="caption" color="secondary.main">{`PIN: ${pin}`}</Typography>
-        }
         onClick={() => onChooseCallOptions(`${name.toLocaleLowerCase()}-${pin}`)}
         sx={{
           cursor: "pointer",
@@ -102,16 +99,19 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
         }}
       >
         <ListItemAvatar>
-          <Tooltip title={statusLabel} placement="top">
-            <StatusBadge
-              overlap="circular"
-              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-              variant="dot"
-              statusColor={statusColor}
-            >
-              <Avatar alt={name} src={`/readers/original/${pin}.png`} />
-            </StatusBadge>
-          </Tooltip>
+          <Stack alignItems="center" spacing={0.5}>
+            <Tooltip title={statusLabel} placement="top">
+              <StatusBadge
+                overlap="circular"
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                variant="dot"
+                statusColor={statusColor}
+              >
+                <Avatar alt={name} src={`/readers/original/${pin}.png`} />
+              </StatusBadge>
+            </Tooltip>
+            <Typography variant="caption" color="secondary.main" lineHeight={1}>{pin}</Typography>
+          </Stack>
         </ListItemAvatar>
         <ListItemText
           primary={
