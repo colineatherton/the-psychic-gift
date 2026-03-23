@@ -87,10 +87,7 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
       <ListItem
         alignItems="flex-start"
         secondaryAction={
-          <Stack alignItems="flex-end" spacing={0.5}>
-            <StatusChip label={statusLabel} size="small" statusColor={statusColor} />
-            <Typography variant="caption" color="secondary.main">{`PIN: ${pin}`}</Typography>
-          </Stack>
+          <Typography variant="caption" color="secondary.main">{`PIN: ${pin}`}</Typography>
         }
         onClick={() => onChooseCallOptions(`${name.toLocaleLowerCase()}-${pin}`)}
         sx={{
@@ -117,7 +114,12 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
           </Tooltip>
         </ListItemAvatar>
         <ListItemText
-          primary={name}
+          primary={
+            <Stack direction="row" alignItems="center" gap={1} mb={0.5}>
+              <StatusChip label={statusLabel} size="small" statusColor={statusColor} />
+              <Typography variant="body2" fontWeight={600}>{name}</Typography>
+            </Stack>
+          }
           secondary={
             <Stack direction="row" flexWrap="wrap" gap={1.5} paddingY={1}>
               {effectiveSkills.map((skill) => (
