@@ -1,6 +1,5 @@
 "use client";
 
-import { Roboto } from "next/font/google";
 import { createTheme } from "@mui/material/styles";
 import { common } from "@mui/material/colors";
 
@@ -85,17 +84,11 @@ export const darkPalette = {
   },
 };
 
-const roboto = Roboto({
-  weight: ["300", "400", "500", "700"],
-  subsets: ["latin"],
-  display: "swap",
-});
-
 export function getTheme(mode: "light" | "dark" = "light") {
   const palette = mode === "dark" ? darkPalette : lightPalette;
   return createTheme({
     typography: {
-      fontFamily: roboto.style.fontFamily,
+      fontFamily: "'Montserrat Variable', Montserrat, sans-serif",
     },
     palette: {
       ...palette,
