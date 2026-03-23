@@ -41,7 +41,7 @@ const lightPurple2 = "#c6bbf4ff";
 // const lightPurple3 = "#d6ccffff";
 export const lightGrey = "#f8f7ff";
 const midGrey = "#7a8486";
-const darkGrey = "#274149";
+const darkGrey = "#1e1535";
 
 export const lightPalette = {
   mode: "light" as const,

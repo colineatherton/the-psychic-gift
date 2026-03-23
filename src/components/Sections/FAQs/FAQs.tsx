@@ -14,7 +14,10 @@ export const FAQs = ({ items }: FAQsProps) => {
   return (
     <Box
       sx={{
-        background: (theme) => theme.palette.secondary.light,
+        background: (theme) =>
+          theme.palette.mode === "dark"
+            ? theme.palette.background.paper
+            : theme.palette.secondary.light,
         padding: 2,
       }}
     >
