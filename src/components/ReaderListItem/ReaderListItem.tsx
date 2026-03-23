@@ -116,8 +116,8 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
         <ListItemText
           primary={
             <Stack direction="row" alignItems="center" gap={1} mb={0.5}>
-              <StatusChip label={statusLabel} size="small" statusColor={statusColor} />
               <Typography variant="body2" fontWeight={600}>{name}</Typography>
+              <StatusChip label={statusLabel} size="small" statusColor={statusColor} />
             </Stack>
           }
           secondary={
