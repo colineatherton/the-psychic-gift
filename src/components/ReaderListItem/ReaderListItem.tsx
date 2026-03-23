@@ -86,12 +86,6 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
     <>
       <ListItem
         alignItems="flex-start"
-        secondaryAction={
-          <Stack alignItems="flex-end" spacing={0.5}>
-            <StatusChip label={statusLabel} size="small" statusColor={statusColor} />
-            <Typography variant="caption" color="secondary.main">{`PIN: ${pin}`}</Typography>
-          </Stack>
-        }
         onClick={() => onChooseCallOptions(`${name.toLocaleLowerCase()}-${pin}`)}
         sx={{
           cursor: "pointer",
@@ -105,19 +99,27 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
         }}
       >
         <ListItemAvatar>
-          <Tooltip title={statusLabel} placement="top">
-            <StatusBadge
-              overlap="circular"
-              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-              variant="dot"
-              statusColor={statusColor}
-            >
-              <Avatar alt={name} src={`/readers/original/${pin}.png`} />
-            </StatusBadge>
-          </Tooltip>
+          <Stack alignItems="center" spacing={0.5}>
+            <Tooltip title={statusLabel} placement="top">
+              <StatusBadge
+                overlap="circular"
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                variant="dot"
+                statusColor={statusColor}
+              >
+                <Avatar alt={name} src={`/readers/original/${pin}.png`} />
+              </StatusBadge>
+            </Tooltip>
+            <Typography variant="caption" fontWeight={700} color="secondary.main" lineHeight={1}>{pin}</Typography>
+          </Stack>
         </ListItemAvatar>
         <ListItemText
-          primary={name}
+          primary={
+            <Stack direction="row" alignItems="center" justifyContent="space-between" mb={0.5}>
+              <Typography variant="body2" fontWeight={600}>{name}</Typography>
+              <StatusChip label={statusLabel} size="small" statusColor={statusColor} />
+            </Stack>
+          }
           secondary={
             <Stack direction="row" flexWrap="wrap" gap={1.5} paddingY={1}>
               {effectiveSkills.map((skill) => (

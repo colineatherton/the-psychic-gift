@@ -158,6 +158,9 @@ export const Hero = () => {
               >
                 Psychic Phone Readings
               </Typography>
+              <Box sx={{ display: { xs: "block", md: "none" }, mb: 3 }}>
+                <PhoneCallout />
+              </Box>
               <Typography
                 fontWeight={500}
                 fontSize="2rem"
@@ -187,7 +190,9 @@ export const Hero = () => {
                   mb={4}
                 />
               </Box>
-              <PhoneCallout compact />
+              <Box sx={{ display: { xs: "none", md: "block" } }}>
+                <PhoneCallout />
+              </Box>
             </Grid>
             <Grid
               size={{ xs: 12, md: 5 }}
