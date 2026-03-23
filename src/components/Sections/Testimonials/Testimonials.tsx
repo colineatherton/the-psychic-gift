@@ -45,7 +45,6 @@ export const Testimonials = () => {
             paddingBottom={8}
           >
             <Typography
-              fontFamily="Montserrat Variable, sans-serif"
               fontWeight={500}
               fontSize="2rem"
               lineHeight="1.6"

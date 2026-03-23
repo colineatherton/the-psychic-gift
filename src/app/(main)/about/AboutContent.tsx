@@ -16,7 +16,6 @@ export default function AboutContent() {
     <>
       <Grid size={12} justifyContent="center" alignItems="center" mb={10}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
           lineHeight="1"
@@ -43,7 +42,6 @@ export default function AboutContent() {
       </Grid>
       <Grid size={12} mb={4}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1rem"
           color={theme.palette.secondary.dark}
@@ -58,7 +56,6 @@ export default function AboutContent() {
       </Grid>
       <Grid size={12} mb={4}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1rem"
           color={theme.palette.secondary.dark}
@@ -77,7 +74,6 @@ export default function AboutContent() {
       </Grid>
       <Grid size={12} mb={4}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1rem"
           color={theme.palette.secondary.dark}
@@ -103,7 +99,6 @@ export default function AboutContent() {
         mb={6}
       >
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
           lineHeight="1"
@@ -116,7 +111,6 @@ export default function AboutContent() {
       </Grid>
       <Grid size={12} mb={4}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1rem"
           color={theme.palette.secondary.dark}
@@ -133,7 +127,6 @@ export default function AboutContent() {
       </Grid>
       <Grid size={12} mb={4}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1rem"
           color={theme.palette.secondary.dark}
@@ -157,7 +150,6 @@ export default function AboutContent() {
         mb={6}
       >
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="2rem"
           lineHeight="1"
@@ -170,7 +162,6 @@ export default function AboutContent() {
       </Grid>
       <Grid size={12} mb={4}>
         <Typography
-          fontFamily="Montserrat Variable, sans-serif"
           fontWeight={500}
           fontSize="1rem"
           color={theme.palette.secondary.dark}

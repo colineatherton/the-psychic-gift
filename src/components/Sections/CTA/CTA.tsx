@@ -1,6 +1,5 @@
 "use client";
 
-import theme from "@/app/theme";
 import { PrimaryCTAButton } from "@/components/PrimaryCTAButton/PrimaryCTAButton";
 import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
@@ -39,15 +38,14 @@ export function CTA({ heading }: CTASectionProps) {
             justifyItems={"center"}
           >
             <Typography
-              fontFamily="Montserrat Variable, sans-serif"
               fontWeight={500}
               fontSize="2rem"
-              color={theme.palette.text.primary}
               lineHeight="1.6"
               variant="h2"
               component="h2"
               marginBottom={4}
               textAlign="center"
+              sx={{ color: (theme) => theme.palette.text.primary }}
             >
               {heading}
             </Typography>
@@ -62,15 +60,14 @@ export function CTA({ heading }: CTASectionProps) {
             </Box>
             {onlineReadersCount > 0 && (
               <Typography
-                fontFamily="Montserrat Variable, sans-serif"
                 fontWeight={500}
                 fontSize="1rem"
-                color={theme.palette.text.primary}
                 lineHeight="1.6"
                 variant="body2"
                 component="p"
                 textAlign="center"
                 marginTop={2}
+                sx={{ color: (theme) => theme.palette.text.primary }}
               >
                 ✨ {onlineReadersCount}{" "}
                 {pluralize("psychics", onlineReadersCount)}{" "}

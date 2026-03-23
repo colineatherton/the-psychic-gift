@@ -91,7 +91,6 @@ export function OffersContent() {
             fontSize: { xs: "4rem", md: "7rem" },
             lineHeight: 1,
             mb: 0.5,
-            fontFamily: "Montserrat Variable, sans-serif",
           }}
         >
           £5
@@ -141,7 +140,6 @@ export function OffersContent() {
         fontWeight={700}
         textAlign="center"
         mb={4}
-        fontFamily="Montserrat Variable, sans-serif"
       >
         How to claim
       </Typography>
@@ -187,7 +185,7 @@ export function OffersContent() {
                   {step.number}
                 </Typography>
               </Box>
-              <Typography fontWeight={700} mb={1} fontFamily="Montserrat Variable, sans-serif">
+              <Typography fontWeight={700} mb={1}>
                 {step.title}
               </Typography>
               <Typography variant="body2" color="secondary.main">
@@ -204,7 +202,6 @@ export function OffersContent() {
         fontWeight={700}
         textAlign="center"
         mb={1}
-        fontFamily="Montserrat Variable, sans-serif"
       >
         Call now to claim your offer
       </Typography>
@@ -236,7 +233,7 @@ export function OffersContent() {
         }}
       >
         <PhoneIcon sx={{ fontSize: "1.6rem" }} />
-        <Typography fontWeight={800} fontSize="1.6rem" fontFamily="Montserrat Variable, sans-serif">
+        <Typography fontWeight={800} fontSize="1.6rem">
           {NCO_NUMBER}
         </Typography>
       </Box>
@@ -286,7 +283,6 @@ export function OffersContent() {
         fontWeight={700}
         textAlign="center"
         mb={1}
-        fontFamily="Montserrat Variable, sans-serif"
       >
         All call options
       </Typography>

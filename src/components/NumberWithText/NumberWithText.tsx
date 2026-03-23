@@ -28,7 +28,6 @@ export function NumberWithText({ number, title, body }: NumberWithTextProps) {
         </Avatar>
       </Box>
       <Typography
-        fontFamily="Montserrat Variable, sans-serif"
         fontWeight={600}
         fontSize="1.1rem"
         color="primary"
@@ -41,7 +40,6 @@ export function NumberWithText({ number, title, body }: NumberWithTextProps) {
         {title}
       </Typography>
       <Typography
-        fontFamily="Montserrat Variable, sans-serif"
         fontWeight={500}
         fontSize="1rem"
         color="primary"
