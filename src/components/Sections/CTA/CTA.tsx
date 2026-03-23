@@ -40,12 +40,12 @@ export function CTA({ heading }: CTASectionProps) {
             <Typography
               fontWeight={500}
               fontSize="2rem"
-              color={(theme) => theme.palette.text.primary}
               lineHeight="1.6"
               variant="h2"
               component="h2"
               marginBottom={4}
               textAlign="center"
+              sx={{ color: (theme) => theme.palette.text.primary }}
             >
               {heading}
             </Typography>
@@ -62,12 +62,12 @@ export function CTA({ heading }: CTASectionProps) {
               <Typography
                 fontWeight={500}
                 fontSize="1rem"
-                color={(theme) => theme.palette.text.primary}
                 lineHeight="1.6"
                 variant="body2"
                 component="p"
                 textAlign="center"
                 marginTop={2}
+                sx={{ color: (theme) => theme.palette.text.primary }}
               >
                 ✨ {onlineReadersCount}{" "}
                 {pluralize("psychics", onlineReadersCount)}{" "}
