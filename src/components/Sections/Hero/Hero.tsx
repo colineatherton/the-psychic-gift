@@ -187,7 +187,7 @@ export const Hero = () => {
                   mb={4}
                 />
               </Box>
-              <PhoneCallout compact />
+              <PhoneCallout />
             </Grid>
             <Grid
               size={{ xs: 12, md: 5 }}
