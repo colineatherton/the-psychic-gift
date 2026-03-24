@@ -115,9 +115,11 @@ export const ReaderAvailableAlert = () => {
       sx={{
         "& .MuiPaper-root": {
           backgroundColor: (theme) => theme.palette.primary.dark,
-          // Allow paper to grow to fit content at sm+ so message stays on one line
           minWidth: { sm: 420 },
           maxWidth: { sm: "none" },
+        },
+        "& .MuiSnackbarContent-root": {
+          flexWrap: { sm: "nowrap" },
         },
       }}
       message={
