@@ -3,6 +3,7 @@
 import { HoverMenu, IconToggle, PrimaryCTAButton } from "@/components";
 import { CALL_OPTIONS } from "@/lib/constants/phoneNumbers";
 import { NavIcons, PAGES, READING_PAGES } from "@/lib/constants/urls";
+import { useAppBarContext } from "@/lib/context/AppBarContext";
 import { DarkModeRounded, ExpandMore, PhoneInTalk, WbSunnyRounded } from "@mui/icons-material";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import CloseIcon from "@mui/icons-material/Close";
@@ -72,6 +73,7 @@ interface AppBarProps {
 export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
   const { getOnlineReaders } = useReaderFeedContext();
   const { handleFindYourPsychic } = useReaderSelectContext();
+  const { setAppBarHeight } = useAppBarContext();
   const pathname = usePathname();
   const isReadingPage = READING_PAGES.some((p) => p.path === pathname);
   const [mounted, setMounted] = useState(false);
@@ -99,6 +101,7 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
     const updateOffset = () => {
       const top = drawerAnchorRef.current?.getBoundingClientRect().top ?? 0;
       setDrawerTopOffset(Math.floor(top));
+      setAppBarHeight(Math.floor(top));
     };
     updateOffset();
 

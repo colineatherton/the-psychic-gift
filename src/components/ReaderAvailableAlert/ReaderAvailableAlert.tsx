@@ -1,4 +1,5 @@
 import CallIcon from "@mui/icons-material/Call";
+import { useAppBarContext } from "@/lib/context/AppBarContext";
 import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
 import { Box, Button, IconButton, Slide, Snackbar } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
@@ -9,6 +10,7 @@ export const ReaderAvailableAlert = () => {
   const { recentlyAvailable, getReaderByPin, lastUpdated } =
     useReaderFeedContext();
   const { handleChooseCallOptions, readerModalOpen } = useReaderSelectContext();
+  const { appBarHeight } = useAppBarContext();
   const [open, setOpen] = useState(false);
 
   // Track dismissed reader IDs so we don't re-show while they remain online
@@ -90,7 +92,7 @@ export const ReaderAvailableAlert = () => {
         },
       }}
       sx={{
-        top: { xs: 72, sm: 136 },
+        top: appBarHeight > 0 ? appBarHeight + 8 : { xs: 72, sm: 136 },
         // Stay below the mobile nav drawer (zIndex.drawer = 1200)
         zIndex: (theme) => theme.zIndex.drawer - 1,
         "& .MuiPaper-root": {
