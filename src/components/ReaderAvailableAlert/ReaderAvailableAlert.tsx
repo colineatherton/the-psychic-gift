@@ -93,8 +93,8 @@ export const ReaderAvailableAlert = () => {
       }}
       sx={{
         top: appBarHeight > 0 ? appBarHeight + 8 : { xs: 72, sm: 136 },
-        // Stay below the mobile nav drawer (zIndex.drawer = 1200)
-        zIndex: (theme) => theme.zIndex.drawer - 1,
+        // Above AppBar (drawer + 1 = 1201) so the slide-in animation is never obscured
+        zIndex: (theme) => theme.zIndex.drawer + 2,
         "& .MuiPaper-root": {
           backgroundColor: (theme) => theme.palette.primary.dark,
         },
