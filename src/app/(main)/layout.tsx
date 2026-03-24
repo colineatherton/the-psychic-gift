@@ -12,6 +12,7 @@ import {
 import { AppBar } from "@/components/AppBar/AppBar";
 import { OfferBanner } from "@/components/OfferBanner/OfferBanner";
 import { NCO_NUMBER, NEW_CLIENT_OFFER_CODE, NEW_CLIENT_OFFER_LABEL, NEW_CLIENT_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
+import { AppBarProvider } from "@/lib/context/AppBarContext";
 import { ReaderFeedProvider } from "@/lib/context/ReaderFeedContext";
 import { ReaderSelectProvider } from "@/lib/context/ReaderSelectContext";
 import { ThemeProvider } from "@emotion/react";
@@ -38,6 +39,7 @@ export default function MainLayout({
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <AppBarProvider>
       <ReaderFeedProvider>
         <ReaderSelectProvider>
           <AppBar
@@ -56,6 +58,7 @@ export default function MainLayout({
           <GoogleAnalytics />
         </ReaderSelectProvider>
       </ReaderFeedProvider>
+      </AppBarProvider>
     </ThemeProvider>
   );
 }

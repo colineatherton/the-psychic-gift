@@ -1,6 +1,7 @@
 import CallIcon from "@mui/icons-material/Call";
+import { useAppBarContext } from "@/lib/context/AppBarContext";
 import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
-import { Box, Button, IconButton, Slide, Snackbar } from "@mui/material";
+import { Box, Button, IconButton, Slide, Snackbar, useMediaQuery } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
@@ -9,7 +10,21 @@ export const ReaderAvailableAlert = () => {
   const { recentlyAvailable, getReaderByPin, lastUpdated } =
     useReaderFeedContext();
   const { handleChooseCallOptions, readerModalOpen } = useReaderSelectContext();
+  const { appBarHeight, mobileMenuOpen } = useAppBarContext();
   const [open, setOpen] = useState(false);
+
+  // Mirror AppBar breakpoints to compute a reliable fallback height
+  const showFullMenu = useMediaQuery("(min-width:765px)");
+  const showHeaderNumbers = useMediaQuery("(min-width:1024px)");
+  const showCompactNumbers = showFullMenu && !showHeaderNumbers;
+  const fallbackHeight = showHeaderNumbers
+    ? 170
+    : showCompactNumbers
+      ? 175
+      : showFullMenu
+        ? 115
+        : 70;
+  const topOffset = appBarHeight > 0 ? appBarHeight + 8 : fallbackHeight + 8;
 
   // Track dismissed reader IDs so we don't re-show while they remain online
   const dismissedRef = useRef<Set<number>>(new Set());
@@ -18,11 +33,9 @@ export const ReaderAvailableAlert = () => {
   useEffect(() => {
     if (recentlyAvailable) {
       if (dismissedRef.current.has(recentlyAvailable.id)) {
-        // Ensure closed if it was previously open
         setOpen(false);
         return;
       }
-      // Animate re-open
       setOpen(false);
       requestAnimationFrame(() => setOpen(true));
     } else {
@@ -30,9 +43,7 @@ export const ReaderAvailableAlert = () => {
     }
   }, [recentlyAvailable]);
 
-  // On each poll (using lastUpdated as a tick), check if any dismissed readers left online.
-  // If a dismissed reader is now busy/offline (status !== 1), remove them so future
-  // online transitions can alert again.
+  // On each poll, remove dismissed readers that have gone offline so they can alert again
   useEffect(() => {
     if (!lastUpdated) return;
     dismissedRef.current.forEach((id) => {
@@ -82,6 +93,9 @@ export const ReaderAvailableAlert = () => {
       }
       slots={{ transition: Slide }}
       slotProps={{
+        // Inline style wins over MUI's anchorOrigin CSS class — reliable cross-browser
+        // Drop below mobile drawer (1200) when it's open, above AppBar (1201) otherwise
+        root: { style: { top: `${topOffset}px`, zIndex: mobileMenuOpen ? 1199 : 1202 } },
         clickAwayListener: {
           onClickAway: (event) => {
             // @ts-expect-error prevent default MUI clickAway close if you want manual only
@@ -90,20 +104,17 @@ export const ReaderAvailableAlert = () => {
         },
       }}
       sx={{
-        top: { xs: 72, sm: 136 },
-        // Stay below the mobile nav drawer (zIndex.drawer = 1200)
-        zIndex: (theme) => theme.zIndex.drawer - 1,
         "& .MuiPaper-root": {
           backgroundColor: (theme) => theme.palette.primary.dark,
+          width: { sm: "min(680px, calc(100vw - 48px))" },
+          maxWidth: "none",
         },
       }}
       message={
-        recentlyAvailable ? (
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <CallIcon />
-            {`${recentlyAvailable.displayName} is now available for a reading! Use PIN: ${recentlyAvailable.id}`}
-          </Box>
-        ) : null
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1, whiteSpace: { xs: "normal", sm: "nowrap" } }}>
+          <CallIcon sx={{ flexShrink: 0 }} />
+          {`${recentlyAvailable.displayName} is now available for a reading! Use PIN: ${recentlyAvailable.id}`}
+        </Box>
       }
     />
   );

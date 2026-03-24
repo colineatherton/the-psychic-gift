@@ -3,6 +3,7 @@
 import { HoverMenu, IconToggle, PrimaryCTAButton } from "@/components";
 import { CALL_OPTIONS } from "@/lib/constants/phoneNumbers";
 import { NavIcons, PAGES, READING_PAGES } from "@/lib/constants/urls";
+import { useAppBarContext } from "@/lib/context/AppBarContext";
 import { DarkModeRounded, ExpandMore, PhoneInTalk, WbSunnyRounded } from "@mui/icons-material";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import CloseIcon from "@mui/icons-material/Close";
@@ -72,6 +73,7 @@ interface AppBarProps {
 export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
   const { getOnlineReaders } = useReaderFeedContext();
   const { handleFindYourPsychic } = useReaderSelectContext();
+  const { setAppBarHeight, setMobileMenuOpen: setContextMobileMenuOpen } = useAppBarContext();
   const pathname = usePathname();
   const isReadingPage = READING_PAGES.some((p) => p.path === pathname);
   const [mounted, setMounted] = useState(false);
@@ -89,6 +91,20 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
     setMounted(true);
   }, []);
 
+  // Re-measure after mounted content renders (phone numbers, CTAs expand the AppBar)
+  useEffect(() => {
+    if (!mounted) return;
+    const height = appBarRef.current?.getBoundingClientRect().height ?? 0;
+    if (height > 0) {
+      setDrawerTopOffset(Math.floor(height));
+      setAppBarHeight(Math.floor(height));
+    }
+  }, [mounted, setAppBarHeight]);
+
+  useEffect(() => {
+    setContextMobileMenuOpen(mobileMenuOpen);
+  }, [mobileMenuOpen, setContextMobileMenuOpen]);
+
   useEffect(() => {
     if (showFullMenu) {
       setMobileMenuOpen(false);
@@ -97,8 +113,9 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
 
   useEffect(() => {
     const updateOffset = () => {
-      const top = drawerAnchorRef.current?.getBoundingClientRect().top ?? 0;
-      setDrawerTopOffset(Math.floor(top));
+      const height = appBarRef.current?.getBoundingClientRect().height ?? 0;
+      setDrawerTopOffset(Math.floor(height));
+      setAppBarHeight(Math.floor(height));
     };
     updateOffset();
 
