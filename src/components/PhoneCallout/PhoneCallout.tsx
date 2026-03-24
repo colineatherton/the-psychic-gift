@@ -11,7 +11,9 @@ interface PhoneCalloutProps {
 
 export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
   const theme = useTheme();
+
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isRow = useMediaQuery(theme.breakpoints.up("md"));
   const ccOption = CALL_OPTIONS[0];
 
   if (compact) {
@@ -93,11 +95,10 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
       }}
     >
       <Stack
-        direction={{ xs: "column", sm: "row" }}
-        flexWrap="wrap"
+        direction={{ xs: "column", md: "row" }}
         divider={
           <Divider
-            orientation="vertical"
+            orientation={isRow ? "vertical" : "horizontal"}
             flexItem
             sx={{ borderColor: alpha(theme.palette.text.primary, 0.15) }}
           />
