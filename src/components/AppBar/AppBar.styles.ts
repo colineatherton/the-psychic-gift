@@ -24,6 +24,7 @@ export const StyledLinksContainer = styled(Container, {
 })<{
   $showFullMenu: boolean;
 }>(({ theme }) => ({
+  borderTop: `1px solid ${theme.palette.primary.light}`,
   borderBottom: `1px solid ${theme.palette.primary.light}`,
   backdropFilter: "blur(8px)",
   background: alpha(theme.palette.primary.dark, 0.8),

@@ -320,9 +320,6 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
             </Stack>
           )}
         </StyledAppBarContainer>
-        {showFullMenu && (
-          <Box sx={{ height: "1px", bgcolor: "primary.light", opacity: 0.4, width: "100%" }} />
-        )}
         <StyledLinksContainer maxWidth={false} $showFullMenu={showFullMenu}>
           <Grid
             flexGrow={1}
