@@ -117,6 +117,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
               gap: 1,
               textDecoration: "none",
               flex: 1,
+              minWidth: 0,
               "&:hover .phone-number": { color: "accent.primary" },
             }}
           >
@@ -148,6 +149,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
                   color: theme.palette.text.primary,
                   lineHeight: 1.2,
                   transition: "color 0.15s",
+                  whiteSpace: "nowrap",
                 }}
               >
                 {displayNumber}
