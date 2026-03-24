@@ -303,10 +303,15 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                     "&:hover": { color: "accent.primary" },
                   }}
                 >
-                  <PhoneInTalk sx={{ fontSize: "0.9rem", opacity: 0.7 }} />
-                  <Typography sx={{ fontSize: "0.88rem", fontWeight: 700, lineHeight: 1 }}>
-                    {opt.number}
-                  </Typography>
+                  <PhoneInTalk sx={{ fontSize: "0.9rem", opacity: 0.7, flexShrink: 0 }} />
+                  <Box>
+                    <Typography sx={{ fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: 0.8, opacity: 0.65, lineHeight: 1, mb: 0.25 }}>
+                      {opt.title}
+                    </Typography>
+                    <Typography sx={{ fontSize: "0.88rem", fontWeight: 700, lineHeight: 1 }}>
+                      {opt.number}
+                    </Typography>
+                  </Box>
                 </Box>
               ))}
             </Stack>
