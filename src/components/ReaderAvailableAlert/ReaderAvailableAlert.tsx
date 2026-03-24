@@ -6,17 +6,12 @@ import { useEffect, useRef, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 
-const DEV_MOCK_READER =
-  process.env.NODE_ENV === "development"
-    ? { id: 9999, displayName: "Test Reader" }
-    : null;
-
 export const ReaderAvailableAlert = () => {
   const { recentlyAvailable, getReaderByPin, lastUpdated } =
     useReaderFeedContext();
   const { handleChooseCallOptions, readerModalOpen } = useReaderSelectContext();
   const { appBarHeight, mobileMenuOpen } = useAppBarContext();
-  const [open, setOpen] = useState(process.env.NODE_ENV === "development");
+  const [open, setOpen] = useState(false);
 
   // Mirror AppBar breakpoints to compute a reliable fallback height
   const showFullMenu = useMediaQuery("(min-width:765px)");
@@ -31,15 +26,11 @@ export const ReaderAvailableAlert = () => {
         : 70;
   const topOffset = appBarHeight > 0 ? appBarHeight + 8 : fallbackHeight + 8;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const reader = recentlyAvailable ?? (DEV_MOCK_READER as any);
-
   // Track dismissed reader IDs so we don't re-show while they remain online
   const dismissedRef = useRef<Set<number>>(new Set());
 
   // Show logic: only open if reader is not dismissed
   useEffect(() => {
-    if (DEV_MOCK_READER) return; // dev mock stays open
     if (recentlyAvailable) {
       if (dismissedRef.current.has(recentlyAvailable.id)) {
         setOpen(false);
@@ -70,11 +61,11 @@ export const ReaderAvailableAlert = () => {
     setOpen(false);
   };
 
-  if (!reader || readerModalOpen) return null;
+  if (!recentlyAvailable || readerModalOpen) return null;
 
   return (
     <Snackbar
-      key={reader.id || "none"}
+      key={recentlyAvailable.id || "none"}
       open={open}
       onClose={handleClose}
       anchorOrigin={{ vertical: "top", horizontal: "center" }}
@@ -84,7 +75,7 @@ export const ReaderAvailableAlert = () => {
             size="small"
             onClick={() =>
               handleChooseCallOptions(
-                `${reader.displayName.toLocaleLowerCase()}-${reader.id}`,
+                `${recentlyAvailable.displayName.toLocaleLowerCase()}-${recentlyAvailable.id}`,
               )
             }
           >
@@ -122,7 +113,7 @@ export const ReaderAvailableAlert = () => {
       message={
         <Box sx={{ display: "flex", alignItems: "center", gap: 1, whiteSpace: { xs: "normal", sm: "nowrap" } }}>
           <CallIcon sx={{ flexShrink: 0 }} />
-          {`${reader.displayName} is now available for a reading! Use PIN: ${reader.id}`}
+          {`${recentlyAvailable.displayName} is now available for a reading! Use PIN: ${recentlyAvailable.id}`}
         </Box>
       }
     />
