@@ -118,7 +118,8 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
               alignItems: "center",
               gap: 1,
               textDecoration: "none",
-              flexShrink: 0,
+              flex: 1,
+              minWidth: 0,
               "&:hover .phone-number": { color: "accent.primary" },
             }}
           >
