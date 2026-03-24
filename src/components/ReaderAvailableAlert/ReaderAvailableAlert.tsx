@@ -1,30 +1,50 @@
 import CallIcon from "@mui/icons-material/Call";
 import { useAppBarContext } from "@/lib/context/AppBarContext";
 import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
-import { Box, Button, IconButton, Slide, Snackbar } from "@mui/material";
+import { Box, Button, IconButton, Slide, Snackbar, useMediaQuery } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
+
+const DEV_MOCK_READER =
+  process.env.NODE_ENV === "development"
+    ? { id: 9999, displayName: "Test Reader" }
+    : null;
 
 export const ReaderAvailableAlert = () => {
   const { recentlyAvailable, getReaderByPin, lastUpdated } =
     useReaderFeedContext();
   const { handleChooseCallOptions, readerModalOpen } = useReaderSelectContext();
   const { appBarHeight } = useAppBarContext();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(process.env.NODE_ENV === "development");
+
+  // Mirror AppBar breakpoints to compute a reliable fallback height
+  const showFullMenu = useMediaQuery("(min-width:765px)");
+  const showHeaderNumbers = useMediaQuery("(min-width:1024px)");
+  const showCompactNumbers = showFullMenu && !showHeaderNumbers;
+  const fallbackHeight = showHeaderNumbers
+    ? 170
+    : showCompactNumbers
+      ? 175
+      : showFullMenu
+        ? 115
+        : 70;
+  const topOffset = appBarHeight > 0 ? appBarHeight + 8 : fallbackHeight + 8;
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const reader = recentlyAvailable ?? (DEV_MOCK_READER as any);
 
   // Track dismissed reader IDs so we don't re-show while they remain online
   const dismissedRef = useRef<Set<number>>(new Set());
 
   // Show logic: only open if reader is not dismissed
   useEffect(() => {
+    if (DEV_MOCK_READER) return; // dev mock stays open
     if (recentlyAvailable) {
       if (dismissedRef.current.has(recentlyAvailable.id)) {
-        // Ensure closed if it was previously open
         setOpen(false);
         return;
       }
-      // Animate re-open
       setOpen(false);
       requestAnimationFrame(() => setOpen(true));
     } else {
@@ -32,9 +52,7 @@ export const ReaderAvailableAlert = () => {
     }
   }, [recentlyAvailable]);
 
-  // On each poll (using lastUpdated as a tick), check if any dismissed readers left online.
-  // If a dismissed reader is now busy/offline (status !== 1), remove them so future
-  // online transitions can alert again.
+  // On each poll, remove dismissed readers that have gone offline so they can alert again
   useEffect(() => {
     if (!lastUpdated) return;
     dismissedRef.current.forEach((id) => {
@@ -52,11 +70,11 @@ export const ReaderAvailableAlert = () => {
     setOpen(false);
   };
 
-  if (!recentlyAvailable || readerModalOpen) return null;
+  if (!reader || readerModalOpen) return null;
 
   return (
     <Snackbar
-      key={recentlyAvailable.id || "none"}
+      key={reader.id || "none"}
       open={open}
       onClose={handleClose}
       anchorOrigin={{ vertical: "top", horizontal: "center" }}
@@ -66,7 +84,7 @@ export const ReaderAvailableAlert = () => {
             size="small"
             onClick={() =>
               handleChooseCallOptions(
-                `${recentlyAvailable.displayName.toLocaleLowerCase()}-${recentlyAvailable.id}`,
+                `${reader.displayName.toLocaleLowerCase()}-${reader.id}`,
               )
             }
           >
@@ -84,6 +102,8 @@ export const ReaderAvailableAlert = () => {
       }
       slots={{ transition: Slide }}
       slotProps={{
+        // Inline style wins over MUI's anchorOrigin CSS class — reliable cross-browser
+        root: { style: { top: `${topOffset}px`, zIndex: 1202 } },
         clickAwayListener: {
           onClickAway: (event) => {
             // @ts-expect-error prevent default MUI clickAway close if you want manual only
@@ -92,20 +112,15 @@ export const ReaderAvailableAlert = () => {
         },
       }}
       sx={{
-        top: appBarHeight > 0 ? appBarHeight + 8 : { xs: 72, sm: 136 },
-        // Above AppBar (drawer + 1 = 1201) so the slide-in animation is never obscured
-        zIndex: (theme) => theme.zIndex.drawer + 2,
         "& .MuiPaper-root": {
           backgroundColor: (theme) => theme.palette.primary.dark,
         },
       }}
       message={
-        recentlyAvailable ? (
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <CallIcon />
-            {`${recentlyAvailable.displayName} is now available for a reading! Use PIN: ${recentlyAvailable.id}`}
-          </Box>
-        ) : null
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <CallIcon />
+          {`${reader.displayName} is now available for a reading! Use PIN: ${reader.id}`}
+        </Box>
       }
     />
   );
