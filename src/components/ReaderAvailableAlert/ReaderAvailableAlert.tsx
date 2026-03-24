@@ -115,12 +115,14 @@ export const ReaderAvailableAlert = () => {
       sx={{
         "& .MuiPaper-root": {
           backgroundColor: (theme) => theme.palette.primary.dark,
-          minWidth: { sm: 420, md: 520 },
+          // Allow paper to grow to fit content at sm+ so message stays on one line
+          minWidth: { sm: 420 },
+          maxWidth: { sm: "none" },
         },
       }}
       message={
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <CallIcon />
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1, whiteSpace: { xs: "normal", sm: "nowrap" } }}>
+          <CallIcon sx={{ flexShrink: 0 }} />
           {`${reader.displayName} is now available for a reading! Use PIN: ${reader.id}`}
         </Box>
       }
