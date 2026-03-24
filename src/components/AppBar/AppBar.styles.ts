@@ -19,6 +19,12 @@ export const StyledContainer = styled(Container)(() => ({
   background: "transparent",
 }));
 
+export const StyledCompactNumbersContainer = styled(Container)(({ theme }) => ({
+  borderTop: `1px solid ${theme.palette.primary.light}`,
+  backdropFilter: "blur(12px)",
+  background: alpha(theme.palette.primary.dark, 0.92),
+}));
+
 export const StyledLinksContainer = styled(Container, {
   shouldForwardProp: (prop) => prop !== "$showFullMenu", // Explicitly exclude $showFullMenu from being forwarded
 })<{

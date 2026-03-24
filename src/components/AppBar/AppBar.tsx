@@ -16,6 +16,7 @@ import {
   StyledAppBar,
   StyledAppBarContainer,
   StyledBadge,
+  StyledCompactNumbersContainer,
   StyledContainer,
   StyledImg,
   StyledLinksContainer,
@@ -277,19 +278,15 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
               )}
             </Box>
           </StyledContainer>
-          {/* Compact numbers row — 765–1023px, separate row to avoid layout conflicts */}
-          {mounted && showCompactNumbers && (
+        </StyledAppBarContainer>
+        {/* Compact numbers row — 765–1023px, own full-width container so border needs no hacks */}
+        {mounted && showCompactNumbers && (
+          <StyledCompactNumbersContainer maxWidth={false}>
             <Stack
               direction="row"
               justifyContent="center"
               gap={{ sm: 3, md: 4 }}
-              sx={{
-                py: 0.75,
-                // Negate Container's horizontal padding so the border spans full viewport width
-                mx: { xs: -2, sm: -3 },
-                px: { xs: 2, sm: 3 },
-                borderTop: "1px solid rgba(255,255,255,0.1)",
-              }}
+              sx={{ py: 0.75 }}
             >
               {CALL_OPTIONS.map((opt) => (
                 <Box
@@ -318,8 +315,8 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
                 </Box>
               ))}
             </Stack>
-          )}
-        </StyledAppBarContainer>
+          </StyledCompactNumbersContainer>
+        )}
         <StyledLinksContainer maxWidth={false} $showFullMenu={showFullMenu}>
           <Grid
             flexGrow={1}
