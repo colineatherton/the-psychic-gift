@@ -94,6 +94,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
     >
       <Stack
         direction={{ xs: "column", sm: "row" }}
+        flexWrap="wrap"
         divider={
           <Divider
             orientation="vertical"
@@ -116,8 +117,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
               alignItems: "center",
               gap: 1,
               textDecoration: "none",
-              flex: 1,
-              minWidth: 0,
+              flexShrink: 0,
               "&:hover .phone-number": { color: "accent.primary" },
             }}
           >
