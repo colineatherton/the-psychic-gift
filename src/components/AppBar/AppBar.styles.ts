@@ -23,10 +23,7 @@ export const StyledLinksContainer = styled(Container, {
   shouldForwardProp: (prop) => prop !== "$showFullMenu", // Explicitly exclude $showFullMenu from being forwarded
 })<{
   $showFullMenu: boolean;
-}>(({ theme, $showFullMenu }) => ({
-  borderTop: $showFullMenu
-    ? `1px solid ${theme.palette.primary.light}`
-    : "none",
+}>(({ theme }) => ({
   borderBottom: `1px solid ${theme.palette.primary.light}`,
   backdropFilter: "blur(8px)",
   background: alpha(theme.palette.primary.dark, 0.8),
