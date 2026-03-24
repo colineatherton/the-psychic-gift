@@ -279,7 +279,7 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
             </Box>
           </StyledContainer>
         </StyledAppBarContainer>
-        {/* Compact numbers row — 765–1023px, own full-width container so border needs no hacks */}
+        {/* Compact numbers row — 765–1023px */}
         {mounted && showCompactNumbers && (
           <StyledCompactNumbersContainer maxWidth={false}>
             <Stack
