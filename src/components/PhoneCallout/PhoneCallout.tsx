@@ -2,7 +2,7 @@
 
 import { CALL_OPTIONS, NEW_CLIENT_OFFER_CODE, NEW_CLIENT_OFFER_LABEL, NEW_CLIENT_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
 import PhoneIcon from "@mui/icons-material/Phone";
-import { Box, Divider, Stack, Typography, useTheme } from "@mui/material";
+import { Box, Divider, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 
 interface PhoneCalloutProps {
@@ -11,6 +11,7 @@ interface PhoneCalloutProps {
 
 export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const ccOption = CALL_OPTIONS[0];
 
   if (compact) {
@@ -27,7 +28,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
       >
         <Box
           component="a"
-          href={`tel:${ccOption.number.replace(/\s/g, "")}`}
+          href={`tel:${(isMobile && ccOption.mobileNumber ? ccOption.mobileNumber : ccOption.number).replace(/\s/g, "")}`}
           sx={{
             display: "flex",
             alignItems: "center",
@@ -53,7 +54,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
               transition: "color 0.15s",
             }}
           >
-            {ccOption.number}
+            {isMobile && ccOption.mobileNumber ? ccOption.mobileNumber : ccOption.number}
           </Typography>
         </Box>
         <Typography
@@ -103,11 +104,13 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
         spacing={2}
         mb={1.5}
       >
-        {CALL_OPTIONS.map((opt) => (
+        {CALL_OPTIONS.map((opt) => {
+          const displayNumber = isMobile && opt.mobileNumber ? opt.mobileNumber : opt.number;
+          return (
           <Box
             key={opt.number}
             component="a"
-            href={`tel:${opt.number.replace(/\s/g, "")}`}
+            href={`tel:${displayNumber.replace(/\s/g, "")}`}
             sx={{
               display: "flex",
               alignItems: "center",
@@ -147,7 +150,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
                   transition: "color 0.15s",
                 }}
               >
-                {opt.number}
+                {displayNumber}
               </Typography>
               <Typography
                 sx={{
@@ -161,7 +164,8 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
               </Typography>
             </Box>
           </Box>
-        ))}
+          );
+        })}
       </Stack>
       <Typography
         fontWeight={600}

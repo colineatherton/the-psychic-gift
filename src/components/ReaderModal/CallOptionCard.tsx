@@ -1,18 +1,22 @@
 "use client";
 
 import PhoneIcon from "@mui/icons-material/Phone";
-import { Card, CardActionArea, Snackbar, Stack, Typography } from "@mui/material";
+import { Card, CardActionArea, Snackbar, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import { useState } from "react";
 
 interface CallOptionCardProps {
   title: string;
   number: string;
+  mobileNumber?: string;
   price: string;
 }
 
-export const CallOptionCard = ({ title, number, price }: CallOptionCardProps) => {
+export const CallOptionCard = ({ title, number, mobileNumber, price }: CallOptionCardProps) => {
   const [snackOpen, setSnackOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const displayNumber = isMobile && mobileNumber ? mobileNumber : number;
 
   return (
     <>
@@ -30,7 +34,7 @@ export const CallOptionCard = ({ title, number, price }: CallOptionCardProps) =>
       >
         <CardActionArea
           component="a"
-          href={`tel:${number.replace(/\s/g, "")}`}
+          href={`tel:${displayNumber.replace(/\s/g, "")}`}
           onClick={() => setSnackOpen(true)}
           sx={{
             px: 2, py: 1.5,
@@ -44,7 +48,7 @@ export const CallOptionCard = ({ title, number, price }: CallOptionCardProps) =>
             <Stack direction="row" alignItems="center" gap={1}>
               <PhoneIcon sx={{ color: "common.white", fontSize: "1.4rem" }} />
               <Typography variant="h5" fontWeight={700} color="common.white">
-                {number}
+                {displayNumber}
               </Typography>
             </Stack>
             <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.75)" }}>
