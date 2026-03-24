@@ -91,6 +91,16 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
     setMounted(true);
   }, []);
 
+  // Re-measure after mounted content renders (phone numbers, CTAs expand the AppBar)
+  useEffect(() => {
+    if (!mounted) return;
+    const height = appBarRef.current?.getBoundingClientRect().height ?? 0;
+    if (height > 0) {
+      setDrawerTopOffset(Math.floor(height));
+      setAppBarHeight(Math.floor(height));
+    }
+  }, [mounted, setAppBarHeight]);
+
   useEffect(() => {
     if (showFullMenu) {
       setMobileMenuOpen(false);
@@ -99,9 +109,9 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
 
   useEffect(() => {
     const updateOffset = () => {
-      const top = drawerAnchorRef.current?.getBoundingClientRect().top ?? 0;
-      setDrawerTopOffset(Math.floor(top));
-      setAppBarHeight(Math.floor(top));
+      const height = appBarRef.current?.getBoundingClientRect().height ?? 0;
+      setDrawerTopOffset(Math.floor(height));
+      setAppBarHeight(Math.floor(height));
     };
     updateOffset();
 
