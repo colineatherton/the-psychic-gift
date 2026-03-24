@@ -24,6 +24,7 @@ import {
 type ReaderCardProps = {
   name: string;
   pin: string;
+  slug?: string;
   status: Status;
   skills: string[];
   mode?: "default" | "compact" | "featured" | "selected";
@@ -43,6 +44,7 @@ export const statusLabels: Record<ReaderCardProps["status"], string> = {
 export const ReaderCard: React.FC<ReaderCardProps> = ({
   name,
   pin,
+  slug,
   status,
   skills,
   mode = "default",
@@ -233,7 +235,7 @@ export const ReaderCard: React.FC<ReaderCardProps> = ({
                 size="large"
                 variant="outlined"
                 fullWidth={true}
-                href={`/psychic-readers/${name.toLocaleLowerCase()}-${pin}`}
+                href={`/psychic-readers/${slug ?? `${name.toLocaleLowerCase()}-${pin}`}`}
                 sx={{
                   borderRadius: 8,
                   ...(mode === "compact"

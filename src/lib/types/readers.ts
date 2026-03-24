@@ -1,6 +1,7 @@
 export type ReaderConfig = {
   name: string;
   pin: number;
+  slug: string;
   description: string;
   specialties: {
     abilities: string[];

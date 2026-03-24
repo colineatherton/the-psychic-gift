@@ -10,6 +10,7 @@ export type Reader = {
   name: string;
   image: string;
   pin: string;
+  slug: string;
   status: Status;
   skills: string[];
   callOptions: {

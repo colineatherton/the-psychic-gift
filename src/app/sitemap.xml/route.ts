@@ -8,8 +8,8 @@ export async function GET() {
     page.path.replace(/^\//, "")
   );
 
-  const readerPaths = Object.keys(READER_CONFIG_MAP).map(
-    (key) => `psychic-readers/${key}`
+  const readerPaths = Object.values(READER_CONFIG_MAP).map(
+    (reader) => `psychic-readers/${reader.slug}`
   );
 
   const allPaths = [...staticPaths, ...readerPaths];

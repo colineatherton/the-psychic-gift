@@ -1,5 +1,6 @@
 "use client";
 
+import { getSlugByPin } from "@/lib/constants/readers";
 import { Typography, useTheme } from "@mui/material";
 import Link from "next/link";
 
@@ -17,6 +18,7 @@ export function Testimonial({
   pin,
 }: TestimonialProps) {
   const theme = useTheme();
+  const slug = getSlugByPin(Number(pin)) ?? `${reader.toLocaleLowerCase()}-${pin}`;
   return (
     <>
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -68,7 +70,7 @@ export function Testimonial({
         Reading by{" "}
         <Link
           style={{ textDecoration: "underline" }}
-          href={`/psychic-readers/${reader.toLocaleLowerCase()}-${pin}`}
+          href={`/psychic-readers/${slug}`}
         >
           {reader}
         </Link>{" "}
