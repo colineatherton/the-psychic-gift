@@ -73,7 +73,7 @@ interface AppBarProps {
 export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
   const { getOnlineReaders } = useReaderFeedContext();
   const { handleFindYourPsychic } = useReaderSelectContext();
-  const { setAppBarHeight } = useAppBarContext();
+  const { setAppBarHeight, setMobileMenuOpen: setContextMobileMenuOpen } = useAppBarContext();
   const pathname = usePathname();
   const isReadingPage = READING_PAGES.some((p) => p.path === pathname);
   const [mounted, setMounted] = useState(false);
@@ -100,6 +100,10 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
       setAppBarHeight(Math.floor(height));
     }
   }, [mounted, setAppBarHeight]);
+
+  useEffect(() => {
+    setContextMobileMenuOpen(mobileMenuOpen);
+  }, [mobileMenuOpen, setContextMobileMenuOpen]);
 
   useEffect(() => {
     if (showFullMenu) {

@@ -1,8 +1,9 @@
 import { Drawer, ListItemText } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-export const StyledDrawer = styled(Drawer)<{ topOffset: number }>(
-  ({ theme, topOffset }) => ({
+export const StyledDrawer = styled(Drawer, {
+  shouldForwardProp: (prop) => prop !== "topOffset",
+})<{ topOffset: number }>(({ theme, topOffset }) => ({
     zIndex: theme.zIndex.drawer, // Ensure Drawer is above AppBar
     "& .MuiDrawer-paperAnchorTop": {
       top: `${topOffset}px`,

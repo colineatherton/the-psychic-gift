@@ -15,7 +15,7 @@ export const ReaderAvailableAlert = () => {
   const { recentlyAvailable, getReaderByPin, lastUpdated } =
     useReaderFeedContext();
   const { handleChooseCallOptions, readerModalOpen } = useReaderSelectContext();
-  const { appBarHeight } = useAppBarContext();
+  const { appBarHeight, mobileMenuOpen } = useAppBarContext();
   const [open, setOpen] = useState(process.env.NODE_ENV === "development");
 
   // Mirror AppBar breakpoints to compute a reliable fallback height
@@ -103,7 +103,8 @@ export const ReaderAvailableAlert = () => {
       slots={{ transition: Slide }}
       slotProps={{
         // Inline style wins over MUI's anchorOrigin CSS class — reliable cross-browser
-        root: { style: { top: `${topOffset}px`, zIndex: 1202 } },
+        // Drop below mobile drawer (1200) when it's open, above AppBar (1201) otherwise
+        root: { style: { top: `${topOffset}px`, zIndex: mobileMenuOpen ? 1199 : 1202 } },
         clickAwayListener: {
           onClickAway: (event) => {
             // @ts-expect-error prevent default MUI clickAway close if you want manual only
@@ -114,6 +115,7 @@ export const ReaderAvailableAlert = () => {
       sx={{
         "& .MuiPaper-root": {
           backgroundColor: (theme) => theme.palette.primary.dark,
+          minWidth: { sm: 420, md: 520 },
         },
       }}
       message={

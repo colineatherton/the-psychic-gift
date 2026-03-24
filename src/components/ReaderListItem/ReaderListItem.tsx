@@ -114,6 +114,8 @@ export const ReaderListItem: React.FC<ReaderListItemProps> = ({
           </Stack>
         </ListItemAvatar>
         <ListItemText
+          primaryTypographyProps={{ component: "div" }}
+          secondaryTypographyProps={{ component: "div" }}
           primary={
             <Stack direction="row" alignItems="center" justifyContent="space-between" mb={0.5}>
               <Typography variant="body2" fontWeight={600}>{name}</Typography>

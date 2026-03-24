@@ -5,11 +5,15 @@ import { createContext, useContext, useState } from "react";
 interface AppBarContextValue {
   appBarHeight: number;
   setAppBarHeight: (h: number) => void;
+  mobileMenuOpen: boolean;
+  setMobileMenuOpen: (open: boolean) => void;
 }
 
 const AppBarContext = createContext<AppBarContextValue>({
   appBarHeight: 0,
   setAppBarHeight: () => {},
+  mobileMenuOpen: false,
+  setMobileMenuOpen: () => {},
 });
 
 export const AppBarProvider = ({
@@ -18,8 +22,9 @@ export const AppBarProvider = ({
   children: React.ReactNode;
 }) => {
   const [appBarHeight, setAppBarHeight] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <AppBarContext.Provider value={{ appBarHeight, setAppBarHeight }}>
+    <AppBarContext.Provider value={{ appBarHeight, setAppBarHeight, mobileMenuOpen, setMobileMenuOpen }}>
       {children}
     </AppBarContext.Provider>
   );
