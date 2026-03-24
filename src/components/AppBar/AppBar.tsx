@@ -285,6 +285,9 @@ export function AppBar({ themeMode, onThemeToggle, onNavigate }: AppBarProps) {
               gap={{ sm: 3, md: 4 }}
               sx={{
                 py: 0.75,
+                // Negate Container's horizontal padding so the border spans full viewport width
+                mx: { xs: -2, sm: -3 },
+                px: { xs: 2, sm: 3 },
                 borderTop: "1px solid rgba(255,255,255,0.1)",
               }}
             >
