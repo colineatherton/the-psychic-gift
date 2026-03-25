@@ -12,6 +12,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { themeIcons } from "../AppBar";
 import { StyledDrawer, StyledListItemText } from "./MobileMenu.styles";
 
@@ -33,6 +34,26 @@ export const MobileDrawer = ({
   themeMode,
 }: MobileDrawerProps) => {
   const { handleFindYourPsychic } = useReaderSelectContext();
+  const listRef = useRef<HTMLDivElement>(null);
+  const [showScrollHint, setShowScrollHint] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    // After the drawer animates open, check if list overflows
+    const timer = setTimeout(() => {
+      const el = listRef.current;
+      if (!el) return;
+      setShowScrollHint(el.scrollHeight > el.clientHeight);
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [open]);
+
+  const handleScroll = () => {
+    const el = listRef.current;
+    if (!el) return;
+    const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 4;
+    setShowScrollHint(!atBottom);
+  };
 
   return (
     <StyledDrawer
@@ -59,21 +80,37 @@ export const MobileDrawer = ({
         ) : null}
 
         {/* Scrollable nav links */}
-        <Box sx={{ flex: 1, overflowY: "auto" }}>
-          <List>
-            {[...READING_PAGES, ...PAGES].map(({ label, path }) => (
-              <ListItem key={label} disablePadding alignItems="center">
-                <Link href={path} style={{ width: "100%", textDecoration: "none", color: "inherit" }}>
-                  <ListItemButton sx={{ width: "100%", justifyContent: "center" }}>
-                    <StyledListItemText
-                      slotProps={{ primary: { align: "center" } }}
-                      primary={label}
-                    />
-                  </ListItemButton>
-                </Link>
-              </ListItem>
-            ))}
-          </List>
+        <Box sx={{ flex: 1, position: "relative", overflow: "hidden" }}>
+          <Box ref={listRef} onScroll={handleScroll} sx={{ overflowY: "auto", height: "100%" }}>
+            <List>
+              {[...READING_PAGES, ...PAGES].map(({ label, path }) => (
+                <ListItem key={label} disablePadding alignItems="center">
+                  <Link href={path} style={{ width: "100%", textDecoration: "none", color: "inherit" }}>
+                    <ListItemButton sx={{ width: "100%", justifyContent: "center" }}>
+                      <StyledListItemText
+                        slotProps={{ primary: { align: "center" } }}
+                        primary={label}
+                      />
+                    </ListItemButton>
+                  </Link>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+          {showScrollHint && (
+            <Box
+              sx={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: 56,
+                background: (theme) =>
+                  `linear-gradient(to bottom, transparent, ${theme.palette.background.paper})`,
+                pointerEvents: "none",
+              }}
+            />
+          )}
         </Box>
 
         <Divider />
