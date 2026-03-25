@@ -16,5 +16,7 @@ export const StyledDrawer = styled(Drawer, {
 export const StyledListItemText = styled(ListItemText)(({ theme }) => ({
   "& .MuiListItemText-primary": {
     color: theme.palette.text.primary,
+    fontWeight: 700,
+    fontSize: "1.05rem",
   },
 }));

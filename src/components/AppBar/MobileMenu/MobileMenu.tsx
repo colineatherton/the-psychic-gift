@@ -109,9 +109,9 @@ export const MobileDrawer = ({
                 bottom: 0,
                 left: 0,
                 right: 0,
-                height: 56,
+                height: 80,
                 background: (theme) =>
-                  `linear-gradient(to bottom, transparent, ${theme.palette.background.paper})`,
+                  `linear-gradient(to bottom, transparent, ${theme.palette.background.paper} 85%)`,
                 pointerEvents: "none",
               }}
             />
