@@ -5,6 +5,7 @@ import { PrimaryCTAButton } from "@/components/PrimaryCTAButton/PrimaryCTAButton
 import { CALL_OPTIONS } from "@/lib/constants/phoneNumbers";
 import { PAGES, READING_PAGES } from "@/lib/constants/urls";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
 import { Divider, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -109,12 +110,28 @@ export const MobileDrawer = ({
                 bottom: 0,
                 left: 0,
                 right: 0,
-                height: 56,
+                height: 80,
                 background: (theme) =>
-                  `linear-gradient(to bottom, transparent, ${theme.palette.background.paper})`,
+                  `linear-gradient(to bottom, transparent, ${theme.palette.background.paper} 85%)`,
                 pointerEvents: "none",
+                display: "flex",
+                alignItems: "flex-end",
+                justifyContent: "center",
+                pb: 0.5,
               }}
-            />
+            >
+              <KeyboardArrowDownIcon
+                sx={{
+                  opacity: 0.45,
+                  fontSize: "1.4rem",
+                  "@keyframes scrollBounce": {
+                    "0%, 100%": { transform: "translateY(0)" },
+                    "50%": { transform: "translateY(4px)" },
+                  },
+                  animation: "scrollBounce 1.2s ease-in-out 3",
+                }}
+              />
+            </Box>
           )}
         </Box>
 
