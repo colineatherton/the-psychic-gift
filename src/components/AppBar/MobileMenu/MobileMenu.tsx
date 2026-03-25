@@ -37,23 +37,28 @@ export const MobileDrawer = ({
   const listRef = useRef<HTMLDivElement>(null);
   const [showScrollHint, setShowScrollHint] = useState(false);
 
-  useEffect(() => {
-    if (!open) return;
-    // After the drawer animates open, check if list overflows
-    const timer = setTimeout(() => {
-      const el = listRef.current;
-      if (!el) return;
-      setShowScrollHint(el.scrollHeight > el.clientHeight);
-    }, 150);
-    return () => clearTimeout(timer);
-  }, [open]);
-
-  const handleScroll = () => {
+  const checkOverflow = () => {
     const el = listRef.current;
     if (!el) return;
     const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 4;
-    setShowScrollHint(!atBottom);
+    setShowScrollHint(el.scrollHeight > el.clientHeight && !atBottom);
   };
+
+  useEffect(() => {
+    if (!open) return;
+    // Wait for drawer animation then check, and observe future size changes
+    const timer = setTimeout(() => {
+      checkOverflow();
+      const el = listRef.current;
+      if (!el) return;
+      const ro = new ResizeObserver(checkOverflow);
+      ro.observe(el);
+      return () => ro.disconnect();
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const handleScroll = checkOverflow;
 
   return (
     <StyledDrawer
