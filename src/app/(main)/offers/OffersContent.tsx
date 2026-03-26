@@ -108,9 +108,8 @@ export function OffersContent() {
         <Box
           sx={{
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
-            flexWrap: "wrap",
             gap: 2,
             mt: 1,
           }}
@@ -245,7 +244,7 @@ export function OffersContent() {
         textAlign="center"
         mb={3}
       >
-        This offer is available by calling {NCO_NUMBER} (credit/debit card), Monday–Sunday 8am–10pm.
+        This offer is available by calling {NCO_NUMBER}<br />(credit/debit card)<br />Monday–Sunday 8am–10pm.
       </Typography>
       <Box
         component="a"
@@ -284,7 +283,7 @@ export function OffersContent() {
         mb={2}
         sx={{ maxWidth: 400, mx: "auto" }}
       >
-        Free from UK landlines and mobiles. Quote &ldquo;{NEW_CLIENT_OFFER_CODE}&rdquo; when connected to Reception.
+        Free from UK landlines and mobiles.<br />Quote &ldquo;{NEW_CLIENT_OFFER_CODE}&rdquo; when you connect.
       </Typography>
 
       {/* Eligibility note */}
