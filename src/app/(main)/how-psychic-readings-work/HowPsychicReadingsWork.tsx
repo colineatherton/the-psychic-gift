@@ -189,7 +189,7 @@ export default function HowPsychicReadingsWork() {
             title="Pre-pay — best value"
             body={
               <SparkleList items={[
-                "£30 for 20 mins",
+                "£30 for 20 minutes",
                 "10% Bonus Mins on £60+ spends",
                 "Any unused minutes remain on your account for future calls",
               ]} />
