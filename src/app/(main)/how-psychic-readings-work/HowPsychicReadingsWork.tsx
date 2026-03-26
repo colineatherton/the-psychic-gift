@@ -189,9 +189,8 @@ export default function HowPsychicReadingsWork() {
             title="Pre-pay — best value"
             body={
               <SparkleList items={[
-                "£30 for 20 minutes — £2.95 less than the credit/debit card line",
-                "£1.50 per minute after that",
-                "10% bonus minutes on purchases of £60 or more",
+                "£30 for 20 mins",
+                "10% Bonus Mins on £60+ spends",
                 "Any unused minutes remain on your account for future calls",
               ]} />
             }
