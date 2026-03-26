@@ -100,7 +100,7 @@ export default function CallAPsychicNowContent() {
           <FeatureCard
             src="/icons/clock.png"
             title="No Appointment Needed"
-            body="Call any time — day or night, weekday or weekend. Our lines are open 24 hours a day, 7 days a week."
+            body="Call any time - day or night, weekday or weekend. Our lines are open 24 hours a day, 7 days a week."
           />
         </Grid>
         <Grid size={{ xs: 12, md: 4 }}>
@@ -140,7 +140,7 @@ export default function CallAPsychicNowContent() {
           <FeatureCard
             src="/icons/search.png"
             title="1. Choose Your Reader"
-            body="Browse our available psychics and select the reader you'd like to speak with — or let us connect you to the next available."
+            body="Browse our available psychics and select the reader you'd like to speak with, or let us connect you to the next available."
           />
         </Grid>
         <Grid size={{ xs: 12, md: 4 }}>
@@ -154,7 +154,7 @@ export default function CallAPsychicNowContent() {
           <FeatureCard
             src="/icons/crystal-ball.png"
             title="3. Start Your Reading"
-            body="You'll be connected directly to your psychic. Your reading begins immediately — no waiting around."
+            body="You'll be connected directly to your psychic. Your reading begins immediately - no waiting around."
           />
         </Grid>
       </Grid>

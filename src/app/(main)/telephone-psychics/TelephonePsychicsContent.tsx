@@ -107,7 +107,7 @@ export default function TelephonePsychicsContent() {
           <FeatureCard
             src="/icons/lock.png"
             title="Comfort & Privacy"
-            body="Call from wherever you feel most comfortable — your home, your car, or anywhere that offers you privacy."
+            body="Call from wherever you feel most comfortable - your home, your car, or anywhere that offers you privacy."
           />
         </Grid>
       </Grid>

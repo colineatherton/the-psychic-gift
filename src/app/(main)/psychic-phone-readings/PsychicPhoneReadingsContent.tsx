@@ -84,7 +84,7 @@ export default function PsychicPhoneReadingsContent() {
           textAlign="center"
         >
           A psychic phone reading offers a direct, personal connection with your
-          chosen reader — from the comfort and privacy of your own space.
+          chosen reader, from the comfort and privacy of your own space.
         </Typography>
       </Grid>
       <Grid container spacing={4} width={"100%"} mb={6}>
@@ -99,7 +99,7 @@ export default function PsychicPhoneReadingsContent() {
           <FeatureCard
             src="/icons/clock.png"
             title="Available 24/7"
-            body="Our psychic readers are available around the clock, so you can call whenever you need guidance — day or night."
+            body="Our psychic readers are available around the clock, so you can call whenever you need guidance - day or night."
           />
         </Grid>
         <Grid size={{ xs: 12, md: 4 }}>
@@ -203,7 +203,7 @@ export default function PsychicPhoneReadingsContent() {
           <FeatureCard
             src="/icons/crystal-ball.png"
             title="3. Start Your Reading"
-            body="You'll be connected directly to your chosen reader. Your reading begins immediately — no waiting, no fuss."
+            body="You'll be connected directly to your chosen reader. Your reading begins immediately - no waiting, no fuss."
           />
         </Grid>
       </Grid>

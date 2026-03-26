@@ -102,7 +102,7 @@ export function OffersContent() {
           for 10 minutes
         </Typography>
         <Typography sx={{ color: "rgba(255,255,255,0.85)", mb: 3, maxWidth: 480, mx: "auto" }}>
-          Your first step into the world of psychic insight — try a reading at
+          Your first step into the world of psychic insight - try a reading at
           this exclusive introductory rate, available to all new clients.
         </Typography>
         <Box
@@ -324,7 +324,7 @@ export function OffersContent() {
           Am I eligible?
         </Typography>
         <Typography variant="body2" color="secondary.main">
-          This offer is for new clients only — those who have not had a credit card call with us in
+          This offer is for new clients only - those who have not had a credit card call with us in
           the last 3 months. It is not available via Pre-Pay or the 0906 line. If you&apos;re unsure,
           our Reception team will be happy to advise when you call.
         </Typography>
@@ -350,7 +350,7 @@ export function OffersContent() {
           🎁 New client offer
         </Typography>
         <CallOptionCard
-          title="New Client Offer — 10 mins for £5"
+          title="New Client Offer - 10 mins for £5"
           number={NCO_NUMBER}
           price={`Quote "${NEW_CLIENT_OFFER_CODE}" · credit/debit card · first-time callers only`}
         />
