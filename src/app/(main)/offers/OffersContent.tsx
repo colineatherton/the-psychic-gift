@@ -244,7 +244,9 @@ export function OffersContent() {
         textAlign="center"
         mb={3}
       >
-        This offer is available by calling {NCO_NUMBER}<br />(credit/debit card)<br />Monday–Sunday 8am–10pm.
+        This offer is available by calling{" "}
+        <Box component="a" href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`} sx={{ color: "inherit", fontWeight: 700 }}>{NCO_NUMBER}</Box>
+        <br />(credit/debit card)<br /><br />Monday–Sunday 8am–10pm.
       </Typography>
       <Box
         component="a"
@@ -285,6 +287,26 @@ export function OffersContent() {
       >
         No additional call charge from UK landlines and mobiles.<br />Quote &ldquo;{NEW_CLIENT_OFFER_CODE}&rdquo; when connected to Reception.
       </Typography>
+      <Box
+        sx={{
+          display: "inline-flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 0.5,
+          px: 3,
+          py: 1.5,
+          borderRadius: 3,
+          border: `1px dashed ${theme.palette.primary.dark}`,
+          bgcolor: (theme) => theme.palette.mode === "dark" ? "rgba(255,255,255,0.05)" : "rgba(116,93,221,0.07)",
+          mx: "auto",
+          mb: 4,
+        }}
+      >
+        <Typography sx={{ fontSize: "0.8rem", color: "secondary.main" }}>Quote code</Typography>
+        <Typography sx={{ fontWeight: 800, fontSize: "1.4rem", letterSpacing: 4, fontFamily: "monospace", color: "primary.dark" }}>
+          {NEW_CLIENT_OFFER_CODE}
+        </Typography>
+      </Box>
 
       {/* Eligibility note */}
       <Paper
