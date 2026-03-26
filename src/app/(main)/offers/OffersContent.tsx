@@ -325,6 +325,18 @@ export function OffersContent() {
         Standard rates — the new client offer applies to the Credit/Debit Card line only.
       </Typography>
       <Box sx={{ maxWidth: 480, mx: "auto", mb: 6 }}>
+        <Typography variant="caption" sx={{ display: "block", textAlign: "center", color: "secondary.main", mb: 1, letterSpacing: 1, textTransform: "uppercase" }}>
+          🎁 New client offer
+        </Typography>
+        <CallOptionCard
+          title="New Client Offer — 10 mins for £5"
+          number={NCO_NUMBER}
+          price={`Quote "${NEW_CLIENT_OFFER_CODE}" · credit/debit card · first-time callers only`}
+        />
+        <Divider sx={{ my: 2 }} />
+        <Typography variant="caption" sx={{ display: "block", textAlign: "center", color: "secondary.main", mb: 1, letterSpacing: 1, textTransform: "uppercase" }}>
+          Standard rates
+        </Typography>
         {CALL_OPTIONS.map((opt) => (
           <CallOptionCard key={opt.number} {...opt} />
         ))}
