@@ -1,5 +1,6 @@
 "use client";
 
+import { NCO_NUMBER } from "@/lib/constants/phoneNumbers";
 import { AppBar, Box, Container, Toolbar, Typography } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import { useEffect, useRef, useState } from "react";
@@ -57,7 +58,7 @@ export function OfferBanner({ message }: { message: string }) {
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
               <Box
                 component="a"
-                href="tel:08081564939"
+                href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`}
                 sx={{
                   display: "flex",
                   alignItems: "center",

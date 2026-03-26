@@ -1,7 +1,7 @@
 "use client";
 
 import { ReaderCard, TrustBadge } from "@/components";
-import { CALL_OPTIONS } from "@/lib/constants/phoneNumbers";
+import { CALL_OPTIONS, NCO_NUMBER, NEW_CLIENT_OFFER_CODE, NEW_CLIENT_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
 import { READER_CARDS } from "@/lib/constants/readers";
 import { useReaderFeedContext } from "@/lib/context/ReaderFeedContext";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
@@ -102,8 +102,19 @@ export const ReaderModal: React.FC = () => {
           )}
         </Typography>
       )}
-      {CALL_OPTIONS.map((opt) => (
-        <CallOptionCard key={opt.number} {...opt} />
+      {CALL_OPTIONS.map((opt, i) => (
+        <Box key={opt.number}>
+          <CallOptionCard {...opt} />
+          {i === 0 && (
+            <Typography
+              variant="caption"
+              display="block"
+              sx={{ mt: -1, mb: 1.5, px: 0.5, color: "secondary.main" }}
+            >
+              🎁 New client? Call <Box component="a" href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`} sx={{ color: "inherit", fontWeight: 700 }}>{NCO_NUMBER}</Box> (credit/debit card) for {NEW_CLIENT_OFFER_PRICE} — quote &ldquo;{NEW_CLIENT_OFFER_CODE}&rdquo;
+            </Typography>
+          )}
+        </Box>
       ))}
       {availableReaders.length > 0 && readerConfig && (
         <Typography

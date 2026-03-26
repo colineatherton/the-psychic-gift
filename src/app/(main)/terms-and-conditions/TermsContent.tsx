@@ -140,7 +140,8 @@ export default function TermsContent() {
         rate. To be eligible, you must not have made a Credit/Debit Card line
         call to The Psychic Gift in the last 3 months. The offer applies to
         Credit/Debit Card calls only and is available once per customer.
-        Standard rates apply after the promotional 10 minutes. Quote{" "}
+        Standard rates apply after the promotional 10 minutes. Call{" "}
+        <strong><a href="tel:08081564939" style={{ color: "inherit" }}>0808 156 4939</a></strong> (credit/debit card) and quote{" "}
         <strong>SEEKER</strong> when connecting to claim the offer.
       </Typography>
 

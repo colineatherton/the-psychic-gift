@@ -51,7 +51,7 @@ export default function MainLayout({
           <Footer />
           <ReaderAvailableAlert />
           <OfferBanner
-            message={`🎁 ${NEW_CLIENT_OFFER_LABEL}: ${NEW_CLIENT_OFFER_PRICE} for first-time callers! Call ${NCO_NUMBER} & quote "${NEW_CLIENT_OFFER_CODE}"`}
+            message={`🎁 ${NEW_CLIENT_OFFER_LABEL}: ${NEW_CLIENT_OFFER_PRICE} for first-time callers! Call ${NCO_NUMBER} (credit/debit card) & quote "${NEW_CLIENT_OFFER_CODE}"`}
           />
           <ReaderModal />
           <CookieConsent />

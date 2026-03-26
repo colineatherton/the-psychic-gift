@@ -25,7 +25,7 @@ export const CallOptionCard = ({ title, number, mobileNumber, price }: CallOptio
           mb: 1.5,
           borderRadius: 3,
           border: "none",
-          bgcolor: (theme) => alpha(theme.palette.primary.dark, 0.55),
+          bgcolor: (theme) => alpha(theme.palette.primary.dark, 0.8),
           transition: "background-color 0.2s",
           "&:hover": {
             bgcolor: "primary.dark",

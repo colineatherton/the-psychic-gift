@@ -2,7 +2,7 @@
 
 import { IconToggle } from "@/components";
 import { PrimaryCTAButton } from "@/components/PrimaryCTAButton/PrimaryCTAButton";
-import { CALL_OPTIONS } from "@/lib/constants/phoneNumbers";
+import { CALL_OPTIONS, NCO_NUMBER, NEW_CLIENT_OFFER_CODE, NEW_CLIENT_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
 import { PAGES, READING_PAGES } from "@/lib/constants/urls";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -139,6 +139,30 @@ export const MobileDrawer = ({
 
         {/* Phone numbers — bottom, thumb-friendly */}
         <Box sx={{ bgcolor: "primary.dark" }}>
+          <Box
+            component="a"
+            href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 1.5,
+              px: 2,
+              py: 1.25,
+              color: "common.white",
+              textDecoration: "none",
+              "&:hover": { bgcolor: "rgba(255,255,255,0.08)" },
+            }}
+          >
+            <PhoneInTalkIcon sx={{ fontSize: "1.4rem", opacity: 0.8, flexShrink: 0 }} />
+            <Box>
+              <Typography sx={{ fontSize: "1.05rem", fontWeight: 800, lineHeight: 1.2 }}>
+                {NCO_NUMBER}
+              </Typography>
+              <Typography sx={{ fontSize: "0.72rem", opacity: 0.65, lineHeight: 1.3, mt: 0.25 }}>
+                New Client Offer · {NEW_CLIENT_OFFER_PRICE} · quote &ldquo;{NEW_CLIENT_OFFER_CODE}&rdquo; · credit/debit card
+              </Typography>
+            </Box>
+          </Box>
           {CALL_OPTIONS.map((opt, i) => {
             const displayNumber = opt.mobileNumber ?? opt.number;
             return (
