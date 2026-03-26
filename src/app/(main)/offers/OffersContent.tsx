@@ -118,8 +118,9 @@ export function OffersContent() {
           <Box
             sx={{
               display: "inline-flex",
+              flexDirection: "column",
               alignItems: "center",
-              gap: 2,
+              gap: 0.5,
               px: 3,
               py: 1.5,
               borderRadius: 3,
@@ -323,14 +324,6 @@ export function OffersContent() {
         mb={1}
       >
         All call options
-      </Typography>
-      <Typography
-        variant="body2"
-        color="secondary.main"
-        textAlign="center"
-        mb={3}
-      >
-        All payment options — new client offer shown first.
       </Typography>
       <Box sx={{ maxWidth: 480, mx: "auto", mb: 6 }}>
         <Typography variant="caption" sx={{ display: "block", textAlign: "center", color: "secondary.main", mb: 1, letterSpacing: 1, textTransform: "uppercase" }}>
