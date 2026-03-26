@@ -245,7 +245,7 @@ export function OffersContent() {
         textAlign="center"
         mb={3}
       >
-        This offer is available via our Credit/Debit Card line only, Monday–Sunday 8am–10pm.
+        This offer is available by calling {NCO_NUMBER} (credit/debit card), Monday–Sunday 8am–10pm.
       </Typography>
       <Box
         component="a"
