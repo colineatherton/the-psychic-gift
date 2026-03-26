@@ -132,6 +132,31 @@ export function OffersContent() {
             {NEW_CLIENT_OFFER_CODE}
           </Typography>
         </Box>
+        <Box
+          component="a"
+          href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`}
+          sx={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 1,
+            mt: 3,
+            px: 3,
+            py: 1.5,
+            borderRadius: 3,
+            bgcolor: "common.white",
+            color: "primary.dark",
+            textDecoration: "none",
+            fontWeight: 700,
+            fontSize: "1.1rem",
+            "&:hover": { opacity: 0.9 },
+          }}
+        >
+          <PhoneIcon sx={{ fontSize: "1.2rem" }} />
+          {NCO_NUMBER}
+          <Typography component="span" sx={{ fontSize: "0.75rem", fontWeight: 400, opacity: 0.7, ml: 0.5 }}>
+            credit/debit card
+          </Typography>
+        </Box>
       </Box>
 
       {/* How to claim */}
