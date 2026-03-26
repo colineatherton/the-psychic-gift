@@ -1,6 +1,6 @@
 "use client";
 
-import { CALL_OPTIONS, NEW_CLIENT_OFFER_CODE, NEW_CLIENT_OFFER_LABEL, NEW_CLIENT_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
+import { CALL_OPTIONS, NCO_NUMBER, NEW_CLIENT_OFFER_CODE, NEW_CLIENT_OFFER_LABEL, NEW_CLIENT_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
 import PhoneIcon from "@mui/icons-material/Phone";
 import { Box, Divider, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { alpha } from "@mui/material/styles";
@@ -75,7 +75,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
             mt: 1,
           }}
         >
-          {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – quote &quot;{NEW_CLIENT_OFFER_CODE}&quot;
+          {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – call {NCO_NUMBER} (credit/debit card) &amp; quote &quot;{NEW_CLIENT_OFFER_CODE}&quot;
         </Typography>
       </Box>
     );
@@ -177,7 +177,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
           textAlign: "center",
         }}
       >
-        {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – quote &quot;{NEW_CLIENT_OFFER_CODE}&quot; (Credit/Debit Card line only)
+        {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – call {NCO_NUMBER} (credit/debit card) &amp; quote &quot;{NEW_CLIENT_OFFER_CODE}&quot;
       </Typography>
     </Box>
   );
