@@ -283,7 +283,7 @@ export function OffersContent() {
         mb={2}
         sx={{ maxWidth: 400, mx: "auto" }}
       >
-        Free from UK landlines and mobiles.<br />Quote &ldquo;{NEW_CLIENT_OFFER_CODE}&rdquo; when you connect.
+        No additional call charge from UK landlines and mobiles.<br />Quote &ldquo;{NEW_CLIENT_OFFER_CODE}&rdquo; when connected to Reception.
       </Typography>
 
       {/* Eligibility note */}
