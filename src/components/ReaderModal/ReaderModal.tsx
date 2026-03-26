@@ -105,7 +105,6 @@ export const ReaderModal: React.FC = () => {
       {CALL_OPTIONS.map((opt, i) => (
         <Box key={opt.number}>
           <CallOptionCard {...opt} />
-          {/* TODO: make NCO note conditional on offer being active */}
           {i === 0 && (
             <Typography
               variant="caption"
