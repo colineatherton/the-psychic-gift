@@ -55,8 +55,7 @@ export function OfferBanner({ message }: { message: string }) {
               justifyContent: "center",
             }}
           >
-            <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0.5 }}>
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
                 <Box
                   component="a"
                   href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`}
@@ -91,15 +90,6 @@ export function OfferBanner({ message }: { message: string }) {
                 >
                   Full details &amp; T&amp;Cs
                 </Typography>
-              </Box>
-              <Typography
-                sx={{
-                  fontSize: "0.7rem",
-                  color: "rgba(255,255,255,0.6)",
-                }}
-              >
-                Open 8am–10pm
-              </Typography>
             </Box>
           </Toolbar>
         </Container>
