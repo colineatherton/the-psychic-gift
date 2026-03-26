@@ -198,7 +198,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
           textAlign: "center",
         }}
       >
-        NCO and CC lines open 8am–10pm
+        Open 8am–10pm
       </Typography>
     </Box>
   );
