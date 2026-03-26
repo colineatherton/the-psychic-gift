@@ -80,7 +80,7 @@ export function OfferBanner({ message }: { message: string }) {
               </Box>
               <Typography
                 component="a"
-                href="/terms-and-conditions#new-client-offer"
+                href="/offers"
                 sx={{
                   fontSize: { xs: "0.75rem", sm: "0.85rem" },
                   color: "rgba(255,255,255,0.7)",
@@ -88,7 +88,7 @@ export function OfferBanner({ message }: { message: string }) {
                   whiteSpace: "nowrap",
                 }}
               >
-                T&amp;Cs apply
+                Full details &amp; T&amp;Cs
               </Typography>
             </Box>
           </Toolbar>
