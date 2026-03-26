@@ -71,7 +71,7 @@ export function FeatureCard({ src, title, body }: FeatureCardProps) {
             fontSize="1rem"
             lineHeight="1.6"
             variant="body2"
-            component="p"
+            component="div"
             textAlign="center"
             marginTop={6}
             marginBottom={2}
