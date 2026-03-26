@@ -186,11 +186,11 @@ export default function HowPsychicReadingsWork() {
         <Grid size={{ xs: 12, md: 4 }}>
           <FeatureCard
             src="/icons/gift.png"
-            title="Pre-pay with bonus minutes"
+            title="Pre-pay — best value"
             body={
               <SparkleList items={[
-                "Pay in advance and receive free bonus minutes on larger bundles",
-                "Ideal if you want full control over call length",
+                "£30 for 20 minutes",
+                "10% Bonus Mins on £60+ spends",
                 "Any unused minutes remain on your account for future calls",
               ]} />
             }
