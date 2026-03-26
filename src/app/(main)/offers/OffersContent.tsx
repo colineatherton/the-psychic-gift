@@ -289,7 +289,7 @@ export function OffersContent() {
       </Typography>
       <Box
         sx={{
-          display: "inline-flex",
+          display: "flex",
           flexDirection: "column",
           alignItems: "center",
           gap: 0.5,
@@ -298,6 +298,7 @@ export function OffersContent() {
           borderRadius: 3,
           border: `1px dashed ${theme.palette.primary.dark}`,
           bgcolor: (theme) => theme.palette.mode === "dark" ? "rgba(255,255,255,0.05)" : "rgba(116,93,221,0.07)",
+          width: "fit-content",
           mx: "auto",
           mb: 4,
         }}
