@@ -17,7 +17,7 @@ export const homePageFAQs = [
   {
     question: "How do I choose the right psychic for me?",
     answer:
-      "You can browse each psychic's profile to see their specialties and background. Some focus on love and relationships, others on life path or spiritual guidance. All our readers are hand-picked for their warmth, intuitive insight, and experience — choose the one who resonates with your needs.",
+      "You can browse each psychic's profile to see their specialties and background. Some focus on love and relationships, others on life path or spiritual guidance. All our readers are hand-picked for their warmth, intuitive insight, and experience - choose the one who resonates with your needs.",
   },
   {
     question: "Are psychic readings confidential?",

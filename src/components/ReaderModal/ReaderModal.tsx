@@ -91,12 +91,12 @@ export const ReaderModal: React.FC = () => {
         <Typography align="center" sx={{ mb: 2 }}>
           {readerStatus === Status.online ? (
             <>
-              Connect with <strong>{readerConfig.name}</strong> now — choose a call option and use PIN{" "}
+              Connect with <strong>{readerConfig.name}</strong> now - choose a call option and use PIN{" "}
               <strong>{readerConfig.pin}</strong>
             </>
           ) : (
             <>
-              Connect with <strong>{readerConfig.name}</strong> — choose a call option and once they are ready to talk, use PIN{" "}
+              Connect with <strong>{readerConfig.name}</strong> - choose a call option and once they are ready to talk, use PIN{" "}
               <strong>{readerConfig.pin}</strong>
             </>
           )}
@@ -111,7 +111,7 @@ export const ReaderModal: React.FC = () => {
               display="block"
               sx={{ mt: -1, mb: 1.5, px: 0.5, color: "secondary.main" }}
             >
-              🎁 New client? Call <Box component="a" href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`} sx={{ color: "inherit", fontWeight: 700 }}>{NCO_NUMBER}</Box> (credit/debit card) for {NEW_CLIENT_OFFER_PRICE} — quote &ldquo;{NEW_CLIENT_OFFER_CODE}&rdquo;
+              🎁 New client? Call <Box component="a" href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`} sx={{ color: "inherit", fontWeight: 700 }}>{NCO_NUMBER}</Box> (credit/debit card) for {NEW_CLIENT_OFFER_PRICE} - quote &ldquo;{NEW_CLIENT_OFFER_CODE}&rdquo;
             </Typography>
           )}
         </Box>

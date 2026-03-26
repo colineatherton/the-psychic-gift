@@ -116,7 +116,7 @@ export function WhyPsychicGift() {
                 component="p"
               >
                 We’ve been guiding callers since 2002 with a carefully selected
-                team of clairvoyants, mediums, and tarot readers — all chosen
+                team of clairvoyants, mediums, and tarot readers, all chosen
                 for their empathy, integrity, and insight. The Psychic Gift has
                 supported thousands in finding clarity, comfort, and insight -
                 through sincere readings from gifted clairvoyants and mediums.
