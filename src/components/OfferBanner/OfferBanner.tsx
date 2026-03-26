@@ -98,7 +98,7 @@ export function OfferBanner({ message }: { message: string }) {
                   color: "rgba(255,255,255,0.6)",
                 }}
               >
-                Lines open 8am–10pm
+                Open 8am–10pm
               </Typography>
             </Box>
           </Toolbar>

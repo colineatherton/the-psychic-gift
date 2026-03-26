@@ -65,7 +65,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
             opacity: 0.8,
           }}
         >
-          {ccOption.price}
+          {ccOption.price}{ccOption.hours ? `, ${ccOption.hours.toLowerCase()}` : ""}
         </Typography>
         <Typography
           fontWeight={600}
@@ -85,7 +85,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
             mt: 0.5,
           }}
         >
-          NCO and CC lines open 8am–10pm
+          Open 8am–10pm
         </Typography>
       </Box>
     );
@@ -170,7 +170,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
                   lineHeight: 1.3,
                 }}
               >
-                {opt.price}
+                {opt.price}{opt.hours ? `, ${opt.hours.toLowerCase()}` : ""}
               </Typography>
             </Box>
           </Box>
