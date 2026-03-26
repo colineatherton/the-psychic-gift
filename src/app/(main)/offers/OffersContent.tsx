@@ -161,7 +161,7 @@ export function OffersContent() {
               <PhoneIcon sx={{ fontSize: "1.2rem" }} />
               <Typography fontWeight={700} fontSize="1.1rem">{NCO_NUMBER}</Typography>
             </Box>
-            <Typography sx={{ fontSize: "0.72rem", opacity: 0.7 }}>credit/debit card</Typography>
+            <Typography sx={{ fontSize: "0.72rem", opacity: 0.7 }}>credit/debit card · open 8am–10pm</Typography>
           </Box>
         </Box>
       </Box>
@@ -352,7 +352,7 @@ export function OffersContent() {
         <CallOptionCard
           title="New Client Offer - 10 mins for £5"
           number={NCO_NUMBER}
-          price={`Quote "${NEW_CLIENT_OFFER_CODE}" · credit/debit card · first-time callers only`}
+          price={`Quote "${NEW_CLIENT_OFFER_CODE}" · credit/debit card · first-time callers only · open 8am–10pm`}
         />
         <Divider sx={{ my: 2 }} />
         <Typography variant="caption" sx={{ display: "block", textAlign: "center", color: "secondary.main", mb: 1, letterSpacing: 1, textTransform: "uppercase" }}>
