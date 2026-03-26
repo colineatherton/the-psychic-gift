@@ -23,7 +23,7 @@ export const OfferCallout = () => {
       <Typography
         fontSize="1rem"
       >
-        <strong>{NEW_CLIENT_OFFER_PRICE}</strong> for first-time callers! Call <strong>{NCO_NUMBER}</strong> (credit/debit card) &amp; quote <strong>&quot;{NEW_CLIENT_OFFER_CODE}&quot;</strong>.
+        <strong>{NEW_CLIENT_OFFER_PRICE}</strong> for first-time callers! Call <strong><a href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`} style={{ color: "inherit" }}>{NCO_NUMBER}</a></strong> (credit/debit card) &amp; quote <strong>&quot;{NEW_CLIENT_OFFER_CODE}&quot;</strong>.
       </Typography>
       <Button
         sx={{

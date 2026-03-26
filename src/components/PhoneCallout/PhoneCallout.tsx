@@ -75,7 +75,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
             mt: 1,
           }}
         >
-          {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – call {NCO_NUMBER} (credit/debit card) &amp; quote &quot;{NEW_CLIENT_OFFER_CODE}&quot;
+          {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – call <Box component="a" href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`} sx={{ color: "inherit", fontWeight: 700 }}>{NCO_NUMBER}</Box> (credit/debit card) &amp; quote &quot;{NEW_CLIENT_OFFER_CODE}&quot;
         </Typography>
       </Box>
     );
