@@ -107,55 +107,63 @@ export function OffersContent() {
         </Typography>
         <Box
           sx={{
-            display: "inline-flex",
+            display: "flex",
             alignItems: "center",
+            justifyContent: "center",
+            flexWrap: "wrap",
             gap: 2,
-            px: 3,
-            py: 1.5,
-            borderRadius: 3,
-            bgcolor: "rgba(255,255,255,0.1)",
-            border: "1px dashed rgba(255,255,255,0.35)",
+            mt: 1,
           }}
         >
-          <Typography sx={{ color: "rgba(255,255,255,0.6)", fontSize: "0.85rem" }}>
-            Quote code
-          </Typography>
-          <Typography
+          <Box
             sx={{
-              color: "common.white",
-              fontWeight: 800,
-              fontSize: "1.4rem",
-              letterSpacing: 4,
-              fontFamily: "monospace",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 2,
+              px: 3,
+              py: 1.5,
+              borderRadius: 3,
+              bgcolor: "rgba(255,255,255,0.1)",
+              border: "1px dashed rgba(255,255,255,0.35)",
             }}
           >
-            {NEW_CLIENT_OFFER_CODE}
-          </Typography>
-        </Box>
-        <Box
-          component="a"
-          href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`}
-          sx={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 1,
-            mt: 3,
-            px: 3,
-            py: 1.5,
-            borderRadius: 3,
-            bgcolor: "common.white",
-            color: "primary.dark",
-            textDecoration: "none",
-            fontWeight: 700,
-            fontSize: "1.1rem",
-            "&:hover": { opacity: 0.9 },
-          }}
-        >
-          <PhoneIcon sx={{ fontSize: "1.2rem" }} />
-          {NCO_NUMBER}
-          <Typography component="span" sx={{ fontSize: "0.75rem", fontWeight: 400, opacity: 0.7, ml: 0.5 }}>
-            credit/debit card
-          </Typography>
+            <Typography sx={{ color: "rgba(255,255,255,0.6)", fontSize: "0.85rem" }}>
+              Quote code
+            </Typography>
+            <Typography
+              sx={{
+                color: "common.white",
+                fontWeight: 800,
+                fontSize: "1.4rem",
+                letterSpacing: 4,
+                fontFamily: "monospace",
+              }}
+            >
+              {NEW_CLIENT_OFFER_CODE}
+            </Typography>
+          </Box>
+          <Box
+            component="a"
+            href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`}
+            sx={{
+              display: "inline-flex",
+              flexDirection: "column",
+              alignItems: "center",
+              px: 3,
+              py: 1.5,
+              borderRadius: 3,
+              bgcolor: "common.white",
+              color: "primary.dark",
+              textDecoration: "none",
+              "&:hover": { opacity: 0.9 },
+            }}
+          >
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <PhoneIcon sx={{ fontSize: "1.2rem" }} />
+              <Typography fontWeight={700} fontSize="1.1rem">{NCO_NUMBER}</Typography>
+            </Box>
+            <Typography sx={{ fontSize: "0.72rem", opacity: 0.7 }}>credit/debit card</Typography>
+          </Box>
         </Box>
       </Box>
 
@@ -322,7 +330,7 @@ export function OffersContent() {
         textAlign="center"
         mb={3}
       >
-        Standard rates — the new client offer applies to the Credit/Debit Card line only.
+        All payment options — new client offer shown first.
       </Typography>
       <Box sx={{ maxWidth: 480, mx: "auto", mb: 6 }}>
         <Typography variant="caption" sx={{ display: "block", textAlign: "center", color: "secondary.main", mb: 1, letterSpacing: 1, textTransform: "uppercase" }}>
