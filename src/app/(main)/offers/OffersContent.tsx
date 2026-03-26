@@ -233,9 +233,14 @@ export function OffersContent() {
         }}
       >
         <PhoneIcon sx={{ fontSize: "1.6rem" }} />
-        <Typography fontWeight={800} fontSize="1.6rem">
-          {NCO_NUMBER}
-        </Typography>
+        <Box>
+          <Typography fontWeight={800} fontSize="1.6rem" lineHeight={1.1}>
+            {NCO_NUMBER}
+          </Typography>
+          <Typography fontSize="0.75rem" sx={{ opacity: 0.85 }}>
+            credit/debit card
+          </Typography>
+        </Box>
       </Box>
       <Typography
         variant="caption"
