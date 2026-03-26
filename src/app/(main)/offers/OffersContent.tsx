@@ -117,9 +117,8 @@ export function OffersContent() {
           <Box
             sx={{
               display: "inline-flex",
-              flexDirection: "column",
               alignItems: "center",
-              gap: 0.5,
+              gap: 2,
               px: 3,
               py: 1.5,
               borderRadius: 3,
