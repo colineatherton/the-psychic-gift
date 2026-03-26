@@ -56,40 +56,40 @@ export function OfferBanner({ message }: { message: string }) {
             }}
           >
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-              <Box
-                component="a"
-                href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 1,
-                  textDecoration: "none",
-                  color: "inherit",
-                }}
-              >
-                <PhoneIcon sx={{ fontSize: "1.2rem", color: "common.white" }} />
-                <Typography
-                  fontWeight={600}
+                <Box
+                  component="a"
+                  href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`}
                   sx={{
-                    fontSize: { xs: "0.85rem", sm: "1rem" },
-                    color: "common.white",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 1,
+                    textDecoration: "none",
+                    color: "inherit",
                   }}
                 >
-                  {message}
+                  <PhoneIcon sx={{ fontSize: "1.2rem", color: "common.white" }} />
+                  <Typography
+                    fontWeight={600}
+                    sx={{
+                      fontSize: { xs: "0.85rem", sm: "1rem" },
+                      color: "common.white",
+                    }}
+                  >
+                    {message}
+                  </Typography>
+                </Box>
+                <Typography
+                  component="a"
+                  href="/offers"
+                  sx={{
+                    fontSize: { xs: "0.75rem", sm: "0.85rem" },
+                    color: "rgba(255,255,255,0.7)",
+                    textDecoration: "underline",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  Full details &amp; T&amp;Cs
                 </Typography>
-              </Box>
-              <Typography
-                component="a"
-                href="/offers"
-                sx={{
-                  fontSize: { xs: "0.75rem", sm: "0.85rem" },
-                  color: "rgba(255,255,255,0.7)",
-                  textDecoration: "underline",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                Full details &amp; T&amp;Cs
-              </Typography>
             </Box>
           </Toolbar>
         </Container>

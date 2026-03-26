@@ -10,9 +10,10 @@ interface CallOptionCardProps {
   number: string;
   mobileNumber?: string;
   price: string;
+  hours?: string;
 }
 
-export const CallOptionCard = ({ title, number, mobileNumber, price }: CallOptionCardProps) => {
+export const CallOptionCard = ({ title, number, mobileNumber, price, hours }: CallOptionCardProps) => {
   const [snackOpen, setSnackOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -52,7 +53,7 @@ export const CallOptionCard = ({ title, number, mobileNumber, price }: CallOptio
               </Typography>
             </Stack>
             <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.75)" }}>
-              {price}
+              {price}{hours ? `, ${hours.toLowerCase()}` : ""}
             </Typography>
           </Stack>
         </CardActionArea>

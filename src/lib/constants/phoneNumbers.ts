@@ -4,6 +4,7 @@ export const CALL_OPTIONS = [
     number: "0800 915 2345",
     mobileNumber: "0808 156 4931",
     price: "£32.95 for 20 mins, then £1.50/min",
+    hours: "Open 8am–10pm",
   },
   {
     title: "Pre-Pay Minutes",

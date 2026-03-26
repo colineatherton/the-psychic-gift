@@ -65,7 +65,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
             opacity: 0.8,
           }}
         >
-          {ccOption.price}
+          {ccOption.price}{ccOption.hours ? `, ${ccOption.hours.toLowerCase()}` : ""}
         </Typography>
         <Typography
           fontWeight={600}
@@ -76,6 +76,16 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
           }}
         >
           {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – call <Box component="a" href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`} sx={{ color: "inherit", fontWeight: 700 }}>{NCO_NUMBER}</Box> (credit/debit card) &amp; quote &quot;{NEW_CLIENT_OFFER_CODE}&quot;
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: "0.75rem",
+            color: theme.palette.text.primary,
+            opacity: 0.5,
+            mt: 0.5,
+          }}
+        >
+          Open 8am–10pm
         </Typography>
       </Box>
     );
@@ -160,7 +170,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
                   lineHeight: 1.3,
                 }}
               >
-                {opt.price}
+                {opt.price}{opt.hours ? `, ${opt.hours.toLowerCase()}` : ""}
               </Typography>
             </Box>
           </Box>
@@ -178,6 +188,17 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
         }}
       >
         {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – call <Box component="a" href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`} sx={{ color: "inherit", fontWeight: 700 }}>{NCO_NUMBER}</Box> (credit/debit card) &amp; quote &quot;{NEW_CLIENT_OFFER_CODE}&quot;
+      </Typography>
+      <Typography
+        sx={{
+          fontSize: "0.75rem",
+          color: theme.palette.text.primary,
+          opacity: 0.5,
+          mt: 0.5,
+          textAlign: "center",
+        }}
+      >
+        Open 8am–10pm
       </Typography>
     </Box>
   );

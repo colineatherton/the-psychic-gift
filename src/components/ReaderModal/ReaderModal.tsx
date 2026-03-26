@@ -111,7 +111,7 @@ export const ReaderModal: React.FC = () => {
               display="block"
               sx={{ mt: -1, mb: 1.5, px: 0.5, color: "secondary.main" }}
             >
-              🎁 New client? Call <Box component="a" href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`} sx={{ color: "inherit", fontWeight: 700 }}>{NCO_NUMBER}</Box> (credit/debit card) for {NEW_CLIENT_OFFER_PRICE} - quote &ldquo;{NEW_CLIENT_OFFER_CODE}&rdquo;
+              🎁 New client? Call <Box component="a" href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`} sx={{ color: "inherit", fontWeight: 700 }}>{NCO_NUMBER}</Box> (credit/debit card) for {NEW_CLIENT_OFFER_PRICE} - quote &ldquo;{NEW_CLIENT_OFFER_CODE}&rdquo; · open 8am–10pm
             </Typography>
           )}
         </Box>
