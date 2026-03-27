@@ -9,7 +9,7 @@ export const CALL_OPTIONS = [
   {
     title: "Pre-Pay Minutes",
     number: "0808 156 4920",
-    price: "£1.50/min · 10% bonus on purchases over £60",
+    price: "£30 for 20 mins, then £1.50/min · 10% Bonus Mins on £60+ spends",
   },
   {
     title: "Pay by Phone Bill",
