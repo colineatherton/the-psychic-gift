@@ -39,14 +39,14 @@ export const MobileQuickAccess = () => {
           top: `${top}px`,
           left: 0,
           right: 0,
-          zIndex: theme.zIndex.drawer + 2,
+          zIndex: theme.zIndex.drawer + 3,
           background: alpha(theme.palette.primary.dark, 0.97),
-          borderBottom: `1px solid ${alpha(theme.palette.primary.light, 0.25)}`,
           boxShadow: expanded ? "0 8px 32px rgba(0,0,0,0.4)" : "0 2px 8px rgba(0,0,0,0.2)",
           transition: "box-shadow 0.2s ease",
+          overflow: "hidden",
         }}
       >
-        {/* Strip */}
+        {/* Strip — light lavender so it reads distinct from the dark AppBar */}
         <Box
           onClick={() => setExpanded((v) => !v)}
           sx={{
@@ -57,17 +57,18 @@ export const MobileQuickAccess = () => {
             py: 1,
             cursor: "pointer",
             userSelect: "none",
+            background: theme.palette.primary.light,
           }}
         >
           <Box>
             <Typography
               fontWeight={700}
-              sx={{ fontSize: "0.95rem", color: "common.white", lineHeight: 1.2 }}
+              sx={{ fontSize: "0.95rem", color: theme.palette.primary.dark, lineHeight: 1.2 }}
             >
               Find Your Psychic
             </Typography>
             <Typography
-              sx={{ fontSize: "0.72rem", color: alpha("#ffffff", 0.65), lineHeight: 1.3 }}
+              sx={{ fontSize: "0.72rem", color: alpha(theme.palette.primary.dark, 0.65), lineHeight: 1.3 }}
             >
               🟢 Readers available now
             </Typography>
@@ -75,7 +76,7 @@ export const MobileQuickAccess = () => {
           <IconButton
             size="small"
             aria-label={expanded ? "Close" : "Open call options"}
-            sx={{ color: "common.white", p: 0.5, pointerEvents: "none" }}
+            sx={{ color: theme.palette.primary.dark, p: 0.5, pointerEvents: "none" }}
           >
             {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
           </IconButton>
@@ -112,6 +113,12 @@ export const MobileQuickAccess = () => {
                 }}
                 label="Find Your Psychic"
                 mb={0}
+                sx={{
+                  backgroundColor: theme.palette.primary.light,
+                  color: theme.palette.primary.dark,
+                  border: "none",
+                  "&:hover": { backgroundColor: "#ffffff" },
+                }}
               />
             </Box>
 
