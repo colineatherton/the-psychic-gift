@@ -92,11 +92,11 @@ export const MobileQuickAccess = () => {
             }}
           >
             {/* CTA section */}
-            <Box sx={{ px: 2, pt: 2, pb: 2 }}>
+            <Box sx={{ px: 2, pt: 2, pb: 2, background: theme.palette.primary.light }}>
               <Typography
                 sx={{
                   fontSize: "0.8rem",
-                  color: "#ffffff",
+                  color: alpha(theme.palette.primary.dark, 0.7),
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
                   mb: 1.5,
@@ -113,12 +113,6 @@ export const MobileQuickAccess = () => {
                 }}
                 label="Find Your Psychic"
                 mb={0}
-                sx={{
-                  backgroundColor: theme.palette.primary.light,
-                  color: theme.palette.primary.dark,
-                  border: "none",
-                  "&:hover": { backgroundColor: "#ffffff" },
-                }}
               />
             </Box>
 
