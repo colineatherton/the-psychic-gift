@@ -122,8 +122,13 @@ export const Hero = () => {
           <Grid container height="100%" width={"100%"}>
             <Grid
               size={{ xs: 12, sm: 7 }}
-              sx={{ paddingRight: { xs: 0, sm: theme.spacing(4), md: theme.spacing(6) } }}
+              sx={{
+                paddingRight: { xs: 0, sm: theme.spacing(4), md: theme.spacing(6) },
+                display: "flex",
+                flexDirection: "column",
+              }}
             >
+              {/* H1 — always first */}
               <Typography
                 fontWeight={700}
                 variant="h1"
@@ -131,6 +136,7 @@ export const Hero = () => {
                 marginBottom={2}
                 marginTop={2}
                 sx={{
+                  order: 1,
                   fontSize: { xs: "3rem", md: "4rem" },
                   background: `linear-gradient(135deg, #ffffff 40%, ${theme.palette.primary.light} 100%)`,
                   WebkitBackgroundClip: "text",
@@ -140,18 +146,11 @@ export const Hero = () => {
               >
                 Psychic Phone Readings
               </Typography>
-              <Typography
-                fontWeight={500}
-                variant="h2"
-                component="h2"
-                marginBottom={{ xs: 2, sm: 4 }}
-                sx={{ fontSize: { xs: "1.3rem", sm: "1.6rem", md: "2rem" } }}
-              >
-                Speak with Gifted Clairvoyants by Phone Today
-              </Typography>
-              {/* Mobile only: illustration sits between H2 and CTA */}
+
+              {/* Mobile only: illustration */}
               <Box
                 sx={{
+                  order: { xs: 2, sm: 10 },
                   display: { xs: "flex", sm: "none" },
                   justifyContent: "center",
                   mb: 2,
@@ -164,28 +163,54 @@ export const Hero = () => {
                   style={{ width: "80%", height: "auto" }}
                 />
               </Box>
+
+              {/* CTA — mobile: after illustration; desktop: after body text */}
+              <Box sx={{ order: { xs: 3, sm: 4 }, display: { xs: "block", sm: "inline-block" }, mb: 4 }}>
+                <PrimaryCTAButton
+                  size="large"
+                  fullWidth
+                  onClick={handleFindYourPsychic}
+                  label="Find Your Psychic"
+                  mb={0}
+                />
+              </Box>
+
+              {/* H2 — mobile: after CTA; desktop: after H1 */}
+              <Typography
+                fontWeight={500}
+                variant="h2"
+                component="h2"
+                sx={{
+                  order: { xs: 4, sm: 2 },
+                  fontSize: { xs: "1.3rem", sm: "1.6rem", md: "2rem" },
+                  mb: { xs: 2, sm: 4 },
+                }}
+              >
+                Speak with Gifted Clairvoyants by Phone Today
+              </Typography>
+
+              {/* Phone numbers — mobile: after H2; desktop: after CTA */}
+              <Box sx={{ order: 5 }}>
+                <PhoneCallout />
+              </Box>
+
+              {/* Body text — mobile: after numbers (order 6); desktop: after H2 (order 3) */}
               <Typography
                 fontWeight={500}
                 fontSize="1rem"
                 lineHeight="1.6"
                 variant="body2"
                 component="p"
-                marginBottom={4}
-                sx={{ display: { xs: "none", sm: "block" } }}
+                sx={{
+                  order: { xs: 6, sm: 3 },
+                  mb: { xs: 0, sm: 4 },
+                  mt: { xs: 2, sm: 0 },
+                  opacity: { xs: 0.85, sm: 1 },
+                }}
               >
                 Speak to a caring psychic and find clarity in love, life, or
                 your next steps - relied on for over 23 years.
               </Typography>
-              <Box sx={{ display: { xs: "block", sm: "inline-block" } }}>
-                <PrimaryCTAButton
-                  size="large"
-                  fullWidth
-                  onClick={handleFindYourPsychic}
-                  label="Find Your Psychic"
-                  mb={4}
-                />
-              </Box>
-              <PhoneCallout />
             </Grid>
             <Grid
               size={{ xs: 12, sm: 5 }}
