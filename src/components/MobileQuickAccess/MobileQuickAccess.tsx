@@ -57,18 +57,17 @@ export const MobileQuickAccess = () => {
             py: 1,
             cursor: "pointer",
             userSelect: "none",
-            background: theme.palette.primary.light,
           }}
         >
           <Box>
             <Typography
               fontWeight={700}
-              sx={{ fontSize: "0.95rem", color: theme.palette.primary.dark, lineHeight: 1.2 }}
+              sx={{ fontSize: "0.95rem", color: "common.white", lineHeight: 1.2 }}
             >
               Find Your Psychic
             </Typography>
             <Typography
-              sx={{ fontSize: "0.72rem", color: alpha(theme.palette.primary.dark, 0.65), lineHeight: 1.3 }}
+              sx={{ fontSize: "0.72rem", color: alpha("#ffffff", 0.65), lineHeight: 1.3 }}
             >
               🟢 Readers available now
             </Typography>
@@ -76,7 +75,7 @@ export const MobileQuickAccess = () => {
           <IconButton
             size="small"
             aria-label={expanded ? "Close" : "Open call options"}
-            sx={{ color: theme.palette.primary.dark, p: 0.5, pointerEvents: "none" }}
+            sx={{ color: "common.white", p: 0.5, pointerEvents: "none" }}
           >
             {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
           </IconButton>
