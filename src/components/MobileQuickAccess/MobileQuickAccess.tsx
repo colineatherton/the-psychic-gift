@@ -95,7 +95,7 @@ export const MobileQuickAccess = () => {
               <Typography
                 sx={{
                   fontSize: "0.8rem",
-                  color: alpha("#ffffff", 0.75),
+                  color: "#ffffff",
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
                   mb: 1.5,
@@ -116,7 +116,7 @@ export const MobileQuickAccess = () => {
             </Box>
 
             <Divider sx={{ borderColor: alpha(theme.palette.primary.light, 0.3) }}>
-              <Typography sx={{ fontSize: "0.75rem", color: alpha("#ffffff", 0.65), px: 1 }}>
+              <Typography sx={{ fontSize: "0.75rem", color: alpha("#ffffff", 0.8), px: 1 }}>
                 or call directly
               </Typography>
             </Divider>
