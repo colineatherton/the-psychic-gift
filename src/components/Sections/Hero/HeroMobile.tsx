@@ -5,35 +5,29 @@ import { PrimaryCTAButton } from "@/components/PrimaryCTAButton/PrimaryCTAButton
 import { MobileQuickAccess } from "@/components/MobileQuickAccess/MobileQuickAccess";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 import { Box, Container, Typography, useTheme } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
 
 export const HeroMobile = () => {
   const { handleFindYourPsychic } = useReaderSelectContext();
   const theme = useTheme();
-  const ctaRef = useRef<HTMLDivElement>(null);
-  const [quickAccessVisible, setQuickAccessVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ctaRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setQuickAccessVisible(!entry.isIntersecting),
-      { threshold: 0 },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <>
-      <MobileQuickAccess visible={quickAccessVisible} />
-      <Container maxWidth="lg" sx={{ paddingTop: 2, paddingBottom: 4 }}>
+      <MobileQuickAccess />
+      <Container maxWidth="lg" sx={{ pb: 4 }}>
+        <Box sx={{ display: "flex", justifyContent: "center", mb: 1 }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/illustrations/person-on-phone.png"
+            alt="Illustration"
+            style={{ width: "80%", height: "auto" }}
+          />
+        </Box>
+
         <Typography
           fontWeight={700}
           variant="h1"
           component="h1"
           marginBottom={2}
-          marginTop={2}
           sx={{
             fontSize: "3rem",
             background: `linear-gradient(135deg, #ffffff 40%, ${theme.palette.primary.light} 100%)`,
@@ -45,17 +39,7 @@ export const HeroMobile = () => {
           Psychic Phone Readings
         </Typography>
 
-        <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/illustrations/person-on-phone.png"
-            alt="Illustration"
-            style={{ width: "80%", height: "auto" }}
-          />
-        </Box>
-
-        {/* CTA — observed: quick access panel appears when this leaves viewport */}
-        <Box ref={ctaRef} sx={{ mb: 3 }}>
+        <Box sx={{ mb: 3 }}>
           <PrimaryCTAButton
             size="large"
             fullWidth

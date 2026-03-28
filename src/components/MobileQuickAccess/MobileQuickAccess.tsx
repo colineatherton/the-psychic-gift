@@ -2,6 +2,7 @@
 
 import { PhoneCallout } from "@/components/PhoneCallout/PhoneCallout";
 import { PrimaryCTAButton } from "@/components/PrimaryCTAButton/PrimaryCTAButton";
+import { useAppBarContext } from "@/lib/context/AppBarContext";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -9,84 +10,103 @@ import { Box, Collapse, IconButton, Typography, useTheme } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import { useState } from "react";
 
-const MOBILE_APPBAR_HEIGHT = 56;
-
-interface MobileQuickAccessProps {
-  visible: boolean;
-}
-
-export const MobileQuickAccess = ({ visible }: MobileQuickAccessProps) => {
+export const MobileQuickAccess = () => {
   const [expanded, setExpanded] = useState(false);
   const theme = useTheme();
   const { handleFindYourPsychic } = useReaderSelectContext();
+  const { appBarHeight } = useAppBarContext();
+
+  const top = appBarHeight || 56;
 
   return (
-    <Box
-      sx={{
-        position: "fixed",
-        top: `${MOBILE_APPBAR_HEIGHT}px`,
-        left: 0,
-        right: 0,
-        zIndex: theme.zIndex.drawer + 2,
-        transform: visible ? "translateY(0)" : "translateY(-110%)",
-        transition: "transform 0.3s ease",
-        background: theme.palette.primary.dark,
-        borderBottom: `1px solid ${alpha(theme.palette.primary.light, 0.3)}`,
-        boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
-      }}
-    >
-      {/* Strip — always visible, acts as toggle */}
+    <>
+      {/* Backdrop — closes panel on click-away */}
+      {expanded && (
+        <Box
+          onClick={() => setExpanded(false)}
+          sx={{
+            position: "fixed",
+            inset: 0,
+            zIndex: theme.zIndex.drawer + 1,
+            background: "rgba(0,0,0,0.5)",
+          }}
+        />
+      )}
+
       <Box
-        onClick={() => setExpanded((v) => !v)}
         sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          px: 2,
-          py: 1.25,
-          cursor: "pointer",
-          userSelect: "none",
+          position: "fixed",
+          top: `${top}px`,
+          left: 0,
+          right: 0,
+          zIndex: theme.zIndex.drawer + 2,
+          background: alpha(theme.palette.primary.dark, 0.97),
+          borderBottom: `1px solid ${alpha(theme.palette.primary.light, 0.25)}`,
+          boxShadow: expanded ? "0 8px 32px rgba(0,0,0,0.4)" : "0 2px 8px rgba(0,0,0,0.2)",
+          transition: "box-shadow 0.2s ease",
         }}
       >
-        <Typography
-          fontWeight={600}
-          sx={{ fontSize: "0.95rem", color: "common.white" }}
-        >
-          Find Your Psychic
-        </Typography>
-        <IconButton
-          size="small"
-          aria-label={expanded ? "Close quick access" : "Open quick access"}
-          sx={{ color: "common.white", p: 0.5, pointerEvents: "none" }}
-        >
-          {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-        </IconButton>
-      </Box>
-
-      {/* Expanded panel — fills remaining viewport */}
-      <Collapse in={expanded}>
+        {/* Strip */}
         <Box
+          onClick={() => setExpanded((v) => !v)}
           sx={{
-            maxHeight: `calc(100vh - ${MOBILE_APPBAR_HEIGHT}px - 48px)`,
-            overflowY: "auto",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
             px: 2,
-            pt: 1,
-            pb: 4,
+            py: 1,
+            cursor: "pointer",
+            userSelect: "none",
           }}
         >
-          <PrimaryCTAButton
-            size="large"
-            fullWidth
-            onClick={() => {
-              handleFindYourPsychic();
-              setExpanded(false);
-            }}
-            label="Find Your Psychic"
-            mb={3}
-          />
-          <PhoneCallout />
+          <Box>
+            <Typography
+              fontWeight={700}
+              sx={{ fontSize: "0.95rem", color: "common.white", lineHeight: 1.2 }}
+            >
+              Find Your Psychic
+            </Typography>
+            <Typography
+              sx={{ fontSize: "0.72rem", color: alpha("#ffffff", 0.65), lineHeight: 1.3 }}
+            >
+              🟢 Readers available now
+            </Typography>
+          </Box>
+          <IconButton
+            size="small"
+            aria-label={expanded ? "Close" : "Open call options"}
+            sx={{ color: "common.white", p: 0.5, pointerEvents: "none" }}
+          >
+            {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+          </IconButton>
         </Box>
-      </Collapse>
-    </Box>
+
+        {/* Expanded panel */}
+        <Collapse in={expanded}>
+          <Box
+            sx={{
+              maxHeight: `calc(100vh - ${top}px - 56px)`,
+              overflowY: "auto",
+              px: 2,
+              pt: 1,
+              pb: 4,
+              borderTop: `1px solid ${alpha(theme.palette.primary.light, 0.15)}`,
+            }}
+          >
+            <PrimaryCTAButton
+              size="large"
+              fullWidth
+              onClick={() => {
+                handleFindYourPsychic();
+                setExpanded(false);
+              }}
+              label="Find Your Psychic"
+              mb={3}
+            />
+            <PhoneCallout />
+          </Box>
+        </Collapse>
+      </Box>
+    </>
   );
 };
