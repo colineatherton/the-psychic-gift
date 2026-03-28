@@ -48,6 +48,17 @@ add it to `settings.json` and include it in the next PR.
 - #5 — Mobile/responsive fixes (needs design)
 - Theme review · Responsive review
 
+## CRO & SEO Standards
+
+Every layout change must be evaluated against both conversion and search:
+
+- **Never hide content with `display: none` that carries SEO value** — H1, H2, body copy, and structured data must remain in the DOM and ideally visible on all breakpoints. Google crawls mobile-first; hidden content may be deprioritised.
+- **H1 is sacred** — one per page, keyword-rich, always above the fold on every breakpoint.
+- **Above-the-fold priority on mobile**: phone number + primary CTA must be visible without scrolling.
+- **Body copy matters** — trust signals, value props, and calls to action in prose form support both rankings and conversion. Don't silently drop them when rearranging layouts.
+- **CTA placement**: primary CTA should appear before the fold and again after key trust/value content (double CTA pattern).
+- When in doubt, ask: *would a first-time visitor know what this site does, why to trust it, and how to act — within 3 seconds on mobile?*
+
 ## Known Gotchas
 
 - **AppBar z-index:** `StyledAppBar` uses `zIndex: drawer + 1` = **1201** — overlays need `drawer + 2`

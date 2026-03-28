@@ -121,22 +121,38 @@ export const Hero = () => {
         >
           <Grid container height="100%" width={"100%"}>
             <Grid
-              size={{ xs: 12, md: 7 }}
-              sx={{ paddingRight: { xs: 0, md: theme.spacing(6) } }}
+              size={{ xs: 12, sm: 7 }}
+              sx={{ paddingRight: { xs: 0, sm: theme.spacing(4), md: theme.spacing(6) } }}
             >
               <Typography
                 fontWeight={700}
-                fontSize="3rem"
                 variant="h1"
                 component="h1"
                 marginBottom={2}
                 marginTop={2}
+                sx={{
+                  fontSize: { xs: "3rem", md: "4rem" },
+                  background: `linear-gradient(135deg, #ffffff 40%, ${theme.palette.primary.light} 100%)`,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
               >
                 Psychic Phone Readings
               </Typography>
+              <Typography
+                fontWeight={500}
+                variant="h2"
+                component="h2"
+                marginBottom={{ xs: 2, sm: 4 }}
+                sx={{ fontSize: { xs: "1.3rem", sm: "1.6rem", md: "2rem" } }}
+              >
+                Speak with Gifted Clairvoyants by Phone Today
+              </Typography>
+              {/* Mobile only: illustration sits between H2 and CTA */}
               <Box
                 sx={{
-                  display: { xs: "flex", md: "none" },
+                  display: { xs: "flex", sm: "none" },
                   justifyContent: "center",
                   mb: 2,
                 }}
@@ -148,7 +164,19 @@ export const Hero = () => {
                   style={{ width: "80%", height: "auto" }}
                 />
               </Box>
-              <Box sx={{ display: { xs: "block", sm: "inline-block" }, mb: { xs: 3, md: 0 } }}>
+              <Typography
+                fontWeight={500}
+                fontSize="1rem"
+                lineHeight="1.6"
+                variant="body2"
+                component="p"
+                marginBottom={4}
+                sx={{ display: { xs: "none", sm: "block" } }}
+              >
+                Speak to a caring psychic and find clarity in love, life, or
+                your next steps - relied on for over 23 years.
+              </Typography>
+              <Box sx={{ display: { xs: "block", sm: "inline-block" } }}>
                 <PrimaryCTAButton
                   size="large"
                   fullWidth
@@ -157,38 +185,11 @@ export const Hero = () => {
                   mb={4}
                 />
               </Box>
-              <Box sx={{ display: { xs: "block", md: "none" }, mb: 3 }}>
-                <PhoneCallout />
-              </Box>
-              <Typography
-                fontWeight={500}
-                fontSize="2rem"
-                variant="h2"
-                component="h2"
-                marginBottom={8}
-                sx={{ display: { xs: "none", md: "block" } }}
-              >
-                Speak with Gifted Clairvoyants by Phone Today
-              </Typography>
-              <Typography
-                fontWeight={500}
-                fontSize="1rem"
-                lineHeight="1.6"
-                variant="body2"
-                component="p"
-                marginBottom={6}
-                sx={{ display: { xs: "none", md: "block" } }}
-              >
-                Speak to a caring psychic and find clarity in love, life, or
-                your next steps - relied on for over 23 years.
-              </Typography>
-              <Box sx={{ display: { xs: "none", md: "block" } }}>
-                <PhoneCallout />
-              </Box>
+              <PhoneCallout />
             </Grid>
             <Grid
-              size={{ xs: 12, md: 5 }}
-              display={{ xs: "none", md: "flex" }}
+              size={{ xs: 12, sm: 5 }}
+              display={{ xs: "none", sm: "flex" }}
               height={"100%"}
               alignSelf={"center"}
               justifySelf={"flex-end"}
