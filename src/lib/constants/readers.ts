@@ -361,7 +361,7 @@ export const READER_CARDS: Reader[] = READER_LIST.map((reader) => ({
   image: reader.imageUrl,
   pin: reader.pin.toString(),
   slug: reader.slug,
-  status: Status.online,
+  status: Status.online, // placeholder — overridden at runtime by reader feed API
   skills: [
     ...reader.specialties.abilities,
     ...reader.specialties.tools,
@@ -384,7 +384,7 @@ export const GET_READER_CARD = (key: string): Reader => {
     image: reader.imageUrl,
     pin: reader.pin.toString(),
     slug: reader.slug,
-    status: Status.online,
+    status: Status.online, // placeholder — overridden at runtime by reader feed API
     skills: [
       ...reader.specialties.abilities,
       ...reader.specialties.tools,
