@@ -104,6 +104,7 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
     >
       <Stack
         direction={{ xs: "column", sm: "row" }}
+        alignItems="flex-start"
         divider={
           <Divider
             orientation="vertical"
