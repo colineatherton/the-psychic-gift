@@ -87,7 +87,6 @@ export const MobileQuickAccess = () => {
             sx={{
               maxHeight: `calc(100vh - ${top}px - 56px)`,
               overflowY: "auto",
-              borderTop: `1px solid ${alpha(theme.palette.primary.light, 0.15)}`,
             }}
           >
             {/* CTA section */}
@@ -121,7 +120,6 @@ export const MobileQuickAccess = () => {
               </Typography>
             </Divider>
 
-            {/* Phone numbers — no extra px wrapper, PhoneCallout has its own padding */}
             <Box sx={{ pt: 2, pb: 4 }}>
               <PhoneCallout onDark />
             </Box>
