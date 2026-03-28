@@ -115,7 +115,7 @@ export function OfferBanner({ message }: { message: string }) {
                   aria-label={expanded ? "Collapse offer details" : "Expand offer details"}
                   sx={{ color: "common.white", ml: 1 }}
                 >
-                  {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                  {expanded ? <ExpandMoreIcon /> : <ExpandLessIcon />}
                 </IconButton>
               </Toolbar>
             </>

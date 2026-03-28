@@ -146,6 +146,22 @@ export const Hero = () => {
                   mb={4}
                 />
               </Box>
+              <Box
+                sx={{
+                  display: { xs: "flex", md: "none" },
+                  justifyContent: "center",
+                  mb: 2,
+                }}
+              >
+                <Box sx={{ width: "60%" }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/illustrations/person-on-phone.png"
+                    alt="Illustration"
+                    style={{ width: "100%", height: "auto" }}
+                  />
+                </Box>
+              </Box>
               <Typography
                 fontWeight={500}
                 fontSize="2rem"
