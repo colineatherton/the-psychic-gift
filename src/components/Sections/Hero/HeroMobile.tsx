@@ -15,7 +15,7 @@ export const HeroMobile = () => {
     <>
       <MobileQuickAccess />
       <Container maxWidth="lg" sx={{ pb: 4 }}>
-        <Box sx={{ display: "flex", justifyContent: "center", mb: 1 }}>
+        <Box sx={{ display: "flex", justifyContent: "center", mt: 2, mb: 1 }}>
           <Image
             src="/illustrations/person-on-phone.png"
             alt="Illustration"

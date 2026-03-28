@@ -94,7 +94,7 @@ export const MobileQuickAccess = () => {
               <Typography
                 sx={{
                   fontSize: "0.8rem",
-                  color: alpha(theme.palette.primary.dark, 0.7),
+                  color: theme.palette.primary.dark,
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
                   mb: 1.5,
