@@ -5,6 +5,7 @@ import { PrimaryCTAButton } from "@/components/PrimaryCTAButton/PrimaryCTAButton
 import { MobileQuickAccess } from "@/components/MobileQuickAccess/MobileQuickAccess";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 import { Box, Container, Typography, useTheme } from "@mui/material";
+import Image from "next/image";
 
 export const HeroMobile = () => {
   const { handleFindYourPsychic } = useReaderSelectContext();
@@ -15,10 +16,13 @@ export const HeroMobile = () => {
       <MobileQuickAccess />
       <Container maxWidth="lg" sx={{ pb: 4 }}>
         <Box sx={{ display: "flex", justifyContent: "center", mb: 1 }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/illustrations/person-on-phone.png"
             alt="Illustration"
+            width={1131}
+            height={1417}
+            priority
+            sizes="80vw"
             style={{ width: "80%", height: "auto" }}
           />
         </Box>

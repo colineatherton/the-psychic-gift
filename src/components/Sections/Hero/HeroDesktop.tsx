@@ -4,6 +4,7 @@ import { PhoneCallout } from "@/components/PhoneCallout/PhoneCallout";
 import { PrimaryCTAButton } from "@/components/PrimaryCTAButton/PrimaryCTAButton";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
+import Image from "next/image";
 
 export const HeroDesktop = () => {
   const { handleFindYourPsychic } = useReaderSelectContext();
@@ -81,10 +82,13 @@ export const HeroDesktop = () => {
           alignSelf="center"
           justifySelf="flex-end"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/illustrations/person-on-phone.png"
             alt="Illustration"
+            width={1131}
+            height={1417}
+            priority
+            sizes="(min-width: 900px) 37vw, 42vw"
             style={{ width: "100%", height: "auto" }}
           />
         </Grid>
