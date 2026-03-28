@@ -123,7 +123,7 @@ export const MobileQuickAccess = () => {
 
             {/* Phone numbers — no extra px wrapper, PhoneCallout has its own padding */}
             <Box sx={{ pt: 2, pb: 4 }}>
-              <PhoneCallout />
+              <PhoneCallout onDark />
             </Box>
           </Box>
         </Collapse>
