@@ -121,30 +121,6 @@ export const Hero = () => {
         >
           <Grid container height="100%" width={"100%"}>
             <Grid
-              size={{ xs: 12 }}
-              display={{ xs: "flex", md: "none" }}
-              sx={{
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  width: { xs: "75%", sm: "50%" },
-                }}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/illustrations/person-on-phone.png"
-                  alt="Illustration"
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                  }}
-                />
-              </Box>
-            </Grid>
-            <Grid
               size={{ xs: 12, md: 7 }}
               sx={{ paddingRight: { xs: 0, md: theme.spacing(6) } }}
             >
@@ -161,12 +137,22 @@ export const Hero = () => {
               <Box sx={{ display: { xs: "block", md: "none" }, mb: 3 }}>
                 <PhoneCallout />
               </Box>
+              <Box sx={{ display: { xs: "block", sm: "inline-block" }, mb: { xs: 3, md: 0 } }}>
+                <PrimaryCTAButton
+                  size="large"
+                  fullWidth
+                  onClick={handleFindYourPsychic}
+                  label="Find Your Psychic"
+                  mb={4}
+                />
+              </Box>
               <Typography
                 fontWeight={500}
                 fontSize="2rem"
                 variant="h2"
                 component="h2"
                 marginBottom={8}
+                sx={{ display: { xs: "none", md: "block" } }}
               >
                 Speak with Gifted Clairvoyants by Phone Today
               </Typography>
@@ -177,19 +163,11 @@ export const Hero = () => {
                 variant="body2"
                 component="p"
                 marginBottom={6}
+                sx={{ display: { xs: "none", md: "block" } }}
               >
                 Speak to a caring psychic and find clarity in love, life, or
                 your next steps - relied on for over 23 years.
               </Typography>
-              <Box sx={{ display: { xs: "block", sm: "inline-block" } }}>
-                <PrimaryCTAButton
-                  size="large"
-                  fullWidth
-                  onClick={handleFindYourPsychic}
-                  label="Find Your Psychic"
-                  mb={4}
-                />
-              </Box>
               <Box sx={{ display: { xs: "none", md: "block" } }}>
                 <PhoneCallout />
               </Box>
