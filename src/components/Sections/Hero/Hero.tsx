@@ -134,8 +134,19 @@ export const Hero = () => {
               >
                 Psychic Phone Readings
               </Typography>
-              <Box sx={{ display: { xs: "block", md: "none" }, mb: 3 }}>
-                <PhoneCallout />
+              <Box
+                sx={{
+                  display: { xs: "flex", md: "none" },
+                  justifyContent: "center",
+                  mb: 2,
+                }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/illustrations/person-on-phone.png"
+                  alt="Illustration"
+                  style={{ width: "80%", height: "auto" }}
+                />
               </Box>
               <Box sx={{ display: { xs: "block", sm: "inline-block" }, mb: { xs: 3, md: 0 } }}>
                 <PrimaryCTAButton
@@ -146,21 +157,8 @@ export const Hero = () => {
                   mb={4}
                 />
               </Box>
-              <Box
-                sx={{
-                  display: { xs: "flex", md: "none" },
-                  justifyContent: "center",
-                  mb: 2,
-                }}
-              >
-                <Box sx={{ width: "60%" }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/illustrations/person-on-phone.png"
-                    alt="Illustration"
-                    style={{ width: "100%", height: "auto" }}
-                  />
-                </Box>
+              <Box sx={{ display: { xs: "block", md: "none" }, mb: 3 }}>
+                <PhoneCallout />
               </Box>
               <Typography
                 fontWeight={500}

@@ -72,7 +72,7 @@ export function OfferBanner({ message }: { message: string }) {
                     </Typography>
                   </Box>
                   <Typography sx={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.9)", mb: 0.5 }}>
-                    {NEW_CLIENT_OFFER_PRICE} for 10 mins — quote &quot;{NEW_CLIENT_OFFER_CODE}&quot; (credit/debit card)
+                    {NEW_CLIENT_OFFER_PRICE} — quote &quot;{NEW_CLIENT_OFFER_CODE}&quot; (credit/debit card)
                   </Typography>
                   <Typography
                     component="a"
@@ -106,7 +106,7 @@ export function OfferBanner({ message }: { message: string }) {
                 >
                   <PhoneIcon sx={{ fontSize: "1.1rem", color: "common.white" }} />
                   <Typography fontWeight={600} sx={{ fontSize: "0.85rem", color: "common.white" }}>
-                    🎁 New client offer: {NEW_CLIENT_OFFER_PRICE} for 10 mins
+                    🎁 New client offer: {NEW_CLIENT_OFFER_PRICE}
                   </Typography>
                 </Box>
                 <IconButton
