@@ -6,7 +6,7 @@ import { useAppBarContext } from "@/lib/context/AppBarContext";
 import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Box, Collapse, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, Collapse, Divider, IconButton, Typography, useTheme } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import { useState } from "react";
 
@@ -87,23 +87,44 @@ export const MobileQuickAccess = () => {
             sx={{
               maxHeight: `calc(100vh - ${top}px - 56px)`,
               overflowY: "auto",
-              px: 2,
-              pt: 1,
-              pb: 4,
               borderTop: `1px solid ${alpha(theme.palette.primary.light, 0.15)}`,
             }}
           >
-            <PrimaryCTAButton
-              size="large"
-              fullWidth
-              onClick={() => {
-                handleFindYourPsychic();
-                setExpanded(false);
-              }}
-              label="Find Your Psychic"
-              mb={3}
-            />
-            <PhoneCallout />
+            {/* CTA section */}
+            <Box sx={{ px: 2, pt: 2, pb: 2 }}>
+              <Typography
+                sx={{
+                  fontSize: "0.8rem",
+                  color: alpha("#ffffff", 0.55),
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                  mb: 1.5,
+                }}
+              >
+                Browse available readers
+              </Typography>
+              <PrimaryCTAButton
+                size="large"
+                fullWidth
+                onClick={() => {
+                  handleFindYourPsychic();
+                  setExpanded(false);
+                }}
+                label="Find Your Psychic"
+                mb={0}
+              />
+            </Box>
+
+            <Divider sx={{ borderColor: alpha(theme.palette.primary.light, 0.15) }}>
+              <Typography sx={{ fontSize: "0.75rem", color: alpha("#ffffff", 0.4), px: 1 }}>
+                or call directly
+              </Typography>
+            </Divider>
+
+            {/* Phone numbers */}
+            <Box sx={{ px: 2, pt: 2, pb: 4 }}>
+              <PhoneCallout />
+            </Box>
           </Box>
         </Collapse>
       </Box>
