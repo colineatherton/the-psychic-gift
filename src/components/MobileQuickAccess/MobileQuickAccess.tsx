@@ -95,7 +95,7 @@ export const MobileQuickAccess = () => {
               <Typography
                 sx={{
                   fontSize: "0.8rem",
-                  color: alpha("#ffffff", 0.55),
+                  color: alpha("#ffffff", 0.75),
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
                   mb: 1.5,
@@ -115,14 +115,14 @@ export const MobileQuickAccess = () => {
               />
             </Box>
 
-            <Divider sx={{ borderColor: alpha(theme.palette.primary.light, 0.15) }}>
-              <Typography sx={{ fontSize: "0.75rem", color: alpha("#ffffff", 0.4), px: 1 }}>
+            <Divider sx={{ borderColor: alpha(theme.palette.primary.light, 0.3) }}>
+              <Typography sx={{ fontSize: "0.75rem", color: alpha("#ffffff", 0.65), px: 1 }}>
                 or call directly
               </Typography>
             </Divider>
 
-            {/* Phone numbers */}
-            <Box sx={{ px: 2, pt: 2, pb: 4 }}>
+            {/* Phone numbers — no extra px wrapper, PhoneCallout has its own padding */}
+            <Box sx={{ pt: 2, pb: 4 }}>
               <PhoneCallout />
             </Box>
           </Box>
