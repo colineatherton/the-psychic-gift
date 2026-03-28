@@ -1,10 +1,7 @@
 "use client";
 
-import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
-import type { Container as ParticaleContainer } from "@tsparticles/engine";
-import styles from "./Hero.module.css";
-
-import { useReaderSelectContext } from "@/lib/context/ReaderSelectContext";
+import { Box, useTheme } from "@mui/material";
+import type { Container as ParticleContainer } from "@tsparticles/engine";
 import {
   type ISourceOptions,
   MoveDirection,
@@ -13,30 +10,22 @@ import {
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useMemo, useState } from "react";
 import { loadFull } from "tsparticles";
-import { PhoneCallout } from "../../PhoneCallout/PhoneCallout";
-import { PrimaryCTAButton } from "../../PrimaryCTAButton/PrimaryCTAButton";
-import {
-  StyledContent,
-  StyledHeroSection,
-  StyledParticles,
-} from "./Hero.styles";
+import styles from "./Hero.module.css";
+import { HeroDesktop } from "./HeroDesktop";
+import { HeroMobile } from "./HeroMobile";
+import { StyledContent, StyledHeroSection, StyledParticles } from "./Hero.styles";
 
 export const Hero = () => {
-  const { handleFindYourPsychic } = useReaderSelectContext();
   const [init, setInit] = useState(false);
   const theme = useTheme();
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadFull(engine);
-    }).then(() => {
-      setInit(true);
-    });
+    }).then(() => setInit(true));
   }, []);
 
-  const particlesLoaded = async (
-    container?: ParticaleContainer,
-  ): Promise<void> => {
+  const particlesLoaded = async (container?: ParticleContainer): Promise<void> => {
     console.log(container);
   };
 
@@ -46,51 +35,23 @@ export const Hero = () => {
       background: { color: { value: "transparent" } },
       fpsLimit: 120,
       interactivity: {
-        events: {
-          onHover: {
-            enable: true,
-            mode: "repulse",
-          },
-        },
-        modes: {
-          push: {
-            quantity: 4,
-          },
-          repulse: {
-            distance: 40,
-            duration: 1,
-          },
-        },
+        events: { onHover: { enable: true, mode: "repulse" } },
+        modes: { push: { quantity: 4 }, repulse: { distance: 40, duration: 1 } },
       },
       particles: {
-        color: {
-          value: theme.palette.primary.light,
-        },
+        color: { value: theme.palette.primary.light },
         move: {
           direction: MoveDirection.none,
           enable: true,
-          outModes: {
-            default: OutMode.out,
-          },
+          outModes: { default: OutMode.out },
           random: false,
           speed: 2,
           straight: true,
         },
-        number: {
-          density: {
-            enable: true,
-          },
-          value: 40,
-        },
-        opacity: {
-          value: 0.7,
-        },
-        shape: {
-          type: "circle",
-        },
-        size: {
-          value: { min: 2, max: 6 },
-        },
+        number: { density: { enable: true }, value: 40 },
+        opacity: { value: 0.7 },
+        shape: { type: "circle" },
+        size: { value: { min: 2, max: 6 } },
       },
       detectRetina: true,
     }),
@@ -99,120 +60,26 @@ export const Hero = () => {
 
   return (
     <StyledHeroSection theme={theme}>
+      {/* Particles: desktop only — skip on mobile for performance */}
       {init && (
-        <StyledParticles>
-          <Particles
-            id="tsparticles"
-            particlesLoaded={particlesLoaded}
-            className={styles.particles}
-            options={options}
-          />
-        </StyledParticles>
+        <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <StyledParticles>
+            <Particles
+              id="tsparticles"
+              particlesLoaded={particlesLoaded}
+              className={styles.particles}
+              options={options}
+            />
+          </StyledParticles>
+        </Box>
       )}
       <StyledContent>
-        <Container
-          maxWidth="lg"
-          sx={{
-            minHeight: "calc(80vh - 32px)",
-            display: "flex",
-            alignItems: "center",
-            paddingTop: { xs: 0, sm: "4rem", md: "8rem" },
-          }}
-        >
-          <Grid container height="100%" width={"100%"}>
-            <Grid
-              size={{ xs: 12 }}
-              display={{ xs: "flex", md: "none" }}
-              sx={{
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  width: { xs: "75%", sm: "50%" },
-                }}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/illustrations/person-on-phone.png"
-                  alt="Illustration"
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                  }}
-                />
-              </Box>
-            </Grid>
-            <Grid
-              size={{ xs: 12, md: 7 }}
-              sx={{ paddingRight: { xs: 0, md: theme.spacing(6) } }}
-            >
-              <Typography
-                fontWeight={700}
-                fontSize="3rem"
-                variant="h1"
-                component="h1"
-                marginBottom={2}
-                marginTop={2}
-              >
-                Psychic Phone Readings
-              </Typography>
-              <Box sx={{ display: { xs: "block", md: "none" }, mb: 3 }}>
-                <PhoneCallout />
-              </Box>
-              <Typography
-                fontWeight={500}
-                fontSize="2rem"
-                variant="h2"
-                component="h2"
-                marginBottom={8}
-              >
-                Speak with Gifted Clairvoyants by Phone Today
-              </Typography>
-              <Typography
-                fontWeight={500}
-                fontSize="1rem"
-                lineHeight="1.6"
-                variant="body2"
-                component="p"
-                marginBottom={6}
-              >
-                Speak to a caring psychic and find clarity in love, life, or
-                your next steps - relied on for over 23 years.
-              </Typography>
-              <Box sx={{ display: { xs: "block", sm: "inline-block" } }}>
-                <PrimaryCTAButton
-                  size="large"
-                  fullWidth
-                  onClick={handleFindYourPsychic}
-                  label="Find Your Psychic"
-                  mb={4}
-                />
-              </Box>
-              <Box sx={{ display: { xs: "none", md: "block" } }}>
-                <PhoneCallout />
-              </Box>
-            </Grid>
-            <Grid
-              size={{ xs: 12, md: 5 }}
-              display={{ xs: "none", md: "flex" }}
-              height={"100%"}
-              alignSelf={"center"}
-              justifySelf={"flex-end"}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/illustrations/person-on-phone.png"
-                alt="Illustration"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                }}
-              />
-            </Grid>
-                      </Grid>
-        </Container>
+        <Box sx={{ display: { xs: "block", sm: "none" } }}>
+          <HeroMobile />
+        </Box>
+        <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <HeroDesktop />
+        </Box>
       </StyledContent>
     </StyledHeroSection>
   );

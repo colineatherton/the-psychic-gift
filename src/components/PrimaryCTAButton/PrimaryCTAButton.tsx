@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, useTheme } from "@mui/material";
+import { Button, SxProps, Theme, useTheme } from "@mui/material";
 
 interface PrimaryCTAButtonProps {
   size?: "small" | "medium" | "large";
@@ -10,6 +10,7 @@ interface PrimaryCTAButtonProps {
   mode?: "default" | "compact";
   label: string;
   mb?: number;
+  sx?: SxProps<Theme>;
 }
 
 export const PrimaryCTAButton = ({
@@ -20,6 +21,7 @@ export const PrimaryCTAButton = ({
   mode,
   label,
   mb,
+  sx: sxOverride,
 }: PrimaryCTAButtonProps) => {
   const theme = useTheme();
 
@@ -44,6 +46,7 @@ export const PrimaryCTAButton = ({
         border: `1px solid ${theme.palette.accent.primaryText}`,
         color: theme.palette.accent.primaryHighlight,
         fontSize: mode === "compact" ? "0.8rem" : "1rem",
+        ...sxOverride,
       }}
     >
       {label}

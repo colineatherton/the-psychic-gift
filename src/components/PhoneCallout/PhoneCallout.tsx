@@ -7,12 +7,16 @@ import { alpha } from "@mui/material/styles";
 
 interface PhoneCalloutProps {
   compact?: boolean;
+  onDark?: boolean;
 }
 
-export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
+export const PhoneCallout = ({ compact = false, onDark = false }: PhoneCalloutProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const ccOption = CALL_OPTIONS[0];
+
+  const textColor = onDark ? "#ffffff" : theme.palette.text.primary;
+  const mutedColor = onDark ? alpha("#ffffff", 0.65) : alpha(theme.palette.text.primary, 0.6);
 
   if (compact) {
     return (
@@ -39,52 +43,24 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
             "&:hover .phone-number": { color: "accent.primary" },
           }}
         >
-          <PhoneIcon
-            sx={{
-              fontSize: { xs: "1.8rem", md: "2rem" },
-              color: theme.palette.accent.primary,
-            }}
-          />
+          <PhoneIcon sx={{ fontSize: { xs: "1.8rem", md: "2rem" }, color: theme.palette.accent.primary }} />
           <Typography
             className="phone-number"
             fontWeight={700}
-            sx={{
-              fontSize: { xs: "1.6rem", md: "2rem" },
-              color: theme.palette.text.primary,
-              transition: "color 0.15s",
-            }}
+            sx={{ fontSize: { xs: "1.6rem", md: "2rem" }, color: textColor, transition: "color 0.15s" }}
           >
             {isMobile && ccOption.mobileNumber ? ccOption.mobileNumber : ccOption.number}
           </Typography>
         </Box>
-        <Typography
-          fontWeight={500}
-          sx={{
-            fontSize: { xs: "0.95rem", md: "1.05rem" },
-            color: theme.palette.text.primary,
-            opacity: 0.8,
-          }}
-        >
+        <Typography fontWeight={500} sx={{ fontSize: { xs: "0.95rem", md: "1.05rem" }, color: textColor, opacity: 0.8 }}>
           {ccOption.price}{ccOption.hours ? `, ${ccOption.hours.toLowerCase()}` : ""}
         </Typography>
-        <Typography
-          fontWeight={600}
-          sx={{
-            fontSize: { xs: "0.9rem", md: "1rem" },
-            color: theme.palette.accent.primaryText,
-            mt: 1,
-          }}
-        >
-          {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – call <Box component="a" href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`} sx={{ color: "inherit", fontWeight: 700 }}>{NCO_NUMBER}</Box> (credit/debit card) &amp; quote &quot;{NEW_CLIENT_OFFER_CODE}&quot;
+        <Typography fontWeight={600} sx={{ fontSize: { xs: "0.9rem", md: "1rem" }, color: theme.palette.accent.primaryText, mt: 1 }}>
+          {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – call{" "}
+          <Box component="a" href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`} sx={{ color: "inherit", fontWeight: 700 }}>{NCO_NUMBER}</Box>{" "}
+          (credit/debit card) &amp; quote &quot;{NEW_CLIENT_OFFER_CODE}&quot;
         </Typography>
-        <Typography
-          sx={{
-            fontSize: "0.75rem",
-            color: theme.palette.text.primary,
-            opacity: 0.5,
-            mt: 0.5,
-          }}
-        >
+        <Typography sx={{ fontSize: "0.75rem", color: textColor, opacity: 0.5, mt: 0.5 }}>
           Open 8am–10pm
         </Typography>
       </Box>
@@ -118,63 +94,36 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
         {CALL_OPTIONS.map((opt) => {
           const displayNumber = isMobile && opt.mobileNumber ? opt.mobileNumber : opt.number;
           return (
-          <Box
-            key={opt.number}
-            component="a"
-            href={`tel:${displayNumber.replace(/\s/g, "")}`}
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-              textDecoration: "none",
-              flex: 1,
-              "&:hover .phone-number": { color: "accent.primary" },
-            }}
-          >
-            <PhoneIcon
+            <Box
+              key={opt.number}
+              component="a"
+              href={`tel:${displayNumber.replace(/\s/g, "")}`}
               sx={{
-                fontSize: "1.2rem",
-                color: theme.palette.accent.primary,
-                flexShrink: 0,
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                textDecoration: "none",
+                flex: 1,
+                "&:hover .phone-number": { color: "accent.primary" },
               }}
-            />
-            <Box>
-              <Typography
-                sx={{
-                  fontSize: "0.65rem",
-                  textTransform: "uppercase",
-                  letterSpacing: 1,
-                  color: theme.palette.text.primary,
-                  opacity: 0.6,
-                  lineHeight: 1.2,
-                }}
-              >
-                {opt.title}
-              </Typography>
-              <Typography
-                className="phone-number"
-                fontWeight={700}
-                sx={{
-                  fontSize: { xs: "1.1rem", md: "1.25rem" },
-                  color: theme.palette.text.primary,
-                  lineHeight: 1.2,
-                  transition: "color 0.15s",
-                }}
-              >
-                {displayNumber}
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "0.7rem",
-                  color: theme.palette.text.primary,
-                  opacity: 0.6,
-                  lineHeight: 1.3,
-                }}
-              >
-                {opt.price}{opt.hours ? `, ${opt.hours.toLowerCase()}` : ""}
-              </Typography>
+            >
+              <PhoneIcon sx={{ fontSize: "1.2rem", color: theme.palette.accent.primary, flexShrink: 0 }} />
+              <Box>
+                <Typography sx={{ fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: 1, color: mutedColor, lineHeight: 1.2 }}>
+                  {opt.title}
+                </Typography>
+                <Typography
+                  className="phone-number"
+                  fontWeight={700}
+                  sx={{ fontSize: { xs: "1.1rem", md: "1.25rem" }, color: textColor, lineHeight: 1.2, transition: "color 0.15s" }}
+                >
+                  {displayNumber}
+                </Typography>
+                <Typography sx={{ fontSize: "0.7rem", color: mutedColor, lineHeight: 1.3 }}>
+                  {opt.price}{opt.hours ? `, ${opt.hours.toLowerCase()}` : ""}
+                </Typography>
+              </Box>
             </Box>
-          </Box>
           );
         })}
       </Stack>
@@ -182,23 +131,17 @@ export const PhoneCallout = ({ compact = false }: PhoneCalloutProps) => {
         fontWeight={600}
         sx={{
           fontSize: { xs: "0.9rem", md: "1rem" },
-          color: theme.palette.text.primary,
+          color: textColor,
           borderTop: `1px solid ${alpha(theme.palette.text.primary, 0.15)}`,
           pt: 1.5,
           textAlign: "center",
         }}
       >
-        {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – call <Box component="a" href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`} sx={{ color: "inherit", fontWeight: 700 }}>{NCO_NUMBER}</Box> (credit/debit card) &amp; quote &quot;{NEW_CLIENT_OFFER_CODE}&quot;
+        {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – call{" "}
+        <Box component="a" href={`tel:${NCO_NUMBER.replace(/\s/g, "")}`} sx={{ color: "inherit", fontWeight: 700 }}>{NCO_NUMBER}</Box>{" "}
+        (credit/debit card) &amp; quote &quot;{NEW_CLIENT_OFFER_CODE}&quot;
       </Typography>
-      <Typography
-        sx={{
-          fontSize: "0.75rem",
-          color: theme.palette.text.primary,
-          opacity: 0.5,
-          mt: 0.5,
-          textAlign: "center",
-        }}
-      >
+      <Typography sx={{ fontSize: "0.75rem", color: mutedColor, mt: 0.5, textAlign: "center" }}>
         Open 8am–10pm
       </Typography>
     </Box>
