@@ -62,7 +62,7 @@ export const HeroMobile = () => {
           Speak with Gifted Clairvoyants by Phone Today
         </Typography>
 
-        <PhoneCallout />
+        <PhoneCallout onDark />
 
         <Typography
           fontWeight={500}

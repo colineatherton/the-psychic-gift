@@ -73,7 +73,7 @@ export const HeroDesktop = () => {
               mb={4}
             />
           </Box>
-          <PhoneCallout />
+          <PhoneCallout onDark />
         </Grid>
         <Grid
           size={{ sm: 5 }}
