@@ -32,8 +32,10 @@ export const StyledParticles = styled("div")({
 export const StyledContent = styled("div")({
   position: "relative",
   zIndex: 3,
-  // color: "#fff",
-  paddingTop: "6rem",
+  paddingTop: "7.5rem", // mobile: clears AppBar (56px) + QuickAccess strip (48px) + breathing
+  "@media (min-width: 600px)": {
+    paddingTop: "6rem", // desktop: strip not shown, just clears AppBar
+  },
 });
 
 // radial-gradient(80rem 40rem at 75% 25%, rgba(0, 0, 0, 0.05), transparent 90%),
