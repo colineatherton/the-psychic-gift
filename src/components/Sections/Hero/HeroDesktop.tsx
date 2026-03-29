@@ -73,7 +73,7 @@ export const HeroDesktop = () => {
               mb={4}
             />
           </Box>
-          <PhoneCallout onDark />
+          <PhoneCallout sx={{ background: "rgba(255,255,255,0.88)" }} />
         </Grid>
         <Grid
           size={{ sm: 5 }}

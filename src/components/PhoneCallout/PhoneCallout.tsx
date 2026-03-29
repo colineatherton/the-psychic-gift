@@ -2,15 +2,16 @@
 
 import { CALL_OPTIONS, NCO_NUMBER, NEW_CLIENT_OFFER_CODE, NEW_CLIENT_OFFER_LABEL, NEW_CLIENT_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
 import PhoneIcon from "@mui/icons-material/Phone";
-import { Box, Divider, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Divider, Stack, SxProps, Theme, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 
 interface PhoneCalloutProps {
   compact?: boolean;
   onDark?: boolean;
+  sx?: SxProps<Theme>;
 }
 
-export const PhoneCallout = ({ compact = false, onDark = false }: PhoneCalloutProps) => {
+export const PhoneCallout = ({ compact = false, onDark = false, sx: sxOverride }: PhoneCalloutProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const ccOption = CALL_OPTIONS[0];
@@ -76,6 +77,7 @@ export const PhoneCallout = ({ compact = false, onDark = false }: PhoneCalloutPr
         borderRadius: theme.spacing(1),
         padding: { xs: theme.spacing(2), md: theme.spacing(2.5) },
         marginBottom: theme.spacing(2),
+        ...sxOverride,
       }}
     >
       <Stack
