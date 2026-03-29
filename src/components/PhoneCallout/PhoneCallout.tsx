@@ -71,7 +71,7 @@ export const PhoneCallout = ({ compact = false, onDark = false }: PhoneCalloutPr
     <Box
       sx={{
         backdropFilter: "blur(4px)",
-        background: alpha(theme.palette.primary.dark, 0.3),
+        background: alpha(theme.palette.primary.dark, onDark ? 0.75 : 0.3),
         border: `2px solid ${theme.palette.accent.primary}`,
         borderRadius: theme.spacing(1),
         padding: { xs: theme.spacing(2), md: theme.spacing(2.5) },
