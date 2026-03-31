@@ -1,4 +1,4 @@
-const BASE_URL = "https://thepsychicgift.co.uk";
+const BASE_URL = "https://www.thepsychicgift.com";
 
 export const organizationJsonLd = {
   "@context": "https://schema.org",

@@ -2,7 +2,7 @@ import { READER_CONFIG_MAP, getReaderKeyBySlug } from "@/lib/constants/readers";
 import { notFound } from "next/navigation";
 import { ReaderPageClient } from "./ReaderPageClient";
 
-const BASE_URL = "https://thepsychicgift.co.uk";
+const BASE_URL = "https://www.thepsychicgift.com";
 
 export function generateStaticParams() {
   return Object.values(READER_CONFIG_MAP).map((reader) => ({ slug: reader.slug }));

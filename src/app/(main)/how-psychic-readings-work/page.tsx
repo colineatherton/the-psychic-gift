@@ -10,7 +10,7 @@ export const metadata = {
     title: "How Psychic Readings Work | The Psychic Gift",
     description:
       "A simple guide to getting your psychic phone reading. Choose your reader, call, and connect.",
-    url: "https://thepsychicgift.co.uk/how-psychic-readings-work",
+    url: "https://www.thepsychicgift.com/how-psychic-readings-work",
     siteName: "The Psychic Gift",
     images: [
       {

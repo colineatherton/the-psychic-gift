@@ -10,7 +10,7 @@ export const metadata = {
     title: "Psychic Phone Readings | The Psychic Gift",
     description:
       "Speak to an experienced psychic by phone, any time of day or night. Get guidance on love, career, and life from gifted clairvoyants and mediums.",
-    url: "https://thepsychicgift.co.uk/psychic-phone-readings",
+    url: "https://www.thepsychicgift.com/psychic-phone-readings",
     siteName: "The Psychic Gift",
     images: [
       {

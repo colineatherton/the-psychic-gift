@@ -11,7 +11,7 @@ export const metadata = {
     title: "Contact Us | The Psychic Gift",
     description:
       "Contact The Psychic Gift support team. We're here to assist with any questions.",
-    url: "https://thepsychicgift.co.uk/contact",
+    url: "https://www.thepsychicgift.com/contact",
     siteName: "The Psychic Gift",
     images: [
       {

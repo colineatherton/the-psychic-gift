@@ -9,7 +9,7 @@ export const metadata = {
     title: "Special Offers | The Psychic Gift",
     description:
       "Exclusive introductory offers for new clients. Try a psychic reading at a special rate.",
-    url: "https://thepsychicgift.co.uk/offers",
+    url: "https://www.thepsychicgift.com/offers",
     siteName: "The Psychic Gift",
     images: [
       {

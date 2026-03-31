@@ -10,7 +10,7 @@ export const metadata = {
     title: "Our Psychic Readers | The Psychic Gift",
     description:
       "Meet our gifted psychic readers. Browse profiles and find the right clairvoyant, medium, or tarot reader for you.",
-    url: "https://thepsychicgift.co.uk/psychic-readers",
+    url: "https://www.thepsychicgift.com/psychic-readers",
     siteName: "The Psychic Gift",
     images: [
       {

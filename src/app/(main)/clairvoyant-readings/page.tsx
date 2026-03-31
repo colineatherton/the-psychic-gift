@@ -10,7 +10,7 @@ export const metadata = {
     title: "Clairvoyant Readings | The Psychic Gift",
     description:
       "Speak to an experienced clairvoyant by phone. Receive psychic insight and guidance on love, career, and life from gifted readers.",
-    url: "https://thepsychicgift.co.uk/clairvoyant-readings",
+    url: "https://www.thepsychicgift.com/clairvoyant-readings",
     siteName: "The Psychic Gift",
     images: [
       {
