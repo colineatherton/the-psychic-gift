@@ -9,7 +9,7 @@ export const metadata = {
     title: "Privacy Policy | The Psychic Gift",
     description:
       "Privacy policy for The Psychic Gift. How we handle your data.",
-    url: "https://thepsychicgift.co.uk/privacy-policy",
+    url: "https://www.thepsychicgift.com/privacy-policy",
     siteName: "The Psychic Gift",
     images: [
       {

@@ -10,7 +10,7 @@ export const metadata = {
     title: "Call a Psychic Now | The Psychic Gift",
     description:
       "Speak to a psychic immediately. Our experienced readers are online now and ready to offer guidance on love, career, and life.",
-    url: "https://thepsychicgift.co.uk/call-a-psychic-now",
+    url: "https://www.thepsychicgift.com/call-a-psychic-now",
     siteName: "The Psychic Gift",
     images: [
       {

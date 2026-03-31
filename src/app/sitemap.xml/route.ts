@@ -1,7 +1,7 @@
 import { READER_CONFIG_MAP } from "@/lib/constants/readers";
 import { ALL_PAGES } from "@/lib/constants/urls";
 
-const BASE_URL = "https://thepsychicgift.co.uk";
+const BASE_URL = "https://www.thepsychicgift.com";
 
 export async function GET() {
   const staticPaths = ALL_PAGES.map((page) =>

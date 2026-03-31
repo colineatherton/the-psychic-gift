@@ -10,7 +10,7 @@ export const metadata = {
     title: "Telephone Psychics | The Psychic Gift",
     description:
       "Speak directly to a telephone psychic for guidance on love, life, and relationships. Experienced readers available now.",
-    url: "https://thepsychicgift.co.uk/telephone-psychics",
+    url: "https://www.thepsychicgift.com/telephone-psychics",
     siteName: "The Psychic Gift",
     images: [
       {

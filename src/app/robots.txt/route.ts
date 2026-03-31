@@ -2,7 +2,7 @@ export function GET() {
   const body = `User-agent: *
 Allow: /
 Disallow: /staging-gate/
-Sitemap: https://thepsychicgift.co.uk/sitemap.xml`;
+Sitemap: https://www.thepsychicgift.com/sitemap.xml`;
 
   return new Response(body, {
     headers: {

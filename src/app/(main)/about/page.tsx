@@ -10,7 +10,7 @@ export const metadata = {
     title: "About Us | The Psychic Gift",
     description:
       "Discover our story and meet the gifted psychic readers behind The Psychic Gift.",
-    url: "https://thepsychicgift.co.uk/about",
+    url: "https://www.thepsychicgift.com/about",
     siteName: "The Psychic Gift",
     images: [
       {

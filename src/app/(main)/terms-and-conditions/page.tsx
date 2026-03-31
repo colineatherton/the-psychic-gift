@@ -9,7 +9,7 @@ export const metadata = {
     title: "Terms and Conditions | The Psychic Gift",
     description:
       "Terms and conditions for The Psychic Gift psychic reading service.",
-    url: "https://thepsychicgift.co.uk/terms-and-conditions",
+    url: "https://www.thepsychicgift.com/terms-and-conditions",
     siteName: "The Psychic Gift",
     images: [
       {

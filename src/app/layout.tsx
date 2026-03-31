@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { organizationJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://thepsychicgift.co.uk"),
+  metadataBase: new URL("https://www.thepsychicgift.com"),
   title: {
     template: "%s | The Psychic Gift",
     default: "The Psychic Gift | Psychic Readings by Phone",
