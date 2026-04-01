@@ -142,7 +142,7 @@ export default function TermsContent() {
         Credit/Debit Card calls only and is available once per customer.
         Standard rates apply after the promotional 10 minutes. Call{" "}
         <strong><a href="tel:08081564939" style={{ color: "inherit" }}>0808 156 4939</a></strong> (credit/debit card) and quote{" "}
-        <strong>SEEKER</strong> when connecting to claim the offer.
+        <strong>DISCOVER</strong> when connecting to claim the offer.
       </Typography>
 
       <Typography
