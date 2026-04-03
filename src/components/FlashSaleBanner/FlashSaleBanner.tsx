@@ -83,15 +83,28 @@ export function FlashSaleBanner() {
           component="span"
           sx={{ fontSize: { xs: "0.82rem", sm: "0.9rem" }, fontWeight: 700 }}
         >
-          20-min credit/debit card reading — {FLASH_SALE.price}
+          20-min credit/debit card reading: {FLASH_SALE.price}
         </Typography>
 
         <Typography
           component="span"
           sx={{ fontSize: { xs: "0.78rem", sm: "0.85rem" }, fontWeight: 400 }}
         >
-          {FLASH_SALE.perMin} &bull; {FLASH_SALE.saving}
+          {FLASH_SALE.perMin}
         </Typography>
+
+        <Chip
+          label={FLASH_SALE.saving.toUpperCase()}
+          size="small"
+          sx={{
+            bgcolor: "#1c1917",
+            color: "#f59e0b",
+            fontWeight: 700,
+            fontSize: "0.65rem",
+            letterSpacing: "0.05em",
+            height: 20,
+          }}
+        />
 
         <Box
           component="a"
