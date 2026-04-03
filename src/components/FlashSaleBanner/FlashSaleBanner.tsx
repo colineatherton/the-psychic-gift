@@ -125,13 +125,20 @@ export function FlashSaleBanner() {
 
         <Typography
           component="span"
+          sx={{ fontSize: { xs: "0.82rem", sm: "0.9rem" }, fontWeight: 700 }}
+        >
+          quote &ldquo;{FLASH_SALE.offerCode}&rdquo;
+        </Typography>
+
+        <Typography
+          component="span"
           sx={{
             fontSize: { xs: "0.7rem", sm: "0.78rem" },
             opacity: 0.75,
             display: { xs: "none", sm: "inline" },
           }}
         >
-          Ends 15 Apr
+          Ends 15 Apr &bull; Cannot be combined with other offers
         </Typography>
 
         <IconButton

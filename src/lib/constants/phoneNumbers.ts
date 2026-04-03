@@ -35,6 +35,7 @@ export const FLASH_SALE = {
   price: "£27.95 for 20 mins",
   perMin: "then £1.50/min",
   saving: "save £5",
+  offerCode: "Easter",
   startDate: "2026-04-02",
   endDate: "2026-04-15",
   number: CALL_OPTIONS[0].number,         // Credit/Debit Card — single source of truth
