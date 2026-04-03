@@ -18,7 +18,7 @@ import { homePageInternalLinks } from "@/lib/constants/internalLinks";
 export const metadata = {
   title: "The Psychic Gift | Psychic Readings by Phone",
   description:
-    "April offer: 20-min credit/debit card reading for £27.95 (save £5). Connect with experienced psychic readers by phone, 24/7. Gifted clairvoyants, mediums, and tarot readers. Call now.",
+    "Connect with experienced psychic readers by phone, 24/7. Gifted clairvoyants, mediums, and tarot readers offering guidance on love, relationships, and life. Call now.",
   openGraph: {
     title: "The Psychic Gift | Psychic Readings by Phone",
     description:
