@@ -37,5 +37,5 @@ export const FLASH_SALE = {
   saving: "save £5",
   startDate: "2026-04-02",
   endDate: "2026-04-15",
-  number: "0800 915 2345",
+  number: CALL_OPTIONS[0].number, // Credit/Debit Card — single source of truth
 } as const;
