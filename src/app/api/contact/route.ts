@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
-const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "john@bureautelecoms.com";
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL;
 const CONTACT_EMAIL_CC = process.env.CONTACT_EMAIL_CC;
 
 // Only initialize Resend if API key is present
@@ -80,7 +80,7 @@ export async function POST(request: NextRequest) {
     const subjectLabel = subjectLabels[subject] || subject;
 
     // Send email via Resend
-    if (resend) {
+    if (resend && CONTACT_EMAIL) {
       const { error } = await resend.emails.send({
         from: "The Psychic Gift <noreply@thepsychicgift.com>",
         to: [CONTACT_EMAIL],
