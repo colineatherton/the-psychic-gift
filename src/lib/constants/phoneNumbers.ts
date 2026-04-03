@@ -37,5 +37,6 @@ export const FLASH_SALE = {
   saving: "save £5",
   startDate: "2026-04-02",
   endDate: "2026-04-15",
-  number: CALL_OPTIONS[0].number, // Credit/Debit Card — single source of truth
+  number: CALL_OPTIONS[0].number,         // Credit/Debit Card — single source of truth
+  mobileNumber: CALL_OPTIONS[0].mobileNumber, // use on small screens
 } as const;

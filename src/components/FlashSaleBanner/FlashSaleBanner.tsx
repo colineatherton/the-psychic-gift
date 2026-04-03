@@ -4,7 +4,7 @@ import { FLASH_SALE } from "@/lib/constants/phoneNumbers";
 import { useAppBarContext } from "@/lib/context/AppBarContext";
 import CloseIcon from "@mui/icons-material/Close";
 import PhoneIcon from "@mui/icons-material/Phone";
-import { Box, Chip, IconButton, Typography } from "@mui/material";
+import { Box, Chip, IconButton, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
 
 const SESSION_KEY = "flash-sale-april-2026-dismissed";
@@ -22,6 +22,9 @@ export function FlashSaleBanner() {
   const { appBarHeight } = useAppBarContext();
   const [visible, setVisible] = useState(false);
   const [bannerHeight, setBannerHeight] = useState(0);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const displayNumber = isMobile && FLASH_SALE.mobileNumber ? FLASH_SALE.mobileNumber : FLASH_SALE.number;
 
   useEffect(() => {
     if (!isWithinSaleWindow()) return;
@@ -92,7 +95,7 @@ export function FlashSaleBanner() {
 
         <Box
           component="a"
-          href={`tel:${FLASH_SALE.number.replace(/\s/g, "")}`}
+          href={`tel:${displayNumber.replace(/\s/g, "")}`}
           sx={{
             display: "inline-flex",
             alignItems: "center",
@@ -104,7 +107,7 @@ export function FlashSaleBanner() {
           }}
         >
           <PhoneIcon sx={{ fontSize: "0.95rem" }} />
-          {FLASH_SALE.number}
+          {displayNumber}
         </Box>
 
         <Typography
