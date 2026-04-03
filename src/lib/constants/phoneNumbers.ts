@@ -28,3 +28,14 @@ export const INTERNATIONAL_MOBILE_NUMBER = "+44 113 732 0633";
 export const NEW_CLIENT_OFFER_CODE = "DISCOVER";
 export const NEW_CLIENT_OFFER_LABEL = "New Client Offer";
 export const NEW_CLIENT_OFFER_PRICE = "10 mins for £5";
+
+// April Flash Sale — £5 off 20-min credit/debit card reading, 2nd–15th April 2026
+export const FLASH_SALE = {
+  label: "April Flash Sale",
+  price: "£27.95 for 20 mins",
+  perMin: "then £1.50/min",
+  saving: "save £5",
+  startDate: "2026-04-02",
+  endDate: "2026-04-15",
+  number: "0800 915 2345",
+} as const;

@@ -10,6 +10,7 @@ import {
   ReaderModal,
 } from "@/components";
 import { AppBar } from "@/components/AppBar/AppBar";
+import { FlashSaleBanner } from "@/components/FlashSaleBanner/FlashSaleBanner";
 import { OfferBanner } from "@/components/OfferBanner/OfferBanner";
 import { NCO_NUMBER, NEW_CLIENT_OFFER_CODE, NEW_CLIENT_OFFER_LABEL, NEW_CLIENT_OFFER_PRICE } from "@/lib/constants/phoneNumbers";
 import { AppBarProvider } from "@/lib/context/AppBarContext";
@@ -47,6 +48,7 @@ export default function MainLayout({
             themeMode={mode}
             onNavigate={handleNavigate}
           />
+          <FlashSaleBanner />
           {children}
           <Footer />
           <ReaderAvailableAlert />
