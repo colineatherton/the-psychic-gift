@@ -4,17 +4,20 @@ export const CALL_OPTIONS = [
     number: "0800 915 2345",
     mobileNumber: "0808 156 4931",
     price: "£32.95 for 20 mins, then £1.50/min",
+    hours: "Open 24/7",
   },
   {
     title: "Pre-Pay Minutes",
     number: "0808 156 4920",
     price: "£30 for 20 mins, then £1.50/min · 10% Bonus Mins on £60+ spends",
+    hours: "Open 8am–10pm",
   },
   {
     title: "Pay by Phone Bill",
     number: "0906 110 0960",
     mobileNumber: "0906 110 0951",
     price: "£1.50/min + network access charge",
+    hours: "Open 24/7",
   },
 ];
 

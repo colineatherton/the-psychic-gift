@@ -53,7 +53,7 @@ export const PhoneCallout = ({ compact = false, onDark = false }: PhoneCalloutPr
           </Typography>
         </Box>
         <Typography fontWeight={500} sx={{ fontSize: { xs: "0.95rem", md: "1.05rem" }, color: textColor, opacity: 0.8 }}>
-          {ccOption.price}
+          {ccOption.price}{ccOption.hours ? `, ${ccOption.hours.toLowerCase()}` : ""}
         </Typography>
         <Typography fontWeight={600} sx={{ fontSize: { xs: "0.9rem", md: "1rem" }, color: theme.palette.accent.primaryText, mt: 1 }}>
           {NEW_CLIENT_OFFER_LABEL}: <strong>{NEW_CLIENT_OFFER_PRICE}</strong> – call{" "}
@@ -120,7 +120,7 @@ export const PhoneCallout = ({ compact = false, onDark = false }: PhoneCalloutPr
                   {displayNumber}
                 </Typography>
                 <Typography sx={{ fontSize: "0.7rem", color: mutedColor, lineHeight: 1.3 }}>
-                  {opt.price}
+                  {opt.price}{opt.hours ? `, ${opt.hours.toLowerCase()}` : ""}
                 </Typography>
               </Box>
             </Box>
