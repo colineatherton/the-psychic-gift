@@ -9,11 +9,15 @@ import { useEffect, useState } from "react";
 
 const SESSION_KEY = "flash-sale-april-2026-dismissed";
 
+function parseLocalDate(iso: string): Date {
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(y, m - 1, d); // local midnight, no UTC ambiguity
+}
+
 function isWithinSaleWindow(): boolean {
   const now = new Date();
-  const start = new Date(FLASH_SALE.startDate);
-  const end = new Date(FLASH_SALE.endDate);
-  // end date is inclusive — extend to end of that day
+  const start = parseLocalDate(FLASH_SALE.startDate);
+  const end = parseLocalDate(FLASH_SALE.endDate);
   end.setHours(23, 59, 59, 999);
   return now >= start && now <= end;
 }
