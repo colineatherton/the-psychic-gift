@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 const footerLinks = [
   { label: "Terms & Conditions", path: "/terms-and-conditions" },
   { label: "Privacy Policy", path: "/privacy-policy" },
-  // { label: "Contact", path: "/contact" }, // temporarily hidden — contact form not live yet
+  { label: "Contact", path: "/contact" },
 ];
 
 export function Footer() {
