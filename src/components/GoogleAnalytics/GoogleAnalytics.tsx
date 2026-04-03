@@ -46,7 +46,13 @@ export function GoogleAnalytics() {
   // - Not mounted (SSR)
   // - No GA ID configured
   // - Consent not given
-  if (!mounted || !GA_MEASUREMENT_ID || consent !== "accepted") {
+  // - Not on the production domain (prevents Vercel preview deployments polluting GA4)
+  if (
+    !mounted ||
+    !GA_MEASUREMENT_ID ||
+    consent !== "accepted" ||
+    window.location.hostname !== "thepsychicgift.com"
+  ) {
     return null;
   }
 
