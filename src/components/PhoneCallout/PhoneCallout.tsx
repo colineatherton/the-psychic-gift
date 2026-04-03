@@ -79,7 +79,7 @@ export const PhoneCallout = ({ compact = false, onDark = false }: PhoneCalloutPr
       }}
     >
       <Stack
-        direction={{ xs: "column", sm: "row" }}
+        direction={{ xs: "column", md: "row" }}
         alignItems="flex-start"
         divider={
           <Divider
