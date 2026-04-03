@@ -7,7 +7,7 @@ export const PAGES = [
   { label: "About", path: "/about" },
   { label: "How It Works", path: "/how-psychic-readings-work" },
   { label: "Offers", path: "/offers", icon: NavIcons.Offer },
-  // { label: "Contact", path: "/contact" }, // temporarily hidden — contact form not live yet
+  { label: "Contact", path: "/contact" },
 ];
 
 export const READING_PAGES = [
