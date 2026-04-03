@@ -11,9 +11,9 @@ import {
   WhyPsychicGift,
 } from "@/components/Sections";
 
+import { FaqJsonLd } from "@/components/FaqJsonLd/FaqJsonLd";
 import { homePageFAQs } from "@/lib/constants/faqs/homePage";
 import { homePageInternalLinks } from "@/lib/constants/internalLinks";
-import { faqPageJsonLd } from "@/lib/jsonld";
 
 export const metadata = {
   title: "The Psychic Gift | Psychic Readings by Phone",
@@ -40,10 +40,7 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd(homePageFAQs)) }}
-      />
+      <FaqJsonLd />
       <Hero />
       <Readers />
       <TrustBadges />
