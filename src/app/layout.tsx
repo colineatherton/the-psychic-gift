@@ -4,6 +4,8 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import type { Metadata } from "next";
 import { organizationJsonLd } from "@/lib/jsonld";
 
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.thepsychicgift.com"),
   title: {
