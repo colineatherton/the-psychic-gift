@@ -15,6 +15,8 @@ import { FaqJsonLd } from "@/components/FaqJsonLd/FaqJsonLd";
 import { homePageFAQs } from "@/lib/constants/faqs/homePage";
 import { homePageInternalLinks } from "@/lib/constants/internalLinks";
 
+export const revalidate = 0;
+
 export const metadata = {
   title: "The Psychic Gift | Psychic Readings by Phone",
   description:
